@@ -1,0 +1,896 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Salinas - Habitat Travel</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --dark-navy: #2C3E50;
+            --dark-gray: #34495E;
+            --medium-gray: #7F8C8D;
+            --light-gray: #ECF0F1;
+            --very-light-gray: #F8F9FA;
+            --white: #FFFFFF;
+            --accent-purple: #9B59B6;
+            --accent-light-purple: #E8D5F2;
+            --text-dark: #2C3E50;
+            --text-medium: #5D6D7B;
+            --text-light: #95A5A6;
+            --border-color: #BDC3C7;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+            color: var(--text-dark);
+            line-height: 1.6;
+            background-color: var(--white);
+        }
+
+        /* Header & Navigation */
+        header {
+            background: var(--white);
+            padding: 1.5rem 2rem;
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            font-weight: 500;
+            text-decoration: none;
+        }
+
+        nav {
+            display: flex;
+            gap: 2.5rem;
+            align-items: center;
+        }
+
+        nav a {
+            font-size: 0.85rem;
+            color: var(--text-dark);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav a:hover,
+        nav a.active {
+            color: var(--accent-purple);
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.7rem 1.5rem;
+            background: var(--dark-navy);
+            color: var(--white);
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: 600;
+            font-size: 0.85rem;
+            border: none;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .btn:hover {
+            background: var(--dark-gray);
+        }
+
+        /* Hero Section */
+        .hero-dark {
+            background: var(--dark-navy);
+            color: var(--white);
+            padding: 6rem 2rem;
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .hero-dark h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .hero-dark p {
+            font-size: 1rem;
+            color: var(--light-gray);
+        }
+
+        /* Main Sections */
+        section {
+            padding: 4rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        section h2 {
+            font-size: 2rem;
+            color: var(--text-dark);
+            margin-bottom: 3rem;
+            font-weight: 700;
+        }
+
+        /* History Timeline */
+        .history-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: start;
+        }
+
+        .history-item {
+            margin-bottom: 2rem;
+        }
+
+        .history-item h3 {
+            font-size: 1.1rem;
+            color: var(--text-dark);
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .history-item p {
+            color: var(--text-medium);
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+
+        .timeline-item {
+            display: flex;
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            padding-left: 2rem;
+        }
+
+        .timeline-marker {
+            width: 12px;
+            height: 12px;
+            background: var(--accent-purple);
+            border-radius: 50%;
+            position: absolute;
+            left: 0;
+            top: 1.5rem;
+        }
+
+        /* People Cards */
+        .people-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+        }
+
+        .person-card {
+            text-align: center;
+        }
+
+        .person-avatar {
+            width: 150px;
+            height: 150px;
+            background: var(--light-gray);
+            border-radius: 50%;
+            margin: 0 auto 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+        }
+
+        .person-card h3 {
+            font-size: 1.1rem;
+            color: var(--text-dark);
+            margin-bottom: 0.25rem;
+            font-weight: 600;
+        }
+
+        .person-card p {
+            color: var(--text-light);
+            font-size: 0.85rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .person-card .role {
+            color: var(--text-medium);
+            font-size: 0.9rem;
+        }
+
+        /* Stats Section */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 3rem;
+            text-align: center;
+        }
+
+        .stat-item h3 {
+            font-size: 2.5rem;
+            color: var(--accent-purple);
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-item p {
+            color: var(--text-medium);
+            font-size: 0.95rem;
+        }
+
+        /* Locations Section */
+        .locations-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .location-item {
+            margin-bottom: 2rem;
+        }
+
+        .location-item h3 {
+            font-size: 1rem;
+            color: var(--text-dark);
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .location-item p {
+            color: var(--text-medium);
+            font-size: 0.9rem;
+            margin-left: 1.5rem;
+        }
+
+        .location-map {
+            background: var(--light-gray);
+            height: 400px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-light);
+            font-size: 3rem;
+        }
+
+        /* Climate Section */
+        .climate-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .climate-item {
+            background: var(--very-light-gray);
+            padding: 2rem;
+            border-radius: 8px;
+        }
+
+        .climate-item h3 {
+            font-size: 1rem;
+            color: var(--text-dark);
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .climate-bars {
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .bar {
+            width: 20px;
+            height: 100px;
+            background: var(--light-gray);
+            border-radius: 4px;
+            position: relative;
+        }
+
+        .bar.filled {
+            background: var(--accent-purple);
+        }
+
+        .bar-label {
+            font-size: 0.75rem;
+            text-align: center;
+            margin-top: 0.25rem;
+            color: var(--text-light);
+        }
+
+        /* Culture Section */
+        .culture-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .culture-card {
+            background: var(--light-gray);
+            height: 200px;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+        }
+
+        .culture-card-content h3 {
+            font-size: 1.1rem;
+            color: var(--text-dark);
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .culture-card-content p {
+            color: var(--text-medium);
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+
+        /* Commitments Section */
+        .commitments-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .commitment-card {
+            padding: 2rem;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+        }
+
+        .commitment-icon {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .commitment-card h3 {
+            font-size: 1rem;
+            color: var(--text-dark);
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .commitment-card p {
+            color: var(--text-medium);
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+
+        /* Partners Section */
+        .partners-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+        }
+
+        .partner-card {
+            text-align: center;
+            padding: 2rem;
+            background: var(--very-light-gray);
+            border-radius: 8px;
+        }
+
+        .partner-logo {
+            background: var(--light-gray);
+            height: 120px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .partner-card h3 {
+            font-size: 0.95rem;
+            color: var(--text-dark);
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .partner-card p {
+            color: var(--text-medium);
+            font-size: 0.85rem;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark-navy);
+            color: var(--white);
+            padding: 3rem 2rem 1rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h4 {
+            font-weight: 600;
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-section a {
+            color: var(--light-gray);
+            text-decoration: none;
+            font-size: 0.85rem;
+            transition: color 0.3s;
+        }
+
+        .footer-section a:hover {
+            color: var(--white);
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .footer-social a {
+            display: inline-block;
+            width: 30px;
+            height: 30px;
+            background: var(--dark-gray);
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.3s;
+        }
+
+        .footer-social a:hover {
+            background: var(--accent-purple);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid var(--dark-gray);
+            padding-top: 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            font-size: 0.85rem;
+        }
+
+        .footer-bottom-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .footer-bottom a {
+            color: var(--light-gray);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-bottom a:hover {
+            color: var(--white);
+        }
+
+        @media (max-width: 768px) {
+            .history-grid,
+            .locations-content {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    </style>
+</head>
+<body data-page="about">
+    <div id="header"></div>
+
+    <!-- Hero Section -->
+    <div class="hero-dark">
+        <div class="hero-content">
+            <h1>Welcome to Salinas de Guaranda</h1>
+            <p>Where community-driven tourism shapes the future</p>
+        </div>
+    </div>
+
+    <!-- History Section -->
+    <section>
+        <h2>A History of Cooperation</h2>
+        <div class="history-grid">
+            <div>
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div>
+                        <h3>Started with Vision</h3>
+                        <p>The Salinas community recognized sustainable tourism potential decades ago, deciding to manage their own narrative and economic future.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div>
+                        <h3>Built on Cooperation</h3>
+                        <p>Multiple cooperative organizations were established in the 1970s, pioneering economic democracy in rural Ecuador.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div>
+                        <h3>Developed the Model</h3>
+                        <p>Over four decades, Salinas perfected integrating agriculture, artisan production, and tourism to sustain the community.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div>
+                        <h3>National Recognition</h3>
+                        <p>UNESCO acknowledged Salinas as an exemplary model of sustainable community development and responsible tourism.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div>
+                        <h3>HABITAT Initiative</h3>
+                        <p>Launched to connect global travelers with this unique community-run model, generating direct benefits for local families.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div>
+                        <h3>Expanding Impact</h3>
+                        <p>Today, Salinas welcomes thousands of visitors annually, supporting 40+ family businesses while preserving local traditions.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- The People Section -->
+    <section style="background: var(--very-light-gray);">
+        <h2>The People</h2>
+        <div class="people-grid">
+            <div class="person-card">
+                <div class="person-avatar">👨</div>
+                <h3>Juan Pablo</h3>
+                <p>Community Leader</p>
+                <p class="role">Cooperative Director</p>
+            </div>
+
+            <div class="person-card">
+                <div class="person-avatar">👩</div>
+                <h3>Maria Gonzalez</h3>
+                <p>Tourism Manager</p>
+                <p class="role">HABITAT Co-Founder</p>
+            </div>
+
+            <div class="person-card">
+                <div class="person-avatar">👨</div>
+                <h3>Carlos Ruiz</h3>
+                <p>Artisan Master</p>
+                <p class="role">Textile & Crafts</p>
+            </div>
+
+            <div class="person-card">
+                <div class="person-avatar">👩</div>
+                <h3>Ana Martinez</h3>
+                <p>Cultural Coordinator</p>
+                <p class="role">Educational Programs</p>
+            </div>
+
+            <div class="person-card">
+                <div class="person-avatar">👨</div>
+                <h3>Roberto Flores</h3>
+                <p>Chief Guide</p>
+                <p class="role">Experience Curation</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Impact Section -->
+    <section>
+        <h2>Impact by the Numbers</h2>
+        <div class="stats-grid">
+            <div class="stat-item">
+                <h3>40+</h3>
+                <p>Family Businesses Supported</p>
+            </div>
+
+            <div class="stat-item">
+                <h3>200+</h3>
+                <p>Direct Jobs Created</p>
+            </div>
+
+            <div class="stat-item">
+                <h3>50 years+</h3>
+                <p>Community Cooperative History</p>
+            </div>
+
+            <div class="stat-item">
+                <h3>UNESCO</h3>
+                <p>Recognition for Sustainability</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Locations Section -->
+    <section>
+        <h2>Locations & Access</h2>
+        <div class="locations-content">
+            <div>
+                <div class="location-item">
+                    <h3>🚗 Getting to Salinas</h3>
+                    <p>Located 5 hours from Ecuador's capital Quito via well-maintained mountain roads. Direct transportation from Quito can be arranged.</p>
+                </div>
+
+                <div class="location-item">
+                    <h3>✈️ Nearest Airport</h3>
+                    <p>Mariscal Sucre International Airport in Quito, 5 hours away. Private transfers available upon request.</p>
+                </div>
+
+                <div class="location-item">
+                    <h3>🏨 Where to Stay</h3>
+                    <p>Community-run eco-lodges offer authentic accommodations. All lodging directly supports local families and sustainable practices.</p>
+                </div>
+
+                <div class="location-item">
+                    <h3>🍽️ Dining Options</h3>
+                    <p>Family-run restaurants serving traditional Ecuadorian cuisine using locally-sourced ingredients from community farms.</p>
+                </div>
+            </div>
+
+            <div class="location-map">🗺️</div>
+        </div>
+    </section>
+
+    <!-- Climate Section -->
+    <section>
+        <h2>Climate & Best Times to Visit</h2>
+        <div class="climate-grid">
+            <div class="climate-item">
+                <h3>March - May</h3>
+                <div class="climate-bars">
+                    <div class="bar filled"></div>
+                    <div class="bar filled"></div>
+                    <div class="bar filled"></div>
+                    <div class="bar"></div>
+                </div>
+                <p style="font-size: 0.9rem; color: var(--text-medium); margin-bottom: 0.5rem;">Rainy season</p>
+                <p style="font-size: 0.85rem; color: var(--text-light);">Lush green landscapes, fewer crowds</p>
+            </div>
+
+            <div class="climate-item">
+                <h3>June - August</h3>
+                <div class="climate-bars">
+                    <div class="bar filled"></div>
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                </div>
+                <p style="font-size: 0.9rem; color: var(--text-medium); margin-bottom: 0.5rem;">Dry season</p>
+                <p style="font-size: 0.85rem; color: var(--text-light);">Clear skies, ideal conditions</p>
+            </div>
+
+            <div class="climate-item">
+                <h3>September - November</h3>
+                <div class="climate-bars">
+                    <div class="bar filled"></div>
+                    <div class="bar filled"></div>
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                </div>
+                <p style="font-size: 0.9rem; color: var(--text-medium); margin-bottom: 0.5rem;">Transition season</p>
+                <p style="font-size: 0.85rem; color: var(--text-light);">Pleasant weather, manageable rainfall</p>
+            </div>
+
+            <div class="climate-item">
+                <h3>December - February</h3>
+                <div class="climate-bars">
+                    <div class="bar filled"></div>
+                    <div class="bar filled"></div>
+                    <div class="bar filled"></div>
+                    <div class="bar filled"></div>
+                </div>
+                <p style="font-size: 0.9rem; color: var(--text-medium); margin-bottom: 0.5rem;">Peak season</p>
+                <p style="font-size: 0.85rem; color: var(--text-light);">Summer holidays, warm and dry</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Culture Section -->
+    <section>
+        <h2>Culture & Traditions</h2>
+        <div class="culture-grid">
+            <div>
+                <div class="culture-card">🎨</div>
+                <div class="culture-card-content">
+                    <h3>Traditional Textiles</h3>
+                    <p>Ancient weaving techniques passed through generations, creating beautiful handcrafted fabrics with cultural significance.</p>
+                </div>
+            </div>
+
+            <div>
+                <div class="culture-card">🎪</div>
+                <div class="culture-card-content">
+                    <h3>Live Arts</h3>
+                    <p>Vibrant cultural performances showcasing traditional music, dance, and theatrical expressions of Andean heritage.</p>
+                </div>
+            </div>
+
+            <div>
+                <div class="culture-card">🥾</div>
+                <div class="culture-card-content">
+                    <h3>Indigenous Practices</h3>
+                    <p>Knowledge systems and practices rooted in Andean traditions continue to guide community life and decision-making.</p>
+                </div>
+            </div>
+
+            <div>
+                <div class="culture-card">🌾</div>
+                <div class="culture-card-content">
+                    <h3>Sustainable Agriculture</h3>
+                    <p>Organic farming methods respect ecological systems while producing food that sustains the community and visitors alike.</p>
+                </div>
+            </div>
+
+            <div>
+                <div class="culture-card">🍲</div>
+                <div class="culture-card-content">
+                    <h3>Culinary Heritage</h3>
+                    <p>Traditional recipes using ancestral ingredients and cooking methods remain central to community identity and celebration.</p>
+                </div>
+            </div>
+
+            <div>
+                <div class="culture-card">🎋</div>
+                <div class="culture-card-content">
+                    <h3>Craft Traditions</h3>
+                    <p>Artisan crafts including pottery, weaving, and chocolate-making embody generations of cultural knowledge and skill.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Commitments Section -->
+    <section style="background: var(--very-light-gray);">
+        <h2>Our Commitments to Responsible Tourism</h2>
+        <div class="commitments-grid">
+            <div class="commitment-card">
+                <div class="commitment-icon">♻️</div>
+                <h3>Environmental Protection</h3>
+                <p>100% of operations follow strict sustainability standards. All profits support conservation and ecosystem protection initiatives.</p>
+            </div>
+
+            <div class="commitment-card">
+                <div class="commitment-icon">👥</div>
+                <h3>Community Benefits</h3>
+                <p>Direct employment for locals, capacity building, and equitable profit-sharing ensure tourism benefits the entire community.</p>
+            </div>
+
+            <div class="commitment-card">
+                <div class="commitment-icon">📚</div>
+                <h3>Cultural Respect</h3>
+                <p>Sacred sites protected, traditions taught with proper context, and community control over cultural representation.</p>
+            </div>
+
+            <div class="commitment-card">
+                <div class="commitment-icon">🤝</div>
+                <h3>Fair Labor</h3>
+                <p>All guides, staff, and artisans receive fair wages, benefits, and opportunities for professional development and training.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Partners Section -->
+    <section>
+        <h2>Partner Organizations</h2>
+        <div class="partners-grid">
+            <div class="partner-card">
+                <div class="partner-logo">🌍</div>
+                <h3>UNESCO</h3>
+                <p>Recognized model for sustainable community development</p>
+            </div>
+
+            <div class="partner-card">
+                <div class="partner-logo">🌿</div>
+                <h3>Rainforest Alliance</h3>
+                <p>Certified sustainable tourism operations</p>
+            </div>
+
+            <div class="partner-card">
+                <div class="partner-logo">🏛️</div>
+                <h3>Ministry of Tourism</h3>
+                <p>Official partner in Ecuador's tourism strategy</p>
+            </div>
+
+            <div class="partner-card">
+                <div class="partner-logo">📱</div>
+                <h3>Travel Impact Model</h3>
+                <p>Research partner on responsible tourism</p>
+            </div>
+
+            <div class="partner-card">
+                <div class="partner-logo">🎓</div>
+                <h3>Universities</h3>
+                <p>Educational research and student exchange programs</p>
+            </div>
+
+            <div class="partner-card">
+                <div class="partner-logo">🌐</div>
+                <h3>Global Networks</h3>
+                <p>Part of international sustainable tourism movement</p>
+            </div>
+        </div>
+    </section>
+
+    <div id="footer"></div>
+
+    <script>
+        // Load header and footer
+        fetch('header.html').then(r => r.text()).then(html => {
+            document.getElementById('header').innerHTML = html;
+            setActiveNav();
+        });
+        fetch('footer.html').then(r => r.text()).then(html => {
+            document.getElementById('footer').innerHTML = html;
+        });
+
+        // Set active nav link based on data-page attribute
+        function setActiveNav() {
+            const currentPage = document.body.dataset.page;
+            document.querySelectorAll('nav a[data-page]').forEach(link => {
+                if (link.dataset.page === currentPage) {
+                    link.classList.add('active');
+                } else {
+                    link.classList.remove('active');
+                }
+            });
+        }
+    </script>
+</body>
+</html>

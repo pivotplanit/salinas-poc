@@ -1,0 +1,536 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import HeroSection from "../components/Home/HeroSection.astro";
+import CategoryCard from "../components/Home/CategoryCard.astro";
+
+const categories = [
+  {
+    icon: "🌿",
+    title: "Natural Wonders",
+    description: "Explore pristine mountain landscapes, waterfalls, and biodiversity",
+    href: "/experiences",
+  },
+  {
+    icon: "🎨",
+    title: "Cultural Immersion",
+    description: "Experience authentic traditions and connect with local communities",
+    href: "/experiences",
+  },
+  {
+    icon: "🍲",
+    title: "Gastronomic",
+    description: "Taste traditional Ecuadorian cuisine and learn cooking techniques",
+    href: "/experiences",
+  },
+  {
+    icon: "🎒",
+    title: "Multi-Day Packages",
+    description: "Comprehensive experiences combining multiple activities",
+    href: "/experiences",
+  },
+];
+
+const features = [
+  {
+    icon: "👥",
+    title: "Community Impact",
+    description: "Direct support for 40+ local family businesses",
+    stat: "40+ Family Businesses",
+  },
+  {
+    icon: "🔐",
+    title: "Authentic Access",
+    description: "Guided by community members who live here",
+    stat: "100% Locally Guided",
+  },
+  {
+    icon: "📚",
+    title: "Educational Value",
+    description: "Learn about sustainable development models",
+    stat: "UNESCO Recognition",
+  },
+];
+---
+
+<BaseLayout title="Salinas - Community-Run Mountain Paradise" description="Discover Ecuador's sustainable tourism destination where tourism supports 40+ local families">
+  <HeroSection />
+
+  <!-- Experience Categories -->
+  <section class="experience-categories" id="catalog">
+    <div class="section-container">
+      <h2 class="section-title">Experience Categories</h2>
+      <div class="categories-grid">
+        {categories.map(cat => (
+          <CategoryCard
+            icon={cat.icon}
+            title={cat.title}
+            description={cat.description}
+            href={cat.href}
+          />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Choose Section -->
+  <section class="why-choose">
+    <div class="section-container">
+      <div class="section-header">
+        <h2 class="section-title">Why Choose Salinas?</h2>
+        <a href="/about">Learn more</a>
+      </div>
+      <div class="why-choose-grid">
+        {features.map(feature => (
+          <div class="feature-card">
+            <div class="feature-icon">{feature.icon}</div>
+            <h3>{feature.title}</h3>
+            <p>{feature.description}</p>
+            <div class="feature-stat">{feature.stat}</div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Featured Experiences -->
+  <section class="featured-experiences" id="detail">
+    <div class="section-container">
+      <div class="section-header">
+        <h2 class="section-title">Featured Experiences</h2>
+      </div>
+      <div class="experiences-grid">
+        <div class="experience-card">
+          <div class="experience-image">🏭</div>
+          <div class="experience-content">
+            <p class="experience-tag">Experience Card</p>
+            <h3>Cheese Factory Tour</h3>
+            <div class="experience-details">
+              <span class="experience-detail-item">⏱️ 3 hours</span>
+              <span class="experience-detail-item">👥 Moderate</span>
+            </div>
+            <ul>
+              <li>Learn traditional cheese-making techniques</li>
+              <li>Taste fresh local products</li>
+            </ul>
+            <button class="btn">Learn More</button>
+          </div>
+        </div>
+
+        <div class="experience-card">
+          <div class="experience-image">⛏️</div>
+          <div class="experience-content">
+            <p class="experience-tag">Experience Card</p>
+            <h3>Salt Mines Exploration</h3>
+            <div class="experience-details">
+              <span class="experience-detail-item">⏱️ 4 hours</span>
+              <span class="experience-detail-item">👥 Moderate</span>
+            </div>
+            <ul>
+              <li>Discover mining techniques passed down generations</li>
+              <li>Understand sustainable salt extraction</li>
+            </ul>
+            <button class="btn">Learn More</button>
+          </div>
+        </div>
+
+        <div class="experience-card">
+          <div class="experience-image">🍫</div>
+          <div class="experience-content">
+            <p class="experience-tag">Experience Card</p>
+            <h3>Chocolate Workshop</h3>
+            <div class="experience-details">
+              <span class="experience-detail-item">⏱️ 2 hours</span>
+              <span class="experience-detail-item">👥 Moderate</span>
+            </div>
+            <ul>
+              <li>From cocoa bean to chocolate creation</li>
+              <li>Taste artisan chocolate varieties</li>
+            </ul>
+            <button class="btn">Learn More</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Dark Section -->
+  <section class="cta-dark" id="booking">
+    <div class="cta-dark-content">
+      <div class="cta-text">
+        <h2>Planning a University or Group Trip?</h2>
+        <p>Custom itineraries, educational focus, flexible scheduling. Experience the living model of community-driven economy with your group.</p>
+        <div class="cta-feature">
+          <span class="cta-feature-icon">✓</span>
+          <div class="cta-feature-text">24-hour response guarantee</div>
+        </div>
+      </div>
+      <div class="cta-button">
+        <a href="/group-booking" class="btn btn-outline">Tell Us About Your Group</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials Section -->
+  <section class="testimonials">
+    <div class="section-container">
+      <h2 class="section-title">What Visitors Say</h2>
+      <div class="testimonials-grid">
+        <div class="testimonial-card">
+          <div class="testimonial-header">
+            <div class="testimonial-avatar">SM</div>
+            <div class="testimonial-info">
+              <h4>Dr. Sarah Martinez</h4>
+              <p>Stanford University</p>
+            </div>
+          </div>
+          <div class="testimonial-stars">★★★★★</div>
+          <p class="testimonial-text">
+            This was such an experience for our students. The community model is fascinating and the people are so welcoming. Highly recommend for educational groups.
+          </p>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="testimonial-header">
+            <div class="testimonial-avatar">JC</div>
+            <div class="testimonial-info">
+              <h4>James Chen</h4>
+              <p>Tourism Board</p>
+            </div>
+          </div>
+          <div class="testimonial-stars">★★★★★</div>
+          <p class="testimonial-text">
+            Best educational experience for our students. The community model is fascinating and the people are so welcoming. Highly recommend for educational groups.
+          </p>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="testimonial-header">
+            <div class="testimonial-avatar">MB</div>
+            <div class="testimonial-info">
+              <h4>Maria Rodriguez</h4>
+              <p>Travel Guide, Ecuador</p>
+            </div>
+          </div>
+          <div class="testimonial-stars">★★★★★</div>
+          <p class="testimonial-text">
+            Great group experience for our students. The community model is fascinating and the people are so welcoming. Highly recommend for educational groups.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .section-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+
+  .section-title {
+    font-size: 2.5rem;
+    color: var(--text-dark);
+    margin-bottom: 2rem;
+    font-weight: 700;
+    text-align: center;
+  }
+
+  .experience-categories {
+    padding: 4rem 2rem;
+    background: var(--white);
+  }
+
+  .categories-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+  }
+
+  .why-choose {
+    padding: 4rem 2rem;
+    background: var(--very-light-gray);
+  }
+
+  .section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 3rem;
+  }
+
+  .section-header a {
+    color: var(--accent-purple);
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s;
+  }
+
+  .section-header a:hover {
+    color: #7d3c98;
+  }
+
+  .why-choose-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+  }
+
+  .feature-card {
+    background: var(--white);
+    padding: 2rem;
+    border-radius: 8px;
+    text-align: center;
+    border: 1px solid var(--border-color);
+    transition: transform 0.3s;
+  }
+
+  .feature-card:hover {
+    transform: translateY(-8px);
+  }
+
+  .feature-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+  }
+
+  .feature-card h3 {
+    font-size: 1.3rem;
+    color: var(--text-dark);
+    margin-bottom: 1rem;
+  }
+
+  .feature-card p {
+    color: var(--text-medium);
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+  }
+
+  .feature-stat {
+    color: var(--accent-purple);
+    font-weight: 600;
+    font-size: 0.9rem;
+  }
+
+  .featured-experiences {
+    padding: 4rem 2rem;
+    background: var(--white);
+  }
+
+  .experiences-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+  }
+
+  .experience-card {
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    overflow: hidden;
+    transition: all 0.3s;
+    background: var(--very-light-gray);
+  }
+
+  .experience-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+  }
+
+  .experience-image {
+    font-size: 3rem;
+    padding: 2rem;
+    background: var(--accent-light-purple);
+    text-align: center;
+    min-height: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .experience-content {
+    padding: 2rem;
+  }
+
+  .experience-tag {
+    color: var(--accent-purple);
+    font-weight: 600;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
+  }
+
+  .experience-content h3 {
+    color: var(--text-dark);
+    margin-bottom: 1rem;
+    font-size: 1.3rem;
+  }
+
+  .experience-details {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .experience-detail-item {
+    color: var(--text-medium);
+    font-size: 0.9rem;
+  }
+
+  .experience-content ul {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 1.5rem;
+  }
+
+  .experience-content li {
+    color: var(--text-medium);
+    padding: 0.5rem 0;
+    font-size: 0.9rem;
+  }
+
+  .experience-content li:before {
+    content: '✓ ';
+    color: var(--accent-purple);
+    font-weight: 600;
+    margin-right: 0.5rem;
+  }
+
+  .cta-dark {
+    background: var(--dark-navy);
+    color: var(--white);
+    padding: 4rem 2rem;
+  }
+
+  .cta-dark-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: center;
+  }
+
+  .cta-text h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  .cta-text p {
+    margin-bottom: 2rem;
+    line-height: 1.6;
+  }
+
+  .cta-feature {
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+  }
+
+  .cta-feature-icon {
+    color: var(--accent-purple);
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+
+  .cta-feature-text {
+    color: var(--white);
+  }
+
+  .cta-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .btn-outline {
+    border: 2px solid var(--white);
+    background: transparent;
+    color: var(--white);
+  }
+
+  .btn-outline:hover {
+    background: var(--white);
+    color: var(--dark-navy);
+  }
+
+  .testimonials {
+    padding: 4rem 2rem;
+    background: var(--very-light-gray);
+  }
+
+  .testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+  }
+
+  .testimonial-card {
+    background: var(--white);
+    padding: 2rem;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+  }
+
+  .testimonial-header {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    align-items: flex-start;
+  }
+
+  .testimonial-avatar {
+    width: 50px;
+    height: 50px;
+    background: var(--accent-purple);
+    color: var(--white);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    flex-shrink: 0;
+  }
+
+  .testimonial-info h4 {
+    margin: 0;
+    color: var(--text-dark);
+    font-size: 1rem;
+  }
+
+  .testimonial-info p {
+    margin: 0.25rem 0 0 0;
+    color: var(--text-light);
+    font-size: 0.85rem;
+  }
+
+  .testimonial-stars {
+    color: #f59e0b;
+    margin-bottom: 1rem;
+  }
+
+  .testimonial-text {
+    color: var(--text-medium);
+    line-height: 1.6;
+    font-size: 0.95rem;
+  }
+
+  @media (max-width: 768px) {
+    .section-title {
+      font-size: 2rem;
+    }
+
+    .section-header {
+      flex-direction: column;
+      text-align: center;
+    }
+
+    .cta-dark-content {
+      grid-template-columns: 1fr;
+    }
+
+    .cta-button {
+      justify-content: flex-start;
+    }
+  }
+</style>

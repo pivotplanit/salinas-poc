@@ -1,0 +1,56 @@
+---
+const currentYear = new Date().getFullYear();
+---
+
+<footer>
+  <div class="footer-content">
+    <div class="footer-section">
+      <h4>HABITAT</h4>
+      <p class="footer-description">Sustainable tourism in Salinas de Guaranda.</p>
+      <div class="footer-social">
+        <a href="#" aria-label="Facebook">f</a>
+        <a href="#" aria-label="Twitter">🐦</a>
+        <a href="#" aria-label="Instagram">📷</a>
+      </div>
+    </div>
+
+    <div class="footer-section">
+      <h4>Experiences</h4>
+      <ul>
+        <li><a href="/experiences">Natural Wonders</a></li>
+        <li><a href="/experiences">Cultural Immersion</a></li>
+        <li><a href="/experiences">Gastronomic</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-section">
+      <h4>Company</h4>
+      <ul>
+        <li><a href="/about">About Salinas</a></li>
+        <li><a href="#">Impact Report</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-section">
+      <h4>Newsletter</h4>
+      <form class="newsletter-form">
+        <input
+          type="email"
+          placeholder="your@email.com"
+          class="newsletter-input"
+          required
+        />
+        <button type="submit" class="btn newsletter-btn">Join</button>
+      </form>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <div class="footer-bottom-links">
+      <a href="#">Privacy Policy</a>
+      <a href="#">Terms of Service</a>
+    </div>
+    <p>&copy; {currentYear} Habitat Travel. All rights reserved.</p>
+  </div>
+</footer>

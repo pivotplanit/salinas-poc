@@ -1,0 +1,68 @@
+---
+interface Props {
+  icon: string;
+  title: string;
+  description: string;
+  href: string;
+}
+
+const { icon, title, description, href } = Astro.props;
+---
+
+<div class="category-card">
+  <div class="category-header">
+    <span class="category-icon">{icon}</span>
+    <h3>{title}</h3>
+  </div>
+  <p>{description}</p>
+  <a href={href} class="category-link">Explore →</a>
+</div>
+
+<style>
+  .category-card {
+    background: var(--very-light-gray);
+    border-radius: 8px;
+    padding: 2rem;
+    border: 1px solid var(--border-color);
+    transition: all 0.3s ease;
+  }
+
+  .category-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+  }
+
+  .category-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .category-icon {
+    font-size: 2.5rem;
+  }
+
+  .category-header h3 {
+    font-size: 1.3rem;
+    margin: 0;
+    color: var(--text-dark);
+  }
+
+  .category-card p {
+    color: var(--text-medium);
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+  }
+
+  .category-link {
+    color: var(--accent-purple);
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s;
+  }
+
+  .category-link:hover {
+    color: #7d3c98;
+  }
+</style>

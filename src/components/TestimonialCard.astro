@@ -1,0 +1,141 @@
+---
+interface Props {
+  name: string;
+  role: string;
+  text: string;
+  rating?: number;
+  avatar?: string;
+}
+
+const { name, role, text, rating = 5, avatar = "👤" } = Astro.props;
+
+// Generate star array
+const stars = Array.from({ length: 5 }, (_, i) => i < rating);
+---
+
+<div class="testimonial-card">
+  <div class="testimonial-header">
+    <div class="testimonial-avatar">{avatar}</div>
+    <div class="testimonial-info">
+      <h3 class="testimonial-name">{name}</h3>
+      <p class="testimonial-role">{role}</p>
+    </div>
+  </div>
+
+  {rating > 0 && (
+    <div class="testimonial-rating">
+      {stars.map((filled) => (
+        <span class={`star ${filled ? 'filled' : 'empty'}`}>★</span>
+      ))}
+    </div>
+  )}
+
+  <p class="testimonial-text">"{text}"</p>
+</div>
+
+<style>
+  .testimonial-card {
+    background: white;
+    border: 1px solid var(--border-color, #e0e0e0);
+    border-radius: 12px;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    transition: all 300ms ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  }
+
+  .testimonial-card:hover {
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+    transform: translateY(-4px);
+  }
+
+  .testimonial-header {
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+  }
+
+  .testimonial-avatar {
+    font-size: 3rem;
+    flex-shrink: 0;
+    line-height: 1;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: var(--avatar-bg, #f0f0f0);
+  }
+
+  .testimonial-info {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .testimonial-name {
+    margin: 0;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--text-color, #1a1a1a);
+  }
+
+  .testimonial-role {
+    margin: 0.25rem 0 0 0;
+    font-size: 0.9rem;
+    color: var(--text-secondary, #666);
+  }
+
+  .testimonial-rating {
+    display: flex;
+    gap: 0.25rem;
+    font-size: 1.25rem;
+  }
+
+  .star {
+    transition: color 300ms ease;
+  }
+
+  .star.filled {
+    color: #FFB800;
+  }
+
+  .star.empty {
+    color: #ddd;
+  }
+
+  .testimonial-text {
+    margin: 0;
+    font-size: 1rem;
+    line-height: 1.6;
+    color: var(--text-secondary, #666);
+    font-style: italic;
+  }
+
+  @media (max-width: 768px) {
+    .testimonial-card {
+      padding: 1.5rem;
+      gap: 1rem;
+    }
+
+    .testimonial-avatar {
+      width: 50px;
+      height: 50px;
+      font-size: 2.5rem;
+    }
+
+    .testimonial-name {
+      font-size: 1rem;
+    }
+
+    .testimonial-role {
+      font-size: 0.85rem;
+    }
+
+    .testimonial-text {
+      font-size: 0.95rem;
+    }
+  }
+</style>

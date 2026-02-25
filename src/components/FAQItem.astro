@@ -1,0 +1,162 @@
+---
+interface Props {
+  question: string;
+  answer: string;
+  defaultOpen?: boolean;
+}
+
+const { question, answer, defaultOpen = false } = Astro.props;
+const id = Math.random().toString(36).substring(2, 9);
+---
+
+<div class="faq-item" data-open={defaultOpen}>
+  <button class="faq-header" aria-expanded={defaultOpen} aria-controls={id}>
+    <span class="faq-question">{question}</span>
+    <span class="faq-toggle">
+      <span class="faq-toggle-text">{defaultOpen ? '−' : '+'}</span>
+    </span>
+  </button>
+  <div class="faq-answer-wrapper" id={id} style={!defaultOpen ? 'max-height: 0' : ''}>
+    <div class="faq-answer">
+      {typeof answer === 'string' ? <p set:html={answer} /> : answer}
+    </div>
+  </div>
+</div>
+
+<style>
+  .faq-item {
+    border-bottom: 1px solid var(--border-color, #e0e0e0);
+    padding: 1.5rem 0;
+  }
+
+  .faq-item:first-child {
+    padding-top: 0;
+  }
+
+  .faq-item:last-child {
+    border-bottom: none;
+  }
+
+  .faq-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 100%;
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-align: left;
+    color: var(--text-color, #1a1a1a);
+    transition: color var(--transition-duration, 300ms) ease;
+  }
+
+  .faq-header:hover {
+    color: var(--primary-color, #2D5016);
+  }
+
+  .faq-question {
+    flex: 1;
+    padding-right: 1rem;
+    line-height: 1.4;
+  }
+
+  .faq-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    flex-shrink: 0;
+    color: var(--primary-color, #2D5016);
+  }
+
+  .faq-toggle-text {
+    font-size: 1.5rem;
+    font-weight: 300;
+    line-height: 1;
+    transition: transform var(--transition-duration, 300ms) ease;
+  }
+
+  .faq-answer-wrapper {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height var(--transition-duration, 300ms) ease;
+  }
+
+  .faq-item[data-open="true"] .faq-answer-wrapper {
+    max-height: 1000px;
+  }
+
+  .faq-answer {
+    padding-top: 1rem;
+    color: var(--text-secondary, #666);
+    line-height: 1.6;
+  }
+
+  .faq-answer p {
+    margin: 0;
+  }
+
+  .faq-answer p + p {
+    margin-top: 0.75rem;
+  }
+
+  @media (max-width: 768px) {
+    .faq-header {
+      font-size: 1rem;
+    }
+
+    .faq-question {
+      padding-right: 0.75rem;
+    }
+
+    .faq-toggle {
+      width: 24px;
+      height: 24px;
+    }
+
+    .faq-toggle-text {
+      font-size: 1.25rem;
+    }
+  }
+</style>
+
+<script>
+  document.querySelectorAll('.faq-item').forEach((item) => {
+    const header = item.querySelector('.faq-header') as HTMLButtonElement;
+    const wrapper = item.querySelector('.faq-answer-wrapper') as HTMLDivElement;
+    const toggle = item.querySelector('.faq-toggle-text') as HTMLSpanElement;
+
+    if (!header || !wrapper || !toggle) return;
+
+    const updateHeight = () => {
+      const isOpen = item.getAttribute('data-open') === 'true';
+      if (isOpen) {
+        const answer = wrapper.querySelector('.faq-answer') as HTMLDivElement;
+        if (answer) {
+          wrapper.style.maxHeight = answer.scrollHeight + 16 + 'px';
+        }
+        toggle.textContent = '−';
+      } else {
+        wrapper.style.maxHeight = '0';
+        toggle.textContent = '+';
+      }
+    };
+
+    header.addEventListener('click', () => {
+      const isOpen = item.getAttribute('data-open') === 'true';
+      item.setAttribute('data-open', (!isOpen).toString());
+      header.setAttribute('aria-expanded', (!isOpen).toString());
+      updateHeight();
+    });
+
+    // Recalculate on resize
+    window.addEventListener('resize', updateHeight);
+
+    // Initial setup
+    updateHeight();
+  });
+</script>

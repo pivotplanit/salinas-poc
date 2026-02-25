@@ -1,0 +1,90 @@
+---
+import { faqs } from "../../lib/practical-info-data";
+import FAQItem from "../FAQItem.astro";
+---
+
+<section class="faq-section">
+  <div class="container">
+    <h2>Frequently Asked Questions</h2>
+    <p class="section-subtitle">Get answers to common travel questions</p>
+
+    <div class="faq-grid">
+      {faqs.map((faq, index) => (
+        <div class="faq-column">
+          <FAQItem 
+            question={faq.question}
+            answer={faq.answer}
+            defaultOpen={index === 0}
+          />
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .faq-section {
+    padding: 4rem 1rem;
+    background: white;
+  }
+
+  .container {
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+
+  h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #2D5016;
+    margin: 0 0 0.5rem 0;
+    text-align: center;
+  }
+
+  .section-subtitle {
+    text-align: center;
+    color: #666;
+    font-size: 1.1rem;
+    margin: 0 0 3rem 0;
+  }
+
+  .faq-grid {
+    display: grid;
+    gap: 0;
+    border: 1px solid #e0e0e0;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  }
+
+  .faq-column {
+    padding: 0;
+  }
+
+  .faq-column:not(:last-child) {
+    border-bottom: 1px solid #e0e0e0;
+  }
+
+  :global(.faq-column .faq-item) {
+    padding: 1.5rem;
+    border: none;
+  }
+
+  :global(.faq-column .faq-item:last-child) {
+    padding-bottom: 1.5rem;
+  }
+
+  @media (max-width: 768px) {
+    .faq-section {
+      padding: 3rem 1rem;
+    }
+
+    h2 {
+      font-size: 2rem;
+    }
+
+    :global(.faq-column .faq-item) {
+      padding: 1.25rem;
+    }
+  }
+</style>

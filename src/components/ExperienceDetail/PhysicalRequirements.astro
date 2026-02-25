@@ -1,0 +1,131 @@
+---
+interface Props {
+  walking?: string;
+  accessibility?: string;
+  notSuitableFor?: string;
+}
+
+const { walking, accessibility, notSuitableFor } = Astro.props;
+---
+
+{(walking || accessibility || notSuitableFor) && (
+  <section class="physical-requirements-section">
+    <h2>Physical Requirements & Accessibility</h2>
+    
+    <div class="requirements-grid">
+      {walking && (
+        <div class="requirement-item">
+          <div class="requirement-icon">🚶</div>
+          <h3>Walking & Terrain</h3>
+          <p>{walking}</p>
+        </div>
+      )}
+      
+      {accessibility && (
+        <div class="requirement-item">
+          <div class="requirement-icon">♿</div>
+          <h3>Accessibility</h3>
+          <p>{accessibility}</p>
+        </div>
+      )}
+      
+      {notSuitableFor && (
+        <div class="requirement-item">
+          <div class="requirement-icon">⚠️</div>
+          <h3>Not Suitable For</h3>
+          <p>{notSuitableFor}</p>
+        </div>
+      )}
+    </div>
+    
+    <div class="accessibility-note">
+      <p><strong>Have concerns?</strong> Contact us before booking. We may be able to adjust the experience or suggest alternatives.</p>
+    </div>
+  </section>
+)}
+
+<style>
+  .physical-requirements-section {
+    padding: 3rem 0;
+    border-bottom: 1px solid #e0e0e0;
+  }
+
+  h2 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #2D5016;
+    margin: 0 0 2rem 0;
+  }
+
+  .requirements-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    margin-bottom: 2rem;
+  }
+
+  .requirement-item {
+    padding: 1.5rem;
+    background: #f9f9f9;
+    border-radius: 8px;
+    border: 1px solid #e0e0e0;
+    text-align: center;
+  }
+
+  .requirement-icon {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    display: block;
+  }
+
+  .requirement-item h3 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #2D5016;
+    margin: 0 0 1rem 0;
+  }
+
+  .requirement-item p {
+    margin: 0;
+    color: #666;
+    line-height: 1.6;
+    font-size: 0.95rem;
+  }
+
+  .accessibility-note {
+    background: linear-gradient(135deg, #fff3cd 0%, #fff8e1 100%);
+    border-left: 4px solid #FFC107;
+    padding: 1.5rem;
+    border-radius: 8px;
+  }
+
+  .accessibility-note p {
+    margin: 0;
+    color: #856404;
+    line-height: 1.6;
+    font-size: 0.95rem;
+  }
+
+  @media (max-width: 768px) {
+    .physical-requirements-section {
+      padding: 2rem 0;
+    }
+
+    h2 {
+      font-size: 1.5rem;
+    }
+
+    .requirements-grid {
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+
+    .requirement-item {
+      padding: 1.25rem;
+    }
+
+    .accessibility-note {
+      padding: 1.25rem;
+    }
+  }
+</style>

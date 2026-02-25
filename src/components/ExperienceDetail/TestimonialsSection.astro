@@ -1,0 +1,76 @@
+---
+import TestimonialCard from "../TestimonialCard.astro";
+
+interface Props {
+  testimonials?: Array<{
+    name: string;
+    role: string;
+    text: string;
+    rating: number;
+  }>;
+}
+
+const { testimonials = [] } = Astro.props;
+---
+
+{testimonials.length > 0 && (
+  <section class="testimonials-section">
+    <h2>What Guests Say</h2>
+    <p class="section-subtitle">Real experiences from real travelers</p>
+    
+    <div class="testimonials-grid">
+      {testimonials.map((testimonial) => (
+        <TestimonialCard
+          name={testimonial.name}
+          role={testimonial.role}
+          text={testimonial.text}
+          rating={testimonial.rating}
+          avatar="👤"
+        />
+      ))}
+    </div>
+  </section>
+)}
+
+<style>
+  .testimonials-section {
+    padding: 3rem 0;
+    border-bottom: 1px solid #e0e0e0;
+  }
+
+  h2 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #2D5016;
+    margin: 0 0 0.5rem 0;
+    text-align: center;
+  }
+
+  .section-subtitle {
+    text-align: center;
+    color: #666;
+    font-size: 1rem;
+    margin: 0 0 2rem 0;
+  }
+
+  .testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+  }
+
+  @media (max-width: 768px) {
+    .testimonials-section {
+      padding: 2rem 0;
+    }
+
+    h2 {
+      font-size: 1.5rem;
+    }
+
+    .testimonials-grid {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+  }
+</style>

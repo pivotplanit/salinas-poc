@@ -1,0 +1,104 @@
+---
+import { itineraries } from "../../lib/group-booking-data";
+import ItineraryCard from "./ItineraryCard.astro";
+---
+
+<section class="itineraries-section" id="itineraries">
+  <div class="container">
+    <h2>Sample Itineraries</h2>
+    <p class="section-subtitle">Explore our curated group experiences</p>
+
+    <div class="itineraries-grid">
+      {itineraries.map((itinerary) => (
+        <ItineraryCard 
+          title={itinerary.title}
+          duration={itinerary.duration}
+          groupSize={itinerary.groupSize}
+          description={itinerary.description}
+          highlights={itinerary.highlights}
+          price={itinerary.price}
+        />
+      ))}
+    </div>
+
+    <div class="note-section">
+      <p class="note-title">💡 All itineraries are fully customizable</p>
+      <p>These are sample itineraries. We work with you to create a unique experience tailored to your group's interests, schedule, and budget. Contact us to discuss your specific needs.</p>
+    </div>
+  </div>
+</section>
+
+<style>
+  .itineraries-section {
+    padding: 4rem 1rem;
+    background: #f5f5f5;
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #2D5016;
+    margin: 0 0 0.5rem 0;
+    text-align: center;
+  }
+
+  .section-subtitle {
+    text-align: center;
+    color: #666;
+    font-size: 1.1rem;
+    margin: 0 0 3rem 0;
+  }
+
+  .itineraries-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2rem;
+    margin-bottom: 3rem;
+  }
+
+  .note-section {
+    background: white;
+    border-radius: 12px;
+    padding: 2rem;
+    border-left: 4px solid #2D5016;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  }
+
+  .note-title {
+    margin: 0 0 0.75rem 0;
+    font-size: 1.1rem;
+    color: #2D5016;
+    font-weight: 600;
+  }
+
+  .note-section p:last-child {
+    margin: 0;
+    color: #666;
+    line-height: 1.6;
+    font-size: 0.95rem;
+  }
+
+  @media (max-width: 768px) {
+    .itineraries-section {
+      padding: 3rem 1rem;
+    }
+
+    h2 {
+      font-size: 2rem;
+    }
+
+    .itineraries-grid {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+
+    .note-section {
+      padding: 1.5rem;
+    }
+  }
+</style>

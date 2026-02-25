@@ -1,0 +1,177 @@
+---
+import { routes } from "../../lib/practical-info-data";
+import ExpandableItem from "../ExpandableItem.astro";
+---
+
+<section class="getting-there-section">
+  <div class="container">
+    <h2>Getting There</h2>
+    <p class="section-subtitle">Multiple routes to reach Salinas from Ecuador's major cities</p>
+
+    <div class="routes-grid">
+      {routes.map((route) => (
+        <div class="route-card">
+          <h3>{route.name}</h3>
+          <p class="route-description">{route.description}</p>
+          
+          <ul class="route-details">
+            {route.details.map((detail) => (
+              <li>{detail}</li>
+            ))}
+          </ul>
+        </div>
+      ))}
+    </div>
+
+    <div class="expandable-section">
+      <h3>Detailed Route Information</h3>
+      
+      <ExpandableItem 
+        title="✈️ Flying to Ecuador"
+        content="Ecuador is served by two major international airports: Mariscal Sucre (UIO) in Quito and José Joaquín de Olmedo (GYE) in Guayaquil. Both have connections from major South American cities and international hubs. Check flight schedules 4-6 weeks in advance for better pricing. Travel time from Quito to Salinas is approximately 2-3 hours by car, while from Guayaquil it's 4-5 hours."
+      />
+      
+      <ExpandableItem 
+        title="🚗 Ground Transportation"
+        content="We arrange ground transportation from all major airports. Private vehicle pickup is available at both airports. The drive to Salinas is scenic, passing through Ecuador's diverse landscapes from coastal areas to highlands. Road conditions are good on major routes. Budget 3-5 hours for travel depending on your starting point."
+      />
+      
+      <ExpandableItem 
+        title="🚌 Public Transportation"
+        content="Ecuador has extensive and affordable bus networks connecting major cities. Buses are reliable and comfortable. From Quito, take a bus to Salinas (approximately 2-3 hours). From Guayaquil, bus travel takes 4-5 hours. Buses typically depart several times daily. This is the most budget-friendly option."
+      />
+      
+      <ExpandableItem 
+        title="🚕 Rental Cars"
+        content="International driving permits are required for visitors. Several car rental companies operate at both airports. Driving is relatively straightforward on main highways. Fuel is inexpensive. This option offers maximum flexibility but requires comfort with unfamiliar roads. Consider a driver if you prefer not to drive."
+      />
+    </div>
+  </div>
+</section>
+
+<style>
+  .getting-there-section {
+    padding: 4rem 1rem;
+    background: white;
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #2D5016;
+    margin: 0 0 0.5rem 0;
+    text-align: center;
+  }
+
+  .section-subtitle {
+    text-align: center;
+    color: #666;
+    font-size: 1.1rem;
+    margin: 0 0 3rem 0;
+  }
+
+  .routes-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 2rem;
+    margin-bottom: 4rem;
+  }
+
+  .route-card {
+    background: #f9f9f9;
+    border-radius: 12px;
+    padding: 2rem;
+    border: 1px solid #e0e0e0;
+    transition: all 300ms ease;
+  }
+
+  .route-card:hover {
+    border-color: #2D5016;
+    box-shadow: 0 8px 24px rgba(45, 80, 22, 0.1);
+    transform: translateY(-4px);
+  }
+
+  .route-card h3 {
+    margin: 0 0 0.75rem 0;
+    font-size: 1.3rem;
+    color: #2D5016;
+    font-weight: 600;
+  }
+
+  .route-description {
+    margin: 0 0 1.5rem 0;
+    color: #666;
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+
+  .route-details {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .route-details li {
+    padding: 0.75rem 0 0.75rem 1.75rem;
+    color: #666;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    position: relative;
+  }
+
+  .route-details li:before {
+    content: "→";
+    position: absolute;
+    left: 0;
+    color: #2D5016;
+    font-weight: 600;
+  }
+
+  .expandable-section {
+    background: #f5f5f5;
+    border-radius: 12px;
+    padding: 2rem;
+    margin-top: 3rem;
+  }
+
+  .expandable-section h3 {
+    margin: 0 0 1.5rem 0;
+    font-size: 1.3rem;
+    color: #2D5016;
+    font-weight: 600;
+  }
+
+  :global(.expandable-section .expandable-item) {
+    --transition-duration: 300ms;
+  }
+
+  @media (max-width: 768px) {
+    .getting-there-section {
+      padding: 3rem 1rem;
+    }
+
+    h2 {
+      font-size: 2rem;
+    }
+
+    .routes-grid {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .route-card {
+      padding: 1.5rem;
+    }
+
+    .expandable-section {
+      padding: 1.5rem;
+      margin-top: 2rem;
+    }
+  }
+</style>

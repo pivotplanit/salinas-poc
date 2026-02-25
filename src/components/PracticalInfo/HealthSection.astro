@@ -1,0 +1,179 @@
+---
+import { healthSafety } from "../../lib/practical-info-data";
+---
+
+<section class="health-section">
+  <div class="container">
+    <h2>Health & Safety</h2>
+    <p class="section-subtitle">Your wellbeing is our priority</p>
+
+    <div class="health-grid">
+      {healthSafety.map((item) => (
+        <div class="health-card">
+          <div class="health-icon">{item.icon}</div>
+          <h3>{item.title}</h3>
+          <p>{item.description}</p>
+        </div>
+      ))}
+    </div>
+
+    <div class="safety-info">
+      <h3>Important Safety Information</h3>
+      
+      <div class="safety-grid">
+        <div class="safety-item">
+          <h4>🏥 Medical Facilities</h4>
+          <p>Salinas has a health clinic with basic services. Quito (2-3 hours away) has world-class hospitals with English-speaking doctors. Travel insurance covering medical evacuation is highly recommended.</p>
+        </div>
+        
+        <div class="safety-item">
+          <h4>📱 Communication</h4>
+          <p>Cell coverage is excellent in Salinas. WiFi available at most accommodations. Emergency numbers: Police 911, Ambulance 911. We maintain emergency contact communication with all guests.</p>
+        </div>
+        
+        <div class="safety-item">
+          <h4>🛡️ Personal Safety</h4>
+          <p>Salinas is very safe with low crime rates. Communities are welcoming to visitors. Standard travel safety precautions apply: avoid displaying expensive items, stay in groups at night, use registered transportation.</p>
+        </div>
+        
+        <div class="safety-item">
+          <h4>⚠️ What to Avoid</h4>
+          <p>Tap water is safe in Salinas but bottled water recommended elsewhere. Avoid stray animals. Be cautious on steep trails, use proper footwear. Don't hike alone without informing staff of your route.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .health-section {
+    padding: 4rem 1rem;
+    background: #f5f5f5;
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #2D5016;
+    margin: 0 0 0.5rem 0;
+    text-align: center;
+  }
+
+  .section-subtitle {
+    text-align: center;
+    color: #666;
+    font-size: 1.1rem;
+    margin: 0 0 3rem 0;
+  }
+
+  .health-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 2rem;
+    margin-bottom: 3rem;
+  }
+
+  .health-card {
+    background: white;
+    border-radius: 12px;
+    padding: 2rem;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    border: 1px solid #e0e0e0;
+    transition: all 300ms ease;
+  }
+
+  .health-card:hover {
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+    transform: translateY(-4px);
+    border-color: #2D5016;
+  }
+
+  .health-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    line-height: 1;
+  }
+
+  .health-card h3 {
+    margin: 0 0 1rem 0;
+    font-size: 1.2rem;
+    color: #2D5016;
+    font-weight: 600;
+  }
+
+  .health-card p {
+    margin: 0;
+    color: #666;
+    font-size: 0.9rem;
+    line-height: 1.6;
+  }
+
+  .safety-info {
+    background: white;
+    border-radius: 12px;
+    padding: 2rem;
+    margin-top: 2rem;
+    border: 1px solid #e0e0e0;
+  }
+
+  .safety-info h3 {
+    font-size: 1.5rem;
+    color: #2D5016;
+    margin: 0 0 2rem 0;
+  }
+
+  .safety-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+  }
+
+  .safety-item h4 {
+    margin: 0 0 0.75rem 0;
+    font-size: 1.1rem;
+    color: #2D5016;
+    font-weight: 600;
+  }
+
+  .safety-item p {
+    margin: 0;
+    color: #666;
+    line-height: 1.6;
+    font-size: 0.95rem;
+  }
+
+  @media (max-width: 768px) {
+    .health-section {
+      padding: 3rem 1rem;
+    }
+
+    h2 {
+      font-size: 2rem;
+    }
+
+    .health-grid {
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .health-card {
+      padding: 1.5rem;
+    }
+
+    .safety-info {
+      padding: 1.5rem;
+    }
+
+    .safety-grid {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+  }
+</style>

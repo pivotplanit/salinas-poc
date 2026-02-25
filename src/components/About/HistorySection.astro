@@ -1,0 +1,182 @@
+---
+---
+
+<section class="history-section">
+  <div class="container">
+    <div class="history-layout">
+      <div class="history-content">
+        <h2>Our Story</h2>
+        
+        <div class="history-text">
+          <p>
+            What began in the 1970s as a family initiative has blossomed into a transformative movement. 
+            Our founders envisioned a way to share Ecuador's rich cultural heritage while creating sustainable 
+            opportunities for local communities.
+          </p>
+          
+          <p>
+            Today, we operate across 40+ communities, employing over 200 people and generating meaningful 
+            economic impact without compromising our core values of environmental stewardship and cultural 
+            preservation. Each experience we offer is designed to benefit the communities we work with, 
+            ensuring that tourism becomes a force for good.
+          </p>
+          
+          <p>
+            Recognized by UNESCO for our cultural conservation efforts, we continue to innovate in sustainable 
+            tourism while maintaining deep roots in local traditions. Our commitment extends beyond tourism – 
+            we're building a legacy of equity, respect, and shared prosperity.
+          </p>
+        </div>
+      </div>
+      
+      <div class="history-stats">
+        <div class="history-stat">
+          <div class="stat-number">50+</div>
+          <div class="stat-label">Years</div>
+        </div>
+        <div class="history-stat">
+          <div class="stat-number">40+</div>
+          <div class="stat-label">Communities</div>
+        </div>
+        <div class="history-stat">
+          <div class="stat-number">200+</div>
+          <div class="stat-label">Jobs Created</div>
+        </div>
+        <div class="history-stat">
+          <div class="stat-number">UNESCO</div>
+          <div class="stat-label">Heritage Site</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .history-section {
+    padding: 4rem 1rem;
+    background: white;
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .history-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+  }
+
+  h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #2D5016;
+    margin: 0 0 2rem 0;
+  }
+
+  .history-text p {
+    margin: 0 0 1.5rem 0;
+    color: #666;
+    line-height: 1.8;
+    font-size: 1.05rem;
+  }
+
+  .history-text p:last-child {
+    margin-bottom: 0;
+  }
+
+  .history-stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+  }
+
+  .history-stat {
+    text-align: center;
+    padding: 2rem;
+    background: linear-gradient(135deg, #f5f5f5 0%, #efefef 100%);
+    border-radius: 12px;
+    border: 1px solid #e0e0e0;
+    transition: all 300ms ease;
+  }
+
+  .history-stat:hover {
+    background: linear-gradient(135deg, #2D5016 0%, #1f3610 100%);
+    color: white;
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(45, 80, 22, 0.2);
+  }
+
+  .stat-number {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #2D5016;
+    line-height: 1;
+    margin-bottom: 0.5rem;
+  }
+
+  .history-stat:hover .stat-number {
+    color: white;
+  }
+
+  .stat-label {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #8B7355;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .history-stat:hover .stat-label {
+    color: rgba(255, 255, 255, 0.9);
+  }
+
+  @media (max-width: 1024px) {
+    .history-layout {
+      gap: 2rem;
+    }
+
+    h2 {
+      font-size: 2rem;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .history-section {
+      padding: 3rem 1rem;
+    }
+
+    .history-layout {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+
+    h2 {
+      font-size: 1.75rem;
+    }
+
+    .history-text p {
+      font-size: 1rem;
+      line-height: 1.6;
+    }
+
+    .history-stats {
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+
+    .history-stat {
+      padding: 1.5rem;
+    }
+
+    .stat-number {
+      font-size: 2rem;
+    }
+
+    .stat-label {
+      font-size: 0.85rem;
+    }
+  }
+</style>

@@ -1,0 +1,121 @@
+---
+import Button from "../Button.astro";
+import { contact } from "../../lib/constants";
+---
+
+<section class="need-help-section">
+  <h2>Need Help?</h2>
+  
+  <div class="help-grid">
+    <div class="help-item">
+      <div class="help-icon">📧</div>
+      <h3>Email</h3>
+      <p>{contact.email}</p>
+      <Button 
+        text="Send Email"
+        href={`mailto:${contact.email}`}
+        variant="outline"
+        size="sm"
+      />
+    </div>
+    
+    <div class="help-item">
+      <div class="help-icon">📞</div>
+      <h3>Phone</h3>
+      <p>{contact.phone}</p>
+      <Button 
+        text="Call Us"
+        href={`tel:${contact.phone}`}
+        variant="outline"
+        size="sm"
+      />
+    </div>
+    
+    <div class="help-item">
+      <div class="help-icon">💬</div>
+      <h3>WhatsApp</h3>
+      <p>{contact.whatsapp}</p>
+      <Button 
+        text="WhatsApp"
+        href={`https://wa.me/${contact.whatsapp.replace(/[^0-9]/g, '')}`}
+        target="_blank"
+        variant="outline"
+        size="sm"
+      />
+    </div>
+  </div>
+</section>
+
+<style>
+  .need-help-section {
+    padding: 3rem 0;
+    border-bottom: 1px solid #e0e0e0;
+  }
+
+  h2 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #2D5016;
+    margin: 0 0 2rem 0;
+    text-align: center;
+  }
+
+  .help-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+  }
+
+  .help-item {
+    padding: 1.5rem;
+    background: #f9f9f9;
+    border-radius: 8px;
+    border: 1px solid #e0e0e0;
+    text-align: center;
+    transition: all 300ms ease;
+  }
+
+  .help-item:hover {
+    border-color: #2D5016;
+    box-shadow: 0 4px 12px rgba(45, 80, 22, 0.1);
+  }
+
+  .help-icon {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    display: block;
+  }
+
+  .help-item h3 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #2D5016;
+    margin: 0 0 0.75rem 0;
+  }
+
+  .help-item p {
+    margin: 0 0 1rem 0;
+    color: #666;
+    font-size: 0.9rem;
+    word-break: break-all;
+  }
+
+  @media (max-width: 768px) {
+    .need-help-section {
+      padding: 2rem 0;
+    }
+
+    h2 {
+      font-size: 1.5rem;
+    }
+
+    .help-grid {
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+
+    .help-item {
+      padding: 1.25rem;
+    }
+  }
+</style>

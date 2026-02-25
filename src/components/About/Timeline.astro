@@ -1,0 +1,206 @@
+---
+import { timeline } from "../../lib/about-data";
+---
+
+<section class="timeline-section">
+  <div class="container">
+    <h2>Our Journey</h2>
+    <p class="section-subtitle">50+ years of impact and growth</p>
+    
+    <div class="timeline">
+      {timeline.map((item, index) => (
+        <div class="timeline-item" style={`--item-index: ${index}`}>
+          <div class="timeline-content">
+            <div class="timeline-dot"></div>
+            <div class="timeline-card">
+              <h3>{item.decade}</h3>
+              <p class="timeline-title">{item.title}</p>
+              <p class="timeline-description">{item.description}</p>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .timeline-section {
+    padding: 4rem 1rem;
+    background: #f9f9f9;
+  }
+
+  .container {
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #2D5016;
+    margin: 0 0 0.5rem 0;
+    text-align: center;
+  }
+
+  .section-subtitle {
+    text-align: center;
+    color: #666;
+    font-size: 1.1rem;
+    margin: 0 0 3rem 0;
+  }
+
+  .timeline {
+    position: relative;
+    padding: 2rem 0;
+  }
+
+  /* Timeline line */
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 2px;
+    height: 100%;
+    background: linear-gradient(180deg, #2D5016 0%, #A8D5BA 100%);
+    top: 0;
+  }
+
+  .timeline-item {
+    margin-bottom: 3rem;
+    opacity: 0;
+    animation: fadeInUp 0.6s ease forwards;
+    animation-delay: calc(var(--item-index) * 0.2s);
+  }
+
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .timeline-content {
+    position: relative;
+  }
+
+  .timeline-dot {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: white;
+    border: 4px solid #2D5016;
+    z-index: 2;
+    top: 0;
+  }
+
+  .timeline-card {
+    width: calc(50% - 30px);
+    padding: 2rem;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    border: 1px solid #e0e0e0;
+    transition: all 300ms ease;
+  }
+
+  /* Alternate sides */
+  .timeline-item:nth-child(odd) .timeline-card {
+    margin-left: 0;
+  }
+
+  .timeline-item:nth-child(even) .timeline-card {
+    margin-left: 50%;
+  }
+
+  .timeline-card:hover {
+    box-shadow: 0 8px 24px rgba(45, 80, 22, 0.1);
+    border-color: #2D5016;
+    transform: translateY(-2px);
+  }
+
+  .timeline-card h3 {
+    margin: 0 0 0.5rem 0;
+    font-size: 1.2rem;
+    color: #2D5016;
+    font-weight: 700;
+  }
+
+  .timeline-title {
+    margin: 0 0 0.75rem 0;
+    font-size: 1.1rem;
+    color: #8B7355;
+    font-weight: 600;
+  }
+
+  .timeline-description {
+    margin: 0;
+    color: #666;
+    line-height: 1.6;
+    font-size: 0.95rem;
+  }
+
+  @media (max-width: 1024px) {
+    /* Center line on tablet */
+    .timeline::before {
+      left: 20px;
+    }
+
+    .timeline-dot {
+      left: 20px;
+    }
+
+    .timeline-card {
+      width: calc(100% - 60px);
+      margin-left: 50px !important;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .timeline-section {
+      padding: 3rem 1rem;
+    }
+
+    h2 {
+      font-size: 2rem;
+    }
+
+    /* Single line on mobile */
+    .timeline::before {
+      left: 15px;
+    }
+
+    .timeline-item {
+      margin-bottom: 2rem;
+    }
+
+    .timeline-dot {
+      left: 15px;
+      width: 16px;
+      height: 16px;
+      border-width: 3px;
+    }
+
+    .timeline-card {
+      width: calc(100% - 50px);
+      margin-left: 45px !important;
+      padding: 1.5rem;
+    }
+
+    .timeline-card h3 {
+      font-size: 1rem;
+    }
+
+    .timeline-title {
+      font-size: 0.95rem;
+    }
+  }
+</style>

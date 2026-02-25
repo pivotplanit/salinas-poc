@@ -1,0 +1,97 @@
+---
+interface Props {
+  highlights?: string[];
+}
+
+const { highlights = [] } = Astro.props;
+---
+
+{highlights.length > 0 && (
+  <section class="highlights-section">
+    <h2>Highlights</h2>
+    <div class="highlights-grid">
+      {highlights.map((highlight) => (
+        <div class="highlight-item">
+          <div class="highlight-icon">✓</div>
+          <p>{highlight}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+)}
+
+<style>
+  .highlights-section {
+    padding: 3rem 0;
+    border-bottom: 1px solid #e0e0e0;
+  }
+
+  h2 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #2D5016;
+    margin: 0 0 2rem 0;
+  }
+
+  .highlights-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .highlight-item {
+    display: flex;
+    gap: 1rem;
+    padding: 1.25rem;
+    background: #f9f9f9;
+    border-radius: 8px;
+    border: 1px solid #e0e0e0;
+    transition: all 300ms ease;
+  }
+
+  .highlight-item:hover {
+    background: white;
+    border-color: #2D5016;
+    box-shadow: 0 4px 12px rgba(45, 80, 22, 0.1);
+  }
+
+  .highlight-icon {
+    flex-shrink: 0;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: #2D5016;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 1.1rem;
+  }
+
+  .highlight-item p {
+    margin: 0;
+    color: #666;
+    line-height: 1.6;
+    font-size: 0.95rem;
+  }
+
+  @media (max-width: 768px) {
+    .highlights-section {
+      padding: 2rem 0;
+    }
+
+    h2 {
+      font-size: 1.5rem;
+    }
+
+    .highlights-grid {
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+
+    .highlight-item {
+      padding: 1rem;
+    }
+  }
+</style>

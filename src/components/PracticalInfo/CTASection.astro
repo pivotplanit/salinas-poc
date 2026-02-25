@@ -1,0 +1,158 @@
+---
+import Button from "../Button.astro";
+import { contact } from "../../lib/constants";
+---
+
+<section class="cta-section">
+  <div class="container">
+    <h2>Still Have Questions?</h2>
+    <p class="subtitle">Our team is ready to help with any questions about your trip</p>
+
+    <div class="cta-buttons">
+      <Button 
+        text="📧 Email Us"
+        href={`mailto:${contact.email}`}
+        variant="primary"
+        size="lg"
+      />
+      <Button 
+        text="💬 WhatsApp"
+        href={`https://wa.me/${contact.whatsapp.replace(/[^0-9]/g, '')}`}
+        target="_blank"
+        variant="primary"
+        size="lg"
+      />
+      <Button 
+        text="📞 Call Us"
+        href={`tel:${contact.phone}`}
+        variant="primary"
+        size="lg"
+      />
+      <Button 
+        text="📄 Download PDF"
+        href="#"
+        variant="secondary"
+        size="lg"
+      />
+    </div>
+
+    <div class="contact-info">
+      <div class="info-item">
+        <h4>📧 Email</h4>
+        <p><a href={`mailto:${contact.email}`}>{contact.email}</a></p>
+      </div>
+      <div class="info-item">
+        <h4>📞 Phone</h4>
+        <p><a href={`tel:${contact.phone}`}>{contact.phone}</a></p>
+      </div>
+      <div class="info-item">
+        <h4>💬 WhatsApp</h4>
+        <p><a href={`https://wa.me/${contact.whatsapp.replace(/[^0-9]/g, '')}`} target="_blank">{contact.whatsapp}</a></p>
+      </div>
+      <div class="info-item">
+        <h4>⏰ Hours</h4>
+        <p>{contact.hours}</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .cta-section {
+    padding: 4rem 1rem;
+    background: linear-gradient(135deg, #2D5016 0%, #1f3610 100%);
+    color: white;
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin: 0 0 0.75rem 0;
+    text-align: center;
+  }
+
+  .subtitle {
+    text-align: center;
+    font-size: 1.1rem;
+    opacity: 0.95;
+    margin: 0 0 2.5rem 0;
+  }
+
+  .cta-buttons {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+  }
+
+  .contact-info {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+  }
+
+  .info-item h4 {
+    margin: 0 0 0.5rem 0;
+    font-size: 1.1rem;
+    font-weight: 600;
+  }
+
+  .info-item p {
+    margin: 0;
+    font-size: 0.95rem;
+  }
+
+  .info-item a {
+    color: #A8D5BA;
+    text-decoration: none;
+    transition: color 300ms ease;
+  }
+
+  .info-item a:hover {
+    color: white;
+    text-decoration: underline;
+  }
+
+  @media (max-width: 768px) {
+    .cta-section {
+      padding: 3rem 1rem;
+    }
+
+    h2 {
+      font-size: 2rem;
+    }
+
+    .subtitle {
+      font-size: 1rem;
+      margin-bottom: 2rem;
+    }
+
+    .cta-buttons {
+      grid-template-columns: 1fr;
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+
+    .contact-info {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+      margin-top: 1.5rem;
+    }
+
+    .info-item h4 {
+      font-size: 1rem;
+    }
+
+    .info-item p {
+      font-size: 0.9rem;
+    }
+  }
+</style>

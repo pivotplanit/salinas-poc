@@ -1,0 +1,110 @@
+---
+import { culture } from "../../lib/about-data";
+---
+
+<section class="culture-section">
+  <div class="container">
+    <h2>Our Cultural Heritage</h2>
+    <p class="section-subtitle">Preserving traditions through sustainable practices</p>
+    
+    <div class="culture-grid">
+      {culture.map((item) => (
+        <div class="culture-card">
+          <div class="culture-emoji">{item.emoji}</div>
+          <h3>{item.title}</h3>
+          <p>{item.description}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .culture-section {
+    padding: 4rem 1rem;
+    background: white;
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #2D5016;
+    margin: 0 0 0.5rem 0;
+    text-align: center;
+  }
+
+  .section-subtitle {
+    text-align: center;
+    color: #666;
+    font-size: 1.1rem;
+    margin: 0 0 3rem 0;
+  }
+
+  .culture-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+  }
+
+  .culture-card {
+    background: #f9f9f9;
+    border-radius: 12px;
+    padding: 2rem;
+    text-align: center;
+    border: 1px solid #e0e0e0;
+    transition: all 300ms ease;
+  }
+
+  .culture-card:hover {
+    border-color: #2D5016;
+    box-shadow: 0 8px 24px rgba(45, 80, 22, 0.1);
+    transform: translateY(-4px);
+  }
+
+  .culture-emoji {
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+    line-height: 1;
+  }
+
+  .culture-card h3 {
+    margin: 0 0 1rem 0;
+    font-size: 1.3rem;
+    color: #2D5016;
+  }
+
+  .culture-card p {
+    margin: 0;
+    color: #666;
+    line-height: 1.6;
+    font-size: 0.95rem;
+  }
+
+  @media (max-width: 768px) {
+    .culture-section {
+      padding: 3rem 1rem;
+    }
+
+    h2 {
+      font-size: 2rem;
+    }
+
+    .culture-grid {
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .culture-card {
+      padding: 1.5rem;
+    }
+
+    .culture-emoji {
+      font-size: 2.5rem;
+    }
+  }
+</style>

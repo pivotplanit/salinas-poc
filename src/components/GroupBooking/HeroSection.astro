@@ -1,0 +1,158 @@
+---
+import Button from "../Button.astro";
+---
+
+<section class="group-booking-hero">
+  <div class="container">
+    <div class="hero-content">
+      <h1>Group Experiences</h1>
+      <p class="subtitle">Custom journeys for organizations, teams, and groups</p>
+      <p class="description">
+        Whether you're leading a corporate retreat, educational group, or family adventure, 
+        we create unforgettable experiences tailored to your needs.
+      </p>
+      
+      <div class="hero-features">
+        <div class="feature">
+          <span class="feature-icon">🎯</span>
+          <span class="feature-text">Fully Customizable</span>
+        </div>
+        <div class="feature">
+          <span class="feature-icon">👥</span>
+          <span class="feature-text">2-300+ People</span>
+        </div>
+        <div class="feature">
+          <span class="feature-icon">🏨</span>
+          <span class="feature-text">All-Inclusive Options</span>
+        </div>
+        <div class="feature">
+          <span class="feature-icon">📅</span>
+          <span class="feature-text">Flexible Scheduling</span>
+        </div>
+      </div>
+
+      <div class="hero-buttons">
+        <Button 
+          text="Customize Your Trip"
+          href="#form"
+          variant="primary"
+          size="lg"
+        />
+        <Button 
+          text="View Itineraries"
+          href="#itineraries"
+          variant="outline"
+          size="lg"
+        />
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .group-booking-hero {
+    padding: 5rem 1rem;
+    background: linear-gradient(135deg, #2D5016 0%, #1f3610 100%);
+    color: white;
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .hero-content {
+    text-align: center;
+  }
+
+  h1 {
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin: 0 0 0.75rem 0;
+  }
+
+  .subtitle {
+    font-size: 1.5rem;
+    margin: 0 0 1rem 0;
+    opacity: 0.95;
+  }
+
+  .description {
+    font-size: 1.1rem;
+    margin: 0 0 2rem 0;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.7;
+    opacity: 0.9;
+  }
+
+  .hero-features {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1.5rem;
+    margin: 3rem 0;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .feature {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 1.5rem;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    backdrop-filter: blur(10px);
+  }
+
+  .feature-icon {
+    font-size: 2rem;
+  }
+
+  .feature-text {
+    font-weight: 600;
+    font-size: 0.95rem;
+  }
+
+  .hero-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  @media (max-width: 768px) {
+    .group-booking-hero {
+      padding: 3rem 1rem;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+    }
+
+    .subtitle {
+      font-size: 1.2rem;
+    }
+
+    .description {
+      font-size: 1rem;
+    }
+
+    .hero-features {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+      margin: 2rem 0;
+    }
+
+    .feature {
+      padding: 1rem;
+    }
+
+    .hero-buttons {
+      gap: 0.75rem;
+    }
+  }
+</style>

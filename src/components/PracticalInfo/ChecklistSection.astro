@@ -1,0 +1,195 @@
+---
+import { packingChecklist } from "../../lib/practical-info-data";
+---
+
+<section class="checklist-section">
+  <div class="container">
+    <h2>Packing Checklist</h2>
+    <p class="section-subtitle">Make sure you have everything for a comfortable trip</p>
+
+    <div class="checklist-grid">
+      {packingChecklist.map((category) => (
+        <div class="checklist-category">
+          <h3>{category.category}</h3>
+          <ul class="checklist-items">
+            {category.items.map((item) => (
+              <li>
+                <input 
+                  type="checkbox" 
+                  id={`${category.category}-${item}`}
+                  class="checklist-input"
+                />
+                <label for={`${category.category}-${item}`}>
+                  {item}
+                </label>
+              </li>
+            ))}
+          </ul>
+        </div>
+      ))}
+    </div>
+
+    <div class="checklist-tips">
+      <h3>💡 Packing Tips</h3>
+      <ul class="tips-list">
+        <li>Layers are key - mornings are cool, afternoons warm</li>
+        <li>Quality hiking boots are essential (break them in before your trip)</li>
+        <li>Waterproof bags protect electronics from mountain showers</li>
+        <li>A good headlamp enables evening walks and stargazing</li>
+        <li>Zip-lock bags are helpful for organizing and protecting items</li>
+        <li>Consider lightweight, quick-dry clothing for multiple days</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<style>
+  .checklist-section {
+    padding: 4rem 1rem;
+    background: white;
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #2D5016;
+    margin: 0 0 0.5rem 0;
+    text-align: center;
+  }
+
+  .section-subtitle {
+    text-align: center;
+    color: #666;
+    font-size: 1.1rem;
+    margin: 0 0 2rem 0;
+  }
+
+  .checklist-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    margin-bottom: 3rem;
+  }
+
+  .checklist-category {
+    background: #f9f9f9;
+    border-radius: 12px;
+    padding: 2rem;
+    border: 1px solid #e0e0e0;
+  }
+
+  .checklist-category h3 {
+    margin: 0 0 1.5rem 0;
+    font-size: 1.2rem;
+    color: #2D5016;
+    font-weight: 600;
+  }
+
+  .checklist-items {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .checklist-items li {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.75rem 0;
+    border-bottom: 1px solid #e0e0e0;
+  }
+
+  .checklist-items li:last-child {
+    border-bottom: none;
+  }
+
+  .checklist-input {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    accent-color: #2D5016;
+    flex-shrink: 0;
+  }
+
+  .checklist-items label {
+    cursor: pointer;
+    color: #666;
+    font-size: 0.95rem;
+    flex: 1;
+    user-select: none;
+    transition: color 300ms ease;
+  }
+
+  .checklist-items input:checked + label {
+    color: #2D5016;
+    font-weight: 600;
+    text-decoration: line-through;
+    opacity: 0.7;
+  }
+
+  .checklist-tips {
+    background: linear-gradient(135deg, #f5f5f5 0%, #efefef 100%);
+    border-radius: 12px;
+    padding: 2rem;
+    border: 1px solid #e0e0e0;
+    border-left: 4px solid #2D5016;
+  }
+
+  .checklist-tips h3 {
+    margin: 0 0 1.5rem 0;
+    font-size: 1.3rem;
+    color: #2D5016;
+    font-weight: 600;
+  }
+
+  .tips-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .tips-list li {
+    padding: 0.75rem 0 0.75rem 1.75rem;
+    color: #666;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    position: relative;
+  }
+
+  .tips-list li:before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    color: #2D5016;
+    font-weight: 700;
+  }
+
+  @media (max-width: 768px) {
+    .checklist-section {
+      padding: 3rem 1rem;
+    }
+
+    h2 {
+      font-size: 2rem;
+    }
+
+    .checklist-grid {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .checklist-category {
+      padding: 1.5rem;
+    }
+
+    .checklist-tips {
+      padding: 1.5rem;
+    }
+  }
+</style>

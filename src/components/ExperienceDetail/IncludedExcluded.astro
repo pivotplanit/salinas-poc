@@ -1,0 +1,145 @@
+---
+interface Props {
+  included?: string[];
+  excluded?: string[];
+}
+
+const { included = [], excluded = [] } = Astro.props;
+---
+
+{(included.length > 0 || excluded.length > 0) && (
+  <section class="included-excluded-section">
+    <h2>What's Included & What's Not</h2>
+    
+    <div class="checklist-grid">
+      {included.length > 0 && (
+        <div class="checklist-column">
+          <h3>✓ Included</h3>
+          <ul class="checklist">
+            {included.map((item) => (
+              <li class="included">
+                <span class="checkmark">✓</span>
+                {item}
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
+      
+      {excluded.length > 0 && (
+        <div class="checklist-column">
+          <h3>✗ Not Included</h3>
+          <ul class="checklist">
+            {excluded.map((item) => (
+              <li class="excluded">
+                <span class="x-mark">✗</span>
+                {item}
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
+    </div>
+  </section>
+)}
+
+<style>
+  .included-excluded-section {
+    padding: 3rem 0;
+    border-bottom: 1px solid #e0e0e0;
+  }
+
+  h2 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #2D5016;
+    margin: 0 0 2rem 0;
+  }
+
+  .checklist-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+  }
+
+  .checklist-column h3 {
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin: 0 0 1.5rem 0;
+    color: #2D5016;
+  }
+
+  .checklist {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .checklist li {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    padding: 0.75rem 0;
+    border-bottom: 1px solid #e0e0e0;
+    color: #666;
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+
+  .checklist li:last-child {
+    border-bottom: none;
+  }
+
+  .checkmark {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: #4CAF50;
+    color: white;
+    font-weight: 700;
+    font-size: 0.8rem;
+    flex-shrink: 0;
+    margin-top: 0.25rem;
+  }
+
+  .x-mark {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: #F44336;
+    color: white;
+    font-weight: 700;
+    font-size: 0.8rem;
+    flex-shrink: 0;
+    margin-top: 0.25rem;
+  }
+
+  .checklist li.excluded {
+    color: #999;
+  }
+
+  @media (max-width: 768px) {
+    .included-excluded-section {
+      padding: 2rem 0;
+    }
+
+    h2 {
+      font-size: 1.5rem;
+    }
+
+    .checklist-grid {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+
+    .checklist-column h3 {
+      font-size: 1.1rem;
+    }
+  }
+</style>

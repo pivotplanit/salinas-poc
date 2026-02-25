@@ -1,0 +1,275 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { experiences } from "../../lib/experiences-data";
+import ImageCarousel from "../../components/ExperienceDetail/ImageCarousel.astro";
+import OverviewSection from "../../components/ExperienceDetail/OverviewSection.astro";
+import HighlightsList from "../../components/ExperienceDetail/HighlightsList.astro";
+import ItineraryGrid from "../../components/ExperienceDetail/ItineraryGrid.astro";
+import IncludedExcluded from "../../components/ExperienceDetail/IncludedExcluded.astro";
+import PhysicalRequirements from "../../components/ExperienceDetail/PhysicalRequirements.astro";
+import WhatToBring from "../../components/ExperienceDetail/WhatToBring.astro";
+import TestimonialsSection from "../../components/ExperienceDetail/TestimonialsSection.astro";
+import FAQSection from "../../components/ExperienceDetail/FAQSection.astro";
+import RelatedExperiences from "../../components/ExperienceDetail/RelatedExperiences.astro";
+import NeedHelp from "../../components/ExperienceDetail/NeedHelp.astro";
+import ShareSection from "../../components/ExperienceDetail/ShareSection.astro";
+import BookingCard from "../../components/ExperienceDetail/BookingCard.astro";
+
+export async function getStaticPaths() {
+  return experiences.map((experience) => ({
+    params: { id: experience.id },
+    props: { experience },
+  }));
+}
+
+interface Props {
+  experience: (typeof experiences)[0];
+}
+
+const { experience } = Astro.props;
+---
+
+<BaseLayout
+  title={`${experience.title} | Salinas Experiences`}
+  description={experience.description}
+>
+  <section class="experience-hero">
+    <div class="container">
+      <div class="hero-header">
+        <span class="tag">{experience.tag}</span>
+        <h1>{experience.title}</h1>
+        <p class="subtitle">{experience.description}</p>
+        
+        <div class="meta-badges">
+          <div class="badge">
+            <span class="badge-icon">⏱️</span>
+            <span class="badge-text">{experience.duration}</span>
+          </div>
+          <div class="badge">
+            <span class="badge-icon">📍</span>
+            <span class="badge-text">{experience.altitude}</span>
+          </div>
+          <div class="badge">
+            <span class="badge-icon">👥</span>
+            <span class="badge-text">{experience.groupSize}</span>
+          </div>
+          <div class="badge" set:html={`
+            <span class="badge-icon">${experience.difficulty === 'Easy' ? '🟢' : experience.difficulty === 'Moderate' ? '🟡' : '🔴'}</span>
+            <span class="badge-text">${experience.difficulty}</span>
+          `}></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="experience-content">
+    <div class="container">
+      <div class="content-layout">
+        <div class="main-content">
+          <ImageCarousel images={[experience.icon, '🏞️', '🌿', '👥']} />
+          
+          <OverviewSection
+            overview={experience.overview}
+            whySpecial={experience.whySpecial}
+            whatYouLearn={experience.whatYouLearn}
+          />
+
+          <HighlightsList highlights={experience.highlights} />
+
+          <ItineraryGrid itinerary={experience.itinerary} />
+
+          <IncludedExcluded
+            included={experience.included}
+            excluded={experience.excluded}
+          />
+
+          <PhysicalRequirements
+            walking={experience.walking}
+            accessibility={experience.accessibility}
+            notSuitableFor={experience.notSuitableFor}
+          />
+
+          <WhatToBring items={experience.whatToBring} />
+
+          <TestimonialsSection testimonials={experience.testimonials} />
+
+          <FAQSection faqs={experience.faqs} />
+
+          <ShareSection title={experience.title} />
+
+          <RelatedExperiences
+            currentId={experience.id}
+            relatedIds={experience.relatedExperienceIds}
+          />
+
+          <NeedHelp />
+        </div>
+
+        <aside class="sidebar">
+          <BookingCard
+            price={experience.price}
+            groupDiscounts={experience.groupDiscounts}
+            title={experience.title}
+          />
+        </aside>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .experience-hero {
+    background: linear-gradient(135deg, #2D5016 0%, #1f3610 100%);
+    color: white;
+    padding: 4rem 1rem;
+  }
+
+  .container {
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+
+  .hero-header {
+    max-width: 900px;
+  }
+
+  .tag {
+    display: inline-block;
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    backdrop-filter: blur(10px);
+  }
+
+  h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    margin: 0 0 1rem 0;
+  }
+
+  .subtitle {
+    font-size: 1.2rem;
+    margin: 0 0 2rem 0;
+    opacity: 0.95;
+    line-height: 1.6;
+  }
+
+  .meta-badges {
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+  }
+
+  .badge {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: rgba(255, 255, 255, 0.15);
+    padding: 0.75rem 1.25rem;
+    border-radius: 8px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
+
+  .badge-icon {
+    font-size: 1.1rem;
+  }
+
+  .badge-text {
+    font-size: 0.9rem;
+    font-weight: 500;
+  }
+
+  .experience-content {
+    padding: 4rem 1rem;
+    background: white;
+  }
+
+  .content-layout {
+    display: grid;
+    grid-template-columns: 1fr 320px;
+    gap: 3rem;
+  }
+
+  .sidebar {
+    display: sticky;
+    position: sticky;
+    top: 2rem;
+    height: fit-content;
+  }
+
+  @media (max-width: 1200px) {
+    .content-layout {
+      gap: 2rem;
+    }
+
+    .sidebar {
+      position: static;
+    }
+  }
+
+  @media (max-width: 1024px) {
+    .content-layout {
+      grid-template-columns: 1fr;
+    }
+
+    .sidebar {
+      grid-column: 1;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+    }
+
+    .subtitle {
+      font-size: 1.1rem;
+    }
+
+    .meta-badges {
+      gap: 1rem;
+    }
+
+    .badge {
+      padding: 0.5rem 1rem;
+    }
+
+    .badge-text {
+      font-size: 0.85rem;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .experience-hero {
+      padding: 3rem 1rem;
+    }
+
+    .experience-content {
+      padding: 2rem 1rem;
+    }
+
+    h1 {
+      font-size: 2rem;
+    }
+
+    .subtitle {
+      font-size: 1rem;
+    }
+
+    .meta-badges {
+      gap: 0.75rem;
+    }
+
+    .badge {
+      padding: 0.5rem 0.75rem;
+      font-size: 0.8rem;
+    }
+
+    .badge-icon {
+      font-size: 1rem;
+    }
+  }
+</style>

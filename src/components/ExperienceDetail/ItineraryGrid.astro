@@ -1,0 +1,141 @@
+---
+interface Props {
+  itinerary?: Array<{ time: string; activity: string }>;
+}
+
+const { itinerary = [] } = Astro.props;
+---
+
+{itinerary.length > 0 && (
+  <section class="itinerary-section">
+    <h2>Day Itinerary</h2>
+    <div class="itinerary-timeline">
+      {itinerary.map((item, index) => (
+        <div class="itinerary-item" style={`--item-index: ${index}`}>
+          <div class="itinerary-time">
+            <div class="time-dot"></div>
+            <span class="time-text">{item.time}</span>
+          </div>
+          <div class="itinerary-activity">
+            <p>{item.activity}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>
+)}
+
+<style>
+  .itinerary-section {
+    padding: 3rem 0;
+    border-bottom: 1px solid #e0e0e0;
+  }
+
+  h2 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #2D5016;
+    margin: 0 0 2rem 0;
+  }
+
+  .itinerary-timeline {
+    position: relative;
+    padding-left: 2rem;
+  }
+
+  .itinerary-timeline::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: linear-gradient(180deg, #2D5016 0%, #A8D5BA 100%);
+  }
+
+  .itinerary-item {
+    display: grid;
+    grid-template-columns: 120px 1fr;
+    gap: 2rem;
+    margin-bottom: 2rem;
+    opacity: 0;
+    animation: fadeInUp 0.6s ease forwards;
+    animation-delay: calc(var(--item-index) * 0.1s);
+  }
+
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .itinerary-time {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+  }
+
+  .time-dot {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: #2D5016;
+    border: 3px solid white;
+    box-shadow: 0 0 0 2px #2D5016;
+    flex-shrink: 0;
+    margin-top: 0.25rem;
+  }
+
+  .time-text {
+    font-weight: 600;
+    color: #2D5016;
+    font-size: 0.9rem;
+  }
+
+  .itinerary-activity {
+    padding: 1.25rem;
+    background: #f9f9f9;
+    border-radius: 8px;
+    border-left: 3px solid #A8D5BA;
+  }
+
+  .itinerary-activity p {
+    margin: 0;
+    color: #666;
+    line-height: 1.6;
+    font-size: 0.95rem;
+  }
+
+  @media (max-width: 768px) {
+    .itinerary-section {
+      padding: 2rem 0;
+    }
+
+    h2 {
+      font-size: 1.5rem;
+    }
+
+    .itinerary-timeline {
+      padding-left: 1.5rem;
+    }
+
+    .itinerary-item {
+      grid-template-columns: 80px 1fr;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .time-text {
+      font-size: 0.8rem;
+    }
+
+    .itinerary-activity {
+      padding: 1rem;
+    }
+  }
+</style>

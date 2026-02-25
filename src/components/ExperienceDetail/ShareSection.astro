@@ -1,0 +1,167 @@
+---
+interface Props {
+  title?: string;
+  url?: string;
+}
+
+const {
+  title = "Check out this experience",
+  url = typeof window !== "undefined" ? window.location.href : "",
+} = Astro.props;
+---
+
+<section class="share-section">
+  <h2>Share This Experience</h2>
+  
+  <div class="share-buttons">
+    <a 
+      href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`}
+      target="_blank"
+      rel="noopener noreferrer"
+      class="share-btn facebook"
+      aria-label="Share on Facebook"
+    >
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+      </svg>
+      Facebook
+    </a>
+    
+    <a 
+      href={`https://api.whatsapp.com/send?text=${encodeURIComponent(title + ' ' + url)}`}
+      target="_blank"
+      rel="noopener noreferrer"
+      class="share-btn whatsapp"
+      aria-label="Share on WhatsApp"
+    >
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.67-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.076 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421-7.403h-.004a6.963 6.963 0 00-6.963 6.963c0 1.528.36 3.032 1.052 4.392L2.268 22.8l4.652-1.22c1.285.694 2.73 1.06 4.196 1.06h.004a6.963 6.963 0 006.963-6.963c0-1.863-.736-3.612-2.076-4.927-1.34-1.315-3.121-2.04-4.963-2.04"/>
+      </svg>
+      WhatsApp
+    </a>
+    
+    <a 
+      href={`mailto:?subject=${encodeURIComponent(title)}&body=${encodeURIComponent(url)}`}
+      class="share-btn email"
+      aria-label="Share via Email"
+    >
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="2" y="4" width="20" height="16" rx="2"></rect>
+        <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
+      </svg>
+      Email
+    </a>
+    
+    <button 
+      class="share-btn copy"
+      onclick="navigator.clipboard.writeText(window.location.href); alert('Link copied!')"
+      aria-label="Copy link"
+    >
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
+        <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+      </svg>
+      Copy Link
+    </button>
+  </div>
+</section>
+
+<style>
+  .share-section {
+    padding: 3rem 0;
+    border-bottom: 1px solid #e0e0e0;
+  }
+
+  h2 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #2D5016;
+    margin: 0 0 2rem 0;
+    text-align: center;
+  }
+
+  .share-buttons {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 1rem;
+  }
+
+  .share-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    padding: 0.875rem;
+    border-radius: 8px;
+    border: 2px solid #e0e0e0;
+    background: white;
+    color: #2D5016;
+    font-weight: 600;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 300ms ease;
+    text-decoration: none;
+  }
+
+  .share-btn:hover {
+    border-color: #2D5016;
+    box-shadow: 0 4px 12px rgba(45, 80, 22, 0.1);
+    transform: translateY(-2px);
+  }
+
+  .share-btn.facebook {
+    color: #1877F2;
+    border-color: #1877F2;
+  }
+
+  .share-btn.facebook:hover {
+    background: #f0f7ff;
+  }
+
+  .share-btn.whatsapp {
+    color: #25D366;
+    border-color: #25D366;
+  }
+
+  .share-btn.whatsapp:hover {
+    background: #f0fdf4;
+  }
+
+  .share-btn.email {
+    color: #EA4335;
+    border-color: #EA4335;
+  }
+
+  .share-btn.email:hover {
+    background: #fff5f5;
+  }
+
+  .share-btn.copy {
+    color: #8B7355;
+    border-color: #8B7355;
+  }
+
+  .share-btn.copy:hover {
+    background: #f5f0ed;
+  }
+
+  @media (max-width: 768px) {
+    .share-section {
+      padding: 2rem 0;
+    }
+
+    h2 {
+      font-size: 1.5rem;
+    }
+
+    .share-buttons {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0.75rem;
+    }
+
+    .share-btn {
+      padding: 0.75rem;
+      font-size: 0.85rem;
+    }
+  }
+</style>

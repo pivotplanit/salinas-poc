@@ -1,0 +1,96 @@
+---
+interface Props {
+  title?: string;
+}
+
+const { title = "Check out this experience" } = Astro.props;
+---
+
+<div class="share-box">
+  <p class="section-label">Share Options</p>
+  <h3>Share This</h3>
+  <div class="share-grid">
+    <button class="share-btn" data-share="facebook">Facebook</button>
+    <button class="share-btn" data-share="whatsapp">WhatsApp</button>
+    <button class="share-btn" data-share="email">Email</button>
+    <button class="share-btn" data-share="copy">Copy link</button>
+  </div>
+</div>
+
+<script define:vars={{ title }}>
+  document.querySelectorAll('.share-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const type = btn.getAttribute('data-share');
+      const url = window.location.href;
+      const encodedUrl = encodeURIComponent(url);
+      const encodedTitle = encodeURIComponent(title);
+      
+      switch (type) {
+        case 'facebook':
+          window.open(`https://www.facebook.com/sharer/sharer.php?u=${encodedUrl}`, '_blank');
+          break;
+        case 'whatsapp':
+          window.open(`https://api.whatsapp.com/send?text=${encodedTitle}%20${encodedUrl}`, '_blank');
+          break;
+        case 'email':
+          window.location.href = `mailto:?subject=${encodedTitle}&body=${encodedUrl}`;
+          break;
+        case 'copy':
+          navigator.clipboard.writeText(url).then(() => {
+            btn.textContent = 'Copied!';
+            setTimeout(() => { btn.textContent = 'Copy link'; }, 2000);
+          });
+          break;
+      }
+    });
+  });
+</script>
+
+<style>
+  .share-box {
+    background: white;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 1.5rem;
+  }
+
+  .section-label {
+    font-size: 0.7rem;
+    color: #999;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin: 0 0 0.5rem 0;
+    font-weight: 600;
+  }
+
+  h3 {
+    margin: 0 0 1rem 0;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #1a1a1a;
+  }
+
+  .share-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.5rem;
+  }
+
+  .share-btn {
+    padding: 0.6rem;
+    border: 1px solid #e0e0e0;
+    border-radius: 6px;
+    background: white;
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: #444;
+    cursor: pointer;
+    transition: all 200ms ease;
+    font-family: inherit;
+  }
+
+  .share-btn:hover {
+    border-color: var(--primary);
+    color: var(--primary);
+  }
+</style>

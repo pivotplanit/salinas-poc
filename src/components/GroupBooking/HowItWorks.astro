@@ -1,0 +1,191 @@
+---
+import { bookingSteps } from "../../lib/group-booking-data";
+---
+
+<section class="how-it-works">
+  <div class="container">
+    <h2>How It Works</h2>
+    <!-- <p class="section-subtitle">Four simple steps to your perfect group experience</p> -->
+
+    <div class="steps-grid">
+      {bookingSteps.map((step) => (
+        <div class="step-card">
+          <div class="step-number">{step.number}</div>
+          <h3>{step.title.toUpperCase()}</h3>
+          <p>{step.description}</p>
+          
+          {/* {step.number < 4 && (
+            <div class="step-arrow">→</div>
+          )} */}
+        </div>
+      ))}
+    </div>
+
+    <!-- <div class="timeline-visual">
+      <div class="timeline-line"></div>
+      <div class="timeline-dots">
+        {bookingSteps.map((_, index) => (
+          <div class="timeline-dot"></div>
+        ))}
+      </div>
+    </div> -->
+  </div>
+</section>
+
+<style>
+  .how-it-works {
+    padding: 4rem 1rem;
+    background: white;
+  }
+
+  .container {
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+
+  .container h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--primary);
+    margin: 0 0 0.5rem 0;
+    text-align: center;
+    padding-bottom: 4rem;
+  }
+
+  .section-subtitle {
+    text-align: center;
+    color: #666;
+    font-size: 1.1rem;
+    margin: 0 0 3rem 0;
+  }
+
+  .steps-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 2rem;
+    margin-bottom: 3rem;
+  }
+
+  .step-card {
+    padding: 2rem;
+    text-align: center;
+    position: relative;
+    transition: all 300ms ease;
+    color: var(--primary);
+  }
+
+  .step-card:hover .step-number{
+    border-color: var(--primary);
+    box-shadow: 0 8px 24px rgba(45, 80, 22, 0.1);
+    transform: translateY(-8px);
+  }
+
+  .step-number {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    background: var(--primary);
+    color: white;
+    font-size: 1rem;
+    font-weight: 700;
+    margin: 0 auto 1rem;
+  }
+
+  .step-card h3 {
+    margin: 0 0 0.75rem 0;
+    font-size: 1.3rem;
+    color: var(--primary);
+    font-weight: 700;
+  }
+
+  .step-card p {
+    margin: 0;
+    color: #666;
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+
+  .step-arrow {
+    position: absolute;
+    right: -2rem;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 2rem;
+    color: var(--primary);
+    font-weight: 700;
+  }
+
+  .step-card:last-child .step-arrow {
+    display: none;
+  }
+
+  .timeline-visual {
+    position: relative;
+    height: 20px;
+    margin-top: 2rem;
+  }
+
+  .timeline-line {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, #2D5016 0%, #A8D5BA 100%);
+    transform: translateY(-50%);
+  }
+
+  .timeline-dots {
+    display: flex;
+    justify-content: space-around;
+    position: relative;
+    z-index: 2;
+  }
+
+  .timeline-dot {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: white;
+    border: 3px solid var(--primary);
+  }
+
+  @media (max-width: 1024px) {
+    .step-arrow {
+      display: none;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .how-it-works {
+      padding: 3rem 1rem;
+    }
+
+    h2 {
+      font-size: 2rem;
+    }
+
+    .steps-grid {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .step-card {
+      padding: 1.5rem;
+    }
+
+    .step-number {
+      width: 50px;
+      height: 50px;
+      font-size: 1.5rem;
+    }
+
+    .timeline-visual {
+      display: none;
+    }
+  }
+</style>

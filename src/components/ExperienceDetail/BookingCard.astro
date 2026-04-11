@@ -1,0 +1,217 @@
+---
+import Button from "../Button.astro";
+
+interface Props {
+  price?: string;
+  groupDiscounts?: Array<{ size: string; discount: string }>;
+  title?: string;
+}
+
+const { price = "Contact for pricing", groupDiscounts = [], title = "Experience" } = Astro.props;
+---
+
+<aside class="booking-card" id="booking">
+    <div class="price-section">
+    <p class="price-label">From</p>
+    <p class="price-value">{price}</p>
+    <p class="price-note">per person</p>
+  </div>
+
+  {groupDiscounts.length > 0 && (
+    <div class="discounts-section">
+      <p class="discounts-title">Group Discounts</p>
+      <table class="discounts-table">
+        <tbody>
+          {groupDiscounts.map((discount) => (
+            <tr>
+              <td class="discount-size">{discount.size}</td>
+              <td class="discount-value">{discount.discount}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  )}
+
+  <div class="form-field">
+    <label for="select-date">Select Date</label>
+    <input type="date" id="select-date" />
+  </div>
+
+  <div class="form-field">
+    <label for="group-size">Group Size</label>
+    <select id="group-size">
+      <option value="">[Dropdown]</option>
+      <option value="1">1 person</option>
+      <option value="2">2 people</option>
+      <option value="3">3 people</option>
+      <option value="4">4 people</option>
+      <option value="5">5 people</option>
+      <option value="6+">6+ people</option>
+    </select>
+  </div>
+
+  <div class="booking-actions">
+    <Button
+      text="Book This Experience"
+      href="#"
+      variant="primary"
+      size="md"
+      fullWidth
+    />
+    <Button
+      text="Contact for Custom"
+      href="#contact"
+      variant="outline"
+      size="md"
+      fullWidth
+    />
+  </div>
+
+  <ul class="booking-features">
+    <li><span class="feature-check">✓</span> 24 hr response</li>
+    <li><span class="feature-check">✓</span> Flexible scheduling</li>
+    <li><span class="feature-check">✓</span> Custom options</li>
+  </ul>
+</aside>
+
+<style>
+  .booking-card {
+    background: white;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .card-label {
+    font-size: 0.7rem;
+    color: #999;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin: 0;
+    font-weight: 600;
+  }
+
+  .price-section {
+    text-align: center;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #e0e0e0;
+  }
+
+  .price-label {
+    margin: 0;
+    font-size: 0.8rem;
+    color: #999;
+    text-transform: uppercase;
+  }
+
+  .price-value {
+    margin: 0.25rem 0;
+    font-size: 2.25rem;
+    font-weight: 700;
+    color: #1a1a1a;
+  }
+
+  .price-note {
+    margin: 0;
+    font-size: 0.85rem;
+    color: #999;
+  }
+
+  .discounts-section {
+    background: #f9f9f9;
+    padding: 1rem;
+    border-radius: 6px;
+  }
+
+  .discounts-title {
+    margin: 0 0 0.75rem 0;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #1a1a1a;
+  }
+
+  .discounts-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.85rem;
+  }
+
+  .discounts-table tr {
+    border-bottom: 1px solid #e0e0e0;
+  }
+
+  .discounts-table tr:last-child {
+    border-bottom: none;
+  }
+
+  .discount-size {
+    padding: 0.4rem 0;
+    color: #666;
+  }
+
+  .discount-value {
+    padding: 0.4rem 0;
+    text-align: right;
+    font-weight: 600;
+    color: var(--primary);
+  }
+
+  .form-field {
+    display: flex;
+    flex-direction: column;
+    gap: 0.375rem;
+  }
+
+  .form-field label {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #1a1a1a;
+  }
+
+  .form-field input,
+  .form-field select {
+    padding: 0.6rem;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    font-family: inherit;
+  }
+
+  .form-field input:focus,
+  .form-field select:focus {
+    outline: none;
+    border-color: var(--primary);
+  }
+
+  .booking-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .booking-features {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .booking-features li {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.85rem;
+    color: #666;
+    padding: 0.25rem 0;
+  }
+
+  .feature-check {
+    color: #4CAF50;
+    font-weight: 700;
+  }
+</style>
+
+

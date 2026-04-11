@@ -1,0 +1,207 @@
+---
+import IconRenderer from "../IconRenderer.astro";
+
+interface Props {
+  features: Array<{
+    icon: string;
+    title: string;
+    description: string;
+    stat?: string;
+  }>;
+}
+
+const { features } = Astro.props;
+---
+
+<section class="why-choose">
+  <div class="section-container">
+    <h2 class="section-title">Why Book With Habitat?</h2>
+    <div class="why-choose-grid">
+      {features && features.length > 0 ? (
+        features.map(feature => (
+          <div class="feature-card">
+            <div class="feature-icon">
+              <IconRenderer icon={feature.icon} size={32} />
+            </div>
+            <h3>{feature.title}</h3>
+            <p>{feature.description}</p>
+          </div>
+        ))
+      ) : (
+        <div class="empty-state">
+          <p>No features available at this time</p>
+        </div>
+      )}
+    </div>
+  </div>
+</section>
+
+<style>
+  .section-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    width: 100%;
+  }
+
+  .why-choose {
+    padding: 4rem 2rem;
+    background: var(--white);
+  }
+
+  .section-title {
+    font-size: 2.5rem;
+    color: var(--text-dark);
+    margin-bottom: 3rem;
+    font-weight: 700;
+    text-align: center;
+  }
+
+  .why-choose-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+  }
+
+  .feature-card {
+    background: var(--white);
+    padding: 2rem;
+    border-radius: 8px;
+    text-align: center;
+    transition: transform 0.3s;
+  }
+
+  .feature-card:hover {
+    transform: translateY(-8px);
+  }
+
+  .feature-icon {
+    width: 80px;
+    height: 80px;
+    background: #e5e5e5;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.5rem;
+  }
+
+  .feature-card h3 {
+    font-size: 1.3rem;
+    color: var(--text-dark);
+    margin-bottom: 1rem;
+  }
+
+  .feature-card p {
+    color: var(--text-medium);
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+    font-size: 0.95rem;
+  }
+
+  .feature-stat {
+    color: var(--text-dark);
+    font-weight: 700;
+    font-size: 1.25rem;
+  }
+
+  .empty-state {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 3rem 2rem;
+    color: var(--text-medium);
+  }
+
+  @media (max-width: 1024px) {
+    .why-choose {
+      padding: 3rem 1.5rem;
+    }
+
+    .why-choose-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+    }
+
+    .section-title {
+      font-size: 2.2rem;
+      margin-bottom: 2rem;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .why-choose {
+      padding: 2rem 1rem;
+    }
+
+    .section-title {
+      font-size: 1.8rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .why-choose-grid {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+
+    .feature-card {
+      padding: 1.5rem;
+    }
+
+    .feature-icon {
+      width: 64px;
+      height: 64px;
+      margin-bottom: 1rem;
+    }
+
+    .feature-card h3 {
+      font-size: 1.1rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .feature-card p {
+      font-size: 0.9rem;
+      margin-bottom: 1rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .why-choose {
+      padding: 1.5rem 0.75rem;
+    }
+
+    .section-title {
+      font-size: 1.4rem;
+      margin-bottom: 1rem;
+    }
+
+    .why-choose-grid {
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+
+    .feature-card {
+      padding: 1.25rem;
+      border-radius: 6px;
+    }
+
+    .feature-icon {
+      width: 56px;
+      height: 56px;
+      margin-bottom: 0.75rem;
+    }
+
+    .feature-card h3 {
+      font-size: 1rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .feature-card p {
+      font-size: 0.85rem;
+      margin-bottom: 0.75rem;
+      line-height: 1.5;
+    }
+
+    .feature-stat {
+      font-size: 1.1rem;
+    }
+  }
+</style>

@@ -1,0 +1,31 @@
+{
+  "testimonials": [
+    {
+      "id": "sarah-martinez",
+      "name": "Dr. Sarah Martinez",
+      "affiliation": "University of Colorado",
+      "avatar": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=150&h=150&fit=crop",
+      "date": "November 2024",
+      "rating": 5,
+      "text": "An incredible experience for our students. The community model is fascinating and the people are so welcoming. Highly recommend for educational groups."
+    },
+    {
+      "id": "james-chen",
+      "name": "James Chen",
+      "affiliation": "Stanford Study Abroad",
+      "avatar": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop",
+      "date": "October 2024",
+      "rating": 5,
+      "text": "An incredible experience for our students. The community model is fascinating and the people are so welcoming. Highly recommend for educational groups."
+    },
+    {
+      "id": "maria-rodriguez",
+      "name": "Maria Rodriguez",
+      "affiliation": "Global Education Tours",
+      "avatar": "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&h=150&fit=crop",
+      "date": "September 2024",
+      "rating": 5,
+      "text": "An incredible experience for our students. The community model is fascinating and the people are so welcoming. Highly recommend for educational groups."
+    }
+  ]
+}

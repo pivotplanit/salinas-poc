@@ -1,0 +1,79 @@
+---
+import { contact } from "../../lib/constants";
+---
+
+<div class="need-help" id="contact">
+  <p class="section-label">Contact Information</p>
+  <h3>Need Help?</h3>
+  <ul class="contact-list">
+    <li>
+      <span class="contact-icon">📞</span>
+      <a href={`tel:${contact.phone}`}>Tel: {contact.phone}</a>
+    </li>
+    <li>
+      <span class="contact-icon">📧</span>
+      <a href={`mailto:${contact.email}`}>Email: {contact.email}</a>
+    </li>
+    <li>
+      <span class="contact-icon">💬</span>
+      <a href={`https://wa.me/${contact.whatsapp.replace(/[^0-9]/g, '')}`} target="_blank">WhatsApp link</a>
+    </li>
+  </ul>
+</div>
+
+<style>
+  .need-help {
+    background: white;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 1.5rem;
+  }
+
+  .section-label {
+    font-size: 0.7rem;
+    color: #999;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin: 0 0 0.5rem 0;
+    font-weight: 600;
+  }
+
+  h3 {
+    margin: 0 0 1rem 0;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #1a1a1a;
+  }
+
+  .contact-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .contact-list li {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.5rem 0;
+    font-size: 0.9rem;
+    border-bottom: 1px solid #f0f0f0;
+  }
+
+  .contact-list li:last-child {
+    border-bottom: none;
+  }
+
+  .contact-icon {
+    flex-shrink: 0;
+  }
+
+  .contact-list a {
+    color: #444;
+    text-decoration: none;
+  }
+
+  .contact-list a:hover {
+    color: var(--primary);
+  }
+</style>

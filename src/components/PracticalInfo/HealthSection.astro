@@ -1,0 +1,258 @@
+---
+import IconRenderer from "../IconRenderer.astro";
+---
+
+<section class="health-section">
+  <div class="container">
+    <div class="section-heading">
+      <IconRenderer icon="ShieldCheck" size={32} />
+      <h2>Health & Safety</h2>
+    </div>
+
+    <!-- Altitude Considerations -->
+    <div class="sub-section">
+      <div class="sub-section-header">
+        <IconRenderer icon="TriangleCaution" size={20} />
+        <h3>Altitude Considerations</h3>
+      </div>
+      <dl class="kv-list">
+        <div class="kv-row">
+          <dt>Salinas:</dt>
+          <dd>3,550m (11,640 ft)</dd>
+        </div>
+        <div class="kv-row">
+          <dt>Symptoms to watch:</dt>
+          <dd>Headache, nausea, fatigue</dd>
+        </div>
+        <div class="kv-row">
+          <dt>Prevention:</dt>
+          <dd>Arrive day before, hydrate, avoid alcohol</dd>
+        </div>
+        <div class="kv-row">
+          <dt>Coca tea:</dt>
+          <dd>Available, helps acclimatization</dd>
+        </div>
+      </dl>
+    </div>
+
+    <!-- Travel Insurance -->
+    <div class="sub-section">
+      <div class="sub-section-header">
+        <IconRenderer icon="Backpack" size={20} />
+        <h3>Travel Insurance</h3>
+      </div>
+      
+      <dl class="kv-list kv-split">
+        <div class="kv-row">
+          <dt>Recommended:</dt>
+          <dd>Yes, strongly advised</dd>
+        </div>
+        <div class="kv-row">
+          <dt>Coverage needed:</dt>
+          <dd>Medical, evacuation</dd>
+        </div>
+        <div class="kv-row">
+          <dt>Purchase:</dt>
+          <dd>Before arrival</dd>
+        </div>
+      </dl>
+    </div>
+
+    <!-- Safety -->
+    <div class="sub-section">
+      <div class="sub-section-header">
+        <IconRenderer icon="TriangleCaution" size={20} />
+        <h3>Safety</h3>
+      </div>
+      
+      <dl class="kv-list kv-split">
+        <div class="kv-row">
+          <dt>Crime rate:</dt>
+          <dd>Very low (community tourism)</dd>
+        </div>
+        <div class="kv-row">
+          <dt>Emergency contact:</dt>
+          <dd class="phone-value">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            911
+          </dd>
+        </div>
+        <div class="kv-row">
+          <dt>Nearest hospital:</dt>
+          <dd>Guaranda (35km)</dd>
+        </div>
+      </dl>
+    </div>
+
+    <!-- Services in Salinas -->
+    <div class="sub-section">
+      <div class="sub-section-header">
+        <IconRenderer icon="BookOpen" size={20} />
+        <h3>Services in Salinas:</h3>
+      </div>
+      
+      <div class="services-grid">
+        <label class="checkbox-item">
+          <input type="checkbox" checked disabled />
+          <span>Basic medical clinic</span>
+        </label>
+        <label class="checkbox-item">
+          <input type="checkbox" disabled />
+          <span>ATM (nearest in Guaranda)</span>
+        </label>
+        <label class="checkbox-item">
+          <input type="checkbox" disabled />
+          <span>Limited phone signal (some providers)</span>
+        </label>
+        <label class="checkbox-item">
+          <input type="checkbox" disabled />
+          <span>WiFi (hotels/cafes only)</span>
+        </label>
+        <label class="checkbox-item">
+          <input type="checkbox" checked disabled />
+          <span>Pharmacies (basic supplies)</span>
+        </label>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .health-section {
+    padding: 4rem 1rem;
+    background: white;
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .section-heading {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 2.5rem;
+  }
+
+  h2 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #111827;
+    margin: 0;
+  }
+
+  .sub-section {
+    border: 1px dashed var(--border-color);
+    padding: 1rem 2rem;
+    border-radius:8px;
+    margin: 1rem 0;
+  }
+
+  h3 {
+    font-size: 1.125rem;
+    font-weight: 700;
+    color: #111827;
+  }
+
+  /* Altitude box */
+  .sub-section-header {
+    display: flex;
+    gap: 0.5rem;
+    flex-direction: row;
+    align-items: center;
+    margin: 1rem 0;
+  }
+
+
+  .altitude-content {
+    flex: 1;
+  }
+
+  /* Key-value lists */
+  .kv-list {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .kv-row {
+    display: flex;
+    gap: 0.5rem;
+  }
+
+  .kv-row dt {
+    font-weight: 700;
+    color: #111827;
+    white-space: nowrap;
+  }
+
+  .kv-row dd {
+    margin: 0;
+    color: #4B5563;
+  }
+
+  /* Split layout: key left, value right */
+  .kv-split .kv-row {
+    justify-content: space-between;
+  }
+
+  .kv-split .kv-row dd {
+    text-align: right;
+  }
+
+  /* Phone value */
+  .phone-value {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+  }
+
+  .phone-value svg {
+    flex-shrink: 0;
+  }
+
+  /* Services grid */
+  .services-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.75rem 2rem;
+  }
+
+  .checkbox-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: #4B5563;
+    font-size: 0.95rem;
+    cursor: default;
+  }
+
+  .checkbox-item input[type="checkbox"] {
+    width: 1rem;
+    height: 1rem;
+    accent-color: #111827;
+    flex-shrink: 0;
+  }
+
+  @media (max-width: 768px) {
+    .health-section {
+      padding: 3rem 1rem;
+    }
+
+    .kv-split .kv-row {
+      flex-direction: column;
+      gap: 0.125rem;
+    }
+
+    .kv-split .kv-row dd {
+      text-align: left;
+      padding-left: 0;
+    }
+
+    .services-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

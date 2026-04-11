@@ -1,0 +1,118 @@
+---
+interface Props {
+  itinerary?: Array<{ time: string; title?: string; activity: string }>;
+}
+
+const { itinerary = [] } = Astro.props;
+---
+
+{itinerary.length > 0 && (
+  <section class="itinerary-section">
+    <h2>Detailed Itinerary</h2>
+    <p class="section-subtitle">Time-Blocked Schedule</p>
+    <div class="timeline">
+      {itinerary.map((item, index) => (
+        <div class="timeline-item">
+          <div class="timeline-marker">
+            <div class="time-badge">{item.time}</div>
+            {index < itinerary.length - 1 && <div class="timeline-line"></div>}
+          </div>
+          <div class="timeline-content">
+            {item.title && <h3>{item.title}</h3>}
+            <p>{item.activity}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>
+)}
+
+<style>
+  .itinerary-section {
+    padding: 3rem 0;
+    border-bottom: 1px solid #e0e0e0;
+  }
+
+  h2 {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin: 0 0 0.25rem 0;
+  }
+
+  .section-subtitle {
+    font-size: 0.9rem;
+    color: #999;
+    margin: 0 0 2rem 0;
+  }
+
+  .timeline {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .timeline-item {
+    display: grid;
+    grid-template-columns: 80px 1fr;
+    gap: 1.5rem;
+    position: relative;
+  }
+
+  .timeline-marker {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .time-badge {
+    background: var(--primary);
+    color: white;
+    padding: 0.4rem 0.6rem;
+    border-radius: 6px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    white-space: nowrap;
+    text-align: center;
+  }
+
+  .timeline-line {
+    width: 2px;
+    flex: 1;
+    background: #e0e0e0;
+    min-height: 2rem;
+  }
+
+  .timeline-content {
+    padding-bottom: 2rem;
+  }
+
+  .timeline-content h3 {
+    margin: 0 0 0.5rem 0;
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: #1a1a1a;
+  }
+
+  .timeline-content p {
+    margin: 0;
+    color: #666;
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+
+  @media (max-width: 768px) {
+    .timeline-item {
+      grid-template-columns: 70px 1fr;
+      gap: 1rem;
+    }
+
+    .time-badge {
+      font-size: 0.75rem;
+    }
+
+    h2 {
+      font-size: 1.5rem;
+    }
+  }
+</style>

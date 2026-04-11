@@ -1,0 +1,182 @@
+---
+import { stats } from "../../lib/about-data";
+import IconRenderer from "@components/IconRenderer.astro";
+---
+
+<section class="stats-section">
+  <div class="container">
+    <h2>Impact by the Numbers</h2>
+    <div class="stats-grid">
+      {stats.map((stat) => (
+        <div class="stat-item">
+          <div class="stat-icon">
+            <IconRenderer icon={stat.icon} size={32}/>
+          </div>
+          <div class="stat-number" data-value={stat.value}>{stat.value}</div>
+          <div class="stat-label">{stat.label}</div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .stats-section {
+    padding: 4rem 1rem;
+    background: white;
+  }
+
+  .container {
+    max-width: 1600px;
+    margin: 0 auto;
+  }
+
+  h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--primary);
+    margin: 0 0 3rem 0;
+    text-align: center;
+  }
+
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+  }
+
+  .stat-item {
+    text-align: center;
+    color: #333;
+    padding: 2rem;
+    border-radius: 12px;
+    background: white;
+    border: 1px solid #e0e0e0;
+    transition: all 300ms ease;
+  }
+
+  .stat-item:hover {
+    box-shadow: 0 8px 24px rgba(45, 80, 22, 0.1);
+    transform: translateY(-4px);
+    border-color: var(--primary);
+  }
+
+  .stat-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    line-height: 1;
+    width: 80px;
+    height: 80px;
+    background: #E5E7EB;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.5rem;
+  }
+
+  .stat-number {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    line-height: 1;
+    color: var(--primary);
+  }
+
+  .stat-label {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #666;
+    margin: 0;
+  }
+
+  @media (max-width: 1024px) {
+    .stats-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 768px) {
+    .stats-section {
+      padding: 3rem 1rem;
+    }
+
+    h2 {
+      font-size: 2rem;
+    }
+
+    .stats-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+    }
+
+    .stat-item {
+      padding: 1.5rem;
+    }
+
+    .stat-icon {
+      font-size: 2.5rem;
+    }
+
+    .stat-number {
+      font-size: 2rem;
+    }
+
+    .stat-label {
+      font-size: 0.9rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .stats-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
+
+<script>
+  // Animate numbers on scroll
+  const observerOptions = {
+    threshold: 0.5,
+    rootMargin: '0px'
+  };
+
+  const animateNumber = (element: Element) => {
+    const text = (element as HTMLElement).textContent || '';
+    const matches = text.match(/(\d+)/);
+    if (!matches) return;
+
+    const target = parseInt(matches[0]);
+    let current = 0;
+    const duration = 2000;
+    const startTime = Date.now();
+
+    const animate = () => {
+      const elapsed = Date.now() - startTime;
+      const progress = Math.min(elapsed / duration, 1);
+      current = Math.floor(target * progress);
+
+      const originalText = text.replace(/\d+/, current.toString());
+      (element as HTMLElement).textContent = originalText;
+
+      if (progress < 1) {
+        requestAnimationFrame(animate);
+      }
+    };
+
+    animate();
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        animateNumber(entry.target);
+        observer.unobserve(entry.target);
+      }
+    });
+  }, observerOptions);
+
+  document.querySelectorAll('.stat-number').forEach((element) => {
+    observer.observe(element);
+  });
+</script>

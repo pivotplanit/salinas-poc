@@ -1,0 +1,91 @@
+---
+import IconRenderer from "../IconRenderer.astro";
+
+const cards = [
+  { icon: "Factory", title: "Getting There", subtitle: "Travel times" },
+  { icon: "Leaf", title: "Weather", subtitle: "Climate info" },
+  { icon: "Backpack", title: "What to Pack", subtitle: "Checklist" },
+  { icon: "ShieldCheck", title: "Stay Safe", subtitle: "Health tips" },
+];
+---
+
+<section class="quick-reference">
+  <div class="cards-grid">
+    {cards.map((card) => (
+      <div class="card">
+        <div class="card-icon">
+          <IconRenderer icon={card.icon} size={28} />
+        </div>
+        <h3 class="card-title">{card.title}</h3>
+        <p class="card-subtitle">{card.subtitle}</p>
+      </div>
+    ))}
+  </div>
+</section>
+
+<style>
+  .quick-reference {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2.5rem 1rem;
+  }
+
+  .cards-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+  }
+
+  .card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 2rem 1.5rem;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    background: #fff;
+  }
+
+  .card-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: #F3F4F6;
+    margin-bottom: 1rem;
+    color: #374151;
+  }
+
+  .card-title {
+    margin: 0 0 0.25rem 0;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #111827;
+  }
+
+  .card-subtitle {
+    margin: 0;
+    font-size: 0.875rem;
+    color: #6B7280;
+  }
+
+  @media (max-width: 768px) {
+    .cards-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+    }
+
+    .card {
+      padding: 1.5rem 1rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .cards-grid {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+</style>

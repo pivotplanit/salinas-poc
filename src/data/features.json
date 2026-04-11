@@ -1,0 +1,25 @@
+{
+  "features": [
+    {
+      "id": "community-impact",
+      "icon": "Users",
+      "title": "Community Impact",
+      "description": "Direct support for 40+ local family businesses",
+      "stat": "40+ Family Businesses"
+    },
+    {
+      "id": "authentic-access",
+      "icon": "Lock",
+      "title": "Authentic Access",
+      "description": "Guided by community members who live here",
+      "stat": "100% Locally Guided"
+    },
+    {
+      "id": "educational-value",
+      "icon": "BookOpen",
+      "title": "Educational Value",
+      "description": "Learn about sustainable development models",
+      "stat": "UNESCO Recognition"
+    }
+  ]
+}

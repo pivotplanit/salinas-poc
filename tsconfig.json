@@ -1,0 +1,27 @@
+{
+  "extends": "astro/tsconfigs/strict",
+  "compilerOptions": {
+    "moduleResolution": "bundler",
+    "resolveJsonModule": true,
+    "paths": {
+      "@components/*": [
+        "./src/components/*"
+      ],
+      "@layouts/*": [
+        "./src/layouts/*"
+      ],
+      "@lib/*": [
+        "./src/lib/*"
+      ],
+      "@assets/*": [
+        "./src/assets/*"
+      ],
+      "@configs/*": [
+        "./src/configs/*"
+      ]
+    }
+  },
+  "include": [
+    "./worker-configuration.d.ts"
+  ]
+}

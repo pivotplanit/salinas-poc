@@ -1,0 +1,64 @@
+/* Common Styles for All Pages */
+
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --primary: #374151;
+  --secondary: #f9fafb;
+  --dark-navy: #2c3e50;
+  --dark-gray: #34495e;
+  --medium-gray: #d1d5db;
+  --light-gray: #f3f4f6;
+  --very-light-gray: #f8f9fa;
+  --white: #ffffff;
+  --black: #000000;
+  --accent-purple: #9b59b6;
+  --accent-light-purple: #e8d5f2;
+  --text-dark: #2c3e50;
+  --text-medium: #5d6d7b;
+  --text-light: #95a5a6;
+  --border-color: #d1d5db;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+  color: var(--text-dark);
+  line-height: 1.6;
+  background-color: var(--white);
+}
+
+/* Button Styles */
+.btn {
+  display: inline-block;
+  padding: 0.55rem 2rem;
+  background: var(--primary);
+  color: var(--white);
+  text-decoration: none;
+  border-radius: 4px;
+  font-family: "Inter", sans-serif;
+  font-weight: 500;
+  line-height: 20px;
+  border: 1px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.btn:hover {
+  background: var(--dark-gray);
+}
+
+.btn-outline {
+  background: transparent;
+  border: 2px solid var(--primary);
+  color: var(--primary);
+}
+
+.btn.btn-outline:hover {
+  background: var(--medium-gray);
+}

@@ -1,0 +1,55 @@
+---
+import FAQItem from "../FAQItem.astro";
+
+interface Props {
+  faqs?: Array<{
+    question: string;
+    answer: string;
+  }>;
+}
+
+const { faqs = [] } = Astro.props;
+---
+
+{faqs.length > 0 && (
+  <section class="faq-section">
+    <h2>FAQ</h2>
+    <div class="faq-list">
+      {faqs.map((faq, index) => (
+        <FAQItem
+          question={faq.question}
+          answer={faq.answer}
+          defaultOpen={index === 0}
+        />
+      ))}
+    </div>
+  </section>
+)}
+
+<style>
+  .faq-section {
+    padding: 3rem 0;
+    border-bottom: 1px solid #e0e0e0;
+  }
+
+  h2 {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin: 0 0 1.5rem 0;
+  }
+
+  .faq-list {
+    border-top: 1px solid #e0e0e0;
+  }
+
+  @media (max-width: 768px) {
+    .faq-section {
+      padding: 2rem 0;
+    }
+
+    h2 {
+      font-size: 1.5rem;
+    }
+  }
+</style>

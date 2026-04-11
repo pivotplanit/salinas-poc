@@ -1,0 +1,79 @@
+---
+import IconRenderer from "../IconRenderer.astro";
+import ExpandableItem from "../ExpandableItem.astro";
+---
+
+<section class="getting-there-section">
+  <div class="container">
+    <div class="section-heading">
+      <IconRenderer icon="Factory" size={32} />
+      <h2>Getting There</h2>
+    </div>
+
+    <div class="routes">
+      <ExpandableItem
+        title="From Quito (most common)"
+        content={`<p class="route-meta">Distance: 180km • Time: 4-4.5 hours</p><strong>Route:</strong><br/>Take the Panamericana Sur from Quito heading south through the Avenue of the Volcanoes. Exit toward Guaranda and continue west through the Chimborazo province, descending into the subtropical valley toward Salinas de Guaranda.<br/><br/><strong>Bus:</strong><br/>From Terminal Quitumbe in Quito, take a direct bus to Guaranda (approximately 4 hours). From Guaranda, local buses and shared trucks depart regularly for Salinas (30-45 minutes). Cooperativa de Transportes Guaranda and Flota Bolívar operate daily routes.<br/><br/><strong>Private Transfer:</strong><br/>We can arrange private transportation from Quito directly to Salinas. Contact us at info@salinasecuador.com or +593 98 765 4321 for availability and pricing.`}
+        defaultOpen={true}
+      />
+
+      <ExpandableItem
+        title="From Guayaquil"
+        content={`<p class="route-meta">Distance: 250km • Time: 4-5 hours</p>Take the E491 highway north from Guayaquil toward Babahoyo, then continue northeast through Chimbo to Guaranda. From Guaranda, follow the road north to Salinas de Guaranda. The route passes through diverse landscapes from coastal lowlands to highland valleys.`}
+      />
+
+      <ExpandableItem
+        title="From Cuenca"
+        content={`<p class="route-meta">Distance: 400km • Time: 7-8 hours</p>Head north on the E35 Panamericana through Cañar and Riobamba. From Riobamba, take the road west to Guaranda via Ambato or the direct Riobamba-Guaranda route. Continue north from Guaranda to Salinas. This is the longest route but offers spectacular Andean scenery.`}
+      />
+    </div>
+  </div>
+</section>
+
+<style>
+  .getting-there-section {
+    padding: 4rem 1rem;
+    background: white;
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .section-heading {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 2rem;
+  }
+
+  h2 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #111827;
+    margin: 0;
+  }
+
+  .routes {
+    display: flex;
+    flex-direction: column;
+  }
+
+  :global(.routes .expandable-item) {
+    border: 1px solid var(--border-color);
+    border-style: solid;
+  }
+
+  :global(.routes .route-meta) {
+    font-size: 0.9rem;
+    color: #6b7280;
+    margin: 0 0 1rem 0;
+  }
+
+  @media (max-width: 768px) {
+    .getting-there-section {
+      padding: 3rem 1rem;
+    }
+  }
+</style>

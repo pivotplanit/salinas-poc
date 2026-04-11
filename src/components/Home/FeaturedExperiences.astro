@@ -1,0 +1,478 @@
+---
+import { Image } from "astro:assets";
+import Button from "../Button.astro";
+
+interface Experience {
+  id: string;
+  icon: string;
+  title: string;
+  category: string;
+  duration: string;
+  difficulty: string;
+  highlights: string[];
+}
+
+interface Props {
+  experiences: Experience[];
+  id?: string;
+}
+
+const { experiences, id } = Astro.props;
+
+// Placeholder images - 16:9 ratio
+const imagePlaceholders: Record<string, string> = {
+  "salt-mines-cheese": "https://picsum.photos/600/338?random=5",
+  "salt-mines-adventure": "https://picsum.photos/600/338?random=6",
+  "chocolate-workshop": "https://picsum.photos/600/338?random=7",
+  "art-cultural": "https://picsum.photos/600/338?random=8",
+  "nature-hike": "https://picsum.photos/600/338?random=9",
+  "multi-day-expedition": "https://picsum.photos/600/338?random=10",
+};
+---
+
+<section class="featured-experiences" {id}>
+  <div class="section-container">
+    <div class="section-header">
+      <h2 class="section-title">Featured Experiences</h2>
+      <div class="carousel-controls">
+        <button class="carousel-btn prev" aria-label="Previous" data-target="experiences-carousel">
+          ←
+        </button>
+        <button class="carousel-btn next" aria-label="Next" data-target="experiences-carousel">
+          →
+        </button>
+      </div>
+    </div>
+    <div class="carousel-container">
+      <div class="experiences-carousel" id="experiences-carousel">
+        {experiences && experiences.length > 0 ? (
+          experiences.map((exp) => (
+            <div class="experience-card">
+              <div class="experience-image">
+                <Image
+                  src={imagePlaceholders[exp.id] || "https://picsum.photos/600/338?random=11"}
+                  alt={exp.title}
+                  class="card-image"
+                  width={600}
+                  height={338}
+                />
+                <div class="category-badge">{exp.category}</div>
+              </div>
+              <div class="experience-content">
+                <h3>{exp.title}</h3>
+                <ul class="highlights-list">
+                  {exp.highlights.slice(0, 3).map((highlight) => (
+                    <li>{highlight}</li>
+                  ))}
+                </ul>
+                <div class="experience-details">
+                  <span class="detail-item">
+                    <span class="icon">⏱️</span>
+                    <span class="text">{exp.duration}</span>
+                  </span>
+                  <span class="detail-item">
+                    <span class="icon">👥</span>
+                    <span class="text">{exp.difficulty}</span>
+                  </span>
+                </div>
+                
+                <Button text="Learn More" href="/experiences" variant="outline" size="sm" />
+              </div>
+            </div>
+          ))
+        ) : (
+          <div class="empty-state">
+            <p>No experiences available at this time</p>
+          </div>
+        )}
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .featured-experiences {
+    padding: 4rem 2rem;
+    background: var(--white);
+  }
+
+  .section-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    width: 100%;
+  }
+
+  .section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+    gap: 1rem;
+  }
+
+  .section-title {
+    font-size: 2.5rem;
+    color: var(--text-dark);
+    font-weight: 700;
+    margin: 0;
+    flex: 1;
+  }
+
+  .carousel-controls {
+    display: flex;
+    gap: 0.75rem;
+  }
+
+  .carousel-btn {
+    width: 44px;
+    height: 44px;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    background: var(--white);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.25rem;
+    color: var(--text-dark);
+    transition: all 0.3s ease;
+  }
+
+  .carousel-btn:hover {
+    border-color: var(--accent-purple);
+    color: var(--accent-purple);
+    background: var(--accent-light-purple);
+  }
+
+  .carousel-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+
+  .carousel-container {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .experiences-carousel {
+    display: flex;
+    gap: 2rem;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    padding: 0;
+    scroll-snap-type: x mandatory;
+  }
+
+  .experiences-carousel::-webkit-scrollbar {
+    display: none;
+  }
+
+  .experiences-carousel {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .experience-card {
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    background: var(--white);
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    flex: 0 0 calc(33.333% - 1.33rem);
+    min-width: 320px;
+    scroll-snap-align: start;
+  }
+
+  .experience-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+  }
+
+  .experience-image {
+    position: relative;
+    width: 100%;
+    padding-bottom: 56.25%; /* 16:9 aspect ratio */
+    background: var(--very-light-gray);
+    overflow: hidden;
+  }
+
+  .card-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .category-badge {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    background: var(--white);
+    color: var(--primary);
+    padding: 0.5rem 1rem;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    z-index: 5;
+  }
+
+  .experience-content {
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+  }
+
+  .experience-tag {
+    color: var(--accent-purple);
+    font-weight: 600;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    margin-bottom: 0.75rem;
+    letter-spacing: 0.5px;
+  }
+
+  .experience-content h3 {
+    color: var(--text-dark);
+    margin-bottom: 1rem;
+    font-size: 1.25rem;
+    font-weight: 600;
+    line-height: 1.3;
+  }
+
+  .experience-details {
+    display: flex;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+    flex-wrap: wrap;
+  }
+
+  .detail-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--text-medium);
+    font-size: 0.9rem;
+  }
+
+  .detail-item .icon {
+    font-size: 1rem;
+  }
+
+  .highlights-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 1.5rem 0;
+    flex: 1;
+  }
+
+  .highlights-list li {
+    color: var(--text-medium);
+    padding: 0.5rem 0;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .highlights-list li::before {
+    content: "✓ ";
+    color: var(--accent-purple);
+    font-weight: 600;
+    margin-right: 0.5rem;
+  }
+
+  .empty-state {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 3rem 2rem;
+    color: var(--text-medium);
+  }
+
+  @media (max-width: 1600px) {
+    .section-container {
+      padding: 0 1.5rem;
+    }
+
+    .featured-experiences {
+      padding: 3rem 1.5rem;
+    }
+
+    .experience-card {
+      flex: 0 0 calc(50% - 1rem);
+      min-width: 280px;
+    }
+
+    .section-title {
+      font-size: 2.2rem;
+    }
+  }
+
+  @media (max-width: 1024px) {
+    .experience-card {
+      flex: 0 0 calc(50% - 1rem);
+    }
+  }
+
+  @media (max-width: 768px) {
+    .featured-experiences {
+      padding: 2rem 1rem;
+    }
+
+    .section-container {
+      padding: 0 1rem;
+    }
+
+    .section-title {
+      font-size: 1.8rem;
+    }
+
+    .experience-card {
+      flex: 0 0 calc(100% - 1rem);
+      min-width: 100%;
+    }
+
+    .section-header {
+      flex-direction: column;
+      align-items: flex-start;
+      margin-bottom: 1.5rem;
+    }
+
+    .carousel-controls {
+      width: 100%;
+      justify-content: flex-start;
+      gap: 0.5rem;
+    }
+
+    .carousel-btn {
+      width: 40px;
+      height: 40px;
+      font-size: 1.1rem;
+    }
+
+    .experiences-carousel {
+      gap: 1rem;
+    }
+
+    .experience-content {
+      padding: 1.5rem;
+    }
+
+    .experience-content h3 {
+      font-size: 1.1rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .experience-details {
+      gap: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    .detail-item {
+      font-size: 0.85rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .featured-experiences {
+      padding: 1.5rem 0.75rem;
+    }
+
+    .section-container {
+      padding: 0 0.75rem;
+    }
+
+    .section-title {
+      font-size: 1.4rem;
+    }
+
+    .section-header {
+      gap: 0.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .carousel-controls {
+      gap: 0.4rem;
+    }
+
+    .carousel-btn {
+      width: 36px;
+      height: 36px;
+      font-size: 1rem;
+    }
+
+    .experience-card {
+      flex: 0 0 calc(100% - 0.5rem);
+      min-width: auto;
+    }
+
+    .experiences-carousel {
+      gap: 0.75rem;
+    }
+
+    .experience-image {
+      padding-bottom: 56.25%;
+    }
+
+    .category-badge {
+      padding: 0.35rem 0.75rem;
+      font-size: 0.65rem;
+    }
+
+    .experience-content {
+      padding: 1rem;
+    }
+
+    .experience-content h3 {
+      font-size: 0.95rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .highlights-list li {
+      font-size: 0.8rem;
+      padding: 0.35rem 0;
+    }
+
+    .highlights-list li::before {
+      margin-right: 0.35rem;
+    }
+
+    .experience-details {
+      flex-direction: column;
+      gap: 0.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .detail-item {
+      font-size: 0.8rem;
+    }
+  }
+</style>
+
+<script>
+  document.querySelectorAll('.carousel-btn').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const carouselId = (btn as HTMLElement).dataset.target;
+      if (!carouselId) return;
+      const carousel = document.getElementById(carouselId);
+      if (!carousel) return;
+
+      const scrollAmount = (carousel.offsetWidth / 3 + 2 * 16) * 3 ; // 1 card width + gap
+      if (btn.classList.contains('prev')) {
+        carousel.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+      } else {
+        carousel.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+      }
+    });
+  });
+</script>

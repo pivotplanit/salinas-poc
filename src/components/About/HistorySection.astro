@@ -1,0 +1,239 @@
+---
+import { timeline } from "../../lib/about-data";
+---
+
+<section class="history-section">
+  <div class="container">
+    <div class="history-layout">
+      <div class="history-content">
+        <h2>A History of Cooperation</h2>
+        
+        <div class="history-subsections">
+          <div class="subsection">
+            <h3>History of Salinas</h3>
+            <p>From a small isolated parish to a thriving example of cooperative economics. In the 1970s, Salinas was one of the poorest communities in Ecuador.</p>
+          </div>
+          
+          <div class="subsection">
+            <h3>Development of Solidarity Economy</h3>
+            <p>Starting with a small cheese factory, the community learned basic cooperative techniques and built a cooperative model where profits stayed local.</p>
+          </div>
+          
+          <div class="subsection">
+            <h3>Role of Father Antonio Polo</h3>
+            <p>The story of Father Antonio Polo and the community's resilience. His vision of community empowerment through cooperative enterprise created a sustainable economic model.</p>
+          </div>
+          
+          <div class="subsection">
+            <h3>Growth from Cheese to 40+ Enterprises</h3>
+            <p>Today, Salinas is home to 40+ community enterprises exporting products worldwide, from chocolate to textiles to mushrooms.</p>
+          </div>
+          
+          <div class="subsection">
+            <h3>UNESCO Recognition</h3>
+            <p>Recognized internationally as a model of sustainable community development and solidarity economy.</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="timeline-box">
+        <div class="timeline-content">
+          {timeline.map((item) => (
+            <div class="timeline-entry">
+              <div class="timeline-dot"></div>
+              <div class="timeline-text">
+                <div class="timeline-year">{item.decade}</div>
+                <div class="timeline-event">{item.title}</div>
+                <div class="timeline-description">{item.description}</div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .history-section {
+    padding: 4rem 1rem;
+    background: white;
+  }
+
+  .container {
+    max-width: 1600px;
+    margin: 0 auto;
+  }
+
+  .history-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: flex-start;
+  }
+
+  h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--primary);
+    margin: 0 0 2rem 0;
+  }
+
+  .history-subsections {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .subsection {
+    padding-left: 0;
+  }
+
+  .subsection h3 {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--primary);
+    margin: 0 0 0.75rem 0;
+  }
+
+  .subsection p {
+    margin: 0;
+    color: #666;
+    line-height: 1.6;
+    font-size: 0.95rem;
+  }
+
+  .timeline-box {
+    background: white;
+    border: 1px solid #e0e0e0;
+    border-radius: 12px;
+    padding: 2rem;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
+    position: sticky;
+    top: 150px;
+  }
+
+  .timeline-title {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--primary);
+    margin: 0 0 1.5rem 0;
+    text-align: center;
+  }
+
+  .timeline-content {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .timeline-entry {
+    display: flex;
+    gap: 1rem;
+    position: relative;
+  }
+
+  .timeline-entry:not(:last-child) {
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid #f0f0f0;
+  }
+
+  .timeline-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: var(--primary);
+    flex-shrink: 0;
+    margin-top: 4px;
+  }
+
+  .timeline-text {
+    flex: 1;
+  }
+
+  .timeline-year {
+    font-weight: 700;
+    color: var(--primary);
+    font-size: 0.95rem;
+    margin-bottom: 0.25rem;
+  }
+
+  .timeline-event {
+    font-weight: 600;
+    color: #333;
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .timeline-description {
+    font-size: 0.85rem;
+    color: #666;
+    line-height: 1.5;
+  }
+
+  @media (max-width: 1024px) {
+    .history-layout {
+      gap: 2rem;
+    }
+
+    h2 {
+      font-size: 2rem;
+    }
+
+    .timeline-box {
+      top: 100px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .history-section {
+      padding: 3rem 1rem;
+    }
+
+    .history-layout {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+
+    h2 {
+      font-size: 1.75rem;
+    }
+
+    .timeline-box {
+      position: static;
+    }
+
+    .subsection p {
+      font-size: 1rem;
+      line-height: 1.6;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .history-section {
+      padding: 2rem 1rem;
+    }
+
+    h2 {
+      font-size: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .timeline-box {
+      padding: 1.5rem;
+    }
+
+    .timeline-title {
+      font-size: 1.1rem;
+      margin-bottom: 1rem;
+    }
+
+    .timeline-content {
+      gap: 1rem;
+    }
+
+    .timeline-entry:not(:last-child) {
+      padding-bottom: 1rem;
+    }
+  }
+</style>

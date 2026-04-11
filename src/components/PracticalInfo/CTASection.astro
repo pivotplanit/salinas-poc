@@ -1,0 +1,147 @@
+---
+import Button from "../Button.astro";
+import IconRenderer from "../IconRenderer.astro";
+import { contact } from "../../lib/constants";
+---
+
+<section class="cta-section">
+  <div class="container">
+    <h2>Still Have Questions?</h2>
+    <p class="subtitle">Our team is here to help you plan your perfect trip to Salinas.</p>
+
+    <div class="cards">
+      <a class="card" href={`tel:${contact.phone}`}>
+        <div class="icon-circle">
+          <IconRenderer icon="Users" size={28} />
+        </div>
+        <h3>Call Us</h3>
+        <p class="card-detail">{contact.phone}</p>
+      </a>
+
+      <a class="card" href={`mailto:${contact.email}`}>
+        <div class="icon-circle">
+          <IconRenderer icon="BookOpen" size={28} />
+        </div>
+        <h3>Email</h3>
+        <p class="card-detail">{contact.email}</p>
+      </a>
+
+      <a class="card" href={`https://wa.me/${contact.whatsapp.replace(/[^0-9]/g, '')}`} target="_blank">
+        <div class="icon-circle">
+          <IconRenderer icon="HeartHandshake" size={28} />
+        </div>
+        <h3>WhatsApp</h3>
+        <p class="card-detail">Quick response</p>
+      </a>
+    </div>
+
+    <div class="cta-btn-wrap">
+      <Button
+        text="Download Guide PDF"
+        href="#"
+        variant="outline"
+        class="cta-outline-btn"
+      />
+    </div>
+  </div>
+</section>
+
+<style>
+  .cta-section {
+    padding: 4rem 1rem;
+    background: #1F2937;
+    color: white;
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  h2 {
+    font-size: 2rem;
+    font-weight: 700;
+    margin: 0 0 0.75rem 0;
+    text-align: center;
+    color: white;
+  }
+
+  .subtitle {
+    text-align: center;
+    font-size: 1.05rem;
+    color: rgba(255, 255, 255, 0.85);
+    margin: 0 0 2.5rem 0;
+  }
+
+  .cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+
+  .card {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+    padding: 2rem;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    color: inherit;
+    transition: background 300ms ease;
+  }
+
+  .card:hover {
+    background: rgba(255, 255, 255, 0.1);
+  }
+
+  .icon-circle {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem;
+    color: white;
+  }
+
+  .card h3 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin: 0 0 0.5rem 0;
+    color: white;
+  }
+
+  .card-detail {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.7);
+    margin: 0;
+  }
+
+  .cta-btn-wrap {
+    margin-top: 2rem;
+    text-align: center;
+  }
+
+  .cta-btn-wrap :global(.cta-outline-btn) {
+    color: white;
+    border-color: rgba(255, 255, 255, 0.5);
+  }
+
+  .cta-btn-wrap :global(.cta-outline-btn:hover) {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: white;
+    color: white;
+  }
+
+  @media (max-width: 768px) {
+    .cards {
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+  }
+</style>

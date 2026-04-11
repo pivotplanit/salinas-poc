@@ -1,0 +1,78 @@
+---
+interface Props {
+  overview?: string;
+  whySpecial?: string;
+  whatYouLearn?: string;
+}
+
+const { overview, whySpecial, whatYouLearn } = Astro.props;
+---
+
+<section class="overview-section">
+  <h2>Overview</h2>
+  <div class="overview-list">
+    {overview && (
+      <div class="overview-item">
+        <h3>What is this experience?</h3>
+        <p>{overview}</p>
+      </div>
+    )}
+
+    {whySpecial && (
+      <div class="overview-item">
+        <h3>Why is it special?</h3>
+        <p>{whySpecial}</p>
+      </div>
+    )}
+
+    {whatYouLearn && (
+      <div class="overview-item">
+        <h3>What will you learn/discover?</h3>
+        <p>{whatYouLearn}</p>
+      </div>
+    )}
+  </div>
+</section>
+
+<style>
+  .overview-section {
+    border-bottom: 1px solid #e0e0e0;
+  }
+
+  h2 {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin-bottom: 1.5rem;
+  }
+
+  .overview-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  h3 {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--primary);
+    margin: 0 0 0.5rem 0;
+  }
+
+  p {
+    margin: 0;
+    color: #666;
+    line-height: 1.7;
+    font-size: 0.95rem;
+  }
+
+  @media (max-width: 768px) {
+    .overview-section {
+      padding: 2rem 0;
+    }
+
+    h2 {
+      font-size: 1.5rem;
+    }
+  }
+</style>

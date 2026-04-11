@@ -1,0 +1,50 @@
+{
+  "name": "habitat-salinas",
+  "version": "1.0.0",
+  "description": "Sustainable tourism platform for Salinas de Guaranda, Ecuador",
+  "type": "module",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro",
+    "lint": "biome lint src/",
+    "lint:fix": "biome lint --write src/",
+    "format": "biome format src/",
+    "format:check": "biome format --check src/",
+    "generate-types": "wrangler types"
+  },
+  "keywords": [
+    "astro",
+    "cloudflare",
+    "tourism",
+    "sustainable",
+    "ecuador"
+  ],
+  "author": "HABITAT Travel",
+  "license": "MIT",
+  "dependencies": {
+    "@astrojs/check": "0.9.8",
+    "@astrojs/cloudflare": "^13.1.8",
+    "@astrojs/sitemap": "3.7.2",
+    "astro": "^6.1.5",
+    "leaflet": "1.9.4",
+    "lucide-react": "1.7.0",
+    "typescript": "5.9.3",
+    "webcoreui": "1.4.0"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "2.4.11",
+    "husky": "9.1.7",
+    "lint-staged": "16.2.7",
+    "sass-embedded": "1.99.0",
+    "wrangler": "^4.81.1"
+  },
+  "lint-staged": {
+    "src/**/*.{ts,astro,jsx,js}": "biome lint --write",
+    "src/**/*.{ts,astro,css,json}": "biome format --write"
+  },
+  "overrides": {
+    "vite": "^7"
+  }
+}

@@ -1,0 +1,275 @@
+---
+import { weather } from "../../lib/practical-info-data";
+---
+
+<section class="climate-section">
+  <div class="container">
+    <h2>Climate & Weather</h2>
+    <p class="section-subtitle">What to expect year-round</p>
+    
+    <div class="climate-carousel-wrapper">
+      <button class="carousel-nav carousel-prev" aria-label="Previous slide">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <polyline points="15 18 9 12 15 6"></polyline>
+        </svg>
+      </button>
+
+      <div class="climate-carousel">
+        <div class="carousel-track">
+          {weather.map((item, index) => (
+            <div class="climate-card" data-slide={index}>
+              <div class="climate-emoji">{item.emoji}</div>
+              <h3>{item.season}</h3>
+              <div class="climate-temp">{item.temperature}</div>
+              <p>{item.description}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <button class="carousel-nav carousel-next" aria-label="Next slide">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <polyline points="9 18 15 12 9 6"></polyline>
+        </svg>
+      </button>
+    </div>
+
+    <div class="carousel-dots">
+      {weather.map((_, index) => (
+        <button 
+          class="dot" 
+          data-dot={index} 
+          aria-label={`Go to slide ${index + 1}`}
+          aria-current={index === 0}
+        ></button>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .climate-section {
+    padding: 4rem 1rem;
+    background: #f5f5f5;
+  }
+
+  .container {
+    max-width: 1600px;
+    margin: 0 auto;
+  }
+
+  h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--primary);
+    margin: 0 0 0.5rem 0;
+    text-align: center;
+  }
+
+  .section-subtitle {
+    text-align: center;
+    color: #666;
+    font-size: 1.1rem;
+    margin: 0 0 2rem 0;
+  }
+
+  .climate-carousel-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+  }
+
+  .climate-carousel {
+    flex: 1;
+    overflow: hidden;
+    border-radius: 12px;
+  }
+
+  .carousel-track {
+    display: flex;
+    gap: 1rem;
+    scroll-behavior: smooth;
+    scroll-snap-type: x mandatory;
+  }
+
+  .climate-card {
+    flex: 0 0 100%;
+    scroll-snap-align: start;
+    background: white;
+    border-radius: 12px;
+    padding: 2rem;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    transition: all 300ms ease;
+  }
+
+  @media (min-width: 768px) {
+    .climate-card {
+      flex: 0 0 calc(50% - 0.5rem);
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .climate-card {
+      flex: 0 0 calc(25% - 0.75rem);
+    }
+  }
+
+  .climate-card:hover {
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+    transform: translateY(-4px);
+  }
+
+  .climate-emoji {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    line-height: 1;
+  }
+
+  .climate-card h3 {
+    margin: 0 0 0.75rem 0;
+    font-size: 1.2rem;
+    color: var(--primary);
+    font-weight: 600;
+  }
+
+  .climate-temp {
+    margin: 0 0 1rem 0;
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #8B7355;
+  }
+
+  .climate-card p {
+    margin: 0;
+    color: #666;
+    line-height: 1.6;
+    font-size: 0.95rem;
+  }
+
+  /* Navigation buttons */
+  .carousel-nav {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: var(--primary);
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: all 300ms ease;
+    flex-shrink: 0;
+  }
+
+  @media (min-width: 768px) {
+    .carousel-nav {
+      display: flex;
+    }
+  }
+
+  .carousel-nav:hover {
+    background: #1f3610;
+    transform: scale(1.1);
+  }
+
+  .carousel-nav:active {
+    transform: scale(0.95);
+  }
+
+  /* Dots */
+  .carousel-dots {
+    display: flex;
+    justify-content: center;
+    gap: 0.75rem;
+  }
+
+  .dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: #ddd;
+    border: none;
+    cursor: pointer;
+    transition: all 300ms ease;
+  }
+
+  .dot.active {
+    background: var(--primary);
+    width: 32px;
+    border-radius: 6px;
+  }
+
+  .dot:hover {
+    background: var(--primary);
+  }
+
+  @media (max-width: 768px) {
+    .climate-section {
+      padding: 3rem 1rem;
+    }
+
+    h2 {
+      font-size: 2rem;
+    }
+
+    .climate-carousel-wrapper {
+      gap: 0.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .climate-card {
+      padding: 1.5rem;
+      flex: 0 0 100%;
+    }
+
+    .climate-emoji {
+      font-size: 2.5rem;
+    }
+  }
+</style>
+
+<script>
+  const carousel = document.querySelector('.carousel-track');
+  const cards = document.querySelectorAll('.climate-card');
+  const dots = document.querySelectorAll('.dot');
+  const prevBtn = document.querySelector('.carousel-prev');
+  const nextBtn = document.querySelector('.carousel-next');
+
+  if (!carousel || cards.length === 0) {
+    console.warn('Carousel elements not found');
+  } else {
+    let currentIndex = 0;
+    const cardWidth = (cards[0] as HTMLDivElement).offsetWidth;
+    const gap = 16; // Same as gap in CSS
+
+    const goToSlide = (index: number) => {
+      currentIndex = Math.max(0, Math.min(index, cards.length - 1));
+      const offset = currentIndex * (cardWidth + gap);
+      carousel.scrollLeft = offset;
+
+      // Update dots
+      dots.forEach((dot, i) => {
+        dot.classList.toggle('active', i === currentIndex);
+        dot.setAttribute('aria-current', String(i === currentIndex));
+      });
+    };
+
+    prevBtn?.addEventListener('click', () => goToSlide(currentIndex - 1));
+    nextBtn?.addEventListener('click', () => goToSlide(currentIndex + 1));
+
+    dots.forEach((dot, index) => {
+      dot.addEventListener('click', () => goToSlide(index));
+    });
+
+    // Initialize
+    goToSlide(0);
+
+    // Handle window resize
+    window.addEventListener('resize', () => {
+      goToSlide(currentIndex);
+    });
+  }
+</script>

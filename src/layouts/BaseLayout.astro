@@ -1,0 +1,80 @@
+---
+import Footer from "../components/Footer.astro";
+import Header from "../components/Header.astro";
+import SEO from "../components/SEO.astro";
+import "../styles/global.css";
+
+export interface Props {
+  title: string;
+  description?: string;
+  image?: string;
+  ogType?: "website" | "article" | "product";
+  schema?: Record<string, unknown>;
+}
+
+const {
+  title,
+  description = "Sustainable tourism in Salinas de Guaranda, Ecuador",
+  image,
+  ogType = "website",
+  schema,
+} = Astro.props;
+
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <SEO 
+      title={title} 
+      description={description}
+      image={image}
+      canonicalURL={canonicalURL.toString()}
+      ogType={ogType}
+      schema={schema}
+    />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  </head>
+  <body>
+    <Header />
+    <main>
+      <slot />
+    </main>
+    <Footer />
+  </body>
+</html>
+
+<style>
+  :global(body) {
+    margin: 0;
+    padding: 0;
+    font-family: system-ui, -apple-system, sans-serif;
+  }
+
+  main {
+    min-height: calc(100vh - 200px);
+  }
+
+  @media (max-width: 1024px) {
+    main {
+      min-height: calc(100vh - 180px);
+    }
+  }
+
+  @media (max-width: 768px) {
+    main {
+      min-height: calc(100vh - 160px);
+    }
+  }
+
+  @media (max-width: 480px) {
+    main {
+      min-height: calc(100vh - 140px);
+    }
+  }
+</style>

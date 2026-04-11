@@ -1,0 +1,347 @@
+---
+import Button from "../Button.astro";
+import {
+  interestOptions,
+  durationOptions,
+  accommodationOptions,
+} from "../../lib/group-booking-data";
+---
+
+<section class="booking-form-section" id="form">
+  <div class="container">
+    <h2>Request a Quote</h2>
+    <p class="section-subtitle">Tell us about your group and we'll create a custom proposal</p>
+
+    <form class="booking-form">
+      <div class="form-columns">
+        <div class="form-column form-left">
+          <!-- Contact Information -->
+          <fieldset class="form-section">
+            <legend>📋 Group Information</legend>
+            
+            <div class="form-group">
+              <label for="org-type">Organization Type</label>
+              <select id="org-type" name="org-type" required>
+                <option value="">Select an option</option>
+                <option value="corporate">Corporate/Business</option>
+                <option value="educational">Educational Institution</option>
+                <option value="family">Family Group</option>
+                <option value="nonprofit">Nonprofit Organization</option>
+                <option value="adventure">Adventure Club</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="org-name">Organization Name</label>
+              <input type="text" id="org-name" name="org-name" required />
+            </div>
+
+            <div class="form-group">
+              <label for="contact-name">Contact Name</label>
+              <input type="text" id="contact-name" name="contact-name" required />
+            </div>
+
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" required />
+            </div>
+
+            <div class="form-group">
+              <label for="phone">Phone Number</label>
+              <input type="tel" id="phone" name="phone" required />
+            </div>
+          </fieldset>
+
+          <!-- Group Details -->
+          <fieldset class="form-section">
+            <legend>👥 Group Details</legend>
+            
+            <div class="form-group">
+              <label for="group-size">Estimated Group Size</label>
+              <input type="number" id="group-size" name="group-size" min="2" max="500" placeholder="Number of people" required />
+            </div>
+
+            <div class="form-group">
+              <label for="preferred-dates">Preferred Dates</label>
+              <input type="text" id="preferred-dates" name="preferred-dates" placeholder="e.g., June 15-20, 2024" />
+            </div>
+
+            <div class="form-group">
+              <label for="duration">Trip Duration</label>
+              <select id="duration" name="duration" required>
+                {durationOptions.map((option) => (
+                  <option value={option.value}>{option.label}</option>
+                ))}
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="accommodation">Accommodation Preference</label>
+              <select id="accommodation" name="accommodation" required>
+                {accommodationOptions.map((option) => (
+                  <option value={option.value}>{option.label}</option>
+                ))}
+              </select>
+            </div>
+          </fieldset>
+
+          <!-- Special Needs -->
+          <fieldset class="form-section">
+            <legend>✨ Special Requirements</legend>
+            
+            <div class="form-group">
+              <label for="special-needs">Accessibility or Special Needs</label>
+              <textarea id="special-needs" name="special-needs" rows={3} placeholder="Any accessibility needs or physical limitations we should know about?"></textarea>
+            </div>
+
+            <div class="form-group">
+              <label for="dietary">Dietary Restrictions</label>
+              <textarea id="dietary" name="dietary" rows={3} placeholder="List any dietary restrictions or allergies"></textarea>
+            </div>
+
+            <div class="form-group">
+              <label for="language">Language Preference</label>
+              <select id="language" name="language">
+                <option value="english">English</option>
+                <option value="spanish">Spanish</option>
+                <option value="both">Both (Bilingual)</option>
+              </select>
+            </div>
+          </fieldset>
+        </div>
+
+        <!-- Right Column -->
+        <div class="form-column form-right">
+          <!-- Experience Interests -->
+          <fieldset class="form-section">
+            <legend>🎯 Experience Interests</legend>
+            <div class="checkbox-group">
+              {interestOptions.map((option) => (
+                <div class="form-checkbox">
+                  <input 
+                    type="checkbox" 
+                    id={option.toLowerCase().replace(/\s+/g, '-')}
+                    name="interests"
+                    value={option}
+                  />
+                  <label for={option.toLowerCase().replace(/\s+/g, '-')}>
+                    {option}
+                  </label>
+                </div>
+              ))}
+            </div>
+          </fieldset>
+
+          <!-- Additional Notes -->
+          <fieldset class="form-section">
+            <legend>📝 Additional Information</legend>
+            
+            <div class="form-group">
+              <label for="budget-range">Budget Range (Optional)</label>
+              <select id="budget-range" name="budget-range">
+                <option value="">Not specified</option>
+                <option value="budget">Budget-friendly ($500-$800/person)</option>
+                <option value="moderate">Moderate ($800-$1,200/person)</option>
+                <option value="premium">Premium ($1,200+/person)</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="comments">Additional Comments or Questions</label>
+              <textarea id="comments" name="comments" rows={5} placeholder="Tell us anything else we should know about your group or expectations"></textarea>
+            </div>
+
+            <div class="form-group checkbox">
+              <input type="checkbox" id="newsletter" name="newsletter" />
+              <label for="newsletter">Send me updates about special group offers</label>
+            </div>
+          </fieldset>
+
+          <div class="form-actions">
+            <Button 
+              text="Request Quote"
+              type="submit"
+              variant="primary"
+              size="lg"
+              fullWidth
+            />
+            <p class="form-note">We'll respond within 24 hours</p>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</section>
+
+<style>
+  .booking-form-section {
+    padding: 4rem 1rem;
+    background: #f5f5f5;
+  }
+
+  .container {
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+
+  h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--primary);
+    margin: 0 0 0.5rem 0;
+    text-align: center;
+  }
+
+  .section-subtitle {
+    text-align: center;
+    color: #666;
+    font-size: 1.1rem;
+    margin: 0 0 2rem 0;
+  }
+
+  .booking-form {
+    background: white;
+    border-radius: 12px;
+    padding: 2rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  }
+
+  .form-columns {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+  }
+
+  .form-section {
+    margin-bottom: 2rem;
+    border: none;
+    padding: 0;
+  }
+
+  .form-section legend {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--primary);
+    margin-bottom: 1.5rem;
+    padding: 0;
+  }
+
+  .form-group {
+    margin-bottom: 1.5rem;
+  }
+
+  .form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    color: #333;
+    font-size: 0.95rem;
+  }
+
+  .form-group input[type="text"],
+  .form-group input[type="email"],
+  .form-group input[type="tel"],
+  .form-group input[type="number"],
+  .form-group select,
+  .form-group textarea {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 0.95rem;
+    font-family: inherit;
+    transition: all 300ms ease;
+  }
+
+  .form-group input:focus,
+  .form-group select:focus,
+  .form-group textarea:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(45, 80, 22, 0.1);
+  }
+
+  .checkbox-group {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 1rem;
+  }
+
+  .form-checkbox {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .form-checkbox input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+    accent-color: var(--primary);
+  }
+
+  .form-checkbox label {
+    margin: 0;
+    cursor: pointer;
+    font-weight: normal;
+  }
+
+  .form-group.checkbox {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .form-group.checkbox input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    margin: 0;
+    cursor: pointer;
+    accent-color: var(--primary);
+  }
+
+  .form-group.checkbox label {
+    margin: 0;
+    cursor: pointer;
+    font-weight: normal;
+  }
+
+  .form-actions {
+    margin-top: 2rem;
+    padding-top: 2rem;
+    border-top: 1px solid #e0e0e0;
+  }
+
+  .form-note {
+    margin-top: 1rem;
+    text-align: center;
+    color: #666;
+    font-size: 0.9rem;
+  }
+
+  @media (max-width: 1024px) {
+    .form-columns {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .booking-form-section {
+      padding: 3rem 1rem;
+    }
+
+    h2 {
+      font-size: 2rem;
+    }
+
+    .booking-form {
+      padding: 1.5rem;
+    }
+
+    .checkbox-group {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

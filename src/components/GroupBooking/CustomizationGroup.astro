@@ -1,0 +1,787 @@
+---
+import { itineraries, pricingTable } from "../../lib/group-booking-data";
+import ItineraryCard from "./ItineraryCard.astro";
+import Button from "../Button.astro";
+import {
+  interestOptions,
+  durationOptions,
+  accommodationOptions,
+} from "../../lib/group-booking-data";
+
+const experienceFocusOptions = [
+  "Cultural immersion",
+  "Environmental education",
+  "Sustainable development",
+  "Cooperative economics",
+  "Agricultural practices",
+  "Community service",
+];
+
+const activityLevelOptions = [
+  { value: "light", label: "Light (cultural focus, minimal walking)" },
+  { value: "moderate", label: "Moderate (mix of activities)" },
+  { value: "active", label: "Active (hiking, physical activities)" },
+];
+
+const accommodationOptions2 = [
+  "Shared dorm rooms, budget",
+  "Hotel (private rooms, comfort)",
+  "Boutique hotels/lodges, upscale",
+  "Homestay (cultural immersion)",
+  "Mix of options",
+];
+
+const durationOptionsData = [
+  "1 day / 1 night",
+  "2 days / 1 night",
+  "3 days / 2 nights",
+  "Custom duration",
+];
+---
+
+<section class="customization-group-section">
+  <div class="container">
+    <div class="content-wrapper">
+      <!-- LEFT COLUMN -->
+      <div class="left-column">
+        <!-- Customization Options -->
+        <h2>Customization Options</h2>
+        
+        <div class="customization-grid">
+          <!-- Experience Focus -->
+          <div class="option-box">
+            <h3>Experience Focus:</h3>
+            <div class="checkbox-group">
+              {experienceFocusOptions.map((option) => (
+                <div class="form-checkbox">
+                  <input 
+                    type="checkbox" 
+                    id={option.toLowerCase().replace(/\s+/g, '-')}
+                    name="experience-focus"
+                    value={option}
+                  />
+                  <label for={option.toLowerCase().replace(/\s+/g, '-')}>
+                    {option}
+                  </label>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <!-- Duration Options -->
+          <div class="option-box">
+            <h3>Duration Options:</h3>
+            <div class="radio-group">
+              {durationOptionsData.map((option) => (
+                <div class="form-radio">
+                  <input 
+                    type="radio" 
+                    id={option.toLowerCase().replace(/\s+|\/|,/g, '-')}
+                    name="duration-options"
+                    value={option}
+                  />
+                  <label for={option.toLowerCase().replace(/\s+|\/|,/g, '-')}>
+                    {option}
+                  </label>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <!-- Activity Level -->
+          <div class="option-box">
+            <h3>Activity Level:</h3>
+            <div class="radio-group">
+              {activityLevelOptions.map((option) => (
+                <div class="form-radio">
+                  <input 
+                    type="radio" 
+                    id={option.value}
+                    name="activity-level"
+                    value={option.value}
+                  />
+                  <label for={option.value}>
+                    {option.label}
+                  </label>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <!-- Accommodation -->
+          <div class="option-box">
+            <h3>Accommodation:</h3>
+            <div class="radio-group">
+              {accommodationOptions2.map((option) => (
+                <div class="form-radio">
+                  <input 
+                    type="radio" 
+                    id={option.toLowerCase().replace(/\s+|\/|,/g, '-')}
+                    name="accommodation"
+                    value={option}
+                  />
+                  <label for={option.toLowerCase().replace(/\s+|\/|,/g, '-')}>
+                    {option}
+                  </label>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        <!-- Sample Itineraries -->
+        <div class="itineraries-section-inner">
+          <h2 class="section-title">Sample Itineraries</h2>
+          <div class="itineraries-list">
+            {itineraries.map((itinerary) => (
+              <div class="itinerary-card-simple">
+                <div class="itinerary-card-header">
+                  <div>
+                    <h4>{itinerary.title}</h4>
+                    <p class="itinerary-description">{itinerary.description}</p>
+                  </div>
+                  <button class="view-details-btn">View Details</button>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <!-- Group Size Pricing -->
+        <div class="pricing-section-inner">
+          <h2 class="section-title">Group Size Pricing</h2>
+          <div class="pricing-table-wrapper">
+            <table class="pricing-table">
+              <thead>
+                <tr>
+                  <th>Group Size</th>
+                  <th>2-Day Package</th>
+                  <th>3-Day Package</th>
+                  <th>5-Day Package</th>
+                </tr>
+              </thead>
+              <tbody>
+                {pricingTable.map((row) => (
+                  <tr>
+                    <td class="group-size">{row.groupSize}</td>
+                    <td>{row.twoDay}</td>
+                    <td>{row.threeDay}</td>
+                    <td>{row.fiveDay}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+          <p class="pricing-note">*Prices include accommodation, meals, guides, activities, transportation</p>
+        </div>
+      </div>
+
+      <!-- RIGHT COLUMN - REQUEST QUOTE FORM -->
+      <div class="right-column">
+        <div class="form-card">
+          <!-- 24-Hour Response Guarantee -->
+          <div class="response-guarantee">
+            <h3>✓ 24-Hour Response Guarantee</h3>
+            <p>We'll get back to within 24 hours with a custom proposal</p>
+            <ul>
+              <li>✓ Custom itinerary proposal</li>
+              <li>✓ Detailed pricing breakdown</li>
+              <li>✓ Availability confirmation</li>
+              <li>✓ Next steps</li>
+            </ul>
+          </div>
+
+          <!-- Request Quote Form -->
+          <form class="request-quote-form">
+            <!-- Organization Information -->
+            <fieldset class="form-fieldset">
+              <legend>Organization Information</legend>
+              
+              <div class="form-group">
+                <label for="org-name">Organization Name</label>
+                <input type="text" id="org-name" name="org-name" required />
+              </div>
+
+              <div class="form-group">
+                <label for="org-type">Organization Type</label>
+                <select id="org-type" name="org-type" required>
+                  <option value="">University</option>
+                  <option value="corporate">Corporate</option>
+                  <option value="nonprofit">Nonprofit</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="contact-name">Contact Name</label>
+                <input type="text" id="contact-name" name="contact-name" required />
+              </div>
+
+              <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required />
+              </div>
+
+              <div class="form-group">
+                <label for="phone">Phone</label>
+                <input type="tel" id="phone" name="phone" required />
+              </div>
+            </fieldset>
+
+            <!-- Group Details -->
+            <fieldset class="form-fieldset">
+              <legend>Group Details</legend>
+              
+              <div class="form-group">
+                <label for="group-size">Estimated Group Size</label>
+                <input 
+                  type="text" 
+                  id="group-size" 
+                  name="group-size" 
+                  placeholder="Estimated Group Size"
+                  required 
+                />
+              </div>
+
+              <div class="form-group">
+                <label for="preferred-dates">Preferred Date Range</label>
+                <input 
+                  type="text" 
+                  id="preferred-dates" 
+                  name="preferred-dates" 
+                  placeholder="Preferred Date Range"
+                />
+              </div>
+
+              <div class="form-group">
+                <label for="trip-duration">Trip Duration</label>
+                <select id="trip-duration" name="trip-duration" required>
+                  <option value="">Select duration</option>
+                  {durationOptions.map((option) => (
+                    <option value={option.value}>{option.label}</option>
+                  ))}
+                </select>
+              </div>
+            </fieldset>
+
+            <!-- Trip Preferences -->
+            <fieldset class="form-fieldset">
+              <legend>Trip Preferences</legend>
+              <div class="checkbox-group">
+                {["Cultural workshops", "Service learning", "Community interaction", "Educational focus"].map((pref) => (
+                  <div class="form-checkbox-small">
+                    <input 
+                      type="checkbox" 
+                      id={pref.toLowerCase().replace(/\s+/g, '-')}
+                      name="trip-preferences"
+                      value={pref}
+                    />
+                    <label for={pref.toLowerCase().replace(/\s+/g, '-')}>
+                      {pref}
+                    </label>
+                  </div>
+                ))}
+              </div>
+            </fieldset>
+
+            <!-- Special Requirements -->
+            <fieldset class="form-fieldset">
+              <legend>Accessibility needs</legend>
+              <textarea 
+                id="special-requirements" 
+                name="special-requirements" 
+                rows="3"
+                placeholder="Dietary restrictions, accessibility needs, educational goals, etc."
+              ></textarea>
+            </fieldset>
+
+            <!-- Language Preference -->
+            <fieldset class="form-fieldset">
+              <div class="form-group">
+                <legend>Language preference</legend>
+              <select id="language" name="language" required>
+                <option value="english">English</option>
+                <option value="spanish">Spanish</option>
+                <option value="both">Both</option>
+              </select>
+              </div>
+              
+            </fieldset>
+
+            <!-- Other Notes -->
+            <fieldset class="form-fieldset">
+              <legend>Other notes</legend>
+              <textarea 
+                id="other-notes" 
+                name="other-notes" 
+                rows="3"
+                placeholder=""
+              ></textarea>
+            </fieldset>
+
+            <!-- Form Actions -->
+            <div class="form-actions">
+              <button type="submit" class="btn btn-primary">Request a Quote</button>
+              <button type="button" class="btn btn-secondary">Save Draft</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .customization-group-section {
+    padding: 4rem 0;
+    background: var(--secondary);
+  }
+
+  .container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 1rem;
+    width: 100%;
+  }
+
+  .content-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 0.5fr;
+    gap: 3rem;
+  }
+
+  /* LEFT COLUMN */
+  .left-column {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+  }
+
+  .left-column > h2 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--primary);
+    margin: 0;
+  }
+
+  .customization-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+
+  .option-box {
+    padding: 1.5rem;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    background: #fafafa;
+  }
+
+  .option-box h3 {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--primary);
+    margin: 0 0 1rem 0;
+  }
+
+  .checkbox-group,
+  .radio-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .form-checkbox,
+  .form-radio {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+
+  .form-checkbox input[type="checkbox"],
+  .form-radio input[type="radio"] {
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+    accent-color: var(--primary);
+    margin-top: 0.15rem;
+    flex-shrink: 0;
+  }
+
+  .form-checkbox label,
+  .form-radio label {
+    margin: 0;
+    cursor: pointer;
+    font-weight: normal;
+    color: #333;
+    font-size: 0.9rem;
+    line-height: 1.4;
+  }
+
+  /* Sample Itineraries Section */
+  .itineraries-section-inner {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .section-title {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--primary);
+    margin: 0;
+  }
+
+  .itineraries-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .itinerary-card-simple {
+    padding: 1.5rem;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    background: white;
+  }
+
+  .itinerary-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 1.5rem;
+  }
+
+  .itinerary-label {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: #999;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 0.5rem;
+  }
+
+  .itinerary-card-simple h4 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--primary);
+    margin: 0 0 0.75rem 0;
+  }
+
+  .itinerary-description {
+    font-size: 0.9rem;
+    color: #666;
+    margin: 0;
+    line-height: 1.5;
+  }
+
+  .view-details-btn {
+    padding: 0.5rem 1.5rem;
+    border: 1px solid var(--primary);
+    background: white;
+    color: var(--primary);
+    border-radius: 6px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 200ms ease;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  .view-details-btn:hover {
+    background: var(--primary);
+    color: white;
+  }
+
+  /* Group Size Pricing Section */
+  .pricing-section-inner {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .pricing-table-wrapper {
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+
+  .pricing-table {
+    width: 100%;
+    border-collapse: collapse;
+    overflow-wrap: anywhere;
+  }
+
+  .pricing-table thead {
+    background: var(--primary);
+    color: white;
+  }
+
+  .pricing-table th {
+    padding: 1rem;
+    text-align: left;
+    font-weight: 600;
+    font-size: 0.9rem;
+  }
+
+  .pricing-table td {
+    padding: 1rem;
+    border-bottom: 1px solid #e0e0e0;
+    font-size: 0.9rem;
+    text-align: left;
+  }
+
+  .pricing-table tbody tr:last-child td {
+    border-bottom: none;
+  }
+
+  .pricing-table .group-size {
+    text-align: left;
+    font-weight: 600;
+    color: var(--primary);
+  }
+
+  .pricing-note {
+    font-size: 0.85rem;
+    color: #999;
+    margin: 0;
+    font-style: italic;
+  }
+
+  /* RIGHT COLUMN */
+  .right-column {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .form-card {
+    background: white;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 2rem;
+    position: sticky;
+    top: 20px;
+  }
+
+  .response-guarantee {
+    background: #f0f8f0;
+    border-left: 4px solid var(--primary);
+    padding: 1.5rem;
+    border-radius: 6px;
+    margin-bottom: 2rem;
+  }
+
+  .response-guarantee h3 {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--primary);
+    margin: 0 0 0.5rem 0;
+  }
+
+  .response-guarantee p {
+    font-size: 0.9rem;
+    color: #666;
+    margin: 0 0 1rem 0;
+  }
+
+  .response-guarantee ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .response-guarantee li {
+    font-size: 0.85rem;
+    color: #666;
+    margin: 0;
+  }
+
+  /* Form Styling */
+  .request-quote-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .form-fieldset {
+    border: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .form-fieldset legend {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 1rem;
+    padding: 0;
+  }
+
+  .form-group {
+    margin-bottom: 1rem;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .form-group:last-child {
+    margin-bottom: 0;
+  }
+
+  .form-group label {
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: #333;
+    margin-bottom: 0.4rem;
+  }
+
+  .form-group input[type="text"],
+  .form-group input[type="email"],
+  .form-group input[type="tel"],
+  .form-group select,
+  .form-group textarea {
+    padding: 0.75rem;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    font-family: 'Inter', sans-serif;
+    transition: all 200ms ease;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .form-group input:focus,
+  .form-group select:focus,
+  .form-group textarea:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(45, 80, 22, 0.1);
+  }
+
+  .form-fieldset textarea {
+    padding: 0.75rem;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    font-family: 'Inter', sans-serif;
+    resize: vertical;
+    transition: all 200ms ease;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .form-fieldset textarea:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(45, 80, 22, 0.1);
+  }
+
+  .checkbox-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .form-checkbox-small {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .form-checkbox-small input[type="checkbox"] {
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+    accent-color: var(--primary);
+  }
+
+  .form-checkbox-small label {
+    margin: 0;
+    cursor: pointer;
+    font-weight: normal;
+    color: #333;
+    font-size: 0.9rem;
+  }
+
+  /* Form Actions */
+  .form-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 1.5rem;
+  }
+
+  .btn {
+    padding: 1rem;
+    border: none;
+    border-radius: 6px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 200ms ease;
+    text-align: center;
+  }
+
+  .btn-primary {
+    background: var(--primary);
+    color: white;
+  }
+
+  .btn-primary:hover {
+    opacity: 0.9;
+  }
+
+  .btn-secondary {
+    background: white;
+    color: var(--primary);
+    border: 1px solid var(--primary);
+  }
+
+  .btn-secondary:hover {
+    background: #f9f9f9;
+  }
+
+  /* Responsive */
+  @media (max-width: 1024px) {
+    .content-wrapper {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+
+    .form-card {
+      position: static;
+    }
+
+    .customization-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 768px) {
+    .customization-group-section {
+      padding: 2rem 0;
+    }
+    
+    .left-column > h2 {
+      font-size: 1.5rem;
+    }
+
+    .customization-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .form-card {
+      padding: 1.5rem;
+    }
+
+    .content-wrapper {
+      gap: 1.5rem;
+    }
+
+    .section-title {
+      font-size: 1.5rem;
+    }
+  }
+</style>

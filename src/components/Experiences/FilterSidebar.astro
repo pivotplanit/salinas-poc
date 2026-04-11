@@ -1,0 +1,169 @@
+---
+interface FilterSection {
+  title: string;
+  id: string;
+  options: { label: string; value: string; checked?: boolean }[];
+}
+
+export interface Props {
+  filters: FilterSection[];
+}
+
+const { filters } = Astro.props;
+---
+
+<aside class="sidebar">
+  {filters.map((section) => (
+    <div class="filter-section">
+      <div class="filter-title">
+        {section.title}
+        <span class="filter-toggle">▼</span>
+      </div>
+      <div class="filter-options">
+        {section.options.map((option) => (
+          <div class="filter-option">
+            <input
+              type="checkbox"
+              id={`${section.id}-${option.value}`}
+              value={option.value}
+              checked={option.checked}
+              class="filter-checkbox"
+              data-filter={section.id}
+            />
+            <label for={`${section.id}-${option.value}`}>{option.label}</label>
+          </div>
+        ))}
+      </div>
+    </div>
+  ))}
+</aside>
+
+<style>
+  .sidebar {
+    background: white;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 70px;
+    height: fit-content;
+    max-height: calc(100vh - 80px);
+    overflow-y: auto;
+  }
+
+  .filter-section {
+    margin-bottom: 24px;
+    padding-bottom: 24px;
+    border-bottom: 1px solid #eee;
+  }
+
+  .filter-section:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+  }
+
+  .filter-title {
+    font-weight: 600;
+    color: #222;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 14px;
+    margin-bottom: 12px;
+    user-select: none;
+  }
+
+  .filter-toggle {
+    font-size: 10px;
+    color: #666;
+    transition: transform 0.3s ease;
+  }
+
+  .filter-options {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .filter-option {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .filter-checkbox {
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+    accent-color: #007bff;
+  }
+
+  .filter-option label {
+    font-size: 13px;
+    color: #555;
+    cursor: pointer;
+    flex: 1;
+  }
+
+  @media (max-width: 1023px) {
+    .sidebar {
+      display: none;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      width: 100%;
+      max-height: 80vh;
+      border-radius: 12px 12px 0 0;
+      z-index: 100;
+      top: auto;
+    }
+
+    .sidebar.mobile-open {
+      display: block;
+    }
+  }
+
+  @media (max-width: 767px) {
+    .sidebar {
+      padding: 16px;
+    }
+
+    .filter-section {
+      margin-bottom: 16px;
+      padding-bottom: 16px;
+    }
+
+    .filter-title {
+      font-size: 13px;
+    }
+
+    .filter-option label {
+      font-size: 12px;
+    }
+  }
+</style>
+
+<script>
+  // Make filter titles clickable to toggle sections
+  document.querySelectorAll(".filter-title").forEach((title) => {
+    title.addEventListener("click", () => {
+      const options = title.nextElementSibling;
+      const toggle = title.querySelector(".filter-toggle");
+      options?.classList.toggle("hidden");
+      toggle?.classList.toggle("rotated");
+    });
+  });
+
+  // Close mobile sidebar when filter changes
+  document.querySelectorAll(".filter-checkbox").forEach((checkbox) => {
+    checkbox.addEventListener("change", () => {
+      const sidebar = document.querySelector(".sidebar");
+      if (sidebar?.classList.contains("mobile-open")) {
+        sidebar.classList.remove("mobile-open");
+      }
+    });
+  });
+</script>

@@ -1,0 +1,31 @@
+---
+import HeroSection from "./Home/HeroSection.astro";
+import ExperienceCategories from "./Home/ExperienceCategories.astro";
+import WhyChooseSalinas from "./Home/WhyChooseSalinas.astro";
+import FeaturedExperiences from "./Home/FeaturedExperiences.astro";
+import AccentSection from "./Home/AccentSection.astro";
+import Testimonials from "./Home/Testimonials.astro";
+
+import categoriesData from "../data/categories.json";
+import featuresData from "../data/features.json";
+import experiencesData from "../data/experiences.json";
+import testimonialsData from "../data/testimonials.json";
+
+const categories = categoriesData.categories;
+const features = featuresData.features;
+const experiences = experiencesData.experiences;
+const testimonials = testimonialsData.testimonials;
+---
+
+<HeroSection />
+<ExperienceCategories categories={categories} />
+<WhyChooseSalinas features={features} />
+<FeaturedExperiences experiences={experiences} id="detail" />
+<AccentSection 
+  title="Planning a University or Group Trip?"
+  description="Custom itineraries, educational focus, flexible scheduling. Experience the living model of community economy with your group."
+  buttonText="Tell Us About Your Group"
+  buttonHref="/group-booking"
+  featureText="24-hour response guarantee"
+/>
+<Testimonials testimonials={testimonials} />

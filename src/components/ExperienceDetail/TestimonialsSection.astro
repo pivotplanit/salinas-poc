@@ -1,0 +1,152 @@
+---
+interface Props {
+  testimonials?: Array<{
+    name: string;
+    role: string;
+    text: string;
+    rating: number;
+  }>;
+}
+
+const { testimonials = [] } = Astro.props;
+---
+
+{testimonials.length > 0 && (
+  <section class="reviews-section">
+    <h2>Reviews / Testimonials</h2>
+    <div class="reviews-list">
+      {testimonials.map((testimonial, index) => (
+        <div class="review-item">
+          <p class="review-label">Review {index + 1}</p>
+          <div class="review-header">
+            <div class="review-author">
+              <div class="review-avatar">👤</div>
+              <div class="review-info">
+                <span class="review-name">{testimonial.name}</span>
+                <span class="review-role">{testimonial.role}</span>
+              </div>
+            </div>
+            <div class="review-meta">
+              <div class="review-stars">
+                {Array.from({ length: 5 }, (_, i) => (
+                  <span class={`star ${i < testimonial.rating ? 'filled' : 'empty'}`}>★</span>
+                ))}
+              </div>
+            </div>
+          </div>
+          <p class="review-text">"{testimonial.text}"</p>
+        </div>
+      ))}
+    </div>
+  </section>
+)}
+
+<style>
+  .reviews-section {
+    padding: 3rem 0;
+    border-bottom: 1px solid #e0e0e0;
+  }
+
+  h2 {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin: 0 0 1.5rem 0;
+  }
+
+  .reviews-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .review-item {
+    padding: 1.5rem 0;
+    border-bottom: 1px solid #e0e0e0;
+  }
+
+  .review-item:last-child {
+    border-bottom: none;
+  }
+
+  .review-label {
+    font-size: 0.75rem;
+    color: #999;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin: 0 0 0.75rem 0;
+    font-weight: 600;
+  }
+
+  .review-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 0.75rem;
+  }
+
+  .review-author {
+    display: flex;
+    gap: 0.75rem;
+    align-items: center;
+  }
+
+  .review-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: #f0f0f0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.25rem;
+    flex-shrink: 0;
+  }
+
+  .review-info {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .review-name {
+    font-weight: 600;
+    font-size: 0.95rem;
+    color: #1a1a1a;
+  }
+
+  .review-role {
+    font-size: 0.8rem;
+    color: #999;
+  }
+
+  .review-stars {
+    display: flex;
+    gap: 0.15rem;
+  }
+
+  .star {
+    font-size: 0.9rem;
+  }
+
+  .star.filled {
+    color: #FFB800;
+  }
+
+  .star.empty {
+    color: #ddd;
+  }
+
+  .review-text {
+    margin: 0;
+    color: #666;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    font-style: italic;
+  }
+
+  @media (max-width: 768px) {
+    h2 {
+      font-size: 1.5rem;
+    }
+  }
+</style>

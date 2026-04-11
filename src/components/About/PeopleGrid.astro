@@ -1,0 +1,144 @@
+---
+import { Image } from "astro:assets";
+import { people } from "../../lib/about-data";
+---
+
+<section class="people-section">
+  <div class="container">
+    <h2>The People</h2>
+    
+    <div class="people-grid">
+      {people.map((person, index) => (
+        <div class="person-card">
+          <Image
+            src={person.image}
+            alt={person.name}
+            class="person-photo"
+            width={128}
+            height={128}
+          />
+          <h3>{person.name}</h3>
+          <p class="person-role">{person.role}</p>
+          <p class="person-description">{person.description}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .people-section {
+    padding: 4rem 1rem;
+    background: #f5f5f5;
+  }
+
+  .container {
+    max-width: 1600px;
+    margin: 0 auto;
+  }
+
+  h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #1f2937;
+    margin: 0 0 3rem 0;
+    text-align: center;
+  }
+
+  .people-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+  }
+
+  .person-card:nth-child(n+5) {
+    grid-column: 1 / 5;
+    justify-self: center;
+  }
+
+  .person-card {
+    position: relative;
+    background: white;
+    border: 1px dashed #d1d5db;
+    padding: 2rem 1.5rem;
+    text-align: center;
+    transition: all 300ms ease;
+  }
+
+  .person-card:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  }
+
+  .person-bio-badge {
+    position: absolute;
+    top: -12px;
+    left: 1rem;
+    background: white;
+    border: 1px solid #e5e7eb;
+    padding: 0.25rem 0.5rem;
+    font-size: 0.75rem;
+    color: #9ca3af;
+    font-weight: 500;
+  }
+
+  .person-photo {
+    width: 8rem;
+    height: 8rem;
+    border-radius: 50%;
+    object-fit: cover;
+    margin: 0 auto 1.5rem;
+    display: block;
+  }
+
+  .person-card h3 {
+    margin: 0 0 0.5rem 0;
+    font-size: 1.125rem;
+    font-weight: 700;
+    color: #111827;
+  }
+
+  .person-role {
+    margin: 0 0 0.75rem 0;
+    color: #6b7280;
+    font-size: 0.875rem;
+    font-weight: 500;
+  }
+
+  .person-description {
+    margin: 0;
+    color: #9ca3af;
+    font-size: 0.875rem;
+    line-height: 1.4;
+    max-width: 280px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  @media (max-width: 768px) {
+    .people-section {
+      padding: 3rem 1rem;
+    }
+
+    h2 {
+      font-size: 2rem;
+    }
+
+    .people-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+    }
+
+    .person-card:nth-child(n+5) {
+      grid-column: 1 / 3;
+    }
+
+    .person-card {
+      padding: 1.5rem 1rem;
+    }
+
+    .person-photo {
+      width: 6rem;
+      height: 6rem;
+    }
+  }
+</style>

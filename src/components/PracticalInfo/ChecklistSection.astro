@@ -1,0 +1,101 @@
+---
+import IconRenderer from "../IconRenderer.astro";
+
+const items = [
+  "Warm jacket/fleece",
+  "Sun protection (SPF 50+)",
+  "Comfortable hiking boots",
+  "Reusable water bottle",
+  "Camera",
+  "Rain jacket (waterproof)",
+  "Warm hat and gloves",
+  "Layers (temperature varies)",
+  "Cash (limited ATMs)",
+  "Personal medications",
+];
+---
+
+<section class="checklist-section">
+  <div class="container">
+    
+
+    <div class="checklist-grid">
+      <div class="sub-heading">
+      <IconRenderer icon="Backpack" size={20} />
+      <h3>Essential Items</h3>
+    </div>
+      {items.map((item, i) => (
+        <div class="checklist-item">
+          <input
+            type="checkbox"
+            id={`item-${i}`}
+            class="checklist-input"
+          />
+          <label for={`item-${i}`}>{item}</label>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .checklist-section {
+    padding: 0 1rem 4rem 1rem;
+    background: white;
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    background: var(--secondary);
+  }
+
+  .sub-heading {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .sub-heading h3 {
+    font-size: 1.125rem;
+    font-weight: 700;
+    color: #111827;
+    margin: 0;
+  }
+
+  .checklist-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.75rem;
+  }
+
+  .checklist-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .checklist-input {
+    width: 16px;
+    height: 16px;
+    border: 1px solid var(--border-color);
+    border-radius: 0;
+    cursor: pointer;
+    accent-color: var(--primary);
+    flex-shrink: 0;
+  }
+
+  .checklist-item label {
+    cursor: pointer;
+    color: #111827;
+    font-size: 0.95rem;
+    user-select: none;
+  }
+
+  @media (max-width: 768px) {
+    .checklist-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

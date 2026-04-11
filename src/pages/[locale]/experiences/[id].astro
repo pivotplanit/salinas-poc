@@ -1,0 +1,216 @@
+---
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+import { experiences } from "../../../lib/experiences-data";
+import ExperienceHero from "../../../components/ExperienceDetail/ExperienceHero.astro";
+import TitleBar from "../../../components/ExperienceDetail/TitleBar.astro";
+import OverviewSection from "../../../components/ExperienceDetail/OverviewSection.astro";
+import HighlightsList from "../../../components/ExperienceDetail/HighlightsList.astro";
+import ItineraryGrid from "../../../components/ExperienceDetail/ItineraryGrid.astro";
+import IncludedExcluded from "../../../components/ExperienceDetail/IncludedExcluded.astro";
+import PhysicalRequirements from "../../../components/ExperienceDetail/PhysicalRequirements.astro";
+import WhatToBring from "../../../components/ExperienceDetail/WhatToBring.astro";
+import TestimonialsSection from "../../../components/ExperienceDetail/TestimonialsSection.astro";
+import FAQSection from "../../../components/ExperienceDetail/FAQSection.astro";
+import RelatedExperiences from "../../../components/ExperienceDetail/RelatedExperiences.astro";
+import NeedHelp from "../../../components/ExperienceDetail/NeedHelp.astro";
+import ShareSection from "../../../components/ExperienceDetail/ShareSection.astro";
+import BookingCard from "../../../components/ExperienceDetail/BookingCard.astro";
+
+export async function getStaticPaths() {
+  return experiences
+    .map((experience) => ({
+      params: { id: experience.id, locale: "en" },
+      props: { experience },
+    }))
+    .concat(
+      experiences.map((experience) => ({
+        params: { id: experience.id, locale: "es" },
+        props: { experience },
+      }))
+    );
+}
+
+interface Props {
+  experience: (typeof experiences)[0];
+}
+
+const { experience } = Astro.props;
+
+// Normalize itinerary data
+const normalizedItinerary =
+  experience.itinerary?.map(
+    (item: { time: string; title: string; description?: string; activity?: string }) => ({
+      time: item.time,
+      title: item.title,
+      activity: item.description || item.activity || "",
+    })
+  ) || [];
+
+// Normalize testimonials
+const normalizedTestimonials =
+  experience.testimonials?.map(
+    (t: { name: string; location?: string; role?: string; text: string; rating: number }) => ({
+      name: t.name,
+      role: t.location || t.role || "",
+      text: t.text,
+      rating: t.rating,
+    })
+  ) || [];
+
+// Normalize group discounts
+const normalizedDiscounts =
+  experience.groupDiscounts?.map((d: { groupSize?: number; size?: number; discount: string }) => ({
+    size: d.groupSize || d.size || "",
+    discount: typeof d.discount === "string" ? d.discount : `${d.discount}% off`,
+  })) || [];
+
+const priceDisplay =
+  typeof experience.price === "number"
+    ? `$${experience.price}`
+    : experience.price || "Contact for pricing";
+
+// Hero badges from experience metadata
+const heroBadges = [
+  { label: experience.tag },
+  { label: experience.duration },
+  { label: experience.difficulty },
+  { label: experience.altitude },
+];
+---
+
+<BaseLayout
+  title={`${experience.title} | Salinas Experiences`}
+  description={experience.description}
+>
+  <ExperienceHero
+    badges={heroBadges}
+    caption={`[Image Gallery: ${experience.title}]`}
+  />
+
+  <TitleBar
+    title={experience.title}
+    tag={experience.tag}
+    duration={experience.duration}
+    difficulty={experience.difficulty}
+    altitude={experience.altitude}
+    groupSize={experience.groupSize}
+  />
+
+  <section class="experience-content">
+    <div class="container">
+      <div class="content-layout">
+        <div class="main-content">
+          <OverviewSection
+            overview={experience.overview}
+            whySpecial={experience.whySpecial}
+            whatYouLearn={experience.whatYouLearn}
+          />
+
+          <HighlightsList highlights={experience.highlights} />
+
+          <ItineraryGrid itinerary={normalizedItinerary} />
+
+          <IncludedExcluded
+            included={experience.included}
+            excluded={experience.excluded}
+          />
+
+          <PhysicalRequirements
+            walking={experience.walking}
+            accessibility={experience.accessibility}
+            altitude={experience.altitude}
+            notSuitableFor={experience.notSuitableFor}
+          />
+
+          <WhatToBring items={experience.whatToBring} />
+
+          <TestimonialsSection testimonials={normalizedTestimonials} />
+
+          <FAQSection faqs={experience.faqs} />
+        </div>
+
+        <aside class="sidebar" id="booking-sidebar">
+          <div class="sidebar-sticky">
+            <BookingCard
+              price={priceDisplay}
+              groupDiscounts={normalizedDiscounts}
+              title={experience.title}
+            />
+            <NeedHelp />
+            <ShareSection title={experience.title} />
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <section class="related-section-wrapper">
+    <div class="container">
+      <RelatedExperiences
+        currentId={experience.id}
+        relatedIds={experience.relatedExperienceIds}
+      />
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 1rem;
+  }
+
+  .experience-content {
+    padding: 2rem 0;
+    background: white;
+  }
+
+  .content-layout {
+    display: grid;
+    grid-template-columns: 1fr 340px;
+    gap: 3rem;
+  }
+
+  .sidebar {
+    position: relative;
+  }
+
+  .sidebar-sticky {
+    position: sticky;
+    top: var(--sticky-height, 120px);
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .related-section-wrapper {
+    background: white;
+    padding: 0 0 2rem;
+  }
+
+  @media (max-width: 1024px) {
+    .content-layout {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+
+    .sidebar-sticky {
+      position: static;
+    }
+  }
+</style>
+<script>
+  const header = document.querySelector('header');
+  const titleBar = document.getElementById('title-bar');
+  const bookingSidebar = document.querySelector('aside#booking-sidebar') as HTMLElement;
+  const experienceContentDiv = document.querySelector('section.experience-content') as HTMLElement
+  console.log(header, titleBar, bookingSidebar, experienceContentDiv);
+  if (header && titleBar && bookingSidebar && experienceContentDiv) {
+    const updateStickyHeight = () => {
+      bookingSidebar.style.setProperty('--sticky-height', `calc(${header.offsetHeight + titleBar.offsetHeight}px + 2rem)`);
+    };
+    updateStickyHeight();
+    window.addEventListener('resize', updateStickyHeight);
+  }
+</script>

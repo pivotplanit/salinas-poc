@@ -1,0 +1,248 @@
+---
+import { Image } from "astro:assets";
+interface Slide {
+  type: "image" | "video";
+  src: string;
+  alt: string;
+  poster?: string;
+}
+
+interface Props {
+  slides?: Slide[];
+}
+
+const defaultSlides: Slide[] = [
+  {
+    type: "video",
+    src: "https://videos.pexels.com/video-files/4763824/4763824-uhd_2560_1440_24fps.mp4",
+    alt: "Lush green countryside scenery",
+    poster: "https://images.unsplash.com/photo-1594398901394-4e34939a02ee?w=1600&h=900&fit=crop",
+  },
+  {
+    type: "image",
+    src: "https://images.unsplash.com/photo-1619546952812-520e98064a52?w=1600&h=900&fit=crop",
+    alt: "Ecuadorian highlands landscape",
+  },
+
+  {
+    type: "image",
+    src: "https://images.unsplash.com/photo-1547471080-7cc2caa01a7e?w=1600&h=900&fit=crop",
+    alt: "Ecuador tropical rainforest canopy",
+  },
+];
+
+const { slides = defaultSlides } = Astro.props;
+---
+
+<section class="hero-carousel-section">
+  <div class="carousel-container">
+    <div class="carousel-main">
+      {slides.map((slide, index) => (
+        <div
+          class:list={['carousel-slide', { active: index === 0 }]}
+          data-slide={index}
+        >
+          {slide.type === 'video' ? (
+            <video
+              class="slide-media"
+              src={slide.src}
+              poster={slide.poster}
+              muted
+              controls
+              playsinline
+              preload="metadata"
+            />
+          ) : (
+            <Image
+              class="slide-media"
+              src={slide.src}
+              alt={slide.alt}
+              width={1600}
+              height={900}
+              loading={"eager"}
+            />
+          )}
+        </div>
+      ))}
+    </div>
+
+    <button class="carousel-btn carousel-btn-prev" aria-label="Previous image">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <polyline points="15 18 9 12 15 6"></polyline>
+      </svg>
+    </button>
+    <button class="carousel-btn carousel-btn-next" aria-label="Next image">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <polyline points="9 18 15 12 9 6"></polyline>
+      </svg>
+    </button>
+  </div>
+</section>
+
+<style>
+  .hero-carousel-section {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    max-height: 100vh;
+    overflow: hidden;
+    background: var(--medium-gray);
+  }
+
+  .carousel-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+  }
+
+  .carousel-main {
+    position: relative;
+    width: 100%;
+    height: 100%;
+  }
+
+  .carousel-slide {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 600ms ease-in-out;
+    background: var(--medium-gray);
+    z-index: 1;
+  }
+
+  .carousel-slide.active {
+    opacity: 1;
+    pointer-events: auto;
+    z-index: 2;
+  }
+
+  .slide-media {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.2);
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    color: white;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 300ms ease;
+    backdrop-filter: blur(10px);
+    z-index: 10;
+  }
+
+  .carousel-btn-prev {
+    left: 2rem;
+  }
+
+  .carousel-btn-next {
+    right: 2rem;
+  }
+
+  .carousel-btn:hover {
+    background: rgba(255, 255, 255, 0.3);
+    border-color: white;
+    transform: translateY(-50%) scale(1.1);
+  }
+
+  .carousel-btn:active {
+    transform: translateY(-50%) scale(0.95);
+  }
+
+  @media (max-width: 768px) {
+    .carousel-btn {
+      width: 40px;
+      height: 40px;
+    }
+  }
+</style>
+
+<script>
+  // Fit carousel within remaining viewport below the header
+  const header = document.querySelector('header');
+  const hero = document.querySelector('.hero-carousel-section') as HTMLElement;
+  if (header && hero) {
+    const headerHeight = header.offsetHeight;
+    hero.style.maxHeight = `calc(100vh - ${headerHeight}px)`;
+  }
+
+  const slides = document.querySelectorAll('.carousel-slide');
+  const prevBtn = document.querySelector('.carousel-btn-prev');
+  const nextBtn = document.querySelector('.carousel-btn-next');
+
+  if (slides.length === 0) {
+    console.warn('Carousel slides not found');
+  } else {
+    let currentIndex = 0;
+    let autoplayTimeout: ReturnType<typeof setTimeout> | undefined;
+
+    const clearScheduled = () => {
+      clearTimeout(autoplayTimeout);
+      for (const slide of slides) {
+        const v = slide.querySelector('video');
+        if (v) v.onended = null;
+      }
+    };
+
+    const scheduleNext = () => {
+      clearScheduled();
+      const currentVideo = slides[currentIndex]?.querySelector('video');
+
+      if (currentVideo) {
+        currentVideo.onended = () => showSlide(currentIndex + 1);
+      } else {
+        autoplayTimeout = setTimeout(() => {
+          showSlide(currentIndex + 1);
+        }, 5000);
+      }
+    };
+
+    const showSlide = (index: number) => {
+      clearScheduled();
+
+      const prevIndex = currentIndex;
+      currentIndex = (index + slides.length) % slides.length;
+
+      slides.forEach((slide, i) => {
+        slide.classList.toggle('active', i === currentIndex);
+      });
+
+      // Stop previous video
+      const prevVideo = slides[prevIndex]?.querySelector('video');
+      if (prevVideo) prevVideo.pause();
+
+      // Play current video if present
+      const currentVideo = slides[currentIndex]?.querySelector('video');
+      if (currentVideo) {
+        currentVideo.currentTime = 0;
+        currentVideo.play();
+      }
+
+      scheduleNext();
+    };
+
+    prevBtn?.addEventListener('click', () => {
+      showSlide(currentIndex - 1);
+    });
+
+    nextBtn?.addEventListener('click', () => {
+      showSlide(currentIndex + 1);
+    });
+
+    // Initialize
+    showSlide(0);
+  }
+</script>

@@ -1,0 +1,125 @@
+---
+interface Props {
+  title: string;
+  subtitle?: string;
+  backgroundGradient?: string;
+}
+
+const {
+  title,
+  subtitle,
+  backgroundGradient = "linear-gradient(135deg, #2D5016 0%, #1f3610 100%)",
+} = Astro.props;
+---
+
+<div class="page-header" style={`background: ${backgroundGradient}`}>
+  <div class="header-content">
+    <h1>{title}</h1>
+    {subtitle && <p>{subtitle}</p>}
+  </div>
+</div>
+
+<style>
+  .page-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    padding: 60px 20px;
+    text-align: center;
+    color: white;
+    z-index: 99;
+    transition: padding 0.3s ease, height 0.3s ease;
+  }
+
+  .page-header.sticky-shrink {
+    padding: 1rem 20px;
+  }
+
+  .header-content {
+    max-width: 1600px;
+    margin: 0 auto;
+  }
+
+  .page-header h1 {
+    font-size: 2.25rem;
+    margin: 0 0 1rem 0;
+    font-weight: 700;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    transition: font-size 0.3s ease;
+  }
+
+  .page-header.sticky-shrink h1 {
+    font-size: 1.5rem;
+    margin-bottom: 0;
+  }
+
+  .page-header p {
+    font-size: 1rem;
+    margin: 0;
+    opacity: 0.95;
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+    transition: opacity 0.3s ease;
+  }
+
+  .page-header.sticky-shrink p {
+    opacity: 0;
+    display: none;
+  }
+
+  @media (max-width: 768px) {
+    .page-header {
+      padding: 40px 1rem;
+    }
+
+    .page-header h1 {
+      font-size: 1.5rem;
+    }
+
+    .page-header p {
+      font-size: 0.9rem;
+    }
+
+    .page-header.sticky-shrink h1 {
+      font-size: 1.2rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .page-header {
+      padding: 30px 1rem;
+    }
+
+    .page-header h1 {
+      font-size: 1.25rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .page-header p {
+      font-size: 0.85rem;
+    }
+  }
+</style>
+
+<script>
+  // Get the page header element
+  const pageHeader = document.querySelector('.page-header') as HTMLElement;
+  const navHeader = document.querySelector('header');
+  
+  if (pageHeader && navHeader) {
+    // Calculate header height (nav padding + text = ~60px)
+    const shrinkThreshold = 60 + window.innerHeight * 0.15; // Shrink when scrolled past initial view
+    
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > shrinkThreshold) {
+        pageHeader.classList.add('sticky-shrink');
+        // Adjust top position to sit below nav
+        pageHeader.style.top = '60px';
+      } else {
+        pageHeader.classList.remove('sticky-shrink');
+        pageHeader.style.top = '0';
+      }
+    });
+  }
+</script>

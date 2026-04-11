@@ -1,0 +1,53 @@
+{
+  "filters": [
+    {
+      "title": "Experience Type",
+      "id": "category",
+      "options": [
+        { "label": "Cultural", "value": "Cultural" },
+        { "label": "Adventure", "value": "Adventure" },
+        { "label": "Nature", "value": "Nature" },
+        { "label": "Gastronomic", "value": "Gastronomic" },
+        { "label": "Multi-Day", "value": "Multi-Day" }
+      ]
+    },
+    {
+      "title": "Duration",
+      "id": "duration",
+      "options": [
+        { "label": "Up to 3 hours", "value": "short", "matcher": "duration" },
+        { "label": "3-6 hours", "value": "medium", "matcher": "duration" },
+        { "label": "6+ hours", "value": "long", "matcher": "duration" },
+        { "label": "Multi-day", "value": "multiday", "matcher": "duration" }
+      ]
+    },
+    {
+      "title": "Difficulty",
+      "id": "difficulty",
+      "options": [
+        { "label": "Easy", "value": "Easy" },
+        { "label": "Moderate", "value": "Moderate" },
+        { "label": "Challenging", "value": "Challenging" }
+      ]
+    },
+    {
+      "title": "Altitude",
+      "id": "altitude",
+      "options": [
+        { "label": "Below 3000m", "value": "low", "matcher": "altitude" },
+        { "label": "3000-4000m", "value": "medium", "matcher": "altitude" },
+        { "label": "Above 4000m", "value": "high", "matcher": "altitude" }
+      ]
+    },
+    {
+      "title": "Group Size",
+      "id": "groupSize",
+      "options": [
+        { "label": "Solo (1-2 people)", "value": "solo", "matcher": "groupSize" },
+        { "label": "Small (3-5 people)", "value": "small", "matcher": "groupSize" },
+        { "label": "Medium (6-15 people)", "value": "medium", "matcher": "groupSize" },
+        { "label": "Large (15+ people)", "value": "large", "matcher": "groupSize" }
+      ]
+    }
+  ]
+}

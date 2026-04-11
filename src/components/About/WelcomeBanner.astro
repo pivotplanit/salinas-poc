@@ -1,0 +1,79 @@
+---
+interface Props {
+  title?: string;
+  subtitle?: string;
+}
+
+const {
+  title = "Welcome to Salinas de Guaranda",
+  subtitle = "Where tourism builds community prosperity",
+} = Astro.props;
+---
+
+<section class="welcome-banner">
+  <div class="banner-content">
+    <h2>{title}</h2>
+    <p>{subtitle}</p>
+  </div>
+</section>
+
+<style>
+  .welcome-banner {
+    position: sticky;
+    top: 0;
+    width: 100%;
+    padding: 3rem 1rem;
+    background: linear-gradient(135deg, #3d4a2f 0%, #2D5016 100%);
+    color: white;
+    z-index: 50;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  .banner-content {
+    max-width: 1600px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin: 0 0 0.75rem 0;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  }
+
+  p {
+    font-size: 1.2rem;
+    margin: 0;
+    opacity: 0.95;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+  }
+
+  @media (max-width: 768px) {
+    .welcome-banner {
+      padding: 2rem 1rem;
+    }
+
+    h2 {
+      font-size: 1.75rem;
+    }
+
+    p {
+      font-size: 1rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .welcome-banner {
+      padding: 1.5rem 1rem;
+    }
+
+    h2 {
+      font-size: 1.5rem;
+    }
+
+    p {
+      font-size: 0.95rem;
+    }
+  }
+</style>

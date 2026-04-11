@@ -5,59 +5,21 @@ import Button from "../Button.astro";
 <section class="group-booking-hero">
   <div class="container">
     <div class="hero-content">
-      <h1>Group Experiences</h1>
-      <p class="subtitle">Custom journeys for organizations, teams, and groups</p>
-      <p class="description">
-        Whether you're leading a corporate retreat, educational group, or family adventure, 
-        we create unforgettable experiences tailored to your needs.
-      </p>
-      
-      <div class="hero-features">
-        <div class="feature">
-          <span class="feature-icon">🎯</span>
-          <span class="feature-text">Fully Customizable</span>
-        </div>
-        <div class="feature">
-          <span class="feature-icon">👥</span>
-          <span class="feature-text">2-300+ People</span>
-        </div>
-        <div class="feature">
-          <span class="feature-icon">🏨</span>
-          <span class="feature-text">All-Inclusive Options</span>
-        </div>
-        <div class="feature">
-          <span class="feature-icon">📅</span>
-          <span class="feature-text">Flexible Scheduling</span>
-        </div>
-      </div>
-
-      <div class="hero-buttons">
-        <Button 
-          text="Customize Your Trip"
-          href="#form"
-          variant="primary"
-          size="lg"
-        />
-        <Button 
-          text="View Itineraries"
-          href="#itineraries"
-          variant="outline"
-          size="lg"
-        />
-      </div>
+      <h1>Create Your Perfect Group Experience in Salinas</h1>
+      <p class="subtitle">Custom itineraries designed for universities, schools, and organizations</p>
     </div>
   </div>
 </section>
 
 <style>
   .group-booking-hero {
-    padding: 5rem 1rem;
-    background: linear-gradient(135deg, #2D5016 0%, #1f3610 100%);
+    padding: 10rem 1rem;
+    background: var(--primary);
     color: white;
   }
 
   .container {
-    max-width: 1200px;
+    max-width: 800px;
     margin: 0 auto;
   }
 
@@ -65,14 +27,15 @@ import Button from "../Button.astro";
     text-align: center;
   }
 
-  h1 {
+  .hero-content h1 {
     font-size: 3.5rem;
     font-weight: 700;
     margin: 0 0 0.75rem 0;
+    text-wrap: balance;
   }
 
   .subtitle {
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     margin: 0 0 1rem 0;
     opacity: 0.95;
   }

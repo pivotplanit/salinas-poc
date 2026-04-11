@@ -1,15 +1,15 @@
 {
   "extends": "astro/tsconfigs/strict",
   "compilerOptions": {
-    "jsxImportSource": "astro/jsx",
+    // "jsxImportSource": "astro/jsx",
     "moduleResolution": "bundler",
     "resolveJsonModule": true,
-    "baseUrl": ".",
     "paths": {
-      "@components/*": ["src/components/*"],
-      "@layouts/*": ["src/layouts/*"],
-      "@lib/*": ["src/lib/*"],
-      "@assets/*": ["src/assets/*"]
+      "@components/*": ["./src/components/*"],
+      "@layouts/*": ["./src/layouts/*"],
+      "@lib/*": ["./src/lib/*"],
+      "@assets/*": ["./src/assets/*"],
+      "@configs/*": ["./src/configs/*"]
     }
   }
 }

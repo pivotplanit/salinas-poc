@@ -66,19 +66,19 @@ const { title, duration, groupSize, description, highlights, price } = Astro.pro
   .itinerary-card:hover {
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
     transform: translateY(-8px);
-    border-color: #2D5016;
+    border-color: var(--primary);
   }
 
   .card-header {
     padding: 2rem;
     background: linear-gradient(135deg, #f9f9f9 0%, #efefef 100%);
-    border-bottom: 2px solid #2D5016;
+    border-bottom: 2px solid var(--primary);
   }
 
   .card-header h3 {
     margin: 0 0 1rem 0;
     font-size: 1.4rem;
-    color: #2D5016;
+    color: var(--primary);
     font-weight: 600;
   }
 
@@ -115,7 +115,7 @@ const { title, duration, groupSize, description, highlights, price } = Astro.pro
   .highlights h4 {
     margin: 0 0 1rem 0;
     font-size: 1rem;
-    color: #2D5016;
+    color: var(--primary);
     font-weight: 600;
   }
 
@@ -137,7 +137,7 @@ const { title, duration, groupSize, description, highlights, price } = Astro.pro
     content: "✓";
     position: absolute;
     left: 0;
-    color: #2D5016;
+    color: var(--primary);
     font-weight: 700;
   }
 
@@ -153,7 +153,7 @@ const { title, duration, groupSize, description, highlights, price } = Astro.pro
   .price {
     font-size: 1.3rem;
     font-weight: 700;
-    color: #2D5016;
+    color: var(--primary);
     white-space: nowrap;
   }
 

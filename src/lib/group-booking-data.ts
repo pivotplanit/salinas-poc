@@ -68,51 +68,51 @@ export const itineraries: Itinerary[] = [
 
 export const pricingTable: PricingRow[] = [
   {
-    groupSize: "2-5 people",
-    twoDay: "$650",
-    threeDay: "$900",
-    fiveDay: "$2,200",
+    groupSize: "1-10 people",
+    twoDay: "$150/person",
+    threeDay: "$280/person",
+    fiveDay: "$450/person",
   },
   {
-    groupSize: "6-15 people",
-    twoDay: "$550",
-    threeDay: "$750",
-    fiveDay: "$1,800",
+    groupSize: "11-20",
+    twoDay: "$130",
+    threeDay: "$250",
+    fiveDay: "$420",
   },
   {
-    groupSize: "16-30 people",
-    twoDay: "$450",
-    threeDay: "$600",
-    fiveDay: "$1,500",
+    groupSize: "21-30 people",
+    twoDay: "$115",
+    threeDay: "$225",
+    fiveDay: "$385",
   },
   {
-    groupSize: "30+ people",
-    twoDay: "$400",
-    threeDay: "$525",
-    fiveDay: "$1,300",
+    groupSize: "31+ people",
+    twoDay: "Contact for quote",
+    threeDay: "Contact for quote",
+    fiveDay: "Contact for quote",
   },
 ];
 
 export const bookingSteps = [
   {
     number: 1,
-    title: "Customize Your Journey",
-    description: "Tell us your interests, group size, and preferences",
+    title: "Tell Us",
+    description: "Your group details",
   },
   {
     number: 2,
-    title: "Browse Itineraries",
-    description: "Explore sample itineraries or let us create a custom one",
+    title: "We Design",
+    description: "Custom itinerary",
   },
   {
     number: 3,
-    title: "Get a Quote",
-    description: "Receive pricing and detailed logistics information",
+    title: "You Approve",
+    description: "Final details & book",
   },
   {
     number: 4,
-    title: "Confirm & Prepare",
-    description: "Secure your booking and receive pre-trip information",
+    title: "Experience",
+    description: "Your trip",
   },
 ];
 
@@ -133,7 +133,11 @@ export const durationOptions = [
 ];
 
 export const activityLevelOptions = [
-  { id: "relaxed", label: "Relaxed (Easy walks, cultural focus)", value: "relaxed" },
+  {
+    id: "relaxed",
+    label: "Relaxed (Easy walks, cultural focus)",
+    value: "relaxed",
+  },
   { id: "moderate", label: "Moderate (Mix of activities)", value: "moderate" },
   { id: "active", label: "Active (Hiking, adventure)", value: "active" },
 ];
@@ -152,4 +156,47 @@ export const interestOptions = [
   "Cooking & Culinary",
   "Mountain Hiking",
   "Wildlife & Nature",
+];
+
+export const whyBookHabitat = [
+  {
+    title: "Community Impact",
+    description: "Direct beneifts to local families",
+  },
+  {
+    title: "Expert Guides",
+    description: "Local knowledge and expertise",
+  },
+  {
+    title: "Flexibility",
+    description: "Customizable itineraries",
+  },
+  {
+    title: "Safety",
+    description: "Comprehensive support",
+  },
+];
+
+export const whatLeadersSay = [
+  {
+    name: "Dr. Sarah Martinez",
+    organization: "University of Colorado",
+    rating: 5,
+    testimonial:
+      "Our students gained invaluable insights into cooperative economics and sustainable community development. The experience exceeded all expectations.",
+  },
+  {
+    name: "James Thompson",
+    organization: "Global Education Tours",
+    rating: 5,
+    testimonial:
+      "The attention to detail and customization made this trip perfect for our group. The local guides were knowledgeable and passionate.",
+  },
+  {
+    name: "Maria Rodriguez",
+    organization: "Stanford Study Abroad",
+    rating: 5,
+    testimonial:
+      "An authentic and transformative experience. The community welcomed us warmly and we learned so much about solidarity economy in action.",
+  },
 ];

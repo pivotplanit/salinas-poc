@@ -1,50 +1,53 @@
 ---
+import { timeline } from "../../lib/about-data";
 ---
 
 <section class="history-section">
   <div class="container">
     <div class="history-layout">
       <div class="history-content">
-        <h2>Our Story</h2>
+        <h2>A History of Cooperation</h2>
         
-        <div class="history-text">
-          <p>
-            What began in the 1970s as a family initiative has blossomed into a transformative movement. 
-            Our founders envisioned a way to share Ecuador's rich cultural heritage while creating sustainable 
-            opportunities for local communities.
-          </p>
+        <div class="history-subsections">
+          <div class="subsection">
+            <h3>History of Salinas</h3>
+            <p>From a small isolated parish to a thriving example of cooperative economics. In the 1970s, Salinas was one of the poorest communities in Ecuador.</p>
+          </div>
           
-          <p>
-            Today, we operate across 40+ communities, employing over 200 people and generating meaningful 
-            economic impact without compromising our core values of environmental stewardship and cultural 
-            preservation. Each experience we offer is designed to benefit the communities we work with, 
-            ensuring that tourism becomes a force for good.
-          </p>
+          <div class="subsection">
+            <h3>Development of Solidarity Economy</h3>
+            <p>Starting with a small cheese factory, the community learned basic cooperative techniques and built a cooperative model where profits stayed local.</p>
+          </div>
           
-          <p>
-            Recognized by UNESCO for our cultural conservation efforts, we continue to innovate in sustainable 
-            tourism while maintaining deep roots in local traditions. Our commitment extends beyond tourism – 
-            we're building a legacy of equity, respect, and shared prosperity.
-          </p>
+          <div class="subsection">
+            <h3>Role of Father Antonio Polo</h3>
+            <p>The story of Father Antonio Polo and the community's resilience. His vision of community empowerment through cooperative enterprise created a sustainable economic model.</p>
+          </div>
+          
+          <div class="subsection">
+            <h3>Growth from Cheese to 40+ Enterprises</h3>
+            <p>Today, Salinas is home to 40+ community enterprises exporting products worldwide, from chocolate to textiles to mushrooms.</p>
+          </div>
+          
+          <div class="subsection">
+            <h3>UNESCO Recognition</h3>
+            <p>Recognized internationally as a model of sustainable community development and solidarity economy.</p>
+          </div>
         </div>
       </div>
       
-      <div class="history-stats">
-        <div class="history-stat">
-          <div class="stat-number">50+</div>
-          <div class="stat-label">Years</div>
-        </div>
-        <div class="history-stat">
-          <div class="stat-number">40+</div>
-          <div class="stat-label">Communities</div>
-        </div>
-        <div class="history-stat">
-          <div class="stat-number">200+</div>
-          <div class="stat-label">Jobs Created</div>
-        </div>
-        <div class="history-stat">
-          <div class="stat-number">UNESCO</div>
-          <div class="stat-label">Heritage Site</div>
+      <div class="timeline-box">
+        <div class="timeline-content">
+          {timeline.map((item) => (
+            <div class="timeline-entry">
+              <div class="timeline-dot"></div>
+              <div class="timeline-text">
+                <div class="timeline-year">{item.decade}</div>
+                <div class="timeline-event">{item.title}</div>
+                <div class="timeline-description">{item.description}</div>
+              </div>
+            </div>
+          ))}
         </div>
       </div>
     </div>
@@ -58,79 +61,114 @@
   }
 
   .container {
-    max-width: 1200px;
+    max-width: 1600px;
     margin: 0 auto;
   }
 
   .history-layout {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 4rem;
-    align-items: center;
+    gap: 3rem;
+    align-items: flex-start;
   }
 
   h2 {
     font-size: 2.5rem;
     font-weight: 700;
-    color: #2D5016;
+    color: var(--primary);
     margin: 0 0 2rem 0;
   }
 
-  .history-text p {
-    margin: 0 0 1.5rem 0;
-    color: #666;
-    line-height: 1.8;
-    font-size: 1.05rem;
-  }
-
-  .history-text p:last-child {
-    margin-bottom: 0;
-  }
-
-  .history-stats {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+  .history-subsections {
+    display: flex;
+    flex-direction: column;
     gap: 2rem;
   }
 
-  .history-stat {
-    text-align: center;
-    padding: 2rem;
-    background: linear-gradient(135deg, #f5f5f5 0%, #efefef 100%);
-    border-radius: 12px;
-    border: 1px solid #e0e0e0;
-    transition: all 300ms ease;
+  .subsection {
+    padding-left: 0;
   }
 
-  .history-stat:hover {
-    background: linear-gradient(135deg, #2D5016 0%, #1f3610 100%);
-    color: white;
-    transform: translateY(-4px);
-    box-shadow: 0 8px 24px rgba(45, 80, 22, 0.2);
-  }
-
-  .stat-number {
-    font-size: 2.5rem;
+  .subsection h3 {
+    font-size: 1.2rem;
     font-weight: 700;
-    color: #2D5016;
-    line-height: 1;
+    color: var(--primary);
+    margin: 0 0 0.75rem 0;
+  }
+
+  .subsection p {
+    margin: 0;
+    color: #666;
+    line-height: 1.6;
+    font-size: 0.95rem;
+  }
+
+  .timeline-box {
+    background: white;
+    border: 1px solid #e0e0e0;
+    border-radius: 12px;
+    padding: 2rem;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
+    position: sticky;
+    top: 150px;
+  }
+
+  .timeline-title {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--primary);
+    margin: 0 0 1.5rem 0;
+    text-align: center;
+  }
+
+  .timeline-content {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .timeline-entry {
+    display: flex;
+    gap: 1rem;
+    position: relative;
+  }
+
+  .timeline-entry:not(:last-child) {
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid #f0f0f0;
+  }
+
+  .timeline-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: var(--primary);
+    flex-shrink: 0;
+    margin-top: 4px;
+  }
+
+  .timeline-text {
+    flex: 1;
+  }
+
+  .timeline-year {
+    font-weight: 700;
+    color: var(--primary);
+    font-size: 0.95rem;
+    margin-bottom: 0.25rem;
+  }
+
+  .timeline-event {
+    font-weight: 600;
+    color: #333;
+    font-size: 0.9rem;
     margin-bottom: 0.5rem;
   }
 
-  .history-stat:hover .stat-number {
-    color: white;
-  }
-
-  .stat-label {
-    font-size: 1rem;
-    font-weight: 600;
-    color: #8B7355;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-  }
-
-  .history-stat:hover .stat-label {
-    color: rgba(255, 255, 255, 0.9);
+  .timeline-description {
+    font-size: 0.85rem;
+    color: #666;
+    line-height: 1.5;
   }
 
   @media (max-width: 1024px) {
@@ -140,6 +178,10 @@
 
     h2 {
       font-size: 2rem;
+    }
+
+    .timeline-box {
+      top: 100px;
     }
   }
 
@@ -157,26 +199,41 @@
       font-size: 1.75rem;
     }
 
-    .history-text p {
+    .timeline-box {
+      position: static;
+    }
+
+    .subsection p {
       font-size: 1rem;
       line-height: 1.6;
     }
+  }
 
-    .history-stats {
-      grid-template-columns: 1fr 1fr;
-      gap: 1rem;
+  @media (max-width: 480px) {
+    .history-section {
+      padding: 2rem 1rem;
     }
 
-    .history-stat {
+    h2 {
+      font-size: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .timeline-box {
       padding: 1.5rem;
     }
 
-    .stat-number {
-      font-size: 2rem;
+    .timeline-title {
+      font-size: 1.1rem;
+      margin-bottom: 1rem;
     }
 
-    .stat-label {
-      font-size: 0.85rem;
+    .timeline-content {
+      gap: 1rem;
+    }
+
+    .timeline-entry:not(:last-child) {
+      padding-bottom: 1rem;
     }
   }
 </style>

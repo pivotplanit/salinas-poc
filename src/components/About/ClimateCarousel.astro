@@ -54,14 +54,14 @@ import { weather } from "../../lib/practical-info-data";
   }
 
   .container {
-    max-width: 1200px;
+    max-width: 1600px;
     margin: 0 auto;
   }
 
   h2 {
     font-size: 2.5rem;
     font-weight: 700;
-    color: #2D5016;
+    color: var(--primary);
     margin: 0 0 0.5rem 0;
     text-align: center;
   }
@@ -130,7 +130,7 @@ import { weather } from "../../lib/practical-info-data";
   .climate-card h3 {
     margin: 0 0 0.75rem 0;
     font-size: 1.2rem;
-    color: #2D5016;
+    color: var(--primary);
     font-weight: 600;
   }
 
@@ -156,7 +156,7 @@ import { weather } from "../../lib/practical-info-data";
     width: 48px;
     height: 48px;
     border-radius: 50%;
-    background: #2D5016;
+    background: var(--primary);
     color: white;
     border: none;
     cursor: pointer;
@@ -197,13 +197,13 @@ import { weather } from "../../lib/practical-info-data";
   }
 
   .dot.active {
-    background: #2D5016;
+    background: var(--primary);
     width: 32px;
     border-radius: 6px;
   }
 
   .dot:hover {
-    background: #2D5016;
+    background: var(--primary);
   }
 
   @media (max-width: 768px) {

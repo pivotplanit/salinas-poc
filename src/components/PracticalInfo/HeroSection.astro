@@ -3,44 +3,17 @@
 
 <section class="practical-hero">
   <div class="container">
-    <h1>Practical Information</h1>
-    <p class="subtitle">Everything you need to know before your journey</p>
-
-    <div class="info-cards">
-      <div class="info-card">
-        <div class="info-icon">🛫</div>
-        <h3>Getting There</h3>
-        <p>Multiple routes from major cities with detailed directions</p>
-      </div>
-      <div class="info-card">
-        <div class="info-icon">🌤️</div>
-        <h3>Weather</h3>
-        <p>Seasonal climate patterns and what to expect</p>
-      </div>
-      <div class="info-card">
-        <div class="info-icon">🎒</div>
-        <h3>What to Pack</h3>
-        <p>Complete packing checklist for your trip</p>
-      </div>
-      <div class="info-card">
-        <div class="info-icon">🛡️</div>
-        <h3>Stay Safe</h3>
-        <p>Health, safety tips, and emergency information</p>
-      </div>
-    </div>
+    <h1>Plan Your Trip</h1>
+    <p class="subtitle">Everything you need to know before visiting Salinas de Guaranda.</p>
   </div>
 </section>
 
 <style>
-  .practical-hero {
-    padding: 4rem 1rem;
-    background: linear-gradient(135deg, #2D5016 0%, #1f3610 100%);
-    color: white;
-  }
-
   .container {
-    max-width: 1200px;
-    margin: 0 auto;
+    margin: auto;
+    padding: 3rem 1rem;
+    color: white;
+    background: var(--primary);
   }
 
   h1 {
@@ -54,50 +27,11 @@
     font-size: 1.3rem;
     text-align: center;
     opacity: 0.95;
-    margin: 0 0 3rem 0;
-  }
-
-  .info-cards {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 2rem;
-  }
-
-  .info-card {
-    background: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    border-radius: 12px;
-    padding: 2rem;
-    text-align: center;
-    transition: all 300ms ease;
-  }
-
-  .info-card:hover {
-    background: rgba(255, 255, 255, 0.15);
-    transform: translateY(-4px);
-  }
-
-  .info-icon {
-    font-size: 3rem;
-    margin-bottom: 1rem;
-    line-height: 1;
-  }
-
-  .info-card h3 {
-    margin: 0 0 0.75rem 0;
-    font-size: 1.3rem;
-    font-weight: 600;
-  }
-
-  .info-card p {
     margin: 0;
-    font-size: 0.95rem;
-    opacity: 0.9;
   }
 
   @media (max-width: 768px) {
-    .practical-hero {
+    .container {
       padding: 3rem 1rem;
     }
 
@@ -107,28 +41,6 @@
 
     .subtitle {
       font-size: 1.1rem;
-      margin-bottom: 2rem;
-    }
-
-    .info-cards {
-      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-      gap: 1.5rem;
-    }
-
-    .info-card {
-      padding: 1.5rem;
-    }
-
-    .info-icon {
-      font-size: 2rem;
-    }
-
-    .info-card h3 {
-      font-size: 1.1rem;
-    }
-
-    .info-card p {
-      font-size: 0.85rem;
     }
   }
 </style>

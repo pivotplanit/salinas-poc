@@ -26,7 +26,7 @@ export const socialMedia = {
 
 // Colors
 export const colors = {
-  primary: "#2D5016", // Deep green
+  primary: "#374151", // Deep green
   secondary: "#8B7355", // Warm brown
   accent: "#C89968", // Light brown
   lightGreen: "#A8D5BA", // Light green

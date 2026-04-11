@@ -1,0 +1,32 @@
+{
+  "features": [
+    {
+      "id": "community-impact",
+      "icon": "Users",
+      "title": "Community Impact",
+      "description": "Direct benefits to local families",
+      "stat": "40+ Family Businesses"
+    },
+    {
+      "id": "expert-guides",
+      "icon": "BookOpen",
+      "title": "Expert Guides",
+      "description": "Local knowledge and expertise",
+      "stat": "100% Locally Guided"
+    },
+    {
+      "id": "flexibility",
+      "icon": "Calendar",
+      "title": "Flexibility",
+      "description": "Customizable itineraries",
+      "stat": "UNESCO Recognition"
+    },
+    {
+      "id": "safety",
+      "icon": "CheckCircle",
+      "title": "Safety",
+      "description": "Comprehensive support",
+      "stat": "Comprehensive support"
+    }
+  ]
+}

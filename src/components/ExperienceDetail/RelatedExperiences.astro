@@ -1,14 +1,15 @@
 ---
 import { experiences } from "../../lib/experiences-data";
+import Button from "../Button.astro";
 
 interface Props {
   currentId?: string;
   relatedIds?: string[];
+  locale?: string;
 }
 
-const { currentId = "", relatedIds = [] } = Astro.props;
+const { currentId = "", relatedIds = [], locale = "en" } = Astro.props;
 
-// Get related experiences
 const relatedExperiences = relatedIds
   .map((id) => experiences.find((exp) => exp.id === id))
   .filter((exp) => exp && exp.id !== currentId)
@@ -21,22 +22,36 @@ if (relatedExperiences.length === 0) {
 
 {relatedExperiences.length > 0 && (
   <section class="related-section">
-    <h2>Similar Experiences</h2>
-    <p class="section-subtitle">Explore other amazing activities</p>
-    
+    <h2>Related Experiences</h2>
     <div class="related-grid">
       {relatedExperiences.map((exp) => (
-        <a href={`/experiences/${exp?.id}`} class="related-card">
-          <div class="related-emoji">{exp?.icon}</div>
-          <h3>{exp?.title}</h3>
-          <p class="related-tag">{exp?.tag}</p>
-          <p class="related-description">{exp?.description}</p>
-          
-          <div class="related-meta">
-            <span class="meta">⏱️ {exp?.duration}</span>
-            <span class="meta">📍 {exp?.altitude}</span>
+        <div class="related-card">
+          <div class="card-image">
+            {exp?.image ? (
+              <img src={exp.image} alt={exp?.title} loading="lazy" />
+            ) : (
+              <div class="card-image-placeholder">
+                <span>{exp?.icon}</span>
+              </div>
+            )}
           </div>
-        </a>
+          <div class="card-body">
+            <h3>{exp?.title}</h3>
+            <div class="card-meta">
+              <span class="card-duration">{exp?.duration}</span>
+              <span class="card-price">
+                {typeof exp?.price === 'number' ? `$${exp.price}` : exp?.price || 'Contact'}
+              </span>
+            </div>
+            <Button
+              text="View Details"
+              href={`/experiences/${exp?.id}`}
+              variant="outline"
+              size="sm"
+              fullWidth
+            />
+          </div>
+        </div>
       ))}
     </div>
   </section>
@@ -44,110 +59,96 @@ if (relatedExperiences.length === 0) {
 
 <style>
   .related-section {
-    padding: 3rem 0;
-    border-bottom: 1px solid #e0e0e0;
+    padding: 4rem 0;
   }
 
   h2 {
-    font-size: 2rem;
+    font-size: 1.75rem;
     font-weight: 700;
-    color: #2D5016;
-    margin: 0 0 0.5rem 0;
-    text-align: center;
-  }
-
-  .section-subtitle {
-    text-align: center;
-    color: #666;
-    font-size: 1rem;
+    color: #1a1a1a;
     margin: 0 0 2rem 0;
+    text-align: center;
   }
 
   .related-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    grid-template-columns: repeat(3, 1fr);
     gap: 2rem;
   }
 
   .related-card {
-    display: flex;
-    flex-direction: column;
-    padding: 1.5rem;
-    background: #f9f9f9;
-    border-radius: 8px;
     border: 1px solid #e0e0e0;
-    text-decoration: none;
-    color: inherit;
-    transition: all 300ms ease;
-  }
-
-  .related-card:hover {
-    border-color: #2D5016;
-    box-shadow: 0 8px 24px rgba(45, 80, 22, 0.1);
-    transform: translateY(-4px);
+    border-radius: 8px;
+    overflow: hidden;
     background: white;
   }
 
-  .related-emoji {
-    font-size: 3rem;
-    margin-bottom: 1rem;
-    line-height: 1;
-  }
-
-  .related-card h3 {
-    margin: 0 0 0.5rem 0;
-    font-size: 1.2rem;
-    color: #2D5016;
-    font-weight: 600;
-  }
-
-  .related-tag {
-    margin: 0 0 0.75rem 0;
-    font-size: 0.85rem;
-    color: #8B7355;
-    font-weight: 600;
+  .card-label {
+    font-size: 0.7rem;
+    color: #999;
     text-transform: uppercase;
     letter-spacing: 0.5px;
+    padding: 0.75rem 1rem 0;
+    margin: 0;
+    font-weight: 600;
   }
 
-  .related-description {
-    margin: 0 0 1rem 0;
-    color: #666;
-    font-size: 0.9rem;
-    line-height: 1.5;
-    flex: 1;
+  .card-image {
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    background: #f5f5f5;
+    overflow: hidden;
   }
 
-  .related-meta {
+  .card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .card-image-placeholder {
+    width: 100%;
+    height: 100%;
     display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-    border-top: 1px solid #e0e0e0;
-    padding-top: 1rem;
+    align-items: center;
+    justify-content: center;
+    font-size: 4rem;
+    background: linear-gradient(135deg, #f0f0f0, #e0e0e0);
+  }
+
+  .card-body {
+    padding: 1rem;
+  }
+
+  .card-body h3 {
+    margin: 0 0 0.5rem 0;
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: #1a1a1a;
+  }
+
+  .card-meta {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1rem;
     font-size: 0.85rem;
     color: #666;
   }
 
-  .meta {
-    display: block;
+  .card-price {
+    font-weight: 600;
+    color: var(--primary);
   }
 
   @media (max-width: 768px) {
-    .related-section {
-      padding: 2rem 0;
+    .related-grid {
+      grid-template-columns: 1fr;
+      max-width: 400px;
+      margin: 0 auto;
     }
 
     h2 {
       font-size: 1.5rem;
-    }
-
-    .related-grid {
-      grid-template-columns: 1fr;
-      gap: 1rem;
-    }
-
-    .related-card {
-      padding: 1.25rem;
     }
   }
 </style>

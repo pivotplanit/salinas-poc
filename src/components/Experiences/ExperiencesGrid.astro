@@ -1,0 +1,111 @@
+---
+import ExperienceCard from "./ExperienceCard.astro";
+import ExperienceCardSkeleton from "./ExperienceCardSkeleton.astro";
+
+interface Experience {
+  id: string;
+  title: string;
+  category: string;
+  description: string;
+  duration: string;
+  difficulty: string;
+  difficultyLevel: number;
+  altitude: string;
+  groupSize: string;
+  image?: string;
+}
+
+export interface Props {
+  experiences: Experience[];
+  isLoading?: boolean;
+  skeletonCount?: number;
+}
+
+const { experiences, isLoading = false, skeletonCount = 6 } = Astro.props;
+
+const skeletons = Array.from({ length: skeletonCount });
+---
+
+<div class="experiences-grid">
+  {isLoading ? (
+    skeletons.map(() => <ExperienceCardSkeleton />)
+  ) : experiences.length > 0 ? (
+    experiences.map((exp) => (
+      <ExperienceCard
+        id={exp.id}
+        title={exp.title}
+        category={exp.category}
+        description={exp.description}
+        duration={exp.duration}
+        difficulty={exp.difficulty}
+        difficultyLevel={exp.difficultyLevel}
+        altitude={exp.altitude}
+        groupSize={exp.groupSize}
+        image={exp.image}
+      />
+    ))
+  ) : (
+    <div class="empty-state">
+      <p>No experiences found. Try adjusting your filters.</p>
+      <button class="reset-filters-btn">Reset Filters</button>
+    </div>
+  )}
+</div>
+
+<style>
+  .experiences-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 24px;
+  }
+
+  .empty-state {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 60px 20px;
+    color: #666;
+  }
+
+  .empty-state p {
+    font-size: 16px;
+    margin-bottom: 20px;
+  }
+
+  .reset-filters-btn {
+    padding: 10px 24px;
+    background: #007bff;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+
+  .reset-filters-btn:hover {
+    background: #0056b3;
+  }
+
+  @media (max-width: 1023px) {
+    .experiences-grid {
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 16px;
+    }
+  }
+
+  @media (max-width: 767px) {
+    .experiences-grid {
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+
+    .empty-state {
+      padding: 40px 20px;
+    }
+
+    .empty-state p {
+      font-size: 14px;
+    }
+  }
+</style>

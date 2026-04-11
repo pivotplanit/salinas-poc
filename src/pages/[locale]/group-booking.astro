@@ -1,0 +1,29 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import HeroSection from "@components/GroupBooking/HeroSection.astro";
+import HowItWorks from "@components/GroupBooking/HowItWorks.astro";
+import CustomizationGroup from "@components/GroupBooking/CustomizationGroup.astro";
+import WhyBookHabitat from "@components/GroupBooking/WhyBookHabitat.astro";
+import WhatLeadersSay from "@components/GroupBooking/WhatLeadersSay.astro";
+import i18nConfig from "@configs/i18n";
+
+import { features } from "../../data/group-booking/features.json";
+import { testimonials } from "../../data/testimonials.json";
+
+export function getStaticPaths() {
+  return i18nConfig.locales.map((locale) => ({ params: { locale } }));
+}
+
+const { locale } = Astro.params;
+---
+
+<BaseLayout
+  title="Group Booking - HABITAT Salinas"
+  description="Plan group trips and custom itineraries for your organization"
+>
+  <HeroSection />
+  <HowItWorks />
+  <CustomizationGroup />
+  <WhyBookHabitat features={features}/>
+  <WhatLeadersSay testimonials={testimonials}/>
+</BaseLayout>

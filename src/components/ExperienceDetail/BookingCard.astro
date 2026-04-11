@@ -10,16 +10,16 @@ interface Props {
 const { price = "Contact for pricing", groupDiscounts = [], title = "Experience" } = Astro.props;
 ---
 
-<aside class="booking-card">
-  <div class="price-section">
-    <p class="price-label">Starting at</p>
+<aside class="booking-card" id="booking">
+    <div class="price-section">
+    <p class="price-label">From</p>
     <p class="price-value">{price}</p>
     <p class="price-note">per person</p>
   </div>
 
   {groupDiscounts.length > 0 && (
     <div class="discounts-section">
-      <h3>Group Discounts</h3>
+      <p class="discounts-title">Group Discounts</p>
       <table class="discounts-table">
         <tbody>
           {groupDiscounts.map((discount) => (
@@ -33,114 +33,111 @@ const { price = "Contact for pricing", groupDiscounts = [], title = "Experience"
     </div>
   )}
 
-  <div class="date-section">
-    <label for="date-picker">Select Date</label>
-    <input type="date" id="date-picker" />
+  <div class="form-field">
+    <label for="select-date">Select Date</label>
+    <input type="date" id="select-date" />
   </div>
 
-  <div class="group-size-section">
-    <label for="group-size">Number of People</label>
+  <div class="form-field">
+    <label for="group-size">Group Size</label>
     <select id="group-size">
+      <option value="">[Dropdown]</option>
       <option value="1">1 person</option>
       <option value="2">2 people</option>
       <option value="3">3 people</option>
       <option value="4">4 people</option>
       <option value="5">5 people</option>
-      <option value="6+">6+ people (call for group rate)</option>
+      <option value="6+">6+ people</option>
     </select>
   </div>
 
-  <div class="benefits-section">
-    <h3>What You Get</h3>
-    <ul class="benefits-list">
-      <li>Expert local guide</li>
-      <li>All equipment & materials</li>
-      <li>Lunch & refreshments</li>
-      <li>Hotel pickup & dropoff</li>
-      <li>Insurance coverage</li>
-    </ul>
-  </div>
-
-  <div class="booking-buttons">
-    <Button 
+  <div class="booking-actions">
+    <Button
       text="Book This Experience"
       href="#"
       variant="primary"
-      size="lg"
+      size="md"
       fullWidth
     />
-    <Button 
+    <Button
       text="Contact for Custom"
       href="#contact"
       variant="outline"
-      size="lg"
+      size="md"
       fullWidth
     />
   </div>
 
-  <p class="booking-note">
-    No payment required to book. You'll receive a confirmation and payment options.
-  </p>
+  <ul class="booking-features">
+    <li><span class="feature-check">✓</span> 24 hr response</li>
+    <li><span class="feature-check">✓</span> Flexible scheduling</li>
+    <li><span class="feature-check">✓</span> Custom options</li>
+  </ul>
 </aside>
 
 <style>
   .booking-card {
-    position: sticky;
-    top: 2rem;
     background: white;
-    border: 2px solid #2D5016;
-    border-radius: 12px;
-    padding: 2rem;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 1.5rem;
     display: flex;
     flex-direction: column;
-    gap: 1.5rem;
+    gap: 1rem;
+  }
+
+  .card-label {
+    font-size: 0.7rem;
+    color: #999;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin: 0;
+    font-weight: 600;
   }
 
   .price-section {
     text-align: center;
-    padding-bottom: 1.5rem;
+    padding-bottom: 1rem;
     border-bottom: 1px solid #e0e0e0;
   }
 
   .price-label {
     margin: 0;
-    font-size: 0.9rem;
-    color: #666;
+    font-size: 0.8rem;
+    color: #999;
     text-transform: uppercase;
-    letter-spacing: 0.5px;
-    font-weight: 600;
   }
 
   .price-value {
-    margin: 0.5rem 0 0 0;
-    font-size: 2.5rem;
+    margin: 0.25rem 0;
+    font-size: 2.25rem;
     font-weight: 700;
-    color: #2D5016;
+    color: #1a1a1a;
   }
 
   .price-note {
-    margin: 0.5rem 0 0 0;
+    margin: 0;
     font-size: 0.85rem;
     color: #999;
   }
 
   .discounts-section {
-    padding: 1rem;
     background: #f9f9f9;
-    border-radius: 8px;
+    padding: 1rem;
+    border-radius: 6px;
   }
 
-  .discounts-section h3 {
-    margin: 0 0 1rem 0;
-    font-size: 1rem;
-    color: #2D5016;
+  .discounts-title {
+    margin: 0 0 0.75rem 0;
+    font-size: 0.85rem;
     font-weight: 600;
+    color: #1a1a1a;
   }
 
   .discounts-table {
     width: 100%;
     border-collapse: collapse;
-    font-size: 0.9rem;
+    font-size: 0.85rem;
   }
 
   .discounts-table tr {
@@ -152,117 +149,69 @@ const { price = "Contact for pricing", groupDiscounts = [], title = "Experience"
   }
 
   .discount-size {
-    padding: 0.5rem 0;
-    text-align: left;
+    padding: 0.4rem 0;
     color: #666;
   }
 
   .discount-value {
-    padding: 0.5rem 0;
+    padding: 0.4rem 0;
     text-align: right;
     font-weight: 600;
-    color: #2D5016;
+    color: var(--primary);
   }
 
-  .date-section,
-  .group-size-section {
+  .form-field {
     display: flex;
     flex-direction: column;
-    gap: 0.5rem;
+    gap: 0.375rem;
   }
 
-  .date-section label,
-  .group-size-section label {
+  .form-field label {
+    font-size: 0.8rem;
     font-weight: 600;
-    color: #333;
-    font-size: 0.9rem;
+    color: #1a1a1a;
   }
 
-  .date-section input,
-  .group-size-section select {
-    padding: 0.75rem;
+  .form-field input,
+  .form-field select {
+    padding: 0.6rem;
     border: 1px solid #ddd;
     border-radius: 6px;
-    font-size: 0.95rem;
+    font-size: 0.9rem;
     font-family: inherit;
   }
 
-  .date-section input:focus,
-  .group-size-section select:focus {
+  .form-field input:focus,
+  .form-field select:focus {
     outline: none;
-    border-color: #2D5016;
-    box-shadow: 0 0 0 3px rgba(45, 80, 22, 0.1);
+    border-color: var(--primary);
   }
 
-  .benefits-section {
-    padding: 1rem;
-    background: linear-gradient(135deg, #f0f7f0 0%, #f5f5f5 100%);
-    border-radius: 8px;
+  .booking-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
   }
 
-  .benefits-section h3 {
-    margin: 0 0 1rem 0;
-    font-size: 1rem;
-    color: #2D5016;
-    font-weight: 600;
-  }
-
-  .benefits-list {
+  .booking-features {
     list-style: none;
     margin: 0;
     padding: 0;
   }
 
-  .benefits-list li {
-    padding: 0.5rem 0 0.5rem 1.75rem;
+  .booking-features li {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.85rem;
     color: #666;
-    font-size: 0.9rem;
-    position: relative;
+    padding: 0.25rem 0;
   }
 
-  .benefits-list li:before {
-    content: "✓";
-    position: absolute;
-    left: 0;
+  .feature-check {
     color: #4CAF50;
     font-weight: 700;
   }
-
-  .booking-buttons {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-  }
-
-  .booking-note {
-    margin: 0;
-    padding: 1rem;
-    background: #f5f5f5;
-    border-radius: 6px;
-    text-align: center;
-    color: #666;
-    font-size: 0.85rem;
-    line-height: 1.5;
-  }
-
-  @media (max-width: 1024px) {
-    .booking-card {
-      position: static;
-      top: auto;
-    }
-  }
-
-  @media (max-width: 768px) {
-    .booking-card {
-      padding: 1.5rem;
-    }
-
-    .price-value {
-      font-size: 2rem;
-    }
-
-    .booking-buttons {
-      gap: 0.75rem;
-    }
-  }
 </style>
+
+

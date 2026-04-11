@@ -1,7 +1,8 @@
 export interface Person {
   name: string;
   role: string;
-  avatar: string;
+  description: string;
+  image: string;
 }
 
 export interface TimelineItem {
@@ -20,46 +21,51 @@ export interface Location {
 export interface CultureItem {
   title: string;
   description: string;
-  emoji: string;
+  image: string;
 }
 
 export interface Commitment {
   title: string;
-  description: string;
-  emoji: string;
 }
 
 export interface Cooperative {
   name: string;
   category: string;
   description: string;
+  logo: string;
+  url: string;
 }
 
 export const people: Person[] = [
   {
-    name: "Juan Pablo",
-    role: "Founder & Visionary",
-    avatar: "👨‍💼",
+    name: "Juan Pérez",
+    role: "Master Cheesemaker",
+    description: "30 years crafting award-winning cheeses",
+    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop",
   },
   {
-    name: "Maria Gonzalez",
-    role: "Community Director",
-    avatar: "👩‍💼",
+    name: "María González",
+    role: "Textile Artisan",
+    description: "Preserving traditional weaving techniques",
+    image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&h=400&fit=crop",
   },
   {
     name: "Carlos Ruiz",
-    role: "Operations Manager",
-    avatar: "👨‍🔧",
+    role: "Chocolate Maker",
+    description: "Creating artisan chocolate from local cacao",
+    image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&h=400&fit=crop",
   },
   {
-    name: "Ana Martinez",
-    role: "Experience Designer",
-    avatar: "👩‍🎨",
+    name: "Ana Torres",
+    role: "Local Guide",
+    description: "Sharing Salinas stories with visitors",
+    image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&h=400&fit=crop",
   },
   {
-    name: "Roberto Flores",
-    role: "Guide Coordinator",
-    avatar: "👨‍🏫",
+    name: "Roberto Sánchez",
+    role: "Community Leader",
+    description: "Coordinating cooperative development",
+    image: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=400&h=400&fit=crop",
   },
 ];
 
@@ -97,10 +103,10 @@ export const timeline: TimelineItem[] = [
 ];
 
 export const stats = [
-  { label: "Communities", value: "40+", icon: "🏘️" },
-  { label: "Jobs Created", value: "200+", icon: "💼" },
-  { label: "Years History", value: "50+", icon: "📅" },
-  { label: "UNESCO Heritage", value: "✓", icon: "🏛️" },
+  { label: "Family businesses supported", value: "40+", icon: "Users" },
+  { label: "Families employed", value: "200+", icon: "Users" },
+  { label: "Of tradition", value: "50+ Years", icon: "Calendar" },
+  { label: "Recognized Model", value: "UNESCO", icon: "Medal" },
 ];
 
 export const locations: Location[] = [
@@ -136,119 +142,110 @@ export const locations: Location[] = [
 
 export const culture: CultureItem[] = [
   {
-    title: "Textiles",
-    description:
-      "Ancient weaving techniques passed down through generations create intricate patterns and vibrant colors.",
-    emoji: "🧵",
+    title: "Traditional Festivals",
+    description: "Carnival, harvest celebrations, and community gatherings",
+    image: "https://images.unsplash.com/photo-1511632765486-a01980e01a18?w=600&h=400&fit=crop",
   },
   {
-    title: "Arts & Crafts",
-    description:
-      "From pottery to basket weaving, each piece tells a story of cultural heritage and artistic mastery.",
-    emoji: "🎨",
+    title: "Daily Life",
+    description: "Morning markets, cooperative work, family traditions",
+    image: "https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?w=600&h=400&fit=crop",
   },
   {
-    title: "Indigenous Heritage",
-    description:
-      "Deep roots in indigenous traditions with respect for ancestral knowledge and sustainable practices.",
-    emoji: "🌿",
+    title: "Agricultural Practices",
+    description: "Sustainable farming, traditional crops, organic methods",
+    image: "https://images.unsplash.com/photo-1574943320219-553eb213f72d?w=600&h=400&fit=crop",
   },
   {
-    title: "Agricultural Traditions",
-    description:
-      "Sustainable farming methods cultivated over centuries producing coffee, cacao, and spices.",
-    emoji: "🌾",
+    title: "Artisan Techniques",
+    description: "Cheese-making, weaving, chocolate production passed down generations",
+    image: "https://images.unsplash.com/photo-1609553944726-47b4cbf6a19c?w=600&h=400&fit=crop",
   },
   {
-    title: "Culinary Excellence",
-    description:
-      "Farm-to-table cuisine using locally-sourced ingredients and traditional cooking methods.",
-    emoji: "👨‍🍳",
+    title: "Community Gatherings",
+    description: "Weekly meetings, cooperative assemblies, shared meals",
+    image: "https://images.unsplash.com/photo-1511578314322-379afb476865?w=600&h=400&fit=crop",
   },
   {
-    title: "Artistic Expression",
-    description:
-      "Living arts through music, dance, and contemporary creative works inspired by natural beauty.",
-    emoji: "🎭",
+    title: "Music & Dance",
+    description: "Traditional Andean music, folk dances, cultural performances",
+    image: "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=600&h=400&fit=crop",
   },
 ];
 
 export const commitments: Commitment[] = [
   {
-    title: "Environmental Stewardship",
-    description:
-      "Protecting Ecuador's biodiversity through sustainable practices and conservation initiatives.",
-    emoji: "🌍",
+    title: "Fair wages for guides and artisans",
   },
   {
-    title: "Community Development",
-    description:
-      "Creating economic opportunities while preserving cultural identity and local autonomy.",
-    emoji: "🤝",
+    title: "Profits stay in community",
   },
   {
-    title: "Cultural Preservation",
-    description:
-      "Safeguarding traditional knowledge, arts, and indigenous practices for future generations.",
-    emoji: "📚",
+    title: "Environmental conservation",
   },
   {
-    title: "Fair Labor Practices",
-    description:
-      "Ensuring fair wages, safe working conditions, and dignified work for all community members.",
-    emoji: "⚖️",
+    title: "Cultural preservation",
+  },
+  {
+    title: "Educational opportunities",
   },
 ];
 
 export const cooperatives: Cooperative[] = [
   {
-    name: "ACGR",
-    category: "Coffee Growers",
-    description: "Sustainable coffee cultivation and export cooperative",
+    name: "El Salinerito",
+    category: "Cheese & Dairy",
+    description: "Award-winning artisan cheese production cooperative",
+    logo: "https://images.unsplash.com/photo-1486297678162-eb2a19b0a32d?w=200&h=200&fit=crop",
+    url: "https://elsalinerito.com",
   },
   {
-    name: "SALINA",
-    category: "Community Hub",
-    description: "Central coordination and community gathering space",
-  },
-  {
-    name: "TEXTIL",
-    category: "Textile Artists",
+    name: "Texsal",
+    category: "Textiles & Wool",
     description: "Traditional weaving and textile production",
+    logo: "https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=200&h=200&fit=crop",
+    url: "https://texsal.com",
   },
   {
-    name: "CHOCO",
-    category: "Chocolate Makers",
-    description: "Artisan chocolate production from cacao",
+    name: "Chocolates Salinas",
+    category: "Artisan Chocolate",
+    description: "Fine chocolate crafted from local cacao beans",
+    logo: "https://images.unsplash.com/photo-1606312619070-d48b4c652a52?w=200&h=200&fit=crop",
+    url: "https://chocolatesalinas.com",
   },
   {
-    name: "AGRI",
-    category: "Organic Farmers",
-    description: "Sustainable agriculture and crop production",
+    name: "Hongos Salinas",
+    category: "Mushrooms",
+    description: "Sustainable mushroom cultivation and products",
+    logo: "https://images.unsplash.com/photo-1504545102780-26774c1bb073?w=200&h=200&fit=crop",
+    url: "https://hongossalinas.com",
   },
   {
-    name: "TURISMO",
-    category: "Tourism Services",
+    name: "Turismo Salinas",
+    category: "Community Tourism",
     description: "Experience guides and tourism coordination",
+    logo: "https://images.unsplash.com/photo-1501785888041-af3ef285b470?w=200&h=200&fit=crop",
+    url: "https://turismosalinas.com",
   },
   {
-    name: "CAFE",
-    category: "Coffee Processing",
-    description: "Coffee roasting and specialty processing",
+    name: "Confites Don Bosco",
+    category: "Candies & Sweets",
+    description: "Traditional confectionery and sweets production",
+    logo: "https://images.unsplash.com/photo-1582058091505-f87a2e55a40f?w=200&h=200&fit=crop",
+    url: "https://confitesdonbosco.com",
   },
   {
-    name: "GARDEN",
-    category: "Herb & Spice",
-    description: "Medicinal herbs and spice cultivation",
+    name: "Queseras Rurales",
+    category: "Rural Cheese",
+    description: "Rural cheese-making cooperative network",
+    logo: "https://images.unsplash.com/photo-1552767059-ce182ead6c1b?w=200&h=200&fit=crop",
+    url: "https://queserasrurales.com",
   },
   {
-    name: "HERB",
-    category: "Traditional Medicine",
-    description: "Herbal remedies and wellness products",
-  },
-  {
-    name: "CRAFT",
-    category: "Artisan Crafts",
-    description: "Basket weaving, pottery, and traditional arts",
+    name: "Artesanías",
+    category: "Handicrafts",
+    description: "Traditional handcrafted goods and artisan works",
+    logo: "https://images.unsplash.com/photo-1513364776144-60967b0f800f?w=200&h=200&fit=crop",
+    url: "https://artesaniassalinas.com",
   },
 ];

@@ -1,4 +1,6 @@
 ---
+import IconRenderer from "../IconRenderer.astro";
+
 interface Props {
   icon: string;
   title: string;
@@ -11,7 +13,9 @@ const { icon, title, description, href } = Astro.props;
 
 <div class="category-card">
   <div class="category-header">
-    <span class="category-icon">{icon}</span>
+    <span class="category-icon">
+      <IconRenderer icon={icon} size={28} />
+    </span>
     <h3>{title}</h3>
   </div>
   <p>{description}</p>

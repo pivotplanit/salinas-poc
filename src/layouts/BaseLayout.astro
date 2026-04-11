@@ -1,19 +1,26 @@
 ---
-import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
+import Header from "../components/Header.astro";
+import SEO from "../components/SEO.astro";
 import "../styles/global.css";
 
 export interface Props {
   title: string;
   description?: string;
   image?: string;
+  ogType?: "website" | "article" | "product";
+  schema?: Record<string, unknown>;
 }
 
 const {
   title,
   description = "Sustainable tourism in Salinas de Guaranda, Ecuador",
   image,
+  ogType = "website",
+  schema,
 } = Astro.props;
+
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 ---
 
 <!DOCTYPE html>
@@ -21,20 +28,14 @@ const {
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>{title}</title>
-    <meta name="description" content={description} />
-    
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website" />
-    <meta property="og:title" content={title} />
-    <meta property="og:description" content={description} />
-    {image && <meta property="og:image" content={image} />}
-    
-    <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image" />
-    <meta property="twitter:title" content={title} />
-    <meta property="twitter:description" content={description} />
-    {image && <meta property="twitter:image" content={image} />}
+    <SEO 
+      title={title} 
+      description={description}
+      image={image}
+      canonicalURL={canonicalURL.toString()}
+      ogType={ogType}
+      schema={schema}
+    />
 
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
@@ -49,7 +50,31 @@ const {
 </html>
 
 <style>
+  :global(body) {
+    margin: 0;
+    padding: 0;
+    font-family: system-ui, -apple-system, sans-serif;
+  }
+
   main {
     min-height: calc(100vh - 200px);
+  }
+
+  @media (max-width: 1024px) {
+    main {
+      min-height: calc(100vh - 180px);
+    }
+  }
+
+  @media (max-width: 768px) {
+    main {
+      min-height: calc(100vh - 160px);
+    }
+  }
+
+  @media (max-width: 480px) {
+    main {
+      min-height: calc(100vh - 140px);
+    }
   }
 </style>

@@ -12,10 +12,9 @@ const { faqs = [] } = Astro.props;
 ---
 
 {faqs.length > 0 && (
-  <section class="detail-faq-section">
-    <h2>Frequently Asked Questions</h2>
-    
-    <div class="faq-container">
+  <section class="faq-section">
+    <h2>FAQ</h2>
+    <div class="faq-list">
       {faqs.map((faq, index) => (
         <FAQItem
           question={faq.question}
@@ -28,46 +27,29 @@ const { faqs = [] } = Astro.props;
 )}
 
 <style>
-  .detail-faq-section {
+  .faq-section {
     padding: 3rem 0;
     border-bottom: 1px solid #e0e0e0;
   }
 
   h2 {
-    font-size: 2rem;
+    font-size: 1.75rem;
     font-weight: 700;
-    color: #2D5016;
-    margin: 0 0 2rem 0;
-    text-align: center;
+    color: #1a1a1a;
+    margin: 0 0 1.5rem 0;
   }
 
-  .faq-container {
-    background: white;
-    border: 1px solid #e0e0e0;
-    border-radius: 8px;
-    overflow: hidden;
-  }
-
-  :global(.faq-container .faq-item) {
-    padding: 1.5rem;
-    border: none;
-  }
-
-  :global(.faq-container .faq-item:not(:last-child)) {
-    border-bottom: 1px solid #e0e0e0;
+  .faq-list {
+    border-top: 1px solid #e0e0e0;
   }
 
   @media (max-width: 768px) {
-    .detail-faq-section {
+    .faq-section {
       padding: 2rem 0;
     }
 
     h2 {
       font-size: 1.5rem;
-    }
-
-    :global(.faq-container .faq-item) {
-      padding: 1.25rem;
     }
   }
 </style>

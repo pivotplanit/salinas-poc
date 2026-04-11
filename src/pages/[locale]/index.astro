@@ -1,0 +1,15 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import HomePage from "../../components/HomePage.astro";
+import i18nConfig from "@configs/i18n";
+
+export function getStaticPaths() {
+  return i18nConfig.locales.map((locale) => ({ params: { locale } }));
+}
+
+const { locale } = Astro.params;
+---
+
+<BaseLayout title="Salinas - Community-Run Mountain Paradise" description="Discover Ecuador's sustainable tourism destination where tourism supports 40+ local families">
+  <HomePage />
+</BaseLayout>

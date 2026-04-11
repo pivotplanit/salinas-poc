@@ -1,27 +1,22 @@
 ---
 import { cooperatives } from "../../lib/about-data";
-import Button from "../Button.astro";
 ---
 
 <section class="cooperatives-section">
   <div class="container">
     <h2>Partner Cooperatives</h2>
-    <p class="section-subtitle">Supporting 10 active cooperatives across Ecuador</p>
-    
+
     <div class="cooperatives-grid">
       {cooperatives.map((coop) => (
         <div class="cooperative-card">
-          <div class="cooperative-logo">🏢</div>
+          <div class="cooperative-logo">
+            <img src={coop.logo} alt={`${coop.name} logo`} width="120" height="120" loading="lazy" />
+          </div>
           <h3>{coop.name}</h3>
           <p class="cooperative-category">{coop.category}</p>
-          <p class="cooperative-description">{coop.description}</p>
-          <Button 
-            text="Visit" 
-            href={`#${coop.name.toLowerCase()}`}
-            variant="outline"
-            size="sm"
-            fullWidth
-          />
+          <a href={coop.url} class="visit-link" target="_blank" rel="noopener noreferrer">
+            Visit &rarr;
+          </a>
         </div>
       ))}
     </div>
@@ -40,71 +35,76 @@ import Button from "../Button.astro";
   }
 
   h2 {
-    font-size: 2.5rem;
-    font-weight: 700;
-    color: #2D5016;
-    margin: 0 0 0.5rem 0;
-    text-align: center;
-  }
-
-  .section-subtitle {
-    text-align: center;
-    color: #666;
-    font-size: 1.1rem;
-    margin: 0 0 3rem 0;
+    font-size: 2rem;
+    font-weight: 600;
+    color: var(--text-dark, #1a1a1a);
+    margin: 0 0 2rem 0;
   }
 
   .cooperatives-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    grid-template-columns: repeat(4, 1fr);
     gap: 1.5rem;
   }
 
   .cooperative-card {
-    background: #f9f9f9;
-    border-radius: 12px;
+    background: white;
+    border: 1px dashed #c8cdd3;
+    border-radius: 8px;
     padding: 1.5rem;
-    border: 1px solid #e0e0e0;
     display: flex;
     flex-direction: column;
-    gap: 1rem;
-    transition: all 300ms ease;
-    text-align: center;
-  }
-
-  .cooperative-card:hover {
-    border-color: #2D5016;
-    box-shadow: 0 4px 12px rgba(45, 80, 22, 0.1);
-    transform: translateY(-2px);
+    gap: 0.5rem;
+    position: relative;
   }
 
   .cooperative-logo {
-    font-size: 2.5rem;
-    line-height: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 0.5rem;
+  }
+
+  .cooperative-logo img {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 8px;
+    background: #e8ebef;
   }
 
   .cooperative-card h3 {
     margin: 0;
-    font-size: 1.1rem;
-    color: #2D5016;
+    font-size: 1.05rem;
+    color: var(--text-dark, #1a1a1a);
     font-weight: 600;
   }
 
   .cooperative-category {
     margin: 0;
-    font-size: 0.85rem;
-    color: #8B7355;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
+    font-size: 0.875rem;
+    color: #666;
   }
 
-  .cooperative-description {
-    margin: 0;
-    font-size: 0.9rem;
-    color: #666;
-    line-height: 1.5;
-    flex: 1;
+  .visit-link {
+    display: inline-block;
+    margin-top: auto;
+    padding-top: 0.5rem;
+    font-size: 0.875rem;
+    color: var(--text-dark, #1a1a1a);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 200ms ease;
+  }
+
+  .visit-link:hover {
+    color: var(--primary, #2D5016);
+  }
+
+  @media (max-width: 1024px) {
+    .cooperatives-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
   }
 
   @media (max-width: 768px) {
@@ -113,24 +113,19 @@ import Button from "../Button.astro";
     }
 
     h2 {
-      font-size: 2rem;
+      font-size: 1.75rem;
     }
 
     .cooperatives-grid {
-      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+      grid-template-columns: repeat(2, 1fr);
       gap: 1rem;
     }
+  }
 
-    .cooperative-card {
-      padding: 1rem;
-    }
-
-    .cooperative-logo {
-      font-size: 2rem;
-    }
-
-    .cooperative-card h3 {
-      font-size: 1rem;
+  @media (max-width: 480px) {
+    .cooperatives-grid {
+      grid-template-columns: 1fr;
     }
   }
 </style>
+

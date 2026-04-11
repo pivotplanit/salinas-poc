@@ -1,0 +1,928 @@
+{
+  "experiences": [
+    {
+      "id": "salt-mines-cheese",
+      "icon": "🏭",
+      "image": "https://picsum.photos/400/300?random=11",
+      "title": "Salt Mines & Cheese Factory Tour",
+      "tag": "Cultural Experience",
+      "category": "Cultural",
+      "description": "Discover the ancient tradition of salt extraction and visit the famous cheese factory.",
+      "duration": "4h",
+      "difficulty": "Moderate",
+      "difficultyLevel": 2,
+      "altitude": "3500m",
+      "groupSize": "4-20",
+      "emoji": "🏭",
+      "overview": "Experience the heartbeat of Salinas with this immersive tour through centuries-old salt mining operations and artisanal cheese production. Learn from master craftspeople who have inherited their skills through generations.",
+      "whySpecial": "Salinas is famous for its cooperative model where locals have transformed salt mining into a thriving community business. This unique tour showcases both traditional techniques and modern sustainable practices.",
+      "whatYouLearn": "Understand traditional salt extraction methods, learn about cheese fermentation, discover sustainable practices in food production, and gain insight into cooperative community business models.",
+      "highlights": [
+        "Learn traditional cheese-making techniques",
+        "Taste fresh local products",
+        "Visit salt crystallization ponds",
+        "Meet local artisans and cooperative members",
+        "Sample authentic Ecuadorian cheese varieties"
+      ],
+      "itinerary": [
+        {
+          "time": "9:00 AM",
+          "title": "Hotel Pickup & Drive",
+          "description": "Meet your guide at your hotel and travel to the salt mines (30 minutes)"
+        },
+        {
+          "time": "9:45 AM",
+          "title": "Salt Mine Tour",
+          "description": "Explore the crystallization ponds and learn about salt extraction techniques with experienced miners"
+        },
+        {
+          "time": "11:00 AM",
+          "title": "Cheese Factory Visit",
+          "description": "Tour the cheese production facility and watch artisans at work"
+        },
+        {
+          "time": "12:00 PM",
+          "title": "Tasting Session",
+          "description": "Sample 3-4 varieties of fresh cheese with local bread and honey"
+        },
+        {
+          "time": "1:00 PM",
+          "title": "Lunch",
+          "description": "Enjoy a traditional Ecuadorian lunch at a local restaurant"
+        },
+        {
+          "time": "2:30 PM",
+          "title": "Cooperative Workshop",
+          "description": "Learn about the community cooperative and their sustainable practices, return to hotel"
+        }
+      ],
+      "included": [
+        "Professional bilingual guide (Spanish/English)",
+        "Hotel pickup and dropoff",
+        "Entrance to salt mines and cheese factory",
+        "Cheese and salt tasting",
+        "Traditional lunch",
+        "Water and snacks"
+      ],
+      "excluded": [
+        "Alcoholic beverages",
+        "Personal travel insurance",
+        "Tips for guide",
+        "Optional activities not mentioned"
+      ],
+      "walking": "Moderate walking (2-3 km total), mostly on flat surfaces with some uneven terrain",
+      "accessibility": "Limited accessibility - salt mine paths are uneven; not wheelchair accessible",
+      "notSuitableFor": "People with severe mobility issues, heart conditions at high altitude, or respiratory problems",
+      "whatToBring": [
+        "Comfortable hiking shoes or boots",
+        "Sun protection (sunscreen, hat)",
+        "Light jacket for altitude",
+        "Camera",
+        "Reusable water bottle",
+        "Insect repellent"
+      ],
+      "price": 85,
+      "groupDiscounts": [
+        {
+          "groupSize": "4-6",
+          "discount": 10
+        },
+        {
+          "groupSize": "7-12",
+          "discount": 15
+        },
+        {
+          "groupSize": "13+",
+          "discount": 20
+        }
+      ],
+      "testimonials": [
+        {
+          "name": "Sarah Mitchell",
+          "location": "Canada",
+          "text": "An absolutely authentic experience! Meeting the cooperative members was the highlight - they shared so much passion for their work. The cheese tasting was delicious.",
+          "rating": 5
+        },
+        {
+          "name": "Juan Carlos",
+          "location": "Spain",
+          "text": "Exceeded expectations. The guide was knowledgeable and patient. The combination of mining and cheese-making was unique and educational.",
+          "rating": 5
+        },
+        {
+          "name": "Emily Watson",
+          "location": "Australia",
+          "text": "A wonderful way to support local communities. The sustainable practices they're implementing are impressive. Highly recommend!",
+          "rating": 4
+        }
+      ],
+      "faqs": [
+        {
+          "question": "What is the best time to visit?",
+          "answer": "Dry season (June-September) is ideal. Morning tours avoid afternoon crowds and are more comfortable for activity."
+        },
+        {
+          "question": "Is this suitable for children?",
+          "answer": "Yes! Children 8+ enjoy this tour. Younger kids may find it challenging due to walking and altitude."
+        },
+        {
+          "question": "Can I buy products directly?",
+          "answer": "Yes, the cooperative shop sells cheese, salt, and other local products at fair prices."
+        },
+        {
+          "question": "Is there a vegetarian lunch option?",
+          "answer": "Yes, notify us 48 hours in advance and we'll prepare a vegetarian meal."
+        },
+        {
+          "question": "How high is 3500m in feet?",
+          "answer": "Approximately 11,483 feet. Most visitors adjust within a few hours."
+        },
+        {
+          "question": "Is the trail difficult?",
+          "answer": "Moderate difficulty. You'll walk on uneven surfaces but at a leisurely pace with frequent breaks."
+        },
+        {
+          "question": "What if I have altitude sickness?",
+          "answer": "Our guides are trained in altitude sickness. Stay hydrated, move slowly, and inform your guide immediately."
+        },
+        {
+          "question": "Is photography allowed?",
+          "answer": "Yes, but ask permission before photographing people. No drones without special permit."
+        }
+      ],
+      "relatedExperienceIds": ["chocolate-workshop", "art-cultural", "multi-day-expedition"]
+    },
+    {
+      "id": "salt-mines-adventure",
+      "icon": "⛏️",
+      "image": "https://picsum.photos/400/300?random=12",
+      "title": "Salt Mines Adventure",
+      "tag": "Adventure Activity",
+      "category": "Adventure",
+      "description": "An immersive adventure through Ecuador's historic salt mines with hands-on mining experience.",
+      "duration": "6h",
+      "difficulty": "Challenging",
+      "difficultyLevel": 3,
+      "altitude": "3500m",
+      "groupSize": "4-20",
+      "emoji": "⛏️",
+      "overview": "For the adventurous spirit! This intensive experience puts you directly into the salt mining world. Get your hands dirty, learn extraction techniques, and understand the challenges miners face daily.",
+      "whySpecial": "Unlike passive tours, this is a real working experience. You'll participate in actual mining activities, gaining deep respect for the miners' craft and stamina.",
+      "whatYouLearn": "Practical salt extraction skills, geology of mineral deposits, traditional mining techniques, work ethic and community values of the cooperative.",
+      "highlights": [
+        "Discover mining techniques passed down generations",
+        "Understand sustainable salt extraction",
+        "Work alongside local miners",
+        "Extract your own salt to take home",
+        "Learn about mineral composition and geology"
+      ],
+      "itinerary": [
+        {
+          "time": "8:00 AM",
+          "title": "Hotel Pickup & Safety Briefing",
+          "description": "Pickup and comprehensive safety briefing about mining equipment and procedures"
+        },
+        {
+          "time": "9:00 AM",
+          "title": "Mining Equipment Fitting",
+          "description": "Get fitted with appropriate mining gear and learn proper usage"
+        },
+        {
+          "time": "9:30 AM",
+          "title": "Salt Extraction Training",
+          "description": "Expert miner shows techniques and supervises your first extraction attempts"
+        },
+        {
+          "time": "11:00 AM",
+          "title": "Hands-On Mining Work",
+          "description": "Work with miners in designated safe zones, extract salt, learn field techniques"
+        },
+        {
+          "time": "1:00 PM",
+          "title": "Lunch Break",
+          "description": "Hearty meal shared with miners at the mine site"
+        },
+        {
+          "time": "2:00 PM",
+          "title": "Advanced Techniques & Geology",
+          "description": "Learn about mineral composition, crystallization process, and mine engineering"
+        }
+      ],
+      "included": [
+        "Professional guide",
+        "Mining safety equipment",
+        "Training and supervision",
+        "Salt sample to take home",
+        "Miner's lunch",
+        "Refreshments throughout",
+        "Hotel transfers"
+      ],
+      "excluded": [
+        "Advanced rock climbing gear",
+        "Travel insurance",
+        "Tips for guide and miners",
+        "Personal protective equipment"
+      ],
+      "walking": "Strenuous walking (4-5 km), uneven terrain, some climbing",
+      "accessibility": "Not accessible - requires physical fitness and climbing ability",
+      "notSuitableFor": "People with mobility issues, heart conditions, respiratory problems, pregnant women, or those with recent injuries",
+      "whatToBring": [
+        "Sturdy mining boots",
+        "Work gloves",
+        "Heavy-duty clothes (will get dirty!)",
+        "Hat and sunglasses",
+        "High SPF sunscreen",
+        "2L water bottle",
+        "Electrolyte supplements",
+        "Camera in waterproof bag"
+      ],
+      "price": 125,
+      "groupDiscounts": [
+        {
+          "groupSize": "4-6",
+          "discount": 10
+        },
+        {
+          "groupSize": "7-12",
+          "discount": 15
+        },
+        {
+          "groupSize": "13+",
+          "discount": 20
+        }
+      ],
+      "testimonials": [
+        {
+          "name": "Marcus Thompson",
+          "location": "UK",
+          "text": "This was epic! Actually working in the salt mines was surreal. Gained immense respect for the miners. Best adventure I've done in South America.",
+          "rating": 5
+        },
+        {
+          "name": "Ana Silva",
+          "location": "Brazil",
+          "text": "Challenging but so rewarding. The guide's knowledge about mining geology was fascinating. I'm still amazed by what I learned.",
+          "rating": 5
+        },
+        {
+          "name": "David Chen",
+          "location": "Singapore",
+          "text": "Definitely for the fit and adventurous. Left feeling exhausted but exhilarated. Unique experience you won't find elsewhere.",
+          "rating": 4
+        }
+      ],
+      "faqs": [
+        {
+          "question": "How fit do I need to be?",
+          "answer": "Very fit. This involves strenuous physical activity at altitude. Regular exercise recommended."
+        },
+        {
+          "question": "Will I get dirty?",
+          "answer": "Absolutely! Wear clothes you don't mind getting ruined with salt dust and minerals."
+        },
+        {
+          "question": "Is this safe?",
+          "answer": "Yes. All equipment meets safety standards and guides are trained rescue professionals."
+        },
+        {
+          "question": "Can I bring my own mining boots?",
+          "answer": "Yes, as long as they're steel-toed and in good condition. Otherwise, rental is recommended."
+        },
+        {
+          "question": "What's included in the salt sample?",
+          "answer": "About 1kg of salt crystals you personally extracted, packaged for travel."
+        },
+        {
+          "question": "How do I prepare?",
+          "answer": "Train with cardio and strength exercises. Acclimatize for 1-2 days before the tour."
+        },
+        {
+          "question": "Can I cancel if it rains?",
+          "answer": "Rain is common in the season. Tours proceed unless there's a safety risk (lightning, flooding)."
+        },
+        {
+          "question": "What about altitude sickness?",
+          "answer": "Inform your guide of any symptoms immediately. We have oxygen and descent protocols if needed."
+        }
+      ],
+      "relatedExperienceIds": ["nature-hike", "multi-day-expedition", "salt-mines-cheese"]
+    },
+    {
+      "id": "chocolate-workshop",
+      "icon": "🍫",
+      "image": "https://picsum.photos/400/300?random=13",
+      "title": "Chocolate Workshop Experience",
+      "tag": "Culinary Experience",
+      "category": "Gastronomic",
+      "description": "Learn to make artisanal chocolate from bean to bar in this hands-on gastronomic experience.",
+      "duration": "3h",
+      "difficulty": "Easy",
+      "difficultyLevel": 1,
+      "altitude": "3500m",
+      "groupSize": "4-20",
+      "emoji": "🍫",
+      "overview": "Discover the art and science of chocolate making from master chocolatiers. This interactive workshop takes you through every step—from roasting cacao beans to tempering and molding your own chocolate creations.",
+      "whySpecial": "Ecuador produces some of the world's finest cacao. Learn directly from artisans in their workshop using traditional methods and premium local ingredients.",
+      "whatYouLearn": "Cacao farming and varieties, fermentation and roasting processes, flavor profiling and tasting techniques, tempering and molding methods, preservation and pairing.",
+      "highlights": [
+        "From cocoa bean to chocolate creation",
+        "Taste artisan chocolate varieties",
+        "Make your own chocolate bar",
+        "Learn flavor profiling secrets",
+        "Take home your creations"
+      ],
+      "itinerary": [
+        {
+          "time": "10:00 AM",
+          "title": "Welcome & Cacao Introduction",
+          "description": "Overview of Ecuador's cacao heritage and chocolate-making process"
+        },
+        {
+          "time": "10:30 AM",
+          "title": "Roasting & Grinding",
+          "description": "Roast cacao beans and learn proper techniques for extracting the best flavors"
+        },
+        {
+          "time": "11:15 AM",
+          "title": "Flavor Tasting Masterclass",
+          "description": "Professional tasting of single-origin chocolates from different regions"
+        },
+        {
+          "time": "12:00 PM",
+          "title": "Hands-On Chocolate Making",
+          "description": "Create your own chocolate bar: blend, temper, mold, and decorate"
+        },
+        {
+          "time": "1:00 PM",
+          "title": "Finishing & Packaging",
+          "description": "Package your chocolate creations beautifully for travel"
+        },
+        {
+          "time": "1:30 PM",
+          "title": "Closing & Light Refreshments",
+          "description": "Final thoughts, photo opportunities, light refreshments"
+        }
+      ],
+      "included": [
+        "Professional chocolatier instructor",
+        "All ingredients and materials",
+        "Premium cacao beans",
+        "Chocolate bar to make and take",
+        "Tasting samples",
+        "Recipe cards",
+        "Tea and light snacks"
+      ],
+      "excluded": [
+        "Hotel transfers",
+        "Lunch",
+        "Beverages beyond tea/coffee",
+        "Additional chocolate purchases"
+      ],
+      "walking": "Minimal walking, all activities indoors in the workshop",
+      "accessibility": "Fully accessible - workshop is ground-level with accessible facilities",
+      "notSuitableFor": "People with nut or cocoa allergies; chocolate sensitivity",
+      "whatToBring": [
+        "Comfortable clothes",
+        "Apron (provided)",
+        "Small notebook for notes",
+        "Camera",
+        "Gift bags (to pack chocolate)"
+      ],
+      "price": 65,
+      "groupDiscounts": [
+        {
+          "groupSize": "4-6",
+          "discount": 10
+        },
+        {
+          "groupSize": "7-12",
+          "discount": 15
+        },
+        {
+          "groupSize": "13+",
+          "discount": 20
+        }
+      ],
+      "testimonials": [
+        {
+          "name": "Christine Dubois",
+          "location": "France",
+          "text": "As a chocolate lover from France, I was impressed! The quality and knowledge here rivals European workshops. My homemade bar was delicious.",
+          "rating": 5
+        },
+        {
+          "name": "Roberto Morales",
+          "location": "Argentina",
+          "text": "Fantastic experience. The instructor was passionate and patient. Now I understand why Ecuador's cacao is world-famous.",
+          "rating": 5
+        },
+        {
+          "name": "Lisa Anderson",
+          "location": "USA",
+          "text": "Perfect for chocolate enthusiasts and beginners alike. Great value, fun activity, and you get to eat what you make!",
+          "rating": 5
+        }
+      ],
+      "faqs": [
+        {
+          "question": "Can I eat as much chocolate as I want?",
+          "answer": "We provide tasting portions. Your made chocolate is yours to take. Additional chocolate available for purchase."
+        },
+        {
+          "question": "What if I have allergies?",
+          "answer": "Inform us of nut/cocoa allergies in advance. We have limited substitute options."
+        },
+        {
+          "question": "Is this good for kids?",
+          "answer": "Yes! Ages 8+ enjoy this immensely. Children under 8 require supervision but can participate."
+        },
+        {
+          "question": "Can I take my chocolate on a plane?",
+          "answer": "Yes, we package it for travel. Keep away from heat and humidity."
+        },
+        {
+          "question": "How much chocolate will I make?",
+          "answer": "Approximately 100-150g of your own finished bar, plus tasting samples."
+        },
+        {
+          "question": "Do you teach vegan chocolate?",
+          "answer": "Yes, we offer dairy-free options. Request when booking."
+        },
+        {
+          "question": "What's the workshop language?",
+          "answer": "Spanish and English. Instructors are bilingual."
+        },
+        {
+          "question": "Can I buy more chocolate after the workshop?",
+          "answer": "Yes, our shop has premium selections. Credit cards and cash accepted."
+        }
+      ],
+      "relatedExperienceIds": ["salt-mines-cheese", "art-cultural", "multi-day-expedition"]
+    },
+    {
+      "id": "art-cultural",
+      "icon": "🎨",
+      "image": "https://picsum.photos/400/300?random=14",
+      "title": "Art & Cultural Heritage",
+      "tag": "Cultural Experience",
+      "category": "Cultural",
+      "description": "Explore local artisan workshops and learn about centuries-old cultural traditions.",
+      "duration": "5h",
+      "difficulty": "Moderate",
+      "difficultyLevel": 2,
+      "altitude": "3500m",
+      "groupSize": "4-20",
+      "emoji": "🎨",
+      "overview": "Immerse yourself in Salinas' vibrant artistic traditions. Visit master artisans in their studios, learn traditional crafting techniques, and gain insight into the cultural heritage that defines this unique community.",
+      "whySpecial": "Unlike museums, you meet the artists directly. Witness their creative process, ask questions, and support genuine artisanal work rather than mass-produced crafts.",
+      "whatYouLearn": "Traditional textile weaving, pottery crafting, indigenous art symbolism, cultural history of the Andes, modern artisan movements.",
+      "highlights": [
+        "Explore local artisan workshops",
+        "Learn about cultural traditions",
+        "Meet master craftspeople",
+        "Watch traditional techniques in action",
+        "Support local artists directly"
+      ],
+      "itinerary": [
+        {
+          "time": "9:00 AM",
+          "title": "Hotel Pickup & Cultural Introduction",
+          "description": "Meet guide and learn about Salinas' artistic heritage"
+        },
+        {
+          "time": "9:30 AM",
+          "title": "Textile Weaving Studio Visit",
+          "description": "Watch master weavers create traditional textiles on historic looms"
+        },
+        {
+          "time": "10:45 AM",
+          "title": "Pottery Workshop",
+          "description": "Visit potters and learn hand-throwing and painting techniques"
+        },
+        {
+          "time": "12:00 PM",
+          "title": "Indigenous Art Gallery",
+          "description": "Explore contemporary indigenous art and learn symbolic meanings"
+        },
+        {
+          "time": "1:00 PM",
+          "title": "Lunch with Artists",
+          "description": "Share traditional meal with participating artisans"
+        },
+        {
+          "time": "2:30 PM",
+          "title": "Artisan Market & Shopping",
+          "description": "Browse and purchase directly from creators at fair prices"
+        }
+      ],
+      "included": [
+        "Professional art historian guide",
+        "All studio and gallery entries",
+        "Lunch with local artisans",
+        "Tea and refreshments",
+        "Hotel transfers"
+      ],
+      "excluded": ["Artwork purchases", "Tips for guide", "Travel insurance"],
+      "walking": "Moderate walking (2-3 km) on city streets, mostly flat",
+      "accessibility": "Mostly accessible, some studios have stairs; inquire in advance",
+      "notSuitableFor": "People with severe mobility issues (some stairs); those uncomfortable with informal settings",
+      "whatToBring": [
+        "Comfortable walking shoes",
+        "Camera",
+        "Cash for purchases (ATM available)",
+        "Small bag or backpack",
+        "Sunscreen"
+      ],
+      "price": 75,
+      "groupDiscounts": [
+        {
+          "groupSize": "4-6",
+          "discount": 10
+        },
+        {
+          "groupSize": "7-12",
+          "discount": 15
+        },
+        {
+          "groupSize": "13+",
+          "discount": 20
+        }
+      ],
+      "testimonials": [
+        {
+          "name": "Patricia Fernández",
+          "location": "Mexico",
+          "text": "Incredible experience meeting actual artists. The authenticity and passion were inspiring. I bought several pieces and felt good supporting them directly.",
+          "rating": 5
+        },
+        {
+          "name": "James Wilson",
+          "location": "USA",
+          "text": "Best cultural experience of my Ecuador trip. The guide was knowledgeable and artists generous with their time. Highly recommended!",
+          "rating": 5
+        },
+        {
+          "name": "Sophie Lambert",
+          "location": "France",
+          "text": "This is real cultural tourism, not manufactured. Felt privileged to witness their craft and contribute to their livelihoods.",
+          "rating": 4
+        }
+      ],
+      "faqs": [
+        {
+          "question": "Can I buy directly from the artisans?",
+          "answer": "Absolutely! That's encouraged. Fair-trade prices, and your money goes directly to the artists."
+        },
+        {
+          "question": "Can I take photos in the studios?",
+          "answer": "Yes, but always ask the artisan first. Some prefer not to be photographed."
+        },
+        {
+          "question": "Are textiles and pottery expensive?",
+          "answer": "Prices vary from $15-200+ depending on size and complexity. Much cheaper than similar items in tourist shops."
+        },
+        {
+          "question": "How can I ship purchases home?",
+          "answer": "Artisans can arrange shipping. Inform them at purchase time."
+        },
+        {
+          "question": "Is this good for art students?",
+          "answer": "Yes! Art students love this tour. Sketching and detailed observation encouraged."
+        },
+        {
+          "question": "Can I commission custom work?",
+          "answer": "Yes, discuss with artisans during the tour. Most accept commissions for 2-4 week delivery."
+        },
+        {
+          "question": "What if I have no art experience?",
+          "answer": "Perfect! You don't need expertise. Our guide explains everything beautifully."
+        },
+        {
+          "question": "Do they speak English?",
+          "answer": "Some do. Your guide translates. Communication through art is universal!"
+        }
+      ],
+      "relatedExperienceIds": ["salt-mines-cheese", "chocolate-workshop", "nature-hike"]
+    },
+    {
+      "id": "nature-hike",
+      "icon": "🌿",
+      "image": "https://picsum.photos/400/300?random=15",
+      "title": "Nature Hiking Trail",
+      "tag": "Adventure Activity",
+      "category": "Nature",
+      "description": "Trek through pristine mountain ecosystems and spot native wildlife species.",
+      "duration": "8h",
+      "difficulty": "Challenging",
+      "difficultyLevel": 3,
+      "altitude": "3500m",
+      "groupSize": "4-20",
+      "emoji": "🌿",
+      "overview": "Experience Ecuador's extraordinary cloud forest and paramo ecosystems. This full-day hiking adventure takes you through diverse landscapes from misty cloud forests to open high-altitude grasslands, with excellent opportunities to spot endemic birds and wildlife.",
+      "whySpecial": "The region's biodiversity is exceptional. In a single day, you traverse ecosystems that few tourists ever experience, with expert naturalist guides who can identify hundreds of species.",
+      "whatYouLearn": "Alpine ecology, Andean flora and fauna identification, cloud forest dynamics, wildlife behavior, conservation efforts, geological formations.",
+      "highlights": [
+        "Trek through mountain ecosystems",
+        "Spot native wildlife species",
+        "Cloud forest exploration",
+        "Paramo grassland vistas",
+        "Birdwatching paradise"
+      ],
+      "itinerary": [
+        {
+          "time": "7:00 AM",
+          "title": "Hotel Pickup & Breakfast",
+          "description": "Early pickup with energy-boosting breakfast provided"
+        },
+        {
+          "time": "8:00 AM",
+          "title": "Trailhead Arrival & Briefing",
+          "description": "Arrive at trail start, naturalist guide introduces ecosystem and safety"
+        },
+        {
+          "time": "8:30 AM",
+          "title": "Cloud Forest Trek",
+          "description": "Hike through misty cloud forest, look for endemic birds and species"
+        },
+        {
+          "time": "11:00 AM",
+          "title": "Break & Birdwatching",
+          "description": "Stop at observation point for wildlife viewing and hydration"
+        },
+        {
+          "time": "12:00 PM",
+          "title": "Paramo Transition",
+          "description": "Hike into open grasslands with panoramic views"
+        },
+        {
+          "time": "1:00 PM",
+          "title": "Lunch at Summit",
+          "description": "Picnic lunch at highest point with 360° views"
+        }
+      ],
+      "included": [
+        "Expert naturalist guide",
+        "All meals and snacks",
+        "Binoculars for birdwatching",
+        "Field identification guides",
+        "Hotel transfers",
+        "Emergency first aid kit"
+      ],
+      "excluded": [
+        "Advanced climbing gear",
+        "Travel insurance",
+        "Guide tips",
+        "Personal medications"
+      ],
+      "walking": "Strenuous hiking (12-15 km), significant elevation changes, steep sections",
+      "accessibility": "Not accessible - requires hiking fitness and elevation tolerance",
+      "notSuitableFor": "People with low fitness levels, cardiac/respiratory conditions, fear of heights, or recent injuries",
+      "whatToBring": [
+        "Hiking boots (waterproof recommended)",
+        "Moisture-wicking layers",
+        "Rain jacket",
+        "Hat and sunglasses",
+        "High SPF sunscreen",
+        "3L water bottle",
+        "Energy snacks",
+        "Camera",
+        "Trekking poles (optional)"
+      ],
+      "price": 110,
+      "groupDiscounts": [
+        {
+          "groupSize": "4-6",
+          "discount": 10
+        },
+        {
+          "groupSize": "7-12",
+          "discount": 15
+        },
+        {
+          "groupSize": "13+",
+          "discount": 20
+        }
+      ],
+      "testimonials": [
+        {
+          "name": "Nicholas Palmer",
+          "location": "UK",
+          "text": "Saw 47 different bird species! The guide's knowledge was extraordinary. Physical but absolutely worth it. Best hiking day of my life.",
+          "rating": 5
+        },
+        {
+          "name": "Maria González",
+          "location": "Colombia",
+          "text": "The biodiversity is mind-blowing. Cloud forest in the morning, open paramo by afternoon. Ecuador in one day!",
+          "rating": 5
+        },
+        {
+          "name": "Thomas Mueller",
+          "location": "Germany",
+          "text": "Challenging for sure, but rewarding beyond measure. Bring fitness and you'll have an unforgettable adventure."
+        }
+      ],
+      "faqs": [
+        {
+          "question": "Do I need trekking poles?",
+          "answer": "Recommended but not required. Poles reduce knee stress on descents."
+        },
+        {
+          "question": "What birds might I see?",
+          "answer": "Andean cock-of-the-rock, mountain tanagers, eagles, hummingbirds, and 40+ other species possible."
+        },
+        {
+          "question": "Is there a shorter version?",
+          "answer": "Not this route, but we offer a 4-hour easier nature walk as alternative."
+        },
+        {
+          "question": "What's the weather like?",
+          "answer": "Cool (8-15°C). Misty mornings common. Rain possible anytime."
+        },
+        {
+          "question": "How much water should I bring?",
+          "answer": "Minimum 2.5-3L. There are no water sources on trail."
+        },
+        {
+          "question": "Can I do this at my own pace?",
+          "answer": "Yes, but stay with the group. Guide adjusts pace for the slowest person."
+        },
+        {
+          "question": "What about bathroom facilities?",
+          "answer": "None on trail. Go before you start. Pack waste (leave no trace)."
+        },
+        {
+          "question": "Is wildlife dangerous?",
+          "answer": "No. Animals avoid humans. You'll mostly see from distance or hear calls."
+        }
+      ],
+      "relatedExperienceIds": ["salt-mines-adventure", "multi-day-expedition", "art-cultural"]
+    },
+    {
+      "id": "multi-day-expedition",
+      "icon": "🏞️",
+      "image": "https://picsum.photos/400/300?random=16",
+      "title": "Multi-Day Mountain Expedition",
+      "tag": "Extended Adventure",
+      "category": "Multi-Day",
+      "description": "Immersive 2-day mountain expedition camping under the stars and exploring pristine wilderness.",
+      "duration": "2 days",
+      "difficulty": "Moderate",
+      "difficultyLevel": 2,
+      "altitude": "3500m",
+      "groupSize": "4-20",
+      "emoji": "🏞️",
+      "overview": "Disconnect from civilization and reconnect with nature. This 2-day expedition combines day hikes with overnight mountain camping, allowing you to truly experience the Andean wilderness. Watch sunrise from your camp, stargaze without light pollution, and experience solitude in pristine landscapes.",
+      "whySpecial": "Few tourists camp at this altitude in Ecuador. You'll experience remote areas most visitors never reach, with expert guides ensuring safety and comfort in the wilderness.",
+      "whatYouLearn": "Wilderness camping skills, high-altitude adaptation, survival techniques, astronomy and navigation, ecological principles, Leave No Trace ethics.",
+      "highlights": [
+        "Camp under the stars",
+        "Experience mountain wilderness",
+        "Sunrise hikes with panoramic views",
+        "Alpine ecology exploration",
+        "Campfire night under clear skies"
+      ],
+      "itinerary": [
+        {
+          "time": "7:00 AM - Day 1",
+          "title": "Hotel Pickup & Drive",
+          "description": "Early pickup and drive to trailhead with lunch provisions"
+        },
+        {
+          "time": "9:00 AM",
+          "title": "Day 1: Hiking to Camp",
+          "description": "Trek 8km through cloud forest to remote camp site (4-5 hours)"
+        },
+        {
+          "time": "2:00 PM",
+          "title": "Camp Setup & Rest",
+          "description": "Settle into camp, learn camping skills, rest and acclimatize"
+        },
+        {
+          "time": "6:00 PM",
+          "title": "Sunset Observation & Dinner",
+          "description": "Watch sunset from camp, enjoy hearty dinner cooked over fire"
+        },
+        {
+          "time": "8:00 PM",
+          "title": "Night Sky Observation",
+          "description": "Astronomy session - clear mountain skies offer incredible stargazing"
+        },
+        {
+          "time": "5:30 AM - Day 2",
+          "title": "Sunrise Hike",
+          "description": "Early hike to viewpoint for spectacular mountain sunrise"
+        },
+        {
+          "time": "7:30 AM",
+          "title": "Breakfast & Camp Strike",
+          "description": "Hearty breakfast and pack up camp following Leave No Trace principles"
+        },
+        {
+          "time": "9:00 AM",
+          "title": "Descent & Return",
+          "description": "Hike 8km back to vehicle with stops at scenic overlooks"
+        }
+      ],
+      "included": [
+        "Expert wilderness guide",
+        "All camping equipment",
+        "Meals (6 meals: lunch/dinner/breakfast/lunch)",
+        "Drinking water treatment system",
+        "Emergency communication device",
+        "First aid and rescue gear",
+        "Hotel transfers"
+      ],
+      "excluded": [
+        "Personal camping gear",
+        "Travel insurance",
+        "Guide tips",
+        "Snacks beyond provided meals"
+      ],
+      "walking": "Strenuous hiking (16km over 2 days), elevation gain, steep descents",
+      "accessibility": "Not accessible - remote wilderness camping requires fitness and outdoor experience",
+      "notSuitableFor": "People with low fitness, claustrophobia, serious health conditions, fear of heights",
+      "whatToBring": [
+        "Personal tent (unless renting)",
+        "Sleeping bag (-5°C rated)",
+        "Sleeping pad",
+        "Warm layers (down jacket)",
+        "Waterproof rain gear",
+        "Hiking boots",
+        "Hat, gloves, neck gaiter",
+        "Headlamp with batteries",
+        "Toiletries and medications",
+        "Camera"
+      ],
+      "price": 250,
+      "groupDiscounts": [
+        {
+          "groupSize": "4-6",
+          "discount": 10
+        },
+        {
+          "groupSize": "7-12",
+          "discount": 15
+        },
+        {
+          "groupSize": "13+",
+          "discount": 20
+        }
+      ],
+      "testimonials": [
+        {
+          "name": "Alexandre Leclerc",
+          "location": "Canada",
+          "text": "Sleeping under the Milky Way was life-changing. The guides made us feel safe in the wilderness. Memories I'll treasure forever.",
+          "rating": 5
+        },
+        {
+          "name": "Priya Patel",
+          "location": "India",
+          "text": "The perfect escape from civilization. The food was amazing for camp cooking. I needed this spiritual reset.",
+          "rating": 5
+        },
+        {
+          "name": "Olaf Lindström",
+          "location": "Sweden",
+          "text": "Well-organized, safe, and unforgettable. The guides' wilderness knowledge is impressive. Highly recommended for nature lovers."
+        }
+      ],
+      "faqs": [
+        {
+          "question": "Can I rent camping gear?",
+          "answer": "Yes, tents and sleeping bags available. $20-30/item. Reserve in advance."
+        },
+        {
+          "question": "What if I'm not an experienced camper?",
+          "answer": "Perfect for beginners! Guides teach everything. No experience necessary."
+        },
+        {
+          "question": "How cold does it get?",
+          "answer": "2-8°C at night. Good sleeping bag essential. We have warming aids available."
+        },
+        {
+          "question": "Is it safe camping at altitude?",
+          "answer": "Yes. Acclimatize first day. Guides monitor for altitude sickness. Emergency protocols in place."
+        },
+        {
+          "question": "What about bathroom facilities?",
+          "answer": "Camp bathroom is a designated area. Use shovel provided, pack out all waste."
+        },
+        {
+          "question": "Can I modify the itinerary?",
+          "answer": "Flexible based on group fitness and weather. Guides adjust as needed."
+        },
+        {
+          "question": "What if weather is bad?",
+          "answer": "Tours proceed unless severe. Quality gear keeps you dry and comfortable."
+        },
+        {
+          "question": "Do you have vegetarian meals?",
+          "answer": "Yes, inform when booking. Same quality and portions as omnivore meals."
+        }
+      ],
+      "relatedExperienceIds": ["nature-hike", "salt-mines-adventure", "art-cultural"]
+    }
+  ]
+}

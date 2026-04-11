@@ -1,0 +1,204 @@
+---
+interface Props {
+  title: string;
+  subtitle?: string;
+  backgroundGradient?: string;
+}
+
+const {
+  title,
+  subtitle,
+  backgroundGradient = "linear-gradient(135deg, #2D5016 0%, #1f3610 100%)",
+} = Astro.props;
+---
+
+<div class="page-header-banner" style={`background: ${backgroundGradient}`}>
+  <div class="banner-content">
+    <h1>{title}</h1>
+    {subtitle && <p>{subtitle}</p>}
+  </div>
+</div>
+<div class="page-header-banner-placeholder" style="display: none; visibility: hidden;"></div>
+
+<style>
+  .page-header-banner {
+    position: relative; /* Changed back to relative to maintain document flow on load */
+    z-index: 10;
+    width: 100%;
+    padding: var(--banner-padding, 60px) 20px;
+    text-align: center;
+    color: white;
+    box-sizing: border-box;
+    transition: none; /* Critical: remove transitions to prevent lag/popping */
+  }
+
+  .page-header-banner.sticky {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    z-index: 1000; /* Ensure it stays above everything during takeover */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  .page-header-banner-placeholder {
+    /* Height set via JS to prevent content jumping */
+    width: 100%;
+  }
+
+  .banner-content {
+    max-width: 1600px;
+    margin: 0 auto;
+  }
+
+  .page-header-banner h1 {
+    font-size: var(--banner-h1-size, 2.25rem);
+    margin: 0 0 var(--banner-h1-margin, 1rem) 0;
+    font-weight: 700;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  }
+
+  .page-header-banner p {
+    font-size: var(--banner-p-size, 1.2rem);
+    margin: 0;
+    opacity: var(--banner-p-opacity, 0.95);
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+  }
+
+  @media (max-width: 768px) {
+    .page-header-banner {
+      padding: 40px 1rem;
+    }
+
+    .page-header-banner h1 {
+      font-size: 1.75rem;
+    }
+
+    .page-header-banner p {
+      font-size: 1rem;
+    }
+
+    .page-header-banner.shrunk h1 {
+      font-size: 1.2rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .page-header-banner {
+      padding: 30px 1rem;
+    }
+
+    .page-header-banner h1 {
+      font-size: 1.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .page-header-banner p {
+      font-size: 0.95rem;
+    }
+  }
+</style>
+
+<script>
+  const banner = document.querySelector('.page-header-banner') as HTMLElement;
+  const placeholder = document.querySelector('.page-header-banner-placeholder') as HTMLElement;
+  const header = document.querySelector('header') as HTMLElement;
+  const wrapper = banner.parentElement;
+  
+  if (banner && placeholder && header && wrapper) {
+    // Wrapper needs relative positioning so the absolute banner stays in place initially
+    wrapper.style.position = 'relative';
+
+    let state = {
+      initialBannerHeight: 0,
+      shrunkBannerHeight: 0,
+      headerHeight: 0,
+      absoluteTop: 0,
+      initialPadding: 60
+    };
+    
+    const updateMeasurements = () => {
+      const isSticky = banner.classList.contains('sticky');
+      
+      // Reset styles to get clean measurements
+      banner.classList.remove('sticky');
+      banner.style.position = 'relative';
+      banner.style.top = '';
+      placeholder.style.display = 'none';
+
+      const rect = banner.getBoundingClientRect();
+      state.absoluteTop = rect.top + window.scrollY;
+      state.headerHeight = header.offsetHeight;
+      
+      // Measure Initial Height
+      banner.style.setProperty('--banner-padding', `${state.initialPadding}px`);
+      banner.style.setProperty('--banner-h1-size', `2.25rem`);
+      state.initialBannerHeight = banner.getBoundingClientRect().height;
+
+      // Measure Shrunk Height (simulated)
+      banner.style.setProperty('--banner-padding', `12px`);
+      banner.style.setProperty('--banner-h1-size', `1.25rem`);
+      state.shrunkBannerHeight = banner.getBoundingClientRect().height;
+
+      // Reset to default
+      banner.style.removeProperty('--banner-padding');
+      banner.style.removeProperty('--banner-h1-size');
+
+      if (isSticky) {
+        banner.classList.add('sticky');
+        banner.style.position = 'fixed';
+        placeholder.style.display = 'block';
+        placeholder.style.height = `${state.initialBannerHeight}px`;
+      }
+    };
+    
+    updateMeasurements();
+    window.addEventListener('resize', updateMeasurements);    
+    
+    window.addEventListener('scroll', () => {
+      const scrollPos = window.scrollY;
+      
+      // Start: When banner top hits header bottom
+      const triggerStart = state.absoluteTop - state.headerHeight;
+      
+      // End: When the bottom of the sticky banner hits the bottom of the placeholder
+      // Math: Original Bottom - Current Sticky Height
+      const triggerEnd = state.absoluteTop + (state.initialBannerHeight - state.shrunkBannerHeight);
+      const animationRange = triggerEnd - triggerStart;
+      
+      const progress = Math.max(0, Math.min((scrollPos - triggerStart) / animationRange, 1));
+      
+      // 1. Interpolate Visual Styles
+      const padding = state.initialPadding * (1 - progress) + 12 * progress;
+      const h1Size = 2.25 * (1 - progress) + 1.25 * progress;
+      const h1Margin = 1 * (1 - progress) + 0 * progress;
+      const pOpacity = 0.95 * (1 - progress) + 0 * progress;
+      const pSize = 1.2 * (1 - progress) + 0.8 * progress;
+
+      banner.style.setProperty('--banner-padding', `${padding}px`);
+      banner.style.setProperty('--banner-h1-size', `${h1Size}rem`);
+      banner.style.setProperty('--banner-h1-margin', `${h1Margin}rem`);
+      banner.style.setProperty('--banner-p-opacity', pOpacity.toString());
+      banner.style.setProperty('--banner-p-size', `${pSize}rem`);
+      
+      // 2. Handle Stickiness and Positioning
+      if (scrollPos >= triggerStart) {
+        banner.classList.add('sticky');
+        banner.style.position = 'fixed';
+        
+        // Always stick directly below the header
+        banner.style.top = `${state.headerHeight}px`;
+
+        // Keep placeholder active to prevent content below from jumping up
+        placeholder.style.display = 'block';
+        placeholder.style.height = `${state.initialBannerHeight}px`;
+      } else {
+        banner.classList.remove('sticky');
+        banner.style.position = 'relative';
+        banner.style.top = '';
+        placeholder.style.display = 'none';
+      }
+    });
+  }
+</script>

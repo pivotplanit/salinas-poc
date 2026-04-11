@@ -1,21 +1,80 @@
 ---
-import { locations } from "../../lib/about-data";
 ---
 
 <section class="locations-section">
   <div class="container">
-    <h2>Our Locations</h2>
-    <p class="section-subtitle">Operating across Ecuador's diverse regions</p>
+    <h2>Location & Access</h2>
     
-    <div class="locations-grid">
-      {locations.map((location) => (
-        <div class="location-card">
-          <div class="location-emoji">{location.emoji}</div>
-          <h3>{location.name}</h3>
-          <p class="location-region">{location.region}</p>
-          <p class="location-description">{location.description}</p>
+    <div class="locations-layout">
+      <!-- Map Column -->
+      <div class="map-column">
+        <div id="map-container" class="map-container"></div>
+      </div>
+
+      <!-- Info Column -->
+      <div class="info-column">
+        <div class="info-card">
+          <div class="section">
+            <h3>Getting to Salinas</h3>
+            <div class="info-list">
+              <div class="info-item">
+                <span class="location-pin">📍</span>
+                <div class="info-text">
+                  <span class="label">From Quito</span>
+                  <span class="value">7 hours by car</span>
+                </div>
+              </div>
+              <div class="info-item">
+                <span class="location-pin">📍</span>
+                <div class="info-text">
+                  <span class="label">From Guayaquil</span>
+                  <span class="value">6.5 hours by car</span>
+                </div>
+              </div>
+              <div class="info-item">
+                <span class="location-pin">📍</span>
+                <div class="info-text">
+                  <span class="label">From Guaranda</span>
+                  <span class="value">30 minutes by car</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="divider"></div>
+
+          <div class="section">
+            <h3>Altitude Zones</h3>
+            <ul class="altitude-list">
+              <li>
+                <span class="altitude-label">Salinas</span>
+                <span class="altitude-value">2,600 m elevation</span>
+              </li>
+              <li>
+                <span class="altitude-label">Cloud Forest</span>
+                <span class="altitude-value">2,100 - 2,800 m</span>
+              </li>
+              <li>
+                <span class="altitude-label">Páramo</span>
+                <span class="altitude-value">3,200+ m elevation</span>
+              </li>
+            </ul>
+          </div>
+
+          <div class="divider"></div>
+
+          <div class="section">
+            <h3>Experience Locations</h3>
+            <ul class="experience-list">
+              <li>Cheese Factory & Museum</li>
+              <li>Textile Center</li>
+              <li>Chocolate Workshop</li>
+              <li>Salt Mines</li>
+              <li>Cloud Forest Trails</li>
+            </ul>
+          </div>
         </div>
-      ))}
+      </div>
     </div>
   </div>
 </section>
@@ -23,76 +82,151 @@ import { locations } from "../../lib/about-data";
 <style>
   .locations-section {
     padding: 4rem 1rem;
-    background: linear-gradient(135deg, #f5f5f5 0%, #ffffff 100%);
+    background: white;
   }
 
   .container {
-    max-width: 1200px;
+    max-width: 1400px;
     margin: 0 auto;
   }
 
   h2 {
     font-size: 2.5rem;
     font-weight: 700;
-    color: #2D5016;
-    margin: 0 0 0.5rem 0;
-    text-align: center;
-  }
-
-  .section-subtitle {
-    text-align: center;
-    color: #666;
-    font-size: 1.1rem;
+    color: var(--primary);
     margin: 0 0 3rem 0;
+    text-align: center;
   }
 
-  .locations-grid {
+  .locations-layout {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2rem;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: flex-start;
   }
 
-  .location-card {
+  .map-container {
+    width: 100%;
+    height: 400px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    border: 1px solid #e0e0e0;
+    z-index: 1;
+  }
+
+  .map-container :global(.leaflet-control) {
+    z-index: 10;
+  }
+
+  .info-card {
     background: white;
+    border: 1px solid #e0e0e0;
     border-radius: 12px;
     padding: 2rem;
-    border: 2px solid #e0e0e0;
-    text-align: center;
-    transition: all 300ms ease;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
   }
 
-  .location-card:hover {
-    border-color: #2D5016;
-    box-shadow: 0 8px 24px rgba(45, 80, 22, 0.15);
-    transform: translateY(-4px);
+  .section {
+    margin-bottom: 0;
   }
 
-  .location-emoji {
-    font-size: 3.5rem;
-    margin-bottom: 1rem;
-    line-height: 1;
-  }
-
-  .location-card h3 {
-    margin: 0 0 0.5rem 0;
-    font-size: 1.4rem;
-    color: #2D5016;
+  .info-card h3 {
+    font-size: 1.2rem;
     font-weight: 700;
+    color: var(--primary);
+    margin: 0 0 1.5rem 0;
   }
 
-  .location-region {
-    margin: 0 0 1rem 0;
-    font-size: 0.95rem;
-    color: #8B7355;
+  .divider {
+    height: 1px;
+    background: #e0e0e0;
+    margin: 2rem 0;
+  }
+
+  .info-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 0;
+  }
+
+  .info-item {
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+  }
+
+  .location-pin {
+    font-size: 1.2rem;
+    flex-shrink: 0;
+    margin-top: 0.2rem;
+  }
+
+  .info-text {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+
+  .info-item .label {
     font-weight: 600;
+    color: #333;
+    font-size: 0.95rem;
   }
 
-  .location-description {
-    margin: 0;
+  .info-item .value {
     color: #666;
-    line-height: 1.6;
+    font-size: 0.9rem;
+  }
+
+  .altitude-list {
+    margin: 0;
+    padding-left: 1.5rem;
+    list-style: disc;
+    color: #666;
+    line-height: 1.8;
     font-size: 0.95rem;
+  }
+
+  .altitude-list li {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .altitude-label {
+    font-weight: 600;
+    color: #333;
+  }
+
+  .altitude-value {
+    color: #666;
+    white-space: nowrap;
+  }
+
+  .experience-list {
+    margin: 0;
+    padding-left: 1.5rem;
+    list-style: disc;
+    color: #666;
+    line-height: 1.8;
+    font-size: 0.95rem;
+  }
+
+  .experience-list li {
+    margin-bottom: 0.5rem;
+  }
+
+  @media (max-width: 1024px) {
+    .locations-layout {
+      gap: 2rem;
+    }
+
+    .map-container {
+      height: 350px;
+    }
   }
 
   @media (max-width: 768px) {
@@ -102,23 +236,77 @@ import { locations } from "../../lib/about-data";
 
     h2 {
       font-size: 2rem;
+      margin-bottom: 2rem;
     }
 
-    .locations-grid {
+    .locations-layout {
       grid-template-columns: 1fr;
-      gap: 1.5rem;
+      gap: 2rem;
     }
 
-    .location-card {
+    .map-container {
+      height: 300px;
+    }
+
+    .info-card {
       padding: 1.5rem;
     }
+  }
 
-    .location-emoji {
-      font-size: 2.5rem;
+  @media (max-width: 480px) {
+    .locations-section {
+      padding: 2rem 1rem;
     }
 
-    .location-card h3 {
-      font-size: 1.2rem;
+    h2 {
+      font-size: 1.5rem;
+    }
+
+    .map-container {
+      height: 250px;
+    }
+
+    .info-card h3 {
+      font-size: 1.1rem;
+    }
+
+    .info-item .label,
+    .info-item .value {
+      font-size: 0.85rem;
     }
   }
 </style>
+
+<script>
+  import L from 'leaflet';
+  import 'leaflet/dist/leaflet.css';
+
+  // Fix default marker icons issue with Leaflet
+  const DefaultIcon = L.icon({
+    iconUrl: 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon.png',
+    shadowUrl: 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-shadow.png',
+    iconSize: [25, 41],
+    iconAnchor: [12, 41],
+    popupAnchor: [1, -34],
+    shadowSize: [41, 41],
+  });
+  L.Marker.prototype.options.icon = DefaultIcon;
+
+  // Salinas coordinates
+  const salinas = [-1.6167, -78.9];
+  
+  const mapContainer = document.getElementById('map-container');
+  if (mapContainer) {
+    const map = L.map(mapContainer).setView(salinas, 10);
+    
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '© OpenStreetMap contributors',
+      maxZoom: 19,
+    }).addTo(map);
+
+    // Add marker for Salinas
+    L.marker(salinas).addTo(map)
+      .bindPopup('<strong>Salinas de Guaranda</strong><br>Ecuador')
+      .openPopup();
+  }
+</script>

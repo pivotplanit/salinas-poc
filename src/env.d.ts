@@ -7,3 +7,14 @@ declare namespace App {
     // Add custom properties to Astro.locals here if needed
   }
 }
+
+// Environment variables
+interface ImportMetaEnv {
+  readonly VITE_API_URL?: string;
+  readonly VITE_SITE_NAME?: string;
+  readonly VITE_SITE_URL?: string;
+}
+
+interface ImportMeta {
+  readonly env: ImportMetaEnv;
+}

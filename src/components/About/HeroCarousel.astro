@@ -1,53 +1,81 @@
 ---
-interface Props {
-  images?: string[];
+import { Image } from "astro:assets";
+interface Slide {
+  type: "image" | "video";
+  src: string;
+  alt: string;
+  poster?: string;
 }
 
-const { images = ["🏞️", "🌿", "🏘️", "☕"] } = Astro.props;
+interface Props {
+  slides?: Slide[];
+}
+
+const defaultSlides: Slide[] = [
+  {
+    type: "video",
+    src: "https://videos.pexels.com/video-files/4763824/4763824-uhd_2560_1440_24fps.mp4",
+    alt: "Lush green countryside scenery",
+    poster: "https://images.unsplash.com/photo-1594398901394-4e34939a02ee?w=1600&h=900&fit=crop",
+  },
+  {
+    type: "image",
+    src: "https://images.unsplash.com/photo-1619546952812-520e98064a52?w=1600&h=900&fit=crop",
+    alt: "Ecuadorian highlands landscape",
+  },
+
+  {
+    type: "image",
+    src: "https://images.unsplash.com/photo-1547471080-7cc2caa01a7e?w=1600&h=900&fit=crop",
+    alt: "Ecuador tropical rainforest canopy",
+  },
+];
+
+const { slides = defaultSlides } = Astro.props;
 ---
 
 <section class="hero-carousel-section">
   <div class="carousel-container">
     <div class="carousel-main">
-      {images.map((image, index) => (
-        <div 
-          class="carousel-slide" 
+      {slides.map((slide, index) => (
+        <div
+          class:list={['carousel-slide', { active: index === 0 }]}
           data-slide={index}
-          style={index === 0 ? 'opacity: 1' : 'opacity: 0'}
         >
-          <div class="slide-emoji">{image}</div>
+          {slide.type === 'video' ? (
+            <video
+              class="slide-media"
+              src={slide.src}
+              poster={slide.poster}
+              muted
+              controls
+              playsinline
+              preload="metadata"
+            />
+          ) : (
+            <Image
+              class="slide-media"
+              src={slide.src}
+              alt={slide.alt}
+              width={1600}
+              height={900}
+              loading={"eager"}
+            />
+          )}
         </div>
       ))}
     </div>
 
-    <div class="carousel-controls">
-      <button class="carousel-btn carousel-btn-prev" aria-label="Previous image">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <polyline points="15 18 9 12 15 6"></polyline>
-        </svg>
-      </button>
-      <button class="carousel-btn carousel-btn-next" aria-label="Next image">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <polyline points="9 18 15 12 9 6"></polyline>
-        </svg>
-      </button>
-    </div>
-
-    <div class="carousel-indicators">
-      {images.map((_, index) => (
-        <button
-          class={`indicator ${index === 0 ? 'active' : ''}`}
-          data-indicator={index}
-          aria-label={`Go to slide ${index + 1}`}
-          aria-current={index === 0}
-        ></button>
-      ))}
-    </div>
-  </div>
-
-  <div class="carousel-overlay">
-    <h1>Discover Our Heritage</h1>
-    <p>50+ years of sustainable community tourism</p>
+    <button class="carousel-btn carousel-btn-prev" aria-label="Previous image">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <polyline points="15 18 9 12 15 6"></polyline>
+      </svg>
+    </button>
+    <button class="carousel-btn carousel-btn-next" aria-label="Next image">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <polyline points="9 18 15 12 9 6"></polyline>
+      </svg>
+    </button>
   </div>
 </section>
 
@@ -55,9 +83,10 @@ const { images = ["🏞️", "🌿", "🏘️", "☕"] } = Astro.props;
   .hero-carousel-section {
     position: relative;
     width: 100%;
-    height: 500px;
+    aspect-ratio: 16 / 9;
+    max-height: 100vh;
     overflow: hidden;
-    background: #2D5016;
+    background: var(--medium-gray);
   }
 
   .carousel-container {
@@ -76,36 +105,30 @@ const { images = ["🏞️", "🌿", "🏘️", "☕"] } = Astro.props;
     position: absolute;
     width: 100%;
     height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
     opacity: 0;
+    pointer-events: none;
     transition: opacity 600ms ease-in-out;
-    background: linear-gradient(135deg, #2D5016 0%, #1f3610 100%);
+    background: var(--medium-gray);
     z-index: 1;
   }
 
   .carousel-slide.active {
     opacity: 1;
+    pointer-events: auto;
+    z-index: 2;
   }
 
-  .slide-emoji {
-    font-size: 10rem;
-    line-height: 1;
-    filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.3));
-  }
-
-  .carousel-controls {
-    position: absolute;
-    bottom: 2rem;
-    left: 50%;
-    transform: translateX(-50%);
-    display: flex;
-    gap: 1rem;
-    z-index: 10;
+  .slide-media {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
   }
 
   .carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
     width: 48px;
     height: 48px;
     border-radius: 50%;
@@ -118,132 +141,45 @@ const { images = ["🏞️", "🌿", "🏘️", "☕"] } = Astro.props;
     justify-content: center;
     transition: all 300ms ease;
     backdrop-filter: blur(10px);
+    z-index: 10;
+  }
+
+  .carousel-btn-prev {
+    left: 2rem;
+  }
+
+  .carousel-btn-next {
+    right: 2rem;
   }
 
   .carousel-btn:hover {
     background: rgba(255, 255, 255, 0.3);
     border-color: white;
-    transform: scale(1.1);
+    transform: translateY(-50%) scale(1.1);
   }
 
   .carousel-btn:active {
-    transform: scale(0.95);
-  }
-
-  .carousel-indicators {
-    position: absolute;
-    bottom: 1rem;
-    left: 50%;
-    transform: translateX(-50%);
-    display: flex;
-    gap: 0.5rem;
-    z-index: 10;
-  }
-
-  .indicator {
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    background: rgba(255, 255, 255, 0.4);
-    border: none;
-    cursor: pointer;
-    transition: all 300ms ease;
-  }
-
-  .indicator:hover {
-    background: rgba(255, 255, 255, 0.6);
-  }
-
-  .indicator.active {
-    background: white;
-    width: 32px;
-    border-radius: 5px;
-  }
-
-  .carousel-overlay {
-    position: absolute;
-    inset: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    z-index: 5;
-    text-align: center;
-    color: white;
-  }
-
-  .carousel-overlay h1 {
-    font-size: 3.5rem;
-    font-weight: 700;
-    margin: 0 0 1rem 0;
-    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
-  }
-
-  .carousel-overlay p {
-    font-size: 1.3rem;
-    margin: 0;
-    opacity: 0.95;
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    transform: translateY(-50%) scale(0.95);
   }
 
   @media (max-width: 768px) {
-    .hero-carousel-section {
-      height: 350px;
-    }
-
-    .slide-emoji {
-      font-size: 7rem;
-    }
-
-    .carousel-overlay h1 {
-      font-size: 2rem;
-    }
-
-    .carousel-overlay p {
-      font-size: 1rem;
-    }
-
-    .carousel-controls {
-      bottom: 1.5rem;
-    }
-
     .carousel-btn {
       width: 40px;
       height: 40px;
-    }
-
-    .indicator {
-      width: 8px;
-      height: 8px;
-    }
-
-    .indicator.active {
-      width: 24px;
-    }
-  }
-
-  @media (max-width: 480px) {
-    .hero-carousel-section {
-      height: 280px;
-    }
-
-    .slide-emoji {
-      font-size: 5rem;
-    }
-
-    .carousel-overlay h1 {
-      font-size: 1.5rem;
-    }
-
-    .carousel-overlay p {
-      font-size: 0.9rem;
     }
   }
 </style>
 
 <script>
+  // Fit carousel within remaining viewport below the header
+  const header = document.querySelector('header');
+  const hero = document.querySelector('.hero-carousel-section') as HTMLElement;
+  if (header && hero) {
+    const headerHeight = header.offsetHeight;
+    hero.style.maxHeight = `calc(100vh - ${headerHeight}px)`;
+  }
+
   const slides = document.querySelectorAll('.carousel-slide');
-  const indicators = document.querySelectorAll('.indicator');
   const prevBtn = document.querySelector('.carousel-btn-prev');
   const nextBtn = document.querySelector('.carousel-btn-next');
 
@@ -251,55 +187,62 @@ const { images = ["🏞️", "🌿", "🏘️", "☕"] } = Astro.props;
     console.warn('Carousel slides not found');
   } else {
     let currentIndex = 0;
-    let autoplayInterval: ReturnType<typeof setInterval> | undefined;
+    let autoplayTimeout: ReturnType<typeof setTimeout> | undefined;
+
+    const clearScheduled = () => {
+      clearTimeout(autoplayTimeout);
+      for (const slide of slides) {
+        const v = slide.querySelector('video');
+        if (v) v.onended = null;
+      }
+    };
+
+    const scheduleNext = () => {
+      clearScheduled();
+      const currentVideo = slides[currentIndex]?.querySelector('video');
+
+      if (currentVideo) {
+        currentVideo.onended = () => showSlide(currentIndex + 1);
+      } else {
+        autoplayTimeout = setTimeout(() => {
+          showSlide(currentIndex + 1);
+        }, 5000);
+      }
+    };
 
     const showSlide = (index: number) => {
+      clearScheduled();
+
+      const prevIndex = currentIndex;
       currentIndex = (index + slides.length) % slides.length;
-      
+
       slides.forEach((slide, i) => {
         slide.classList.toggle('active', i === currentIndex);
       });
 
-      indicators.forEach((indicator, i) => {
-        indicator.classList.toggle('active', i === currentIndex);
-        indicator.setAttribute('aria-current', String(i === currentIndex));
-      });
-    };
+      // Stop previous video
+      const prevVideo = slides[prevIndex]?.querySelector('video');
+      if (prevVideo) prevVideo.pause();
 
-    const startAutoplay = () => {
-      autoplayInterval = setInterval(() => {
-        showSlide(currentIndex + 1);
-      }, 5000);
-    };
+      // Play current video if present
+      const currentVideo = slides[currentIndex]?.querySelector('video');
+      if (currentVideo) {
+        currentVideo.currentTime = 0;
+        currentVideo.play();
+      }
 
-    const stopAutoplay = () => {
-      clearInterval(autoplayInterval);
-    };
-
-    const resetAutoplay = () => {
-      stopAutoplay();
-      startAutoplay();
+      scheduleNext();
     };
 
     prevBtn?.addEventListener('click', () => {
       showSlide(currentIndex - 1);
-      resetAutoplay();
     });
 
     nextBtn?.addEventListener('click', () => {
       showSlide(currentIndex + 1);
-      resetAutoplay();
-    });
-
-    indicators.forEach((indicator, index) => {
-      indicator.addEventListener('click', () => {
-        showSlide(index);
-        resetAutoplay();
-      });
     });
 
     // Initialize
     showSlide(0);
-    startAutoplay();
   }
 </script>

@@ -4,111 +4,90 @@ interface Props {
 }
 
 const { items = [] } = Astro.props;
+
+const midpoint = Math.ceil(items.length / 2);
+const leftColumn = items.slice(0, midpoint);
+const rightColumn = items.slice(midpoint);
 ---
 
 {items.length > 0 && (
-  <section class="what-to-bring-section">
+  <section class="bring-section">
     <h2>What to Bring</h2>
-    
-    <div class="packing-grid">
-      {items.map((item) => (
-        <div class="packing-item">
-          <div class="packing-icon">📦</div>
-          <p>{item}</p>
-        </div>
-      ))}
-    </div>
-    
-    <div class="packing-tip">
-      <p><strong>💡 Tip:</strong> Pack light but don't forget essentials. We'll provide some items (water, sunscreen). Focus on comfortable clothing and shoes.</p>
+    <p class="section-subtitle">Checklist</p>
+    <div class="bring-columns">
+      <ul class="bring-list">
+        {leftColumn.map((item) => (
+          <li>
+            <span class="checkbox-icon">☐</span>
+            <span>{item}</span>
+          </li>
+        ))}
+      </ul>
+      <ul class="bring-list">
+        {rightColumn.map((item) => (
+          <li>
+            <span class="checkbox-icon">☐</span>
+            <span>{item}</span>
+          </li>
+        ))}
+      </ul>
     </div>
   </section>
 )}
 
 <style>
-  .what-to-bring-section {
+  .bring-section {
     padding: 3rem 0;
     border-bottom: 1px solid #e0e0e0;
   }
 
   h2 {
-    font-size: 2rem;
+    font-size: 1.75rem;
     font-weight: 700;
-    color: #2D5016;
-    margin: 0 0 2rem 0;
+    color: #1a1a1a;
+    margin: 0 0 0.25rem 0;
   }
 
-  .packing-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 1.5rem;
-    margin-bottom: 2rem;
-  }
-
-  .packing-item {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    padding: 1.5rem;
-    background: #f9f9f9;
-    border-radius: 8px;
-    border: 1px solid #e0e0e0;
-    transition: all 300ms ease;
-  }
-
-  .packing-item:hover {
-    background: white;
-    border-color: #2D5016;
-    box-shadow: 0 4px 12px rgba(45, 80, 22, 0.1);
-  }
-
-  .packing-icon {
-    font-size: 2rem;
-    margin-bottom: 0.75rem;
-  }
-
-  .packing-item p {
-    margin: 0;
-    color: #666;
+  .section-subtitle {
     font-size: 0.9rem;
-    line-height: 1.5;
+    color: #999;
+    margin: 0 0 1.5rem 0;
   }
 
-  .packing-tip {
-    background: linear-gradient(135deg, #e3f2fd 0%, #f3e5f5 100%);
-    border-left: 4px solid #2D5016;
-    padding: 1.5rem;
-    border-radius: 8px;
+  .bring-columns {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem 3rem;
   }
 
-  .packing-tip p {
+  .bring-list {
+    list-style: none;
     margin: 0;
-    color: #333;
-    line-height: 1.6;
+    padding: 0;
+  }
+
+  .bring-list li {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.5rem 0;
+    color: #444;
     font-size: 0.95rem;
   }
 
+  .checkbox-icon {
+    color: #999;
+    font-size: 1.1rem;
+    flex-shrink: 0;
+  }
+
   @media (max-width: 768px) {
-    .what-to-bring-section {
-      padding: 2rem 0;
+    .bring-columns {
+      grid-template-columns: 1fr;
     }
 
     h2 {
       font-size: 1.5rem;
-    }
-
-    .packing-grid {
-      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-      gap: 1rem;
-    }
-
-    .packing-item {
-      padding: 1.25rem;
-    }
-
-    .packing-tip {
-      padding: 1.25rem;
     }
   }
 </style>

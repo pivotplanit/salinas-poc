@@ -1,0 +1,30 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import HeroSection from "../../components/PracticalInfo/HeroSection.astro";
+import QuickReferenceCards from "../../components/PracticalInfo/QuickReferenceCards.astro";
+import GettingThereSection from "../../components/PracticalInfo/GettingThereSection.astro";
+import WeatherAndChecklistSection from "../../components/PracticalInfo/WeatherSection.astro";
+import HealthSection from "../../components/PracticalInfo/HealthSection.astro";
+import FAQSection from "../../components/PracticalInfo/FAQSection.astro";
+import CTASection from "../../components/PracticalInfo/CTASection.astro";
+import i18nConfig from "@configs/i18n";
+
+export function getStaticPaths() {
+  return i18nConfig.locales.map((locale) => ({ params: { locale } }));
+}
+
+const { locale } = Astro.params;
+---
+
+<BaseLayout
+  title="Practical Info - Plan Your Trip to Salinas"
+  description="Travel information, weather, packing tips, health & safety, and FAQs"
+>
+  <HeroSection />
+  <QuickReferenceCards />
+  <GettingThereSection />
+  <WeatherAndChecklistSection />
+  <HealthSection />
+  <FAQSection />
+  <CTASection />
+</BaseLayout>

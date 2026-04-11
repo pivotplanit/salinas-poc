@@ -1,22 +1,69 @@
 ---
-import { faqs } from "../../lib/practical-info-data";
 import FAQItem from "../FAQItem.astro";
+
+const faqs = [
+  {
+    question: "Do I need vaccinations?",
+    answer:
+      "Yellow fever vaccination is recommended if you're traveling from or through a country with risk of transmission. Routine vaccines such as hepatitis A, typhoid, and tetanus are also advised. Consult your doctor at least 4–6 weeks before travel.",
+  },
+  {
+    question: "Is altitude sickness common?",
+    answer:
+      "Yes, especially in the highlands above 2,500 m (8,200 ft). Quito sits at 2,850 m, so take it easy on your first day, stay hydrated, and avoid heavy meals. Symptoms usually pass within 24–48 hours.",
+  },
+  {
+    question: "What's the phone signal like?",
+    answer:
+      "Major cities and towns have reliable 4G coverage through carriers like Claro, Movistar, and CNT. In remote areas, the Amazon, and some mountain regions, signal can be weak or nonexistent. A local SIM card is inexpensive and easy to purchase at the airport.",
+  },
+  {
+    question: "Can I use credit cards?",
+    answer:
+      "Credit and debit cards are widely accepted in cities, hotels, and larger restaurants. However, smaller shops, markets, and rural areas often only accept cash (US dollars). Always carry some small bills and coins.",
+  },
+  {
+    question: "Is tap water safe?",
+    answer:
+      "Tap water is generally not safe to drink. Stick to bottled or filtered water, and avoid ice in drinks outside of reputable restaurants. Most hotels and tour operators provide purified water.",
+  },
+  {
+    question: "What languages are spoken?",
+    answer:
+      "Spanish is the official language spoken nationwide. Kichwa and other indigenous languages are spoken in highland and Amazon communities. English is understood in major tourist areas, but learning a few basic Spanish phrases goes a long way.",
+  },
+  {
+    question: "Are there vegetarian options?",
+    answer:
+      "Vegetarian food is increasingly available in cities like Quito and Cuenca, with dedicated vegetarian restaurants. Traditional Ecuadorian cuisine is meat-heavy, but most restaurants can accommodate requests. In rural areas, options may be more limited.",
+  },
+  {
+    question: "Can I visit with children?",
+    answer:
+      "Absolutely. Ecuador is a family-friendly destination with plenty of activities for kids, from wildlife watching in the Galápagos to chocolate-making tours in the cloud forest. Most hotels and tour operators cater to families.",
+  },
+  {
+    question: "Is it safe to travel alone?",
+    answer:
+      "Ecuador is generally safe for solo travelers who take standard precautions. Avoid walking alone at night in unfamiliar areas, keep valuables secure, and use registered taxis or ride-hailing apps. The tourist infrastructure is well-developed.",
+  },
+  {
+    question: "What about accessibility?",
+    answer:
+      "Accessibility is improving but still limited in many areas. Major hotels and some attractions in Quito and Guayaquil offer wheelchair access. Cobblestone streets, uneven sidewalks, and limited ramps can present challenges elsewhere. Contact venues ahead to confirm arrangements.",
+  },
+];
 ---
 
 <section class="faq-section">
   <div class="container">
     <h2>Frequently Asked Questions</h2>
-    <p class="section-subtitle">Get answers to common travel questions</p>
-
-    <div class="faq-grid">
-      {faqs.map((faq, index) => (
-        <div class="faq-column">
-          <FAQItem 
-            question={faq.question}
-            answer={faq.answer}
-            defaultOpen={index === 0}
-          />
-        </div>
+    <div class="faq-list">
+      {faqs.map((faq) => (
+        <FAQItem
+          question={faq.question}
+          answer={faq.answer}
+        />
       ))}
     </div>
   </div>
@@ -29,62 +76,26 @@ import FAQItem from "../FAQItem.astro";
   }
 
   .container {
-    max-width: 1000px;
+    max-width: 1200px;
     margin: 0 auto;
   }
 
   h2 {
-    font-size: 2.5rem;
+    font-size: 2rem;
     font-weight: 700;
-    color: #2D5016;
-    margin: 0 0 0.5rem 0;
-    text-align: center;
+    color: #111827;
+    margin: 0 0 2rem 0;
+    text-align: left;
   }
 
-  .section-subtitle {
-    text-align: center;
-    color: #666;
-    font-size: 1.1rem;
-    margin: 0 0 3rem 0;
-  }
-
-  .faq-grid {
-    display: grid;
-    gap: 0;
-    border: 1px solid #e0e0e0;
-    border-radius: 12px;
-    overflow: hidden;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-  }
-
-  .faq-column {
-    padding: 0;
-  }
-
-  .faq-column:not(:last-child) {
-    border-bottom: 1px solid #e0e0e0;
-  }
-
-  :global(.faq-column .faq-item) {
-    padding: 1.5rem;
-    border: none;
-  }
-
-  :global(.faq-column .faq-item:last-child) {
-    padding-bottom: 1.5rem;
+  .faq-list {
+    display: flex;
+    flex-direction: column;
   }
 
   @media (max-width: 768px) {
     .faq-section {
       padding: 3rem 1rem;
-    }
-
-    h2 {
-      font-size: 2rem;
-    }
-
-    :global(.faq-column .faq-item) {
-      padding: 1.25rem;
     }
   }
 </style>

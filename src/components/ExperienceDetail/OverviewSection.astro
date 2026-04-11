@@ -9,24 +9,25 @@ const { overview, whySpecial, whatYouLearn } = Astro.props;
 ---
 
 <section class="overview-section">
-  <div class="overview-grid">
+  <h2>Overview</h2>
+  <div class="overview-list">
     {overview && (
       <div class="overview-item">
-        <h3>What is This?</h3>
+        <h3>What is this experience?</h3>
         <p>{overview}</p>
       </div>
     )}
-    
+
     {whySpecial && (
       <div class="overview-item">
-        <h3>Why It's Special</h3>
+        <h3>Why is it special?</h3>
         <p>{whySpecial}</p>
       </div>
     )}
-    
+
     {whatYouLearn && (
       <div class="overview-item">
-        <h3>What You'll Learn</h3>
+        <h3>What will you learn/discover?</h3>
         <p>{whatYouLearn}</p>
       </div>
     )}
@@ -35,31 +36,30 @@ const { overview, whySpecial, whatYouLearn } = Astro.props;
 
 <style>
   .overview-section {
-    padding: 3rem 0;
     border-bottom: 1px solid #e0e0e0;
   }
 
-  .overview-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 2rem;
+  h2 {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin-bottom: 1.5rem;
   }
 
-  .overview-item {
-    padding: 1.5rem;
-    background: #f9f9f9;
-    border-radius: 8px;
-    border-left: 4px solid #2D5016;
+  .overview-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
   }
 
-  .overview-item h3 {
-    margin: 0 0 1rem 0;
-    font-size: 1.2rem;
-    color: #2D5016;
+  h3 {
+    font-size: 1rem;
     font-weight: 600;
+    color: var(--primary);
+    margin: 0 0 0.5rem 0;
   }
 
-  .overview-item p {
+  p {
     margin: 0;
     color: #666;
     line-height: 1.7;
@@ -71,13 +71,8 @@ const { overview, whySpecial, whatYouLearn } = Astro.props;
       padding: 2rem 0;
     }
 
-    .overview-grid {
-      grid-template-columns: 1fr;
-      gap: 1rem;
-    }
-
-    .overview-item {
-      padding: 1.25rem;
+    h2 {
+      font-size: 1.5rem;
     }
   }
 </style>

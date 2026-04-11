@@ -38,24 +38,28 @@ const { experience } = Astro.props;
 
 // Normalize itinerary data
 const normalizedItinerary =
-  experience.itinerary?.map((item) => ({
-    time: item.time,
-    title: item.title,
-    activity: item.description || item.activity || "",
-  })) || [];
+  experience.itinerary?.map(
+    (item: { time: string; title: string; description?: string; activity?: string }) => ({
+      time: item.time,
+      title: item.title,
+      activity: item.description || item.activity || "",
+    })
+  ) || [];
 
 // Normalize testimonials
 const normalizedTestimonials =
-  experience.testimonials?.map((t) => ({
-    name: t.name,
-    role: t.location || t.role || "",
-    text: t.text,
-    rating: t.rating,
-  })) || [];
+  experience.testimonials?.map(
+    (t: { name: string; location?: string; role?: string; text: string; rating: number }) => ({
+      name: t.name,
+      role: t.location || t.role || "",
+      text: t.text,
+      rating: t.rating,
+    })
+  ) || [];
 
 // Normalize group discounts
 const normalizedDiscounts =
-  experience.groupDiscounts?.map((d) => ({
+  experience.groupDiscounts?.map((d: { groupSize?: number; size?: number; discount: string }) => ({
     size: d.groupSize || d.size || "",
     discount: typeof d.discount === "string" ? d.discount : `${d.discount}% off`,
   })) || [];

@@ -5,12 +5,11 @@ import i18nConfig from "./src/configs/i18n";
 import { fileURLToPath } from "node:url"; // Add this
 
 export default defineConfig({
-  site: "https://ecuador-single-page.pages.dev",
-  output: "hybrid",
+  site: 'https://salinas-poc.pivotplanit.com',
   adapter: cloudflare({
     platformProxy: { enabled: true },
     nodeCompat: true,
-    imageService: "compile",
+    imageService: 'compile',
   }),
 
   i18n: {
@@ -26,11 +25,13 @@ export default defineConfig({
     resolve: {
       alias: {
         // Use absolute paths if you're going to define these manually
-        "@components": fileURLToPath(new URL("./src/components", import.meta.url)),
-        "@layouts": fileURLToPath(new URL("./src/layouts", import.meta.url)),
-        "@lib": fileURLToPath(new URL("./src/lib", import.meta.url)),
-        "@assets": fileURLToPath(new URL("./src/assets", import.meta.url)),
-        "@configs": fileURLToPath(new URL("./src/configs", import.meta.url)),
+        '@components': fileURLToPath(
+          new URL('./src/components', import.meta.url),
+        ),
+        '@layouts': fileURLToPath(new URL('./src/layouts', import.meta.url)),
+        '@lib': fileURLToPath(new URL('./src/lib', import.meta.url)),
+        '@assets': fileURLToPath(new URL('./src/assets', import.meta.url)),
+        '@configs': fileURLToPath(new URL('./src/configs', import.meta.url)),
       },
     },
   },

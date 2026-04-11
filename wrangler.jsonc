@@ -11,5 +11,11 @@
 	},
 	"observability": {
 		"enabled": true
-	}
+	},
+	"routes": [
+		{
+			"pattern": "salinas.pivotplanit.com",
+			"custom_domain": true
+		}
+	]
 }

@@ -14,7 +14,7 @@
 	},
 	"routes": [
 		{
-			"pattern": "salinas.pivotplanit.com",
+			"pattern": "habitattraveltours.com",
 			"custom_domain": true
 		}
 	]

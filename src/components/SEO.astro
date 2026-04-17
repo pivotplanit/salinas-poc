@@ -15,7 +15,7 @@ interface Props {
 const {
   title,
   description = "Sustainable tourism in Salinas de Guaranda, Ecuador",
-  image = "https://ecuador-single-page.pages.dev/og-image.jpg",
+  image = "https://habitattraveltours.com/favicon.ico",
   canonicalURL = new URL(Astro.url.pathname, Astro.site),
   ogType = "website",
   twitterHandle = "@SalinasEcuador",
@@ -65,7 +65,7 @@ const fullTitle = title === siteTitle ? title : `${title} | ${siteTitle}`;
   "@context": "https://schema.org",
   "@type": "Organization",
   "name": siteTitle,
-  "url": "https://ecuador-single-page.pages.dev",
+  "url": "https://habitattraveltours.com",
   "description": description,
   "image": image,
   "address": {

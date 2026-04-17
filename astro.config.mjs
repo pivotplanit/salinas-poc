@@ -5,7 +5,7 @@ import i18nConfig from "./src/configs/i18n";
 import { fileURLToPath } from "node:url"; // Add this
 
 export default defineConfig({
-  site: 'https://salinas-poc.pivotplanit.com',
+  site: 'https://habitattraveltours.com',
   adapter: cloudflare({
     platformProxy: { enabled: true },
     nodeCompat: true,

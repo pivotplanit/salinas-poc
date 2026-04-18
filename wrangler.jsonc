@@ -17,5 +17,13 @@
 			"pattern": "habitattraveltours.com",
 			"custom_domain": true
 		}
+	],
+	"d1_databases": [
+		{
+			"binding": "DB",
+			"database_name": "habitat-travel-tours",
+			"database_id": "4ce6036a-0a23-4493-b14a-20cb2e355595",
+			"migrations_dir": "migrations"
+		}
 	]
 }

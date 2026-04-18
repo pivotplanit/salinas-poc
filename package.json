@@ -12,7 +12,12 @@
     "lint:fix": "biome lint --write src/",
     "format": "biome format src/",
     "format:check": "biome format --check src/",
-    "generate-types": "wrangler types"
+    "generate-types": "wrangler types",
+    "db:migrate:local": "wrangler d1 migrations apply habitat-travel-tours --local",
+    "db:migrate:remote": "wrangler d1 migrations apply habitat-travel-tours --remote",
+    "db:query:newsletter": "wrangler d1 execute habitat-travel-tours --local --command 'SELECT * FROM newsletter_subscriptions LIMIT 5;'",
+    "db:query:bookings": "wrangler d1 execute habitat-travel-tours --local --command 'SELECT * FROM bookings LIMIT 100;'",
+    "deploy": "npm run db:migrate:remote && wrangler deploy"
   },
   "keywords": [
     "astro",

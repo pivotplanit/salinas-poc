@@ -1,18 +1,24 @@
 ---
+import { actions } from "astro:actions";
 import Button from "../Button.astro";
 import {
   interestOptions,
   durationOptions,
   accommodationOptions,
 } from "../../lib/group-booking-data";
+
+const result = Astro.getActionResult(actions.requestQuote);
 ---
 
 <section class="booking-form-section" id="form">
   <div class="container">
+    {result?.data && <script is:inline>alert("Thank you! Your request has been received. We will contact you soon.");</script>}
+    {result?.error && <script is:inline>alert("Something went wrong. Please try again later."); window.location.href = window.location.pathname;</script>}
+
     <h2>Request a Quote</h2>
     <p class="section-subtitle">Tell us about your group and we'll create a custom proposal</p>
 
-    <form class="booking-form">
+    <form class="booking-form" method="POST" action={actions.requestQuote}>
       <div class="form-columns">
         <div class="form-column form-left">
           <!-- Contact Information -->

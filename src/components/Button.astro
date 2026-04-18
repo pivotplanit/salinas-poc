@@ -31,7 +31,11 @@ const {
 
 const isLink = !!href;
 const currentLocale = Astro.currentLocale || "en";
-const localizedHref = href ? getRelativeLocaleUrl(currentLocale, href) : undefined;
+const localizedHref = href?.startsWith("#")
+  ? href
+  : href
+    ? getRelativeLocaleUrl(currentLocale, href)
+    : undefined;
 const buttonClass =
   `btn btn-${variant} btn-${size} ${fullWidth ? "btn-full-width" : ""} ${additionalClass}`.trim();
 ---

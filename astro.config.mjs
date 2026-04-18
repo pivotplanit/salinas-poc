@@ -10,8 +10,8 @@ export default defineConfig({
     platformProxy: { enabled: true },
     nodeCompat: true,
     imageService: 'compile',
+    prerenderEnvironment: 'workerd',
   }),
-
   i18n: {
     ...i18nConfig,
     routing: {
@@ -20,7 +20,7 @@ export default defineConfig({
   },
 
   image: {
-    domains: ["assets.habitattraveltours.com"],
+    domains: ['assets.habitattraveltours.com'],
   },
 
   integrations: [sitemap()],

@@ -1,8 +1,13 @@
 ---
+import { actions } from "astro:actions";
+
+const result = Astro.getActionResult(actions.subscribe);
 const currentYear = new Date().getFullYear();
 ---
 
 <footer>
+  {result?.data && <script is:inline>alert("Thank you! You successfully subscribed to our newsletter!"); window.location.href = window.location.pathname;</script>}
+  {result?.error && <script is:inline>alert("Something went wrong. Please try again later."); window.location.href = window.location.pathname;</script>}
   <div class="footer-content">
     <div class="footer-section">
       <h4>HABITAT</h4>
@@ -34,9 +39,10 @@ const currentYear = new Date().getFullYear();
 
     <div class="footer-section">
       <h4>Newsletter</h4>
-      <form class="newsletter-form">
+      <form class="newsletter-form" method="POST" action={actions.subscribe}>
         <input
           type="email"
+          name="email"
           placeholder="your@email.com"
           class="newsletter-input"
           required

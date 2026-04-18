@@ -1,13 +1,8 @@
 ---
-import { actions } from "astro:actions";
-
-const result = Astro.getActionResult(actions.subscribe);
 const currentYear = new Date().getFullYear();
 ---
 
 <footer>
-  {result?.data && <script is:inline>alert("Thank you! You successfully subscribed to our newsletter!"); window.location.href = window.location.pathname;</script>}
-  {result?.error && <script is:inline>alert("Something went wrong. Please try again later."); window.location.href = window.location.pathname;</script>}
   <div class="footer-content">
     <div class="footer-section">
       <h4>HABITAT</h4>
@@ -39,7 +34,7 @@ const currentYear = new Date().getFullYear();
 
     <div class="footer-section">
       <h4>Newsletter</h4>
-      <form class="newsletter-form" method="POST" action={actions.subscribe}>
+      <form id="newsletter-form" >
         <input
           type="email"
           name="email"
@@ -145,7 +140,7 @@ const currentYear = new Date().getFullYear();
     line-height: 1.5;
   }
 
-  .newsletter-form {
+  #newsletter-form {
     display: flex;
     gap: 0.5rem;
     flex-wrap: wrap;
@@ -277,7 +272,7 @@ const currentYear = new Date().getFullYear();
       font-size: 0.8rem;
     }
 
-    .newsletter-form {
+    #newsletter-form {
       gap: 0.35rem;
     }
 
@@ -356,7 +351,7 @@ const currentYear = new Date().getFullYear();
       line-height: 1.2;
     }
 
-    .newsletter-form {
+    #newsletter-form {
       flex-direction: column;
       gap: 0.2rem;
     }
@@ -397,3 +392,21 @@ const currentYear = new Date().getFullYear();
     }
   }
 </style>
+
+<script>
+  // this is the course of action since footer is shared across all pages
+  // this will make sure that static pages like homepage remains static and not server-rendered
+  // this is possible only if ATLEAST one page has `export const prerender = false`
+  import { actions } from 'astro:actions';
+  
+  const form = document.getElementById('newsletter-form') as HTMLFormElement;
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const formData = new FormData(form);
+    const { error } = await actions.subscribe(formData);
+    if (!error) alert("Thank you for subscribing to our newsletter!"); 
+    else alert("Something went wrong. Please try again later.");
+
+    window.location.href = window.location.pathname;
+  });
+</script>

@@ -19,6 +19,10 @@ export default defineConfig({
     },
   },
 
+  image: {
+    domains: ["assets.habitattraveltours.com"],
+  },
+
   integrations: [sitemap()],
 
   vite: {

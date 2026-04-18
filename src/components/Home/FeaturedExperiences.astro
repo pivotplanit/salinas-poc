@@ -1,5 +1,4 @@
 ---
-import { Image } from "astro:assets";
 import Button from "../Button.astro";
 
 interface Experience {
@@ -10,6 +9,7 @@ interface Experience {
   duration: string;
   difficulty: string;
   highlights: string[];
+  image: string;
 }
 
 interface Props {
@@ -19,15 +19,7 @@ interface Props {
 
 const { experiences, id } = Astro.props;
 
-// Placeholder images - 16:9 ratio
-const imagePlaceholders: Record<string, string> = {
-  "salt-mines-cheese": "https://picsum.photos/600/338?random=5",
-  "salt-mines-adventure": "https://picsum.photos/600/338?random=6",
-  "chocolate-workshop": "https://picsum.photos/600/338?random=7",
-  "art-cultural": "https://picsum.photos/600/338?random=8",
-  "nature-hike": "https://picsum.photos/600/338?random=9",
-  "multi-day-expedition": "https://picsum.photos/600/338?random=10",
-};
+const FALLBACK_IMAGE = "https://picsum.photos/600/338?random=11";
 ---
 
 <section class="featured-experiences" {id}>
@@ -49,12 +41,14 @@ const imagePlaceholders: Record<string, string> = {
           experiences.map((exp) => (
             <div class="experience-card">
               <div class="experience-image">
-                <Image
-                  src={imagePlaceholders[exp.id] || "https://picsum.photos/600/338?random=11"}
+                <img
+                  src={exp.image}
                   alt={exp.title}
                   class="card-image"
                   width={600}
                   height={338}
+                  loading="lazy"
+                  onerror={`this.onerror=null;this.src='${FALLBACK_IMAGE}'`}
                 />
                 <div class="category-badge">{exp.category}</div>
               </div>

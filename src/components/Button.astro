@@ -52,8 +52,8 @@ const buttonClass =
     align-items: center;
     justify-content: center;
     padding: 0.75rem 1.5rem;
-    border: 2px solid transparent;
-    border-radius: 8px;
+    border: 1px solid transparent;
+    border-radius: 4px;
     font-size: 1rem;
     font-weight: 600;
     text-decoration: none;
@@ -94,9 +94,10 @@ const buttonClass =
   }
 
   .btn-primary:hover:not(:disabled) {
-    background-color: #1f3610;
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(45, 80, 22, 0.2);
+    background-color: var(--secondary);
+    /* box-shadow: 0 4px 12px rgba(45, 80, 22, 0.2); */
+    color: var(--primary);
+    border: 1px solid var(--primary);
   }
 
   .btn-primary:active:not(:disabled) {
@@ -110,7 +111,6 @@ const buttonClass =
 
   .btn-secondary:hover:not(:disabled) {
     background-color: #6f5444;
-    transform: translateY(-2px);
     box-shadow: 0 4px 12px rgba(139, 115, 85, 0.2);
   }
 
@@ -128,8 +128,7 @@ const buttonClass =
     background-color: var(--primary);
     color: white;
     border-color: var(--primary);
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(45, 80, 22, 0.2);
+    /* box-shadow: 0 4px 12px rgba(45, 80, 22, 0.2); */
   }
 
   .btn-outline:active:not(:disabled) {

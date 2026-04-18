@@ -1,13 +1,14 @@
 ---
 import IconRenderer from "../IconRenderer.astro";
+import Button from "../Button.astro";
+
+const heroImage = "https://assets.habitattraveltours.com/images/salinas-hometown.jpg";
 ---
 
 <script>
   function setHeroHeight() {
     const header = document.querySelector('header');
-    const hero = document.getElementById('home');
-    console.log(hero instanceof HTMLElement)
-    
+    const hero = document.getElementById('home');    
     if (header && hero) {
       const headerHeight = header.offsetHeight;
       
@@ -27,8 +28,8 @@ import IconRenderer from "../IconRenderer.astro";
     <h1>Discover Ecuador's<br>Community-Run Mountain</h1>
     <p>Where tourism supports 40+ local families and traditions</p>
     <div class="hero-buttons">
-      <button class="btn">Plan Your Group Experience</button>
-      <button class="btn btn-outline">Explore Experiences</button>
+      <Button class="btn">Plan Your Group Experience</Button>
+      <Button class="btn btn-outline">Explore Experiences</Button>
     </div>
     <div class="hero-info">
       <span class="hero-info-icon"><IconRenderer icon={"ShieldCheck"} size={16}/></span>
@@ -37,9 +38,9 @@ import IconRenderer from "../IconRenderer.astro";
   </div>
 </section>
 
-<style>
+<style define:vars={{ heroBg: `${heroImage}` }}>
   .hero {
-    background-image: url('https://picsum.photos/1600/900?random=5');
+    background-image: url('https://assets.habitattraveltours.com/images/salinas-houses-in-mt.jpeg');
     background-size: cover;
     background-position: center;
     text-align: center;

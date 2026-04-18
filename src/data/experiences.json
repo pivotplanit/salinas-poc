@@ -3,7 +3,24 @@
     {
       "id": "salt-mines-cheese",
       "icon": "🏭",
-      "image": "https://picsum.photos/400/300?random=11",
+      "image": "https://assets.habitattraveltours.com/images/salinas-cheese.jpg",
+      "slides": [
+        {
+          "type": "image",
+          "src": "https://assets.habitattraveltours.com/images/salinas-cheese.jpg",
+          "alt": "Cheese factory tour"
+        },
+        {
+          "type": "image",
+          "src": "https://assets.habitattraveltours.com/images/salinas-salt-ponds.jpg",
+          "alt": "Salt crystallization ponds"
+        },
+        {
+          "type": "image",
+          "src": "https://assets.habitattraveltours.com/images/salinas-cooperative.jpg",
+          "alt": "Community cooperative"
+        }
+      ],
       "title": "Salt Mines & Cheese Factory Tour",
       "tag": "Cultural Experience",
       "category": "Cultural",
@@ -150,12 +167,33 @@
           "answer": "Yes, but ask permission before photographing people. No drones without special permit."
         }
       ],
-      "relatedExperienceIds": ["chocolate-workshop", "art-cultural", "multi-day-expedition"]
+      "relatedExperienceIds": [
+        "chocolate-workshop",
+        "art-cultural",
+        "multi-day-expedition"
+      ]
     },
     {
       "id": "salt-mines-adventure",
       "icon": "⛏️",
-      "image": "https://picsum.photos/400/300?random=12",
+      "image": "https://assets.habitattraveltours.com/images/salinas-salt-mt-01.jpg",
+      "slides": [
+        {
+          "type": "image",
+          "src": "https://assets.habitattraveltours.com/images/salinas-salt-mt-01.jpg",
+          "alt": "Salt mines entrance"
+        },
+        {
+          "type": "video",
+          "src": "https://assets.habitattraveltours.com/videos/salinas-salt-mines-01-vertical.mp4",
+          "alt": "Mining equipment and safety gear"
+        },
+        {
+          "type": "image",
+          "src": "https://assets.habitattraveltours.com/images/salinas-salt-extraction.jpg",
+          "alt": "Salt extraction process"
+        }
+      ],
       "title": "Salt Mines Adventure",
       "tag": "Adventure Activity",
       "category": "Adventure",
@@ -305,12 +343,33 @@
           "answer": "Inform your guide of any symptoms immediately. We have oxygen and descent protocols if needed."
         }
       ],
-      "relatedExperienceIds": ["nature-hike", "multi-day-expedition", "salt-mines-cheese"]
+      "relatedExperienceIds": [
+        "nature-hike",
+        "multi-day-expedition",
+        "salt-mines-cheese"
+      ]
     },
     {
       "id": "chocolate-workshop",
       "icon": "🍫",
       "image": "https://picsum.photos/400/300?random=13",
+      "slides": [
+        {
+          "type": "image",
+          "src": "https://assets.habitattraveltours.com/images/salinas-chocolate-beans.jpg",
+          "alt": "Cacao beans roasting"
+        },
+        {
+          "type": "image",
+          "src": "https://assets.habitattraveltours.com/images/salinas-chocolate-making.jpg",
+          "alt": "Hands-on chocolate making"
+        },
+        {
+          "type": "image",
+          "src": "https://assets.habitattraveltours.com/images/salinas-chocolate-tasting.jpg",
+          "alt": "Chocolate tasting session"
+        }
+      ],
       "title": "Chocolate Workshop Experience",
       "tag": "Culinary Experience",
       "category": "Gastronomic",
@@ -457,12 +516,33 @@
           "answer": "Yes, our shop has premium selections. Credit cards and cash accepted."
         }
       ],
-      "relatedExperienceIds": ["salt-mines-cheese", "art-cultural", "multi-day-expedition"]
+      "relatedExperienceIds": [
+        "salt-mines-cheese",
+        "art-cultural",
+        "multi-day-expedition"
+      ]
     },
     {
       "id": "art-cultural",
       "icon": "🎨",
-      "image": "https://picsum.photos/400/300?random=14",
+      "image": "https://assets.habitattraveltours.com/images/salinas-basket-weaving.jpg",
+      "slides": [
+        {
+          "type": "image",
+          "src": "https://assets.habitattraveltours.com/images/salinas-basket-weaving.jpg",
+          "alt": "Traditional basket weaving"
+        },
+        {
+          "type": "image",
+          "src": "https://assets.habitattraveltours.com/images/salinas-pottery.jpg",
+          "alt": "Pottery workshop"
+        },
+        {
+          "type": "image",
+          "src": "https://assets.habitattraveltours.com/images/salinas-textiles.jpg",
+          "alt": "Traditional textile weaving"
+        }
+      ],
       "title": "Art & Cultural Heritage",
       "tag": "Cultural Experience",
       "category": "Cultural",
@@ -602,12 +682,33 @@
           "answer": "Some do. Your guide translates. Communication through art is universal!"
         }
       ],
-      "relatedExperienceIds": ["salt-mines-cheese", "chocolate-workshop", "nature-hike"]
+      "relatedExperienceIds": [
+        "salt-mines-cheese",
+        "chocolate-workshop",
+        "nature-hike"
+      ]
     },
     {
       "id": "nature-hike",
       "icon": "🌿",
-      "image": "https://picsum.photos/400/300?random=15",
+      "image": "https://assets.habitattraveltours.com/images/salinas-sunset-clouds.jpg",
+      "slides": [
+        {
+          "type": "image",
+          "src": "https://assets.habitattraveltours.com/images/salinas-sunset-clouds.jpg",
+          "alt": "Mountain sunset with clouds"
+        },
+        {
+          "type": "video",
+          "src": "https://assets.habitattraveltours.com/videos/salinas-hiking-01.mp4",
+          "alt": "Cloud forest trail"
+        },
+        {
+          "type": "image",
+          "src": "https://assets.habitattraveltours.com/images/salinas-paramo.jpg",
+          "alt": "Paramo grasslands"
+        }
+      ],
       "title": "Nature Hiking Trail",
       "tag": "Adventure Activity",
       "category": "Nature",
@@ -756,12 +857,33 @@
           "answer": "No. Animals avoid humans. You'll mostly see from distance or hear calls."
         }
       ],
-      "relatedExperienceIds": ["salt-mines-adventure", "multi-day-expedition", "art-cultural"]
+      "relatedExperienceIds": [
+        "salt-mines-adventure",
+        "multi-day-expedition",
+        "art-cultural"
+      ]
     },
     {
       "id": "multi-day-expedition",
       "icon": "🏞️",
-      "image": "https://picsum.photos/400/300?random=16",
+      "image": "https://assets.habitattraveltours.com/images/salinas-mt-range.jpg",
+      "slides": [
+        {
+          "type": "image",
+          "src": "https://assets.habitattraveltours.com/images/salinas-mt-range.jpg",
+          "alt": "Mountain range panorama"
+        },
+        {
+          "type": "image",
+          "src": "https://assets.habitattraveltours.com/images/salinas-campsite.jpg",
+          "alt": "Mountain campsite at sunset"
+        },
+        {
+          "type": "image",
+          "src": "https://assets.habitattraveltours.com/images/salinas-stargazing.jpg",
+          "alt": "Night sky stargazing"
+        }
+      ],
       "title": "Multi-Day Mountain Expedition",
       "tag": "Extended Adventure",
       "category": "Multi-Day",
@@ -922,7 +1044,11 @@
           "answer": "Yes, inform when booking. Same quality and portions as omnivore meals."
         }
       ],
-      "relatedExperienceIds": ["nature-hike", "salt-mines-adventure", "art-cultural"]
+      "relatedExperienceIds": [
+        "nature-hike",
+        "salt-mines-adventure",
+        "art-cultural"
+      ]
     }
   ]
 }

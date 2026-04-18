@@ -26,6 +26,13 @@ export interface ItineraryItem {
   description?: string;
 }
 
+export interface ExperienceSlide {
+  type: "image" | "video";
+  src: string;
+  alt: string;
+  poster?: string;
+}
+
 export interface Experience {
   id: string;
   title: string;
@@ -34,6 +41,7 @@ export interface Experience {
   icon: string;
   emoji?: string;
   image?: string;
+  slides?: ExperienceSlide[];
   duration: string;
   difficulty: string;
   difficultyLevel?: number;

@@ -14,19 +14,19 @@ interface Props {
 const defaultSlides: Slide[] = [
   {
     type: "video",
-    src: "https://videos.pexels.com/video-files/4763824/4763824-uhd_2560_1440_24fps.mp4",
+    src: "https://assets.habitattraveltours.com/videos/salinas-cross.mp4",
     alt: "Lush green countryside scenery",
     poster: "https://images.unsplash.com/photo-1594398901394-4e34939a02ee?w=1600&h=900&fit=crop",
   },
   {
     type: "image",
-    src: "https://images.unsplash.com/photo-1619546952812-520e98064a52?w=1600&h=900&fit=crop",
+    src: "https://assets.habitattraveltours.com/images/salinas-grp-travelers-01.jpg",
     alt: "Ecuadorian highlands landscape",
   },
 
   {
     type: "image",
-    src: "https://images.unsplash.com/photo-1547471080-7cc2caa01a7e?w=1600&h=900&fit=crop",
+    src: "https://assets.habitattraveltours.com/images/salinas-hometown.jpg",
     alt: "Ecuador tropical rainforest canopy",
   },
 ];
@@ -110,6 +110,7 @@ const { slides = defaultSlides } = Astro.props;
     transition: opacity 600ms ease-in-out;
     background: var(--medium-gray);
     z-index: 1;
+    
   }
 
   .carousel-slide.active {
@@ -122,6 +123,7 @@ const { slides = defaultSlides } = Astro.props;
     width: 100%;
     height: 100%;
     object-fit: cover;
+    object-position: bottom;
     display: block;
   }
 

@@ -38,29 +38,25 @@ const { experience } = Astro.props;
 
 // Normalize itinerary data
 const normalizedItinerary =
-  experience.itinerary?.map(
-    (item: { time: string; title: string; description?: string; activity?: string }) => ({
-      time: item.time,
-      title: item.title,
-      activity: item.description || item.activity || "",
-    })
-  ) || [];
+  experience.itinerary?.map((item) => ({
+    time: item.time,
+    title: item.title || "",
+    activity: item.description || item.activity || "",
+  })) || [];
 
 // Normalize testimonials
 const normalizedTestimonials =
-  experience.testimonials?.map(
-    (t: { name: string; location?: string; role?: string; text: string; rating: number }) => ({
-      name: t.name,
-      role: t.location || t.role || "",
-      text: t.text,
-      rating: t.rating,
-    })
-  ) || [];
+  experience.testimonials?.map((t) => ({
+    name: t.name,
+    role: t.location || t.role || "",
+    text: t.text,
+    rating: t.rating,
+  })) || [];
 
 // Normalize group discounts
 const normalizedDiscounts =
-  experience.groupDiscounts?.map((d: { groupSize?: number; size?: number; discount: string }) => ({
-    size: d.groupSize || d.size || "",
+  experience.groupDiscounts?.map((d) => ({
+    size: String(d.groupSize || d.size || ""),
     discount: typeof d.discount === "string" ? d.discount : `${d.discount}% off`,
   })) || [];
 
@@ -83,6 +79,7 @@ const heroBadges = [
   description={experience.description}
 >
   <ExperienceHero
+    slides={experience.slides}
     badges={heroBadges}
     caption={`[Image Gallery: ${experience.title}]`}
   />
@@ -205,7 +202,6 @@ const heroBadges = [
   const titleBar = document.getElementById('title-bar');
   const bookingSidebar = document.querySelector('aside#booking-sidebar') as HTMLElement;
   const experienceContentDiv = document.querySelector('section.experience-content') as HTMLElement
-  console.log(header, titleBar, bookingSidebar, experienceContentDiv);
   if (header && titleBar && bookingSidebar && experienceContentDiv) {
     const updateStickyHeight = () => {
       bookingSidebar.style.setProperty('--sticky-height', `calc(${header.offsetHeight + titleBar.offsetHeight}px + 2rem)`);

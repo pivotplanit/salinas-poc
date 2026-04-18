@@ -103,7 +103,7 @@ const filters = filtersData.filters;
     if (loadMoreBtn) {
       loadMoreBtn.addEventListener("click", () => {
         currentPage++;
-        console.log("Load more experiences");
+        // console.log("Load more experiences");
       });
     }
   }
@@ -114,7 +114,7 @@ const filters = filtersData.filters;
     if (sortSelect) {
       sortSelect.addEventListener("change", (e) => {
         if (e?.target instanceof HTMLSelectElement) {
-          console.log("Sort by:", e.target.value);
+          // console.log("Sort by:", e.target.value);
         }
       });
     }

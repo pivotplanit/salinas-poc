@@ -1,5 +1,6 @@
 ---
 import { getRelativeLocaleUrl } from "astro:i18n";
+import Button from "./Button.astro";
 
 const { locale = "en" } = Astro.params;
 interface NavLink {
@@ -50,7 +51,7 @@ const getLocalizedHref = (href: string): string => {
           <option value="es" selected={currentLocale === "es"}>Español</option>
         </select>
       </div>
-      <button class="btn">Book Now</button>
+      <Button class="btn" size="sm">Book Now</Button>
     </div>
   </div>
 </header>

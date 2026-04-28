@@ -3,7 +3,7 @@
     {
       "id": "salt-mines-cheese",
       "icon": "🏭",
-      "image": "https://assets.habitattraveltours.com/images/salinas-cheese.jpg",
+      "image": "https://assets.habitattraveltours.com/images/salinas-waterfall-02.jpg",
       "slides": [
         {
           "type": "image",
@@ -167,114 +167,110 @@
           "answer": "Yes, but ask permission before photographing people. No drones without special permit."
         }
       ],
-      "relatedExperienceIds": [
-        "chocolate-workshop",
-        "art-cultural",
-        "multi-day-expedition"
-      ]
+      "relatedExperienceIds": ["chocolate-workshop", "textile-weaving", "cloud-forest-exploration"]
     },
     {
-      "id": "salt-mines-adventure",
-      "icon": "⛏️",
-      "image": "https://assets.habitattraveltours.com/images/salinas-salt-mt-01.jpg",
+      "id": "nature-hike",
+      "icon": "🌿",
+      "image": "https://assets.habitattraveltours.com/images/salinas-mt-sunset.jpg",
       "slides": [
         {
           "type": "image",
-          "src": "https://assets.habitattraveltours.com/images/salinas-salt-mt-01.jpg",
-          "alt": "Salt mines entrance"
+          "src": "https://assets.habitattraveltours.com/images/salinas-sunset-clouds.jpg",
+          "alt": "Mountain sunset with clouds"
         },
         {
           "type": "video",
-          "src": "https://assets.habitattraveltours.com/videos/salinas-salt-mines-01-vertical.mp4",
-          "alt": "Mining equipment and safety gear"
+          "src": "https://assets.habitattraveltours.com/videos/salinas-hiking-01.mp4",
+          "alt": "Cloud forest trail"
         },
         {
           "type": "image",
-          "src": "https://assets.habitattraveltours.com/images/salinas-salt-extraction.jpg",
-          "alt": "Salt extraction process"
+          "src": "https://assets.habitattraveltours.com/images/salinas-paramo.jpg",
+          "alt": "Paramo grasslands"
         }
       ],
-      "title": "Salt Mines Adventure",
+      "title": "Mountain Hiking Experience",
       "tag": "Adventure Activity",
-      "category": "Adventure",
-      "description": "An immersive adventure through Ecuador's historic salt mines with hands-on mining experience.",
-      "duration": "6h",
+      "category": "Nature",
+      "description": "Trek through pristine mountain ecosystems and spot native wildlife species.",
+      "duration": "8h",
       "difficulty": "Challenging",
       "difficultyLevel": 3,
       "altitude": "3500m",
       "groupSize": "4-20",
-      "emoji": "⛏️",
-      "overview": "For the adventurous spirit! This intensive experience puts you directly into the salt mining world. Get your hands dirty, learn extraction techniques, and understand the challenges miners face daily.",
-      "whySpecial": "Unlike passive tours, this is a real working experience. You'll participate in actual mining activities, gaining deep respect for the miners' craft and stamina.",
-      "whatYouLearn": "Practical salt extraction skills, geology of mineral deposits, traditional mining techniques, work ethic and community values of the cooperative.",
+      "emoji": "🌿",
+      "overview": "Experience Ecuador's extraordinary cloud forest and paramo ecosystems. This full-day hiking adventure takes you through diverse landscapes from misty cloud forests to open high-altitude grasslands, with excellent opportunities to spot endemic birds and wildlife.",
+      "whySpecial": "The region's biodiversity is exceptional. In a single day, you traverse ecosystems that few tourists ever experience, with expert naturalist guides who can identify hundreds of species.",
+      "whatYouLearn": "Alpine ecology, Andean flora and fauna identification, cloud forest dynamics, wildlife behavior, conservation efforts, geological formations.",
       "highlights": [
-        "Discover mining techniques passed down generations",
-        "Understand sustainable salt extraction",
-        "Work alongside local miners",
-        "Extract your own salt to take home",
-        "Learn about mineral composition and geology"
+        "Trek through mountain ecosystems",
+        "Spot native wildlife species",
+        "Cloud forest exploration",
+        "Paramo grassland vistas",
+        "Birdwatching paradise"
       ],
       "itinerary": [
         {
+          "time": "7:00 AM",
+          "title": "Hotel Pickup & Breakfast",
+          "description": "Early pickup with energy-boosting breakfast provided"
+        },
+        {
           "time": "8:00 AM",
-          "title": "Hotel Pickup & Safety Briefing",
-          "description": "Pickup and comprehensive safety briefing about mining equipment and procedures"
+          "title": "Trailhead Arrival & Briefing",
+          "description": "Arrive at trail start, naturalist guide introduces ecosystem and safety"
         },
         {
-          "time": "9:00 AM",
-          "title": "Mining Equipment Fitting",
-          "description": "Get fitted with appropriate mining gear and learn proper usage"
-        },
-        {
-          "time": "9:30 AM",
-          "title": "Salt Extraction Training",
-          "description": "Expert miner shows techniques and supervises your first extraction attempts"
+          "time": "8:30 AM",
+          "title": "Cloud Forest Trek",
+          "description": "Hike through misty cloud forest, look for endemic birds and species"
         },
         {
           "time": "11:00 AM",
-          "title": "Hands-On Mining Work",
-          "description": "Work with miners in designated safe zones, extract salt, learn field techniques"
+          "title": "Break & Birdwatching",
+          "description": "Stop at observation point for wildlife viewing and hydration"
+        },
+        {
+          "time": "12:00 PM",
+          "title": "Paramo Transition",
+          "description": "Hike into open grasslands with panoramic views"
         },
         {
           "time": "1:00 PM",
-          "title": "Lunch Break",
-          "description": "Hearty meal shared with miners at the mine site"
-        },
-        {
-          "time": "2:00 PM",
-          "title": "Advanced Techniques & Geology",
-          "description": "Learn about mineral composition, crystallization process, and mine engineering"
+          "title": "Lunch at Summit",
+          "description": "Picnic lunch at highest point with 360° views"
         }
       ],
       "included": [
-        "Professional guide",
-        "Mining safety equipment",
-        "Training and supervision",
-        "Salt sample to take home",
-        "Miner's lunch",
-        "Refreshments throughout",
-        "Hotel transfers"
+        "Expert naturalist guide",
+        "All meals and snacks",
+        "Binoculars for birdwatching",
+        "Field identification guides",
+        "Hotel transfers",
+        "Emergency first aid kit"
       ],
       "excluded": [
-        "Advanced rock climbing gear",
+        "Advanced climbing gear",
         "Travel insurance",
-        "Tips for guide and miners",
-        "Personal protective equipment"
+        "Guide tips",
+        "Personal medications"
       ],
-      "walking": "Strenuous walking (4-5 km), uneven terrain, some climbing",
-      "accessibility": "Not accessible - requires physical fitness and climbing ability",
-      "notSuitableFor": "People with mobility issues, heart conditions, respiratory problems, pregnant women, or those with recent injuries",
+      "walking": "Strenuous hiking (12-15 km), significant elevation changes, steep sections",
+      "accessibility": "Not accessible - requires hiking fitness and elevation tolerance",
+      "notSuitableFor": "People with low fitness levels, cardiac/respiratory conditions, fear of heights, or recent injuries",
       "whatToBring": [
-        "Sturdy mining boots",
-        "Work gloves",
-        "Heavy-duty clothes (will get dirty!)",
+        "Hiking boots (waterproof recommended)",
+        "Moisture-wicking layers",
+        "Rain jacket",
         "Hat and sunglasses",
         "High SPF sunscreen",
-        "2L water bottle",
-        "Electrolyte supplements",
-        "Camera in waterproof bag"
+        "3L water bottle",
+        "Energy snacks",
+        "Camera",
+        "Trekking poles (optional)"
       ],
-      "price": 125,
+      "price": 110,
       "groupDiscounts": [
         {
           "groupSize": "4-6",
@@ -291,68 +287,63 @@
       ],
       "testimonials": [
         {
-          "name": "Marcus Thompson",
+          "name": "Nicholas Palmer",
           "location": "UK",
-          "text": "This was epic! Actually working in the salt mines was surreal. Gained immense respect for the miners. Best adventure I've done in South America.",
+          "text": "Saw 47 different bird species! The guide's knowledge was extraordinary. Physical but absolutely worth it. Best hiking day of my life.",
           "rating": 5
         },
         {
-          "name": "Ana Silva",
-          "location": "Brazil",
-          "text": "Challenging but so rewarding. The guide's knowledge about mining geology was fascinating. I'm still amazed by what I learned.",
+          "name": "Maria González",
+          "location": "Colombia",
+          "text": "The biodiversity is mind-blowing. Cloud forest in the morning, open paramo by afternoon. Ecuador in one day!",
           "rating": 5
         },
         {
-          "name": "David Chen",
-          "location": "Singapore",
-          "text": "Definitely for the fit and adventurous. Left feeling exhausted but exhilarated. Unique experience you won't find elsewhere.",
-          "rating": 4
+          "name": "Thomas Mueller",
+          "location": "Germany",
+          "text": "Challenging for sure, but rewarding beyond measure. Bring fitness and you'll have an unforgettable adventure."
         }
       ],
       "faqs": [
         {
-          "question": "How fit do I need to be?",
-          "answer": "Very fit. This involves strenuous physical activity at altitude. Regular exercise recommended."
+          "question": "Do I need trekking poles?",
+          "answer": "Recommended but not required. Poles reduce knee stress on descents."
         },
         {
-          "question": "Will I get dirty?",
-          "answer": "Absolutely! Wear clothes you don't mind getting ruined with salt dust and minerals."
+          "question": "What birds might I see?",
+          "answer": "Andean cock-of-the-rock, mountain tanagers, eagles, hummingbirds, and 40+ other species possible."
         },
         {
-          "question": "Is this safe?",
-          "answer": "Yes. All equipment meets safety standards and guides are trained rescue professionals."
+          "question": "Is there a shorter version?",
+          "answer": "Not this route, but we offer a 4-hour easier nature walk as alternative."
         },
         {
-          "question": "Can I bring my own mining boots?",
-          "answer": "Yes, as long as they're steel-toed and in good condition. Otherwise, rental is recommended."
+          "question": "What's the weather like?",
+          "answer": "Cool (8-15°C). Misty mornings common. Rain possible anytime."
         },
         {
-          "question": "What's included in the salt sample?",
-          "answer": "About 1kg of salt crystals you personally extracted, packaged for travel."
+          "question": "How much water should I bring?",
+          "answer": "Minimum 2.5-3L. There are no water sources on trail."
         },
         {
-          "question": "How do I prepare?",
-          "answer": "Train with cardio and strength exercises. Acclimatize for 1-2 days before the tour."
+          "question": "Can I do this at my own pace?",
+          "answer": "Yes, but stay with the group. Guide adjusts pace for the slowest person."
         },
         {
-          "question": "Can I cancel if it rains?",
-          "answer": "Rain is common in the season. Tours proceed unless there's a safety risk (lightning, flooding)."
+          "question": "What about bathroom facilities?",
+          "answer": "None on trail. Go before you start. Pack waste (leave no trace)."
         },
         {
-          "question": "What about altitude sickness?",
-          "answer": "Inform your guide of any symptoms immediately. We have oxygen and descent protocols if needed."
+          "question": "Is wildlife dangerous?",
+          "answer": "No. Animals avoid humans. You'll mostly see from distance or hear calls."
         }
       ],
-      "relatedExperienceIds": [
-        "nature-hike",
-        "multi-day-expedition",
-        "salt-mines-cheese"
-      ]
+      "relatedExperienceIds": ["cultural-immersion", "cloud-forest-exploration", "textile-weaving"]
     },
     {
       "id": "chocolate-workshop",
       "icon": "🍫",
-      "image": "https://picsum.photos/400/300?random=13",
+      "image": "https://assets.habitattraveltours.com/images/salinas-cheese.jpg",
       "slides": [
         {
           "type": "image",
@@ -516,16 +507,12 @@
           "answer": "Yes, our shop has premium selections. Credit cards and cash accepted."
         }
       ],
-      "relatedExperienceIds": [
-        "salt-mines-cheese",
-        "art-cultural",
-        "multi-day-expedition"
-      ]
+      "relatedExperienceIds": ["salt-mines-cheese", "textile-weaving", "cloud-forest-exploration"]
     },
     {
-      "id": "art-cultural",
+      "id": "textile-weaving",
       "icon": "🎨",
-      "image": "https://assets.habitattraveltours.com/images/salinas-basket-weaving.jpg",
+      "image": "https://assets.habitattraveltours.com/images/salinas-weaving-01.jpg",
       "slides": [
         {
           "type": "image",
@@ -543,7 +530,7 @@
           "alt": "Traditional textile weaving"
         }
       ],
-      "title": "Art & Cultural Heritage",
+      "title": "Textile Weaving Workshop",
       "tag": "Cultural Experience",
       "category": "Cultural",
       "description": "Explore local artisan workshops and learn about centuries-old cultural traditions.",
@@ -689,184 +676,9 @@
       ]
     },
     {
-      "id": "nature-hike",
-      "icon": "🌿",
-      "image": "https://assets.habitattraveltours.com/images/salinas-sunset-clouds.jpg",
-      "slides": [
-        {
-          "type": "image",
-          "src": "https://assets.habitattraveltours.com/images/salinas-sunset-clouds.jpg",
-          "alt": "Mountain sunset with clouds"
-        },
-        {
-          "type": "video",
-          "src": "https://assets.habitattraveltours.com/videos/salinas-hiking-01.mp4",
-          "alt": "Cloud forest trail"
-        },
-        {
-          "type": "image",
-          "src": "https://assets.habitattraveltours.com/images/salinas-paramo.jpg",
-          "alt": "Paramo grasslands"
-        }
-      ],
-      "title": "Nature Hiking Trail",
-      "tag": "Adventure Activity",
-      "category": "Nature",
-      "description": "Trek through pristine mountain ecosystems and spot native wildlife species.",
-      "duration": "8h",
-      "difficulty": "Challenging",
-      "difficultyLevel": 3,
-      "altitude": "3500m",
-      "groupSize": "4-20",
-      "emoji": "🌿",
-      "overview": "Experience Ecuador's extraordinary cloud forest and paramo ecosystems. This full-day hiking adventure takes you through diverse landscapes from misty cloud forests to open high-altitude grasslands, with excellent opportunities to spot endemic birds and wildlife.",
-      "whySpecial": "The region's biodiversity is exceptional. In a single day, you traverse ecosystems that few tourists ever experience, with expert naturalist guides who can identify hundreds of species.",
-      "whatYouLearn": "Alpine ecology, Andean flora and fauna identification, cloud forest dynamics, wildlife behavior, conservation efforts, geological formations.",
-      "highlights": [
-        "Trek through mountain ecosystems",
-        "Spot native wildlife species",
-        "Cloud forest exploration",
-        "Paramo grassland vistas",
-        "Birdwatching paradise"
-      ],
-      "itinerary": [
-        {
-          "time": "7:00 AM",
-          "title": "Hotel Pickup & Breakfast",
-          "description": "Early pickup with energy-boosting breakfast provided"
-        },
-        {
-          "time": "8:00 AM",
-          "title": "Trailhead Arrival & Briefing",
-          "description": "Arrive at trail start, naturalist guide introduces ecosystem and safety"
-        },
-        {
-          "time": "8:30 AM",
-          "title": "Cloud Forest Trek",
-          "description": "Hike through misty cloud forest, look for endemic birds and species"
-        },
-        {
-          "time": "11:00 AM",
-          "title": "Break & Birdwatching",
-          "description": "Stop at observation point for wildlife viewing and hydration"
-        },
-        {
-          "time": "12:00 PM",
-          "title": "Paramo Transition",
-          "description": "Hike into open grasslands with panoramic views"
-        },
-        {
-          "time": "1:00 PM",
-          "title": "Lunch at Summit",
-          "description": "Picnic lunch at highest point with 360° views"
-        }
-      ],
-      "included": [
-        "Expert naturalist guide",
-        "All meals and snacks",
-        "Binoculars for birdwatching",
-        "Field identification guides",
-        "Hotel transfers",
-        "Emergency first aid kit"
-      ],
-      "excluded": [
-        "Advanced climbing gear",
-        "Travel insurance",
-        "Guide tips",
-        "Personal medications"
-      ],
-      "walking": "Strenuous hiking (12-15 km), significant elevation changes, steep sections",
-      "accessibility": "Not accessible - requires hiking fitness and elevation tolerance",
-      "notSuitableFor": "People with low fitness levels, cardiac/respiratory conditions, fear of heights, or recent injuries",
-      "whatToBring": [
-        "Hiking boots (waterproof recommended)",
-        "Moisture-wicking layers",
-        "Rain jacket",
-        "Hat and sunglasses",
-        "High SPF sunscreen",
-        "3L water bottle",
-        "Energy snacks",
-        "Camera",
-        "Trekking poles (optional)"
-      ],
-      "price": 110,
-      "groupDiscounts": [
-        {
-          "groupSize": "4-6",
-          "discount": 10
-        },
-        {
-          "groupSize": "7-12",
-          "discount": 15
-        },
-        {
-          "groupSize": "13+",
-          "discount": 20
-        }
-      ],
-      "testimonials": [
-        {
-          "name": "Nicholas Palmer",
-          "location": "UK",
-          "text": "Saw 47 different bird species! The guide's knowledge was extraordinary. Physical but absolutely worth it. Best hiking day of my life.",
-          "rating": 5
-        },
-        {
-          "name": "Maria González",
-          "location": "Colombia",
-          "text": "The biodiversity is mind-blowing. Cloud forest in the morning, open paramo by afternoon. Ecuador in one day!",
-          "rating": 5
-        },
-        {
-          "name": "Thomas Mueller",
-          "location": "Germany",
-          "text": "Challenging for sure, but rewarding beyond measure. Bring fitness and you'll have an unforgettable adventure."
-        }
-      ],
-      "faqs": [
-        {
-          "question": "Do I need trekking poles?",
-          "answer": "Recommended but not required. Poles reduce knee stress on descents."
-        },
-        {
-          "question": "What birds might I see?",
-          "answer": "Andean cock-of-the-rock, mountain tanagers, eagles, hummingbirds, and 40+ other species possible."
-        },
-        {
-          "question": "Is there a shorter version?",
-          "answer": "Not this route, but we offer a 4-hour easier nature walk as alternative."
-        },
-        {
-          "question": "What's the weather like?",
-          "answer": "Cool (8-15°C). Misty mornings common. Rain possible anytime."
-        },
-        {
-          "question": "How much water should I bring?",
-          "answer": "Minimum 2.5-3L. There are no water sources on trail."
-        },
-        {
-          "question": "Can I do this at my own pace?",
-          "answer": "Yes, but stay with the group. Guide adjusts pace for the slowest person."
-        },
-        {
-          "question": "What about bathroom facilities?",
-          "answer": "None on trail. Go before you start. Pack waste (leave no trace)."
-        },
-        {
-          "question": "Is wildlife dangerous?",
-          "answer": "No. Animals avoid humans. You'll mostly see from distance or hear calls."
-        }
-      ],
-      "relatedExperienceIds": [
-        "salt-mines-adventure",
-        "multi-day-expedition",
-        "art-cultural"
-      ]
-    },
-    {
-      "id": "multi-day-expedition",
+      "id": "cloud-forest-exploration",
       "icon": "🏞️",
-      "image": "https://assets.habitattraveltours.com/images/salinas-mt-range.jpg",
+      "image": "https://assets.habitattraveltours.com/images/salinas-waterfall-01.jpg",
       "slides": [
         {
           "type": "image",
@@ -884,7 +696,7 @@
           "alt": "Night sky stargazing"
         }
       ],
-      "title": "Multi-Day Mountain Expedition",
+      "title": "Cloud Forest Exploration",
       "tag": "Extended Adventure",
       "category": "Multi-Day",
       "description": "Immersive 2-day mountain expedition camping under the stars and exploring pristine wilderness.",
@@ -1046,8 +858,184 @@
       ],
       "relatedExperienceIds": [
         "nature-hike",
-        "salt-mines-adventure",
-        "art-cultural"
+        "cultural-immersion",
+        "textile-weaving"
+      ]
+    },
+    {
+      "id": "cultural-immersion",
+      "icon": "⛏️",
+      "image": "https://assets.habitattraveltours.com/images/salinas-tour-01.jpg",
+      "slides": [
+        {
+          "type": "image",
+          "src": "https://assets.habitattraveltours.com/images/salinas-salt-mt-01.jpg",
+          "alt": "Salt mines entrance"
+        },
+        {
+          "type": "video",
+          "src": "https://assets.habitattraveltours.com/videos/salinas-salt-mines-01-vertical.mp4",
+          "alt": "Mining equipment and safety gear"
+        },
+        {
+          "type": "image",
+          "src": "https://assets.habitattraveltours.com/images/salinas-salt-extraction.jpg",
+          "alt": "Salt extraction process"
+        }
+      ],
+      "title": "Cultural Immersion Package",
+      "tag": "Adventure Activity",
+      "category": "Adventure",
+      "description": "An immersive adventure through Ecuador's historic salt mines with hands-on mining experience.",
+      "duration": "6h",
+      "difficulty": "Challenging",
+      "difficultyLevel": 3,
+      "altitude": "3500m",
+      "groupSize": "4-20",
+      "emoji": "⛏️",
+      "overview": "For the adventurous spirit! This intensive experience puts you directly into the salt mining world. Get your hands dirty, learn extraction techniques, and understand the challenges miners face daily.",
+      "whySpecial": "Unlike passive tours, this is a real working experience. You'll participate in actual mining activities, gaining deep respect for the miners' craft and stamina.",
+      "whatYouLearn": "Practical salt extraction skills, geology of mineral deposits, traditional mining techniques, work ethic and community values of the cooperative.",
+      "highlights": [
+        "Discover mining techniques passed down generations",
+        "Understand sustainable salt extraction",
+        "Work alongside local miners",
+        "Extract your own salt to take home",
+        "Learn about mineral composition and geology"
+      ],
+      "itinerary": [
+        {
+          "time": "8:00 AM",
+          "title": "Hotel Pickup & Safety Briefing",
+          "description": "Pickup and comprehensive safety briefing about mining equipment and procedures"
+        },
+        {
+          "time": "9:00 AM",
+          "title": "Mining Equipment Fitting",
+          "description": "Get fitted with appropriate mining gear and learn proper usage"
+        },
+        {
+          "time": "9:30 AM",
+          "title": "Salt Extraction Training",
+          "description": "Expert miner shows techniques and supervises your first extraction attempts"
+        },
+        {
+          "time": "11:00 AM",
+          "title": "Hands-On Mining Work",
+          "description": "Work with miners in designated safe zones, extract salt, learn field techniques"
+        },
+        {
+          "time": "1:00 PM",
+          "title": "Lunch Break",
+          "description": "Hearty meal shared with miners at the mine site"
+        },
+        {
+          "time": "2:00 PM",
+          "title": "Advanced Techniques & Geology",
+          "description": "Learn about mineral composition, crystallization process, and mine engineering"
+        }
+      ],
+      "included": [
+        "Professional guide",
+        "Mining safety equipment",
+        "Training and supervision",
+        "Salt sample to take home",
+        "Miner's lunch",
+        "Refreshments throughout",
+        "Hotel transfers"
+      ],
+      "excluded": [
+        "Advanced rock climbing gear",
+        "Travel insurance",
+        "Tips for guide and miners",
+        "Personal protective equipment"
+      ],
+      "walking": "Strenuous walking (4-5 km), uneven terrain, some climbing",
+      "accessibility": "Not accessible - requires physical fitness and climbing ability",
+      "notSuitableFor": "People with mobility issues, heart conditions, respiratory problems, pregnant women, or those with recent injuries",
+      "whatToBring": [
+        "Sturdy mining boots",
+        "Work gloves",
+        "Heavy-duty clothes (will get dirty!)",
+        "Hat and sunglasses",
+        "High SPF sunscreen",
+        "2L water bottle",
+        "Electrolyte supplements",
+        "Camera in waterproof bag"
+      ],
+      "price": 125,
+      "groupDiscounts": [
+        {
+          "groupSize": "4-6",
+          "discount": 10
+        },
+        {
+          "groupSize": "7-12",
+          "discount": 15
+        },
+        {
+          "groupSize": "13+",
+          "discount": 20
+        }
+      ],
+      "testimonials": [
+        {
+          "name": "Marcus Thompson",
+          "location": "UK",
+          "text": "This was epic! Actually working in the salt mines was surreal. Gained immense respect for the miners. Best adventure I've done in South America.",
+          "rating": 5
+        },
+        {
+          "name": "Ana Silva",
+          "location": "Brazil",
+          "text": "Challenging but so rewarding. The guide's knowledge about mining geology was fascinating. I'm still amazed by what I learned.",
+          "rating": 5
+        },
+        {
+          "name": "David Chen",
+          "location": "Singapore",
+          "text": "Definitely for the fit and adventurous. Left feeling exhausted but exhilarated. Unique experience you won't find elsewhere.",
+          "rating": 4
+        }
+      ],
+      "faqs": [
+        {
+          "question": "How fit do I need to be?",
+          "answer": "Very fit. This involves strenuous physical activity at altitude. Regular exercise recommended."
+        },
+        {
+          "question": "Will I get dirty?",
+          "answer": "Absolutely! Wear clothes you don't mind getting ruined with salt dust and minerals."
+        },
+        {
+          "question": "Is this safe?",
+          "answer": "Yes. All equipment meets safety standards and guides are trained rescue professionals."
+        },
+        {
+          "question": "Can I bring my own mining boots?",
+          "answer": "Yes, as long as they're steel-toed and in good condition. Otherwise, rental is recommended."
+        },
+        {
+          "question": "What's included in the salt sample?",
+          "answer": "About 1kg of salt crystals you personally extracted, packaged for travel."
+        },
+        {
+          "question": "How do I prepare?",
+          "answer": "Train with cardio and strength exercises. Acclimatize for 1-2 days before the tour."
+        },
+        {
+          "question": "Can I cancel if it rains?",
+          "answer": "Rain is common in the season. Tours proceed unless there's a safety risk (lightning, flooding)."
+        },
+        {
+          "question": "What about altitude sickness?",
+          "answer": "Inform your guide of any symptoms immediately. We have oxygen and descent protocols if needed."
+        }
+      ],
+      "relatedExperienceIds": [
+        "nature-hike",
+        "cloud-forest-exploration",
+        "salt-mines-cheese"
       ]
     }
   ]

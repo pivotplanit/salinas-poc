@@ -38,12 +38,14 @@ const imagePlaceholders: Record<string, string> = {
           </div>
           <div class="card-content">
             <div class="card-image">
-              <Image 
+              <img 
                 src={cat.image || imagePlaceholders[cat.id] || imagePlaceholders["natural-wonders"]}
                 alt={cat.title}
                 class="category-image"
-                width={400}
-                height={300}
+                loading="lazy"
+                decoding="async"
+                width="400"
+                height="300"
               />
             </div>
             <div class="card-text">

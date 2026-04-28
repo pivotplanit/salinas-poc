@@ -5,28 +5,32 @@
       "icon": "Leaf",
       "title": "Natural Wonders",
       "description": "Lorem ipsum dolor sit amet consectetur adipiscing elit. Dolor sit amet consectetur adipiscing elit quisque faucibus.",
-      "href": "/experiences"
+      "href": "/experiences",
+      "image": "https://assets.habitattraveltours.com/images/salinas-waterfalls.jpg"
     },
     {
       "id": "cultural-immersion",
       "icon": "Palette",
       "title": "Cultural Immersion",
       "description": "Lorem ipsum dolor sit amet consectetur adipiscing elit. Dolor sit amet consectetur adipiscing elit quisque faucibus.",
-      "href": "/experiences"
+      "href": "/experiences",
+      "image": "https://assets.habitattraveltours.com/images/salinas-festival-01.jpg"
     },
     {
       "id": "gastronomic",
       "icon": "UtensilsCrossed",
       "title": "Gastronomic",
       "description": "Lorem ipsum dolor sit amet consectetur adipiscing elit. Dolor sit amet consectetur adipiscing elit quisque faucibus.",
-      "href": "/experiences"
+      "href": "/experiences",
+      "image": "https://assets.habitattraveltours.com/images/salinas-cheese.jpg"
     },
     {
       "id": "multi-day",
       "icon": "Backpack",
       "title": "Multi-Day Packages",
       "description": "Lorem ipsum dolor sit amet consectetur adipiscing elit. Dolor sit amet consectetur adipiscing elit quisque faucibus.",
-      "href": "/experiences"
+      "href": "/experiences",
+      "image": "https://assets.habitattraveltours.com/images/salinas-tour-01.jpg"
     }
   ]
 }

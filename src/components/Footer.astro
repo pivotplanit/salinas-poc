@@ -394,18 +394,29 @@ const currentYear = new Date().getFullYear();
 </style>
 
 <script>
-  // this is the course of action since footer is shared across all pages
-  // this will make sure that static pages like homepage remains static and not server-rendered
-  // this is possible only if ATLEAST one page has `export const prerender = false`
-  import { actions } from 'astro:actions';
-  
+  const GOOGLE_FORM_ACTION =
+    'https://docs.google.com/forms/d/e/1FAIpQLSeXnP-5TcqQVSrR8NLXSb0_CE56qsoAayN6_j0rBnwBXoJVsw/formResponse';
+  const EMAIL_ENTRY_ID = 'entry.828768216';
   const form = document.getElementById('newsletter-form') as HTMLFormElement;
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
-    const formData = new FormData(form);
-    const { error } = await actions.subscribe(formData);
-    if (!error) alert("Thank you for subscribing to our newsletter!"); 
-    else alert("Something went wrong. Please try again later.");
+    const email = new FormData(form).get('email');
+
+    const body = new FormData();
+    body.append(EMAIL_ENTRY_ID, String(email ?? ''));
+//
+    try {
+      // no-cors: response is opaque so we can't read success/failure,
+      // but the submission still reaches Google. We optimistically show success.
+      await fetch(GOOGLE_FORM_ACTION, {
+        method: 'POST',
+        mode: 'no-cors',
+        body,
+      });
+      alert('Thank you for subscribing to our newsletter!');
+    } catch {
+      alert('Something went wrong. Please try again later.');
+    }
 
     window.location.href = window.location.pathname;
   });

@@ -40,7 +40,6 @@ const durationOptionsData = [
 ];
 
 const result = Astro.getActionResult(actions.requestCustomQuote);
-console.log(result);
 ---
 
 <section class="customization-group-section">
@@ -49,7 +48,7 @@ console.log(result);
 
     {result?.error && <script is:inline>alert("Something went wrong. Please try again later."); window.location.href = window.location.pathname;</script>}
 
-    <form class="content-wrapper" method="POST" action={actions.requestCustomQuote}>
+    <form id="customization-group-form" class="content-wrapper" method="POST" action={actions.requestCustomQuote}>
       <!-- LEFT COLUMN -->
       <div class="left-column">
         <!-- Customization Options -->
@@ -793,3 +792,110 @@ console.log(result);
     }
   }
 </style>
+
+<script>
+  // Google Forms integration for the customization group quote request.
+  // The Astro action (requestCustomQuote) is intentionally left wired on the
+  // <form> element so we can scale back to a server-side action later — for now
+  // we intercept submit and POST to Google Forms instead.
+  const GOOGLE_FORM_ACTION =
+    'https://docs.google.com/forms/d/e/1FAIpQLSfM-BNxkkJI-EdfQ6CHZaFPxJ6sX1gARV-FHZUqq8bAduknfw/formResponse';
+
+  // Map of <input name=""> -> Google Forms entry ID.
+  // Source of truth: scraped from FB_PUBLIC_LOAD_DATA_ in the live viewform HTML
+  // (NOT from Apps Script execution log — those can become stale if the form is
+  // recreated). To re-verify, run scripts/google-apps-script/extract-entry-ids.sh
+  const ENTRY_MAP: Record<string, string> = {
+    'org-name': 'entry.2142638629',
+    'org-type': 'entry.709867506',
+    'contact-name': 'entry.979743395',
+    'email': 'entry.1128521321',
+    'phone': 'entry.1290221277',
+    'group-size': 'entry.2138573654',
+    'preferred-dates': 'entry.124438159',
+    'trip-duration': 'entry.2014786966',
+    'trip-preferences': 'entry.1085903857',
+    'special-requirements': 'entry.1012842116',
+    'language': 'entry.1447439945',
+    'other-notes': 'entry.1694035356',
+    'experience-focus': 'entry.468598361',
+    'duration-options': 'entry.797148378',
+    'activity-level': 'entry.1868772594',
+    'accommodation': 'entry.804204324',
+  };
+
+  // Field names where multiple values may be selected (checkbox groups).
+  const MULTI_VALUE_FIELDS = new Set(['experience-focus', 'trip-preferences']);
+
+  // Some form controls use short internal codes as their value (kept that way
+  // for the Astro action / DB layer), but the Google Form expects the full
+  // human-readable labels. Translate per-field at submit time. Anything not
+  // listed here is sent as-is.
+  const VALUE_TRANSLATIONS: Record<string, Record<string, string>> = {
+    'org-type': {
+      university: 'University',
+      corporate: 'Corporate',
+      nonprofit: 'Nonprofit',
+    },
+    'trip-duration': {
+      '2-day': '2 Days',
+      '3-day': '3 Days',
+      '5-day': '5 Days',
+      custom: 'Custom Duration',
+    },
+    'activity-level': {
+      light: 'Light (cultural focus, minimal walking)',
+      moderate: 'Moderate (mix of activities)',
+      active: 'Active (hiking, physical activities)',
+    },
+    language: {
+      english: 'English',
+      spanish: 'Spanish',
+      both: 'Both',
+    },
+  };
+
+  const translate = (name: string, value: string): string =>
+    VALUE_TRANSLATIONS[name]?.[value] ?? value;
+
+  const form = document.getElementById('customization-group-form') as HTMLFormElement;
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    const source = new FormData(form);
+    const body = new FormData();
+
+    for (const [name, entryId] of Object.entries(ENTRY_MAP)) {
+      if (MULTI_VALUE_FIELDS.has(name)) {
+        // Append every checked value under the same entry key — this is how
+        // Google Forms receives checkbox groups.
+        for (const value of source.getAll(name)) {
+          if (typeof value === 'string' && value.length > 0) {
+            body.append(entryId, translate(name, value));
+          }
+        }
+      } else {
+        const value = source.get(name);
+        if (typeof value === 'string') {
+          body.append(entryId, translate(name, value));
+        }
+      }
+    }
+
+    try {
+      // no-cors: response is opaque, so we can't read success/failure but the
+      // submission still reaches Google. We optimistically show success.
+      await fetch(GOOGLE_FORM_ACTION, {
+        method: 'POST',
+        mode: 'no-cors',
+        body,
+      });
+      alert('Thank you! Your request has been received. We will contact you soon.');
+    } catch {
+      alert('Something went wrong. Please try again later.');
+    }
+
+    window.location.href = window.location.pathname;
+  });
+</script>

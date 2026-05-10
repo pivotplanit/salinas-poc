@@ -9,8 +9,9 @@
 }
 
 :root {
-  --primary: #374151;
+  --primary: #1B3A5C;
   --secondary: #f9fafb;
+  --tertiary: #2B6CB0;
   --dark-navy: #2c3e50;
   --dark-gray: #34495e;
   --medium-gray: #d1d5db;
@@ -24,6 +25,8 @@
   --text-medium: #5d6d7b;
   --text-light: #95a5a6;
   --border-color: #d1d5db;
+  --accent-primary: #1B3A5C1a;
+  --lush-green: #6B9B37;
 }
 
 body {
@@ -61,4 +64,9 @@ body {
 
 .btn.btn-outline:hover {
   background: var(--medium-gray);
+}
+
+.section-container {
+  max-width: 1400px;
+  width: 100%;
 }

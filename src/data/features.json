@@ -4,21 +4,21 @@
       "id": "community-impact",
       "icon": "Users",
       "title": "Community Impact",
-      "description": "Direct support for 40+ local family businesses",
+      "description": "Every visit directly supports local families through the cooperative economy model that transformed this community.",
       "stat": "40+ Family Businesses"
     },
     {
       "id": "authentic-access",
-      "icon": "Lock",
+      "icon": "ShieldCheck",
       "title": "Authentic Access",
-      "description": "Guided by community members who live here",
+      "description": "Experience genuine community life with guides who live and work in Salinas — you don't just visit, you live the experience.",
       "stat": "100% Locally Guided"
     },
     {
       "id": "educational-value",
       "icon": "BookOpen",
       "title": "Educational Value",
-      "description": "Learn about sustainable development models",
+      "description": "Learn from an internationally recognized model of sustainable community development and solidarity economy.",
       "stat": "UNESCO Recognition"
     }
   ]

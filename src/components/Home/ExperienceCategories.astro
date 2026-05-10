@@ -56,7 +56,7 @@ const imagePlaceholders: Record<string, string> = {
                 <h3>{cat.title}</h3>
               </div>
               <p class="card-description">{cat.description}</p>
-              <a href={cat.href} class="explore-link">Explore <span>→</span></a>
+              <a href={cat.href} class="explore-link">Explore <IconRenderer icon={"ArrowRight"}/></a>
             </div>
           </div>
         </div>
@@ -69,7 +69,6 @@ const imagePlaceholders: Record<string, string> = {
 
 
   .section-container {
-    max-width: 1600px;
     margin: 0 auto;
     width: 100%;
   }
@@ -166,11 +165,15 @@ const imagePlaceholders: Record<string, string> = {
 
   .category-icon {
     flex-shrink: 0;
-    color: var(--text-dark);
+    color: #2B6CB0;
     display: flex;
     align-items: center;
     justify-content: center;
     font-size: 1.5rem;
+    background-color: #2B6CB01a; /* last 2 chars for opacity */
+    border-radius: 50%;
+    width: 2.5rem;
+    height: 2.5rem;
   }
 
   .card-header h3 {
@@ -193,7 +196,7 @@ const imagePlaceholders: Record<string, string> = {
   }
 
   .explore-link {
-    color: var(--accent-purple);
+    color: var(--primary);
     text-decoration: none;
     font-weight: 600;
     transition: color 0.3s;
@@ -204,7 +207,7 @@ const imagePlaceholders: Record<string, string> = {
   }
 
   .explore-link:hover {
-    color: #7d3c98;
+    color: #2B6CB0;
   }
 
   @media (max-width: 1024px) {

@@ -2,7 +2,7 @@
   "categories": [
     {
       "id": "natural-wonders",
-      "icon": "Leaf",
+      "icon": "Mountain",
       "title": "Natural Wonders",
       "description": "Lorem ipsum dolor sit amet consectetur adipiscing elit. Dolor sit amet consectetur adipiscing elit quisque faucibus.",
       "href": "/experiences",
@@ -10,7 +10,7 @@
     },
     {
       "id": "cultural-immersion",
-      "icon": "Palette",
+      "icon": "Users",
       "title": "Cultural Immersion",
       "description": "Lorem ipsum dolor sit amet consectetur adipiscing elit. Dolor sit amet consectetur adipiscing elit quisque faucibus.",
       "href": "/experiences",
@@ -18,7 +18,7 @@
     },
     {
       "id": "gastronomic",
-      "icon": "UtensilsCrossed",
+      "icon": "Utensils",
       "title": "Gastronomic",
       "description": "Lorem ipsum dolor sit amet consectetur adipiscing elit. Dolor sit amet consectetur adipiscing elit quisque faucibus.",
       "href": "/experiences",
@@ -26,7 +26,7 @@
     },
     {
       "id": "multi-day",
-      "icon": "Backpack",
+      "icon": "Calendar",
       "title": "Multi-Day Packages",
       "description": "Lorem ipsum dolor sit amet consectetur adipiscing elit. Dolor sit amet consectetur adipiscing elit quisque faucibus.",
       "href": "/experiences",

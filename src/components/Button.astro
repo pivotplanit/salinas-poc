@@ -13,6 +13,7 @@ interface Props {
   ariaLabel?: string;
   class?: string;
   id?: string;
+  textColor?: string;
 }
 
 const {
@@ -27,6 +28,7 @@ const {
   ariaLabel,
   class: additionalClass = "",
   id,
+  textColor,
 } = Astro.props;
 
 const isLink = !!href;
@@ -38,14 +40,15 @@ const localizedHref = href?.startsWith("#")
     : undefined;
 const buttonClass =
   `btn btn-${variant} btn-${size} ${fullWidth ? "btn-full-width" : ""} ${additionalClass}`.trim();
+const buttonStyle = textColor ? `color: ${textColor};` : undefined;
 ---
 
 {isLink ? (
-  <a {id} href={localizedHref} class={buttonClass} aria-label={ariaLabel} target={target}>
+  <a {id} href={localizedHref} class={buttonClass} style={buttonStyle} aria-label={ariaLabel} target={target}>
     <slot>{text}</slot>
   </a>
 ) : (
-  <button {id} class={buttonClass} type={type} disabled={disabled} aria-label={ariaLabel}>
+  <button {id} class={buttonClass} style={buttonStyle} type={type} disabled={disabled} aria-label={ariaLabel}>
     <slot>{text}</slot>
   </button>
 )}
@@ -78,12 +81,12 @@ const buttonClass =
   /* Sizes */
   .btn-sm {
     padding: 0.5rem 1rem;
-    font-size: 0.75rem;
+    font-size: 0.7rem;
   }
 
   .btn-md {
     padding: 0.75rem 1.5rem;
-    font-size: 1rem;
+    font-size: 0.9rem;
   }
 
   .btn-lg {

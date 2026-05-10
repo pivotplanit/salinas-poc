@@ -25,14 +25,14 @@ const heroImage = "https://assets.habitattraveltours.com/images/salinas-hometown
 
 <section class="hero" id="home">
   <div class="hero-content">
-    <h1>Discover Ecuador's<br>Community-Run Mountain</h1>
-    <p>Where tourism supports 40+ local families and traditions</p>
+    <h1>Where the Mountains Hold<br>Magic and Community Creates<br>Stories</h1>
+    <p>Salinas de Guaranda — nature, culture, and authentic community experiences in Ecuador's Andes</p>
     <div class="hero-buttons">
-      <Button class="btn">Plan Your Group Experience</Button>
-      <Button class="btn btn-outline">Explore Experiences</Button>
+      <Button class="btn" size="sm">Plan Your Group Experience</Button>
+      <Button class="btn btn-outline" textColor="white" size="sm">Explore Experiences</Button>
     </div>
     <div class="hero-info">
-      <span class="hero-info-icon"><IconRenderer icon={"ShieldCheck"} size={16}/></span>
+      <IconRenderer class="hero-info-icon" icon={"ShieldCheck"} size={16}/>
       <p>UNESCO-Recognized Sustainable Tourism</p>
     </div>
   </div>
@@ -51,26 +51,25 @@ const heroImage = "https://assets.habitattraveltours.com/images/salinas-hometown
   }
 
   .hero-content {
-    color: var(--primary);
-    background: var(--white);
+    color: white;
+    background: transparent;
     margin: 0 auto;
-    border: 2px solid var(--border-color);
+    border: 2px solid transparent;
     border-radius: 4px;
-    padding: 2rem 6rem;
-    max-width: 600px;
+    padding: 2rem 3rem;
+    max-width: 768px;
     width: 100%;
   }
 
   .hero-content h1 {
-    font-size: 2.4rem;
+    font-size: 2.5rem;
     margin: 0 0 1.5rem 0;
     font-weight: 700;
   }
 
   .hero p {
-    font-size: 1rem;
+    font-size: 0.8rem;
     margin-bottom: 2rem;
-    opacity: 0.95;
   }
 
   .hero-info {
@@ -85,9 +84,10 @@ const heroImage = "https://assets.habitattraveltours.com/images/salinas-hometown
     margin: 0;
   }
 
-  .hero-info span {
+  .hero-info > :global(.hero-info-icon) {
     margin-right: 0;
     flex-shrink: 0;
+    color: #6B9B37;
   }
 
   .hero-buttons {
@@ -96,6 +96,7 @@ const heroImage = "https://assets.habitattraveltours.com/images/salinas-hometown
     justify-content: center;
     margin-bottom: 2rem;
     flex-wrap: wrap;
+    flex-direction: column;
   }
 
   @media (max-width: 1024px) {
@@ -125,7 +126,6 @@ const heroImage = "https://assets.habitattraveltours.com/images/salinas-hometown
 
     .hero p {
       font-size: 0.9rem;
-      margin-bottom: 1.5rem;
     }
 
     .hero-buttons {
@@ -169,7 +169,6 @@ const heroImage = "https://assets.habitattraveltours.com/images/salinas-hometown
 
     .hero p {
       font-size: 0.8rem;
-      margin-bottom: 1rem;
     }
 
     .hero-buttons {

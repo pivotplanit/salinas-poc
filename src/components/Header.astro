@@ -1,6 +1,10 @@
 ---
 import { getRelativeLocaleUrl } from "astro:i18n";
+import { Image } from "astro:assets";
 import Button from "./Button.astro";
+import logoSrc from "../assets/images/HTT_Logo.png";
+// biome-ignore lint/suspicious/noExplicitAny: see comment above
+const logo = logoSrc as any;
 
 const { locale = "en" } = Astro.params;
 interface NavLink {
@@ -31,28 +35,32 @@ const getLocalizedHref = (href: string): string => {
 
 <header>
   <div class="header-content">
-    <a href={getLocalizedHref("/")} class="logo">HABITAT</a>
+    <a href={getLocalizedHref("/")} class="logo">
+      <Image src={logo} alt="Habitat Travel Tours" loading="eager" />
+    </a>
     <button class="menu-toggle" aria-label="Toggle menu">☰</button>
     <nav>
-      {navLinks.map((link) => (
-        <a
-          href={getLocalizedHref(link.href)}
-          class={link.href === currentPage ? 'active' : ''}
-          aria-disabled={link.href === currentPage}
-        >
-          {link.label}
-        </a>
-      ))}
-    </nav>
-    <div class="header-actions">
-      <div class="locale-switcher">
-        <select id="locale-select" class="locale-select" data-current-page={currentPage}>
-          <option value="en" selected={currentLocale === "en"} onclick="">English</option>
-          <option value="es" selected={currentLocale === "es"}>Español</option>
-        </select>
+      <div class="nav-links">
+        {navLinks.map((link) => (
+          <a
+            href={getLocalizedHref(link.href)}
+            class={link.href === currentPage ? 'active' : ''}
+            aria-disabled={link.href === currentPage}
+          >
+            {link.label}
+          </a>
+        ))}
       </div>
-      <Button class="btn" size="sm">Book Now</Button>
-    </div>
+      <div class="header-actions">
+        <div class="locale-switcher">
+          <select id="locale-select" class="locale-select" data-current-page={currentPage}>
+            <option value="en" selected={currentLocale === "en"} onclick="">English</option>
+            <option value="es" selected={currentLocale === "es"}>Español</option>
+          </select>
+        </div>
+        <Button class="btn" size="sm">Book Now</Button>
+      </div>
+    </nav>
   </div>
 </header>
 
@@ -147,14 +155,27 @@ const getLocalizedHref = (href: string): string => {
   }
 
   .logo {
-    font-size: 0.9rem;
-    color: var(--text-light);
-    font-weight: 500;
+    display: inline-flex;
+    align-items: center;
     text-decoration: none;
     white-space: nowrap;
   }
 
+  .logo :global(img) {
+    height: 40px;
+    width: auto;
+    display: block;
+  }
+
   nav {
+    display: flex;
+    flex: 1;
+    justify-content: flex-end;
+    gap: 2.5rem;
+    align-items: center;
+  }
+
+  .nav-links {
     display: flex;
     gap: 2.5rem;
     align-items: center;
@@ -162,7 +183,7 @@ const getLocalizedHref = (href: string): string => {
 
   nav a {
     font-size: 0.85rem;
-    color: var(--text-dark);
+    color: var(--primary);
     text-decoration: none;
     font-weight: 500;
     transition: color 0.3s;
@@ -171,11 +192,15 @@ const getLocalizedHref = (href: string): string => {
 
   nav a:hover,
   nav a.active {
-    color: var(--medium-gray);
+    color: var(--tertiary);
   }
 
   nav a.active {
     pointer-events: none;
+    text-decoration: underline;
+    text-decoration-color: var(--tertiary);
+    text-underline-offset: 6px;
+    text-decoration-thickness: 2px;
   }
 
 
@@ -273,8 +298,8 @@ const getLocalizedHref = (href: string): string => {
       gap: 0.5rem;
     }
 
-    .logo {
-      font-size: 0.85rem;
+    .logo :global(img) {
+      height: 40px;
     }
 
     .menu-toggle {
@@ -288,17 +313,26 @@ const getLocalizedHref = (href: string): string => {
       right: 0;
       background: var(--white);
       flex-direction: column;
+      align-items: stretch;
+      justify-content: flex-start;
       gap: 0;
-      padding: 0;
+      padding: 0 1rem;
       max-height: 0;
       overflow: hidden;
-      transition: max-height 0.3s ease;
+      transition: max-height 0.3s ease, padding-top 0.3s ease, padding-bottom 0.3s ease;
       border-bottom: 1px solid var(--border-color);
     }
 
     nav.open {
       max-height: 500px;
       padding: 1rem;
+    }
+
+    .nav-links {
+      flex-direction: column;
+      align-items: stretch;
+      gap: 0;
+      width: 100%;
     }
 
     nav a {
@@ -308,7 +342,7 @@ const getLocalizedHref = (href: string): string => {
       display: block;
     }
 
-    nav a:last-child {
+    .nav-links a:last-child {
       border-bottom: none;
     }
 
@@ -317,8 +351,8 @@ const getLocalizedHref = (href: string): string => {
       gap: 1rem;
       width: 100%;
       justify-content: space-between;
-      margin-top: 0.5rem;
-      order: 3;
+      margin-top: 1rem;
+      padding: 0 1rem;
     }
 
     .locale-select {
@@ -344,8 +378,11 @@ const getLocalizedHref = (href: string): string => {
     }
 
     .logo {
-      font-size: 0.75rem;
       flex: 1;
+    }
+
+    .logo :global(img) {
+      height: 32px;
     }
 
     .menu-toggle {

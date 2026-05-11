@@ -9,7 +9,7 @@ export const navigation = [
 
 // Contact Information
 export const contact = {
-  email: "info@salinas-experiences.com",
+  email: "info@habitat.com",
   phone: "+593 2 123 4567",
   whatsapp: "+593 98 765 4321",
   address: "Salinas, Imbabura Province, Ecuador",

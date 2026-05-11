@@ -81,8 +81,8 @@ const iconMap: Record<string, string> = {
     `,
   Clock: `<svg width="${size}" height="${size}" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
     <g clip-path="url(#clip0_536_238)">
-    <path d="M6.99999 12.8327C10.2217 12.8327 12.8333 10.221 12.8333 6.99935C12.8333 3.77769 10.2217 1.16602 6.99999 1.16602C3.77833 1.16602 1.16666 3.77769 1.16666 6.99935C1.16666 10.221 3.77833 12.8327 6.99999 12.8327Z" stroke="#7B8FA1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-    <path d="M7 3.5V7L9.33333 8.16667" stroke="#7B8FA1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M6.99999 12.8327C10.2217 12.8327 12.8333 10.221 12.8333 6.99935C12.8333 3.77769 10.2217 1.16602 6.99999 1.16602C3.77833 1.16602 1.16666 3.77769 1.16666 6.99935C1.16666 10.221 3.77833 12.8327 6.99999 12.8327Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M7 3.5V7L9.33333 8.16667" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
     </g>
     <defs>
     <clipPath id="clip0_536_238">
@@ -91,6 +91,19 @@ const iconMap: Record<string, string> = {
     </defs>
     </svg>
     `,
+  Phone: `<svg width="${size}" height="${size}" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M8.888 10.712C9.02568 10.7752 9.1808 10.7897 9.32779 10.753C9.47479 10.7162 9.60489 10.6305 9.69667 10.51L9.93333 10.2C10.0575 10.0344 10.2186 9.9 10.4037 9.80743C10.5889 9.71486 10.793 9.66667 11 9.66667H13C13.3536 9.66667 13.6928 9.80714 13.9428 10.0572C14.1929 10.3072 14.3333 10.6464 14.3333 11V13C14.3333 13.3536 14.1929 13.6928 13.9428 13.9428C13.6928 14.1929 13.3536 14.3333 13 14.3333C9.8174 14.3333 6.76516 13.0691 4.51472 10.8186C2.26428 8.56818 1 5.51593 1 2.33333C1 1.97971 1.14048 1.64057 1.39052 1.39052C1.64057 1.14048 1.97971 1 2.33333 1H4.33333C4.68696 1 5.02609 1.14048 5.27614 1.39052C5.52619 1.64057 5.66667 1.97971 5.66667 2.33333V4.33333C5.66667 4.54033 5.61847 4.74448 5.5259 4.92962C5.43333 5.11476 5.29893 5.2758 5.13333 5.4L4.82133 5.634C4.69894 5.72745 4.61268 5.86039 4.57719 6.01023C4.54171 6.16008 4.55919 6.31758 4.62667 6.456C5.53779 8.30658 7.03628 9.8032 8.888 10.712Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+    `,
+  Mail: `<svg width="${size}" height="${size}" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M14.6668 4.66602L8.67283 8.48402C8.46943 8.60216 8.23839 8.66439 8.00316 8.66439C7.76794 8.66439 7.5369 8.60216 7.3335 8.48402L1.3335 4.66602" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M13.3335 2.66602H2.66683C1.93045 2.66602 1.3335 3.26297 1.3335 3.99935V11.9993C1.3335 12.7357 1.93045 13.3327 2.66683 13.3327H13.3335C14.0699 13.3327 14.6668 12.7357 14.6668 11.9993V3.99935C14.6668 3.26297 14.0699 2.66602 13.3335 2.66602Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+    `,
+  WhatsApp: `<svg width="${size}" height="${size}" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M4.93333 12.3386C6.20572 12.9913 7.66939 13.1681 9.06059 12.8371C10.4518 12.5061 11.679 11.6891 12.5212 10.5334C13.3633 9.37759 13.7649 7.95905 13.6537 6.53335C13.5425 5.10765 12.9257 3.76855 11.9145 2.75737C10.9034 1.74618 9.56426 1.12941 8.13856 1.01818C6.71286 0.90696 5.29431 1.3086 4.13855 2.15074C2.98278 2.99287 2.16579 4.22011 1.83482 5.61131C1.50384 7.00252 1.68063 8.46619 2.33333 9.73857L1 13.6719L4.93333 12.3386Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+`,
 };
 
 const svgIcon = iconMap[icon] || iconMap.Leaf;

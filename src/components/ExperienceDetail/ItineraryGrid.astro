@@ -1,4 +1,6 @@
 ---
+import IconRenderer from "../IconRenderer.astro";
+
 interface Props {
   itinerary?: Array<{ time: string; title?: string; activity: string }>;
 }
@@ -9,106 +11,141 @@ const { itinerary = [] } = Astro.props;
 {itinerary.length > 0 && (
   <section class="itinerary-section">
     <h2>Detailed Itinerary</h2>
-    <p class="section-subtitle">Time-Blocked Schedule</p>
-    <div class="timeline">
-      {itinerary.map((item, index) => (
-        <div class="timeline-item">
-          <div class="timeline-marker">
-            <div class="time-badge">{item.time}</div>
-            {index < itinerary.length - 1 && <div class="timeline-line"></div>}
-          </div>
-          <div class="timeline-content">
-            {item.title && <h3>{item.title}</h3>}
-            <p>{item.activity}</p>
-          </div>
-        </div>
-      ))}
+    <div class="timeline-card">
+      <ul class="timeline">
+        {itinerary.map((item) => (
+          <li class="timeline-item">
+            <div class="time-block">
+              <IconRenderer icon="Clock" size={14} />
+              <span class="time-text">{item.time}</span>
+            </div>
+            <div class="timeline-content">
+              {item.title && <h3>{item.title}</h3>}
+              <ul class="activity-list">
+                <li>{item.activity}</li>
+              </ul>
+            </div>
+          </li>
+        ))}
+      </ul>
     </div>
   </section>
 )}
 
 <style>
   .itinerary-section {
-    padding: 3rem 0;
-    border-bottom: 1px solid #e0e0e0;
+    padding: 1rem 0;
   }
 
   h2 {
     font-size: 1.75rem;
     font-weight: 700;
-    color: #1a1a1a;
-    margin: 0 0 0.25rem 0;
+    color: var(--primary);
+    margin: 0 0 1.5rem 0;
   }
 
   .section-subtitle {
     font-size: 0.9rem;
     color: #999;
-    margin: 0 0 2rem 0;
+    margin: 0 0 1.5rem 0;
+  }
+
+  .timeline-card {
+    border: 1px solid #F3F4F6;
+    border-radius: 12px;
+    padding: 1.5rem 1.75rem;
+    background: #fff;
   }
 
   .timeline {
+    list-style: none;
+    margin: 0;
+    padding: 0;
     display: flex;
     flex-direction: column;
-    gap: 0;
+    gap: 1rem;
   }
 
   .timeline-item {
-    display: grid;
-    grid-template-columns: 80px 1fr;
-    gap: 1.5rem;
-    position: relative;
-  }
-
-  .timeline-marker {
     display: flex;
-    flex-direction: column;
     align-items: center;
+    gap: 1.5rem;
+    border-left: 3px solid #2B6CB033;
+    border-radius: 0 8px 8px 0;
+    padding: 1rem 1.25rem;
   }
 
-  .time-badge {
-    background: var(--primary);
-    color: white;
-    padding: 0.4rem 0.6rem;
-    border-radius: 6px;
-    font-size: 0.8rem;
-    font-weight: 600;
+  .time-block {
+    color: #2B6CB0;
+    padding: 0.45rem 0.7rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-weight: 700;
+    font-size: 0.85rem;
     white-space: nowrap;
-    text-align: center;
+    flex-shrink: 0;
   }
 
-  .timeline-line {
-    width: 2px;
-    flex: 1;
-    background: #e0e0e0;
-    min-height: 2rem;
+  .clock-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+  }
+
+  .time-text {
+    line-height: 1;
   }
 
   .timeline-content {
-    padding-bottom: 2rem;
+    flex: 1;
+    min-width: 0;
   }
 
   .timeline-content h3 {
     margin: 0 0 0.5rem 0;
     font-size: 1.05rem;
-    font-weight: 600;
-    color: #1a1a1a;
+    font-weight: 700;
+    color: var(--primary);
   }
 
-  .timeline-content p {
+  .activity-list {
     margin: 0;
-    color: #666;
+    padding-left: 1.25rem;
+    color: #4b5563;
     font-size: 0.95rem;
-    line-height: 1.6;
+    line-height: 1.55;
+    list-style: initial;
+  }
+
+  .activity-list li {
+    margin: 0.15rem 0;
   }
 
   @media (max-width: 768px) {
-    .timeline-item {
-      grid-template-columns: 70px 1fr;
-      gap: 1rem;
+    .timeline-card {
+      padding: 1.25rem 1rem;
     }
 
-    .time-badge {
-      font-size: 0.75rem;
+    .timeline-item {
+      flex-direction: column;
+      gap: 0.75rem;
+      padding: 0.9rem 1rem;
+    }
+
+    .time-block {
+      font-size: 0.8rem;
+      padding: 0.4rem 0.6rem;
+    }
+
+    .timeline-content h3 {
+      font-size: 1rem;
+    }
+
+    .activity-list {
+      font-size: 0.9rem;
+      padding-left: 1.1rem;
     }
 
     h2 {

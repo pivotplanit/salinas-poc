@@ -2,7 +2,6 @@
 import Button from "../Button.astro";
 
 interface Props {
-  title: string;
   tag: string;
   duration: string;
   difficulty: string;
@@ -10,15 +9,10 @@ interface Props {
   groupSize: string;
 }
 
-const { title, tag, duration, difficulty, altitude, groupSize } = Astro.props;
+const { tag, duration, difficulty, altitude, groupSize } = Astro.props;
 ---
 
 <section class="title-bar" id="title-bar">
-  <div class="title-section">
-    <div class="container">
-      <h1>{title}</h1>
-    </div>
-  </div>
   <div class="meta-bar">
     <div class="container">
       <div class="meta-bar-inner">
@@ -64,20 +58,8 @@ const { title, tag, duration, difficulty, altitude, groupSize } = Astro.props;
     z-index: 90;
   }
 
-  .title-section {
-    background: var(--primary);
-    padding: 3rem 1rem;
-    color: white;
-  }
-
-  h1 {
-    font-size: 2.5rem;
-    font-weight: 700;
-    margin: 0;
-  }
-
   .meta-bar {
-    background: white;
+    background: #2B6CB033;
     border-bottom: 1px solid #e0e0e0;
     padding: 1rem;
   }
@@ -106,15 +88,14 @@ const { title, tag, duration, difficulty, altitude, groupSize } = Astro.props;
 
   .meta-label {
     font-size: 0.75rem;
-    text-transform: uppercase;
-    color: #999;
+    color: #7B8FA1;
     font-weight: 600;
   }
 
   .meta-value {
     font-size: 0.95rem;
     font-weight: 600;
-    color: #333;
+    color: var(--primary);
   }
 
   .category-tag {
@@ -125,7 +106,6 @@ const { title, tag, duration, difficulty, altitude, groupSize } = Astro.props;
     border-radius: 999px;
     font-size: 0.75rem;
     font-weight: 600;
-    text-transform: uppercase;
     letter-spacing: 0.025em;
   }
 
@@ -133,6 +113,11 @@ const { title, tag, duration, difficulty, altitude, groupSize } = Astro.props;
     display: flex;
     gap: 0.75rem;
     align-items: center;
+  }
+
+  .action-buttons > :global(button),
+  .action-buttons > :global(a) {
+    border: 1px solid var(--primary);
   }
 
   .share-btn {
@@ -156,14 +141,6 @@ const { title, tag, duration, difficulty, altitude, groupSize } = Astro.props;
   }
 
   @media (max-width: 768px) {
-    .title-section {
-      padding: 2rem 1rem;
-    }
-
-    h1 {
-      font-size: 1.75rem;
-    }
-
     .meta-bar-inner {
       flex-direction: column;
       gap: 1rem;

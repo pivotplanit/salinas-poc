@@ -7,7 +7,6 @@ const { title = "Check out this experience" } = Astro.props;
 ---
 
 <div class="share-box">
-  <p class="section-label">Share Options</p>
   <h3>Share This</h3>
   <div class="share-grid">
     <button class="share-btn" data-share="facebook">Facebook</button>
@@ -82,8 +81,8 @@ const { title = "Check out this experience" } = Astro.props;
     border-radius: 6px;
     background: white;
     font-size: 0.8rem;
-    font-weight: 500;
-    color: #444;
+    font-weight: 700;
+    color: var(--primary);
     cursor: pointer;
     transition: all 200ms ease;
     font-family: inherit;

@@ -1,6 +1,7 @@
 ---
 import { Image } from "astro:assets";
 import Button from "../Button.astro";
+import IconRenderer from "@components/IconRenderer.astro";
 
 export interface Props {
   id: string;
@@ -10,7 +11,7 @@ export interface Props {
   duration: string;
   difficulty: string;
   difficultyLevel: number;
-  altitude: string;
+  altitude?: string;
   groupSize: string;
   image?: string;
 }
@@ -30,6 +31,9 @@ const {
 
 // Generate difficulty badges
 const badges = Array.from({ length: 3 }, (_, i) => i < difficultyLevel);
+
+const altitudeDisplay = altitude && altitude.trim() !== "" ? altitude : "N/A";
+const ICON_COLOR = "#7B8FA1";
 ---
 
 <div class="experience-card">
@@ -44,23 +48,32 @@ const badges = Array.from({ length: 3 }, (_, i) => i < difficultyLevel);
         decoding="async"
       />
     )}
+    <div class={`category-badge category-${category.toLowerCase().replace(/\s+/g, '-')}`}>{category}</div>
   </div>
   <div class="experience-card-content">
-    <p class="experience-card-tag">{category}</p>
+    <div class="experience-duration">
+      <IconRenderer icon="Clock" size={16} color={ICON_COLOR} />
+      <span>{duration}</span>
+    </div>
     <h3>{title}</h3>
     <p class="experience-description">{description}</p>
-    <div class="experience-meta">
-      <span class="meta-item">⏱️ {duration}</span>
-      <span class="meta-item">🎯 {difficulty}</span>
-    </div>
-    <div class="difficulty-badges">
-      {badges.map((filled) => (
-        <span class={`difficulty-badge ${filled ? 'filled' : ''}`}></span>
-      ))}
+    <div class="difficulty-row">
+      <div class="difficulty-badges">
+        {badges.map((filled) => (
+          <span class={`difficulty-badge ${filled ? 'filled' : ''}`}></span>
+        ))}
+      </div>
+      <span class="difficulty-text">{difficulty}</span>
     </div>
     <div class="experience-details-list">
-      <span>🗻 Altitude: {altitude}</span>
-      <span>👥 Group: {groupSize}</span>
+      <span class="detail-row">
+        <IconRenderer icon="Mountain" size={16} color={ICON_COLOR} />
+        <span>Altitude: {altitudeDisplay}</span>
+      </span>
+      <span class="detail-row">
+        <IconRenderer icon="Users" size={16} color={ICON_COLOR} />
+        <span>Group: {groupSize}</span>
+      </span>
     </div>
     <Button href={`/experiences/${id}`} variant="outline" size='sm'>Learn More →</Button>
   </div>
@@ -99,20 +112,46 @@ const badges = Array.from({ length: 3 }, (_, i) => i < difficultyLevel);
     object-fit: cover;
   }
 
+  .category-badge {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: var(--text-medium);
+    color: var(--white);
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    z-index: 5;
+  }
+
+  .category-badge.category-cultural {
+    background: #2B6CB0;
+  }
+
+  .category-badge.category-adventure {
+    background: #6B9B37;
+  }
+
+  .category-badge.category-gastronomic {
+    background: #F59E0B;
+  }
+
+  .category-badge.category-nature {
+    background: #2F855A;
+  }
+
+  .category-badge.category-multi-day {
+    background: #805AD5;
+  }
+
   .experience-card-content {
     padding: 16px;
     flex: 1;
     display: flex;
     flex-direction: column;
-  }
-
-  .experience-card-tag {
-    font-size: 12px;
-    font-weight: 600;
-    color: #666;
-    text-transform: uppercase;
-    margin: 0 0 8px 0;
-    letter-spacing: 0.5px;
   }
 
   h3 {
@@ -131,41 +170,45 @@ const badges = Array.from({ length: 3 }, (_, i) => i < difficultyLevel);
     flex: 1;
   }
 
-  .experience-meta {
+  .experience-duration {
     display: flex;
-    gap: 12px;
-    margin: 12px 0;
+    align-items: center;
+    gap: 6px;
     font-size: 13px;
     color: #555;
+    margin: 0 0 8px 0;
   }
 
   .experience-card-button {
     font-size: 0.7rem;
   }
 
-  .meta-item {
+  .difficulty-row {
     display: flex;
     align-items: center;
-    gap: 4px;
+    gap: 8px;
+    margin: 12px 0;
   }
 
   .difficulty-badges {
     display: flex;
     gap: 6px;
-    margin: 12px 0;
   }
 
   .difficulty-badge {
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    background: #ddd;
-    border: 1px solid #bbb;
+    width: 12px;
+    height: 12px;
+    border-radius: 2px;
+    background: #6B9B374D;
   }
 
   .difficulty-badge.filled {
-    background: #2ecc71;
-    border-color: #27ae60;
+    background: #6B9B37;
+  }
+
+  .difficulty-text {
+    font-size: 13px;
+    color: #555;
   }
 
   .experience-details-list {
@@ -175,6 +218,12 @@ const badges = Array.from({ length: 3 }, (_, i) => i < difficultyLevel);
     font-size: 12px;
     color: #666;
     margin: 12px 0;
+  }
+
+  .detail-row {
+    display: flex;
+    align-items: center;
+    gap: 6px;
   }
 
   :global(.btn) {

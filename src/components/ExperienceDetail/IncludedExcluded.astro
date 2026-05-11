@@ -49,14 +49,28 @@ const { included = [], excluded = [] } = Astro.props;
 
 <style>
   .included-section {
-    padding: 3rem 0;
-    border-bottom: 1px solid #e0e0e0;
+    padding: 1rem 0;
   }
-
   .included-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 3rem;
+  }
+
+  .included-grid > div { 
+    padding: 2rem;
+    border: 1px solid;
+    border-radius: 6px;
+  }
+
+  .included-grid .included-column {
+    background-color: #F0F7E6;
+    border-color: #6B9B3733;
+  }
+  
+  .included-grid .excluded-column {
+    background-color: #FEF2F2;
+    border-color: #FEE2E2;
   }
 
   h3 {

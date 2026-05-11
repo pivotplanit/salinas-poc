@@ -82,10 +82,10 @@ const heroBadges = [
     slides={experience.slides}
     badges={heroBadges}
     caption={`[Image Gallery: ${experience.title}]`}
+    title={experience.title}
   />
 
   <TitleBar
-    title={experience.title}
     tag={experience.tag}
     duration={experience.duration}
     difficulty={experience.difficulty}
@@ -163,6 +163,10 @@ const heroBadges = [
     background: white;
   }
 
+  .main-content > :global(section h2) {
+    color: var(--primary);
+  }
+
   .content-layout {
     display: grid;
     grid-template-columns: 1fr 340px;
@@ -184,6 +188,10 @@ const heroBadges = [
   .related-section-wrapper {
     background: white;
     padding: 0 0 2rem;
+  }
+
+  #booking-sidebar .sidebar-sticky :global(h3) {
+    color: var(--primary);
   }
 
   @media (max-width: 1024px) {

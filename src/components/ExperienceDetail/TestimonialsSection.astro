@@ -17,7 +17,6 @@ const { testimonials = [] } = Astro.props;
     <div class="reviews-list">
       {testimonials.map((testimonial, index) => (
         <div class="review-item">
-          <p class="review-label">Review {index + 1}</p>
           <div class="review-header">
             <div class="review-author">
               <div class="review-avatar">👤</div>
@@ -44,7 +43,6 @@ const { testimonials = [] } = Astro.props;
 <style>
   .reviews-section {
     padding: 3rem 0;
-    border-bottom: 1px solid #e0e0e0;
   }
 
   h2 {
@@ -57,16 +55,13 @@ const { testimonials = [] } = Astro.props;
   .reviews-list {
     display: flex;
     flex-direction: column;
-    gap: 0;
+    gap: 1rem;
   }
 
   .review-item {
-    padding: 1.5rem 0;
-    border-bottom: 1px solid #e0e0e0;
-  }
-
-  .review-item:last-child {
-    border-bottom: none;
+    padding: 2rem;
+    border: 1px solid #F3F4F6;
+    border-radius: 8px;
   }
 
   .review-label {
@@ -92,8 +87,8 @@ const { testimonials = [] } = Astro.props;
   }
 
   .review-avatar {
-    width: 40px;
-    height: 40px;
+    width: 44px;
+    height: 44px;
     border-radius: 50%;
     background: #f0f0f0;
     display: flex;
@@ -141,7 +136,6 @@ const { testimonials = [] } = Astro.props;
     color: #666;
     font-size: 0.95rem;
     line-height: 1.6;
-    font-style: italic;
   }
 
   @media (max-width: 768px) {

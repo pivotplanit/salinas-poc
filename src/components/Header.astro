@@ -39,18 +39,20 @@ const getLocalizedHref = (href: string): string => {
       <Image src={logo} alt="Habitat Travel Tours" loading="eager" />
     </a>
     <button class="menu-toggle" aria-label="Toggle menu">☰</button>
-    <nav>
-      <div class="nav-links">
-        {navLinks.map((link) => (
-          <a
-            href={getLocalizedHref(link.href)}
-            class={link.href === currentPage ? 'active' : ''}
-            aria-disabled={link.href === currentPage}
-          >
-            {link.label}
-          </a>
-        ))}
-      </div>
+    <div class="mobile-collapse">
+      <nav>
+        <div class="nav-links">
+          {navLinks.map((link) => (
+            <a
+              href={getLocalizedHref(link.href)}
+              class={link.href === currentPage ? 'active' : ''}
+              aria-disabled={link.href === currentPage}
+            >
+              {link.label}
+            </a>
+          ))}
+        </div>
+      </nav>
       <div class="header-actions">
         <div class="locale-switcher">
           <select id="locale-select" class="locale-select" data-current-page={currentPage}>
@@ -60,7 +62,7 @@ const getLocalizedHref = (href: string): string => {
         </div>
         <Button class="btn" size="sm">Book Now</Button>
       </div>
-    </nav>
+    </div>
   </div>
 </header>
 
@@ -73,23 +75,23 @@ const getLocalizedHref = (href: string): string => {
   // Mobile menu toggle
   function setupMobileMenu() {
     const menuToggleEl = document.querySelector('.menu-toggle');
-    const navEl = document.querySelector('nav');
+    const collapseEl = document.querySelector('.mobile-collapse');
     
     // Type guard narrows types naturally
-    if (!isHTMLElement(menuToggleEl) || !isHTMLElement(navEl)) return;
+    if (!isHTMLElement(menuToggleEl) || !isHTMLElement(collapseEl)) return;
 
     menuToggleEl.addEventListener('click', (e) => {
       e.stopPropagation();
-      navEl.classList.toggle('open');
+      collapseEl.classList.toggle('open');
       menuToggleEl.classList.toggle('open');
     });
 
     // Close menu when clicking a link
-    navEl.querySelectorAll('a').forEach((link) => {
+    collapseEl.querySelectorAll('a').forEach((link) => {
       // HTMLElement guaranteed by DOM API
       if (link instanceof HTMLElement) {
         link.addEventListener('click', () => {
-          navEl.classList.remove('open');
+          collapseEl.classList.remove('open');
           menuToggleEl.classList.remove('open');
         });
       }
@@ -101,7 +103,7 @@ const getLocalizedHref = (href: string): string => {
       if (!isHTMLElement(headerEl) || !(e.target instanceof Node)) return;
       
       if (!headerEl.contains(e.target)) {
-        navEl.classList.remove('open');
+        collapseEl.classList.remove('open');
         menuToggleEl.classList.remove('open');
       }
     });
@@ -152,6 +154,7 @@ const getLocalizedHref = (href: string): string => {
     justify-content: space-between;
     align-items: center;
     width: 100%;
+    gap: 2rem;
   }
 
   .logo {
@@ -167,11 +170,14 @@ const getLocalizedHref = (href: string): string => {
     display: block;
   }
 
+  .mobile-collapse {
+    display: contents;
+  }
+
   nav {
     display: flex;
     flex: 1;
-    justify-content: flex-end;
-    gap: 2.5rem;
+    justify-content: center;
     align-items: center;
   }
 
@@ -247,13 +253,13 @@ const getLocalizedHref = (href: string): string => {
     cursor: pointer;
     font-size: 1.5rem;
     padding: 0.5rem;
-    color: var(--text-dark);
+    color: var(--primary);
     transition: color 0.3s;
   }
 
-  .menu-toggle:hover {
-    color: var(--accent-purple);
-  }
+  /* .menu-toggle:hover {
+    color: var(--accent-primary);
+  } */
 
   @media (max-width: 1024px) {
     header {
@@ -306,16 +312,14 @@ const getLocalizedHref = (href: string): string => {
       display: block;
     }
 
-    nav {
+    .mobile-collapse {
+      display: flex;
+      flex-direction: column;
       position: absolute;
       top: 100%;
       left: 0;
       right: 0;
       background: var(--white);
-      flex-direction: column;
-      align-items: stretch;
-      justify-content: flex-start;
-      gap: 0;
       padding: 0 1rem;
       max-height: 0;
       overflow: hidden;
@@ -323,9 +327,14 @@ const getLocalizedHref = (href: string): string => {
       border-bottom: 1px solid var(--border-color);
     }
 
-    nav.open {
-      max-height: 500px;
+    .mobile-collapse.open {
+      max-height: 600px;
       padding: 1rem;
+    }
+
+    nav {
+      display: block;
+      width: 100%;
     }
 
     .nav-links {
@@ -351,8 +360,7 @@ const getLocalizedHref = (href: string): string => {
       gap: 1rem;
       width: 100%;
       justify-content: space-between;
-      margin-top: 1rem;
-      padding: 0 1rem;
+      padding: 1rem;
     }
 
     .locale-select {
@@ -390,7 +398,7 @@ const getLocalizedHref = (href: string): string => {
       padding: 0.4rem;
     }
 
-    nav {
+    .mobile-collapse {
       top: calc(100% + 1px);
     }
 

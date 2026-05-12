@@ -23,11 +23,11 @@ const { testimonials = [] } = Astro.props;
         testimonials.map(testimonial => (
           <div class="testimonial-card">
             <div class="testimonial-header">
-              <Image src={testimonial.avatar} alt={testimonial.name} class="testimonial-avatar" width={100} height={100} />
+              <Image src={testimonial.avatar} alt={testimonial.name} class="testimonial-avatar" width={44} height={44} />
               <div class="testimonial-info">
                 <h4>{testimonial.name}</h4>
                 <p class="testimonial-affiliation">{testimonial.affiliation}</p>
-                <p class="testimonial-date">{testimonial.date}</p>
+                {/* <p class="testimonial-date">{testimonial.date}</p> */}
               </div>
             </div>
             <div class="testimonial-stars">{"★".repeat(testimonial.rating)}</div>
@@ -47,10 +47,8 @@ const { testimonials = [] } = Astro.props;
 
 <style>
   .section-container {
-    max-width: 1600px;
     margin: 0 auto;
     padding: 0 2rem;
-    width: 100%;
   }
 
   .section-title {
@@ -87,8 +85,8 @@ const { testimonials = [] } = Astro.props;
   }
 
   .testimonial-avatar {
-    width: 100px;
-    height: 100px;
+    width: 48;
+    height: 48;
     border-radius: 50%;
     object-fit: cover;
     flex-shrink: 0;
@@ -96,15 +94,15 @@ const { testimonials = [] } = Astro.props;
 
   .testimonial-info h4 {
     margin: 0;
-    color: var(--text-dark);
-    font-size: 1rem;
+    color: var(--primary);
+    font-size: 0.7rem;
     font-weight: 600;
   }
 
   .testimonial-affiliation {
     margin: 0.25rem 0 0 0;
-    color: var(--text-light);
-    font-size: 0.85rem;
+    color: var(--tertiary);
+    font-size: 0.6rem;
   }
 
   .testimonial-date {
@@ -114,15 +112,17 @@ const { testimonials = [] } = Astro.props;
   }
 
   .testimonial-stars {
-    color: #000;
+    color: #6B9B37;
     margin-bottom: 1rem;
-    font-size: 1.5rem;
+    font-size: 0.8rem;
   }
 
   .testimonial-text {
     color: var(--text-medium);
     line-height: 1.6;
-    font-size: 0.95rem;
+    font-size: 0.7rem;
+    border-left: 4px solid #D4A574;
+    padding-left: 0.5rem;
   }
 
   /* Empty States */

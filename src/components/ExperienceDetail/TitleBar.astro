@@ -1,5 +1,6 @@
 ---
 import Button from "../Button.astro";
+import IconRenderer from "@components/IconRenderer.astro";
 
 interface Props {
   tag: string;
@@ -39,11 +40,7 @@ const { tag, duration, difficulty, altitude, groupSize } = Astro.props;
           <Button href="#booking" variant="primary" size="sm" text="Book" />
           <Button href="#contact" variant="outline" size="sm" text="Contact" />
           <button class="share-btn" type="button" aria-label="Share">
-            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8" />
-              <polyline points="16 6 12 2 8 6" />
-              <line x1="12" y1="2" x2="12" y2="15" />
-            </svg>
+            <IconRenderer icon="Share" />
           </button>
         </div>
       </div>
@@ -126,10 +123,9 @@ const { tag, duration, difficulty, altitude, groupSize } = Astro.props;
     justify-content: center;
     width: 36px;
     height: 36px;
-    border-radius: 50%;
-    border: 1px solid #e0e0e0;
+    border-radius: 4px;
     background: transparent;
-    color: #666;
+    color: var(--primary);
     cursor: pointer;
     transition: all 200ms ease;
   }
@@ -148,9 +144,9 @@ const { tag, duration, difficulty, altitude, groupSize } = Astro.props;
     }
 
     .meta-badges {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
+      display: flex;
       gap: 1rem;
+      justify-content: space-around;
     }
 
     .category-tag {

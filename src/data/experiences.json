@@ -167,6 +167,47 @@
           "answer": "Yes, but ask permission before photographing people. No drones without special permit."
         }
       ],
+      "location": "Salinas Salt Mines & El Salinerito Cooperative",
+      "directedAt": "Adults, Teens, Curious travelers",
+      "participation": "Groups of 4+, fostering community-led tourism",
+      "learningCategories": [
+        {
+          "icon": "🛡️",
+          "title": "Food Education & Quality",
+          "items": [
+            "Importance of quality control",
+            "Good Manufacturing Practices",
+            "Hygiene & safe handling"
+          ]
+        },
+        {
+          "icon": "⚗️",
+          "title": "Salt to Cheese",
+          "items": [
+            "Mineral extraction methods",
+            "Artisanal cheese fermentation",
+            "Traditional production cycle"
+          ]
+        },
+        {
+          "icon": "🤝",
+          "title": "Solidarity Economy",
+          "items": [
+            "Cooperative business model",
+            "Fair trade principles",
+            "Social impact of production"
+          ]
+        },
+        {
+          "icon": "🔬",
+          "title": "Basic Scientific Culture",
+          "items": [
+            "Observation & measurement",
+            "Sensory analysis",
+            "Science in food industry"
+          ]
+        }
+      ],
       "relatedExperienceIds": ["chocolate-workshop", "textile-weaving", "cloud-forest-exploration"]
     },
     {
@@ -338,6 +379,47 @@
           "answer": "No. Animals avoid humans. You'll mostly see from distance or hear calls."
         }
       ],
+      "location": "Andean Cloud Forest & Páramo Trails",
+      "directedAt": "Adults, Active travelers, Nature enthusiasts",
+      "participation": "Groups of 4+, encouraging shared adventure & camaraderie",
+      "learningCategories": [
+        {
+          "icon": "🌿",
+          "title": "Andean Ecology",
+          "items": [
+            "Cloud forest dynamics",
+            "Páramo ecosystem essentials",
+            "Endemic flora identification"
+          ]
+        },
+        {
+          "icon": "🐦",
+          "title": "Wildlife & Birdwatching",
+          "items": [
+            "Bird species recognition",
+            "Animal behavior reading",
+            "Spotting techniques in the wild"
+          ]
+        },
+        {
+          "icon": "⛰️",
+          "title": "Trail & Altitude Skills",
+          "items": [
+            "High-altitude pacing",
+            "Hydration & nutrition strategy",
+            "Safe trekking practices"
+          ]
+        },
+        {
+          "icon": "🌎",
+          "title": "Conservation Awareness",
+          "items": [
+            "Leave No Trace principles",
+            "Local conservation efforts",
+            "Climate impact on ecosystems"
+          ]
+        }
+      ],
       "relatedExperienceIds": ["cultural-immersion", "cloud-forest-exploration", "textile-weaving"]
     },
     {
@@ -507,6 +589,47 @@
           "answer": "Yes, our shop has premium selections. Credit cards and cash accepted."
         }
       ],
+      "location": "El Salinerito Chocolate Factory Laboratory",
+      "directedAt": "Children, Adults, Elderly people",
+      "participation": "Groups of 3+, promoting collaborative teamwork",
+      "learningCategories": [
+        {
+          "icon": "🛡️",
+          "title": "Food Education & Quality",
+          "items": [
+            "Importance of quality control",
+            "Good Manufacturing Practices",
+            "Hygiene & safe handling"
+          ]
+        },
+        {
+          "icon": "⚗️",
+          "title": "Cacao to Chocolate",
+          "items": [
+            "Raw material transformation",
+            "Value of Ecuadorian cacao",
+            "Lab role in quality assurance"
+          ]
+        },
+        {
+          "icon": "🤝",
+          "title": "Solidarity Economy",
+          "items": [
+            "Associative model",
+            "Fair trade principles",
+            "Social impact of production"
+          ]
+        },
+        {
+          "icon": "🔬",
+          "title": "Basic Scientific Culture",
+          "items": [
+            "Observation & measurement",
+            "Sensory analysis",
+            "Science in food industry"
+          ]
+        }
+      ],
       "relatedExperienceIds": ["salt-mines-cheese", "textile-weaving", "cloud-forest-exploration"]
     },
     {
@@ -667,6 +790,47 @@
         {
           "question": "Do they speak English?",
           "answer": "Some do. Your guide translates. Communication through art is universal!"
+        }
+      ],
+      "location": "Indigenous Artisan Studios & Cooperative Workshops",
+      "directedAt": "Children, Adults, Cultural travelers",
+      "participation": "Groups of 3+, supporting indigenous artisans directly",
+      "learningCategories": [
+        {
+          "icon": "🎨",
+          "title": "Traditional Craftsmanship",
+          "items": [
+            "Indigenous weaving patterns",
+            "Pottery shaping techniques",
+            "Natural fiber selection"
+          ]
+        },
+        {
+          "icon": "🌱",
+          "title": "Natural Materials",
+          "items": [
+            "Plant-based dye preparation",
+            "Sustainable harvesting",
+            "Material sourcing ethics"
+          ]
+        },
+        {
+          "icon": "🤝",
+          "title": "Cultural Exchange",
+          "items": [
+            "Storytelling through art",
+            "Symbolism in patterns",
+            "Community heritage values"
+          ]
+        },
+        {
+          "icon": "🛡️",
+          "title": "Heritage Preservation",
+          "items": [
+            "Generational knowledge transfer",
+            "Fair-trade artisan economy",
+            "Protecting living traditions"
+          ]
         }
       ],
       "relatedExperienceIds": [
@@ -856,6 +1020,47 @@
           "answer": "Yes, inform when booking. Same quality and portions as omnivore meals."
         }
       ],
+      "location": "Andean Wilderness Camps & Mountain Trails",
+      "directedAt": "Adults, Adventurous travelers, Outdoor enthusiasts",
+      "participation": "Groups of 4+, building team resilience and trust",
+      "learningCategories": [
+        {
+          "icon": "⛺",
+          "title": "Wilderness Skills",
+          "items": [
+            "High-altitude camping basics",
+            "Campfire & shelter setup",
+            "Backcountry safety"
+          ]
+        },
+        {
+          "icon": "🌌",
+          "title": "Astronomy & Navigation",
+          "items": [
+            "Reading the night sky",
+            "Constellation identification",
+            "Map & compass orientation"
+          ]
+        },
+        {
+          "icon": "🌿",
+          "title": "Mountain Ecology",
+          "items": [
+            "Páramo vegetation cycles",
+            "Alpine wildlife behavior",
+            "Climate-altitude relationships"
+          ]
+        },
+        {
+          "icon": "🛡️",
+          "title": "Leave No Trace Ethics",
+          "items": [
+            "Waste-pack-out practices",
+            "Wildlife-safe behavior",
+            "Sustainable wilderness travel"
+          ]
+        }
+      ],
       "relatedExperienceIds": [
         "nature-hike",
         "cultural-immersion",
@@ -1030,6 +1235,47 @@
         {
           "question": "What about altitude sickness?",
           "answer": "Inform your guide of any symptoms immediately. We have oxygen and descent protocols if needed."
+        }
+      ],
+      "location": "Historic Salt Mines & Mining Workshops",
+      "directedAt": "Adults, Adventure seekers, Hands-on learners",
+      "participation": "Groups of 4+, working alongside local miners",
+      "learningCategories": [
+        {
+          "icon": "⛏️",
+          "title": "Mining Fundamentals",
+          "items": [
+            "Traditional extraction techniques",
+            "Tool handling & safety",
+            "Mineral identification"
+          ]
+        },
+        {
+          "icon": "🔬",
+          "title": "Geology & Minerals",
+          "items": [
+            "Salt deposit formation",
+            "Mineral composition basics",
+            "Field observation skills"
+          ]
+        },
+        {
+          "icon": "🤝",
+          "title": "Cooperative Values",
+          "items": [
+            "Community-led labor model",
+            "Shared profit principles",
+            "Generational craft transfer"
+          ]
+        },
+        {
+          "icon": "🛡️",
+          "title": "Workplace Safety",
+          "items": [
+            "Protective gear usage",
+            "Risk awareness & response",
+            "Sustainable mining practices"
+          ]
         }
       ],
       "relatedExperienceIds": [

@@ -65,6 +65,17 @@ export interface Experience {
   relatedExperienceIds?: string[];
   price?: number | string;
   groupDiscounts?: GroupDiscount[];
+  // Additional experience section properties
+  location?: string;
+  directedAt?: string;
+  participation?: string;
+  learningCategories?: LearningCategory[];
+}
+
+export interface LearningCategory {
+  icon: string;
+  title: string;
+  items: string[];
 }
 
 // Import from JSON and convert to TypeScript interface

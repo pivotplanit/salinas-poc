@@ -1,0 +1,104 @@
+---
+import IconRenderer from "../IconRenderer.astro";
+import Button from "../Button.astro";
+
+const heroImage = "https://assets.habitattraveltours.com/images/salinas-hometown.jpg";
+---
+
+<section class="accent-hero" id="home">
+  <div class="accent-hero-content">
+    <h1>Experience Salinas from<br>Above</h1>
+    <p>Take a breathtaking aerial journey over our community, the majestic Chimborazo, and the stunning Andean landscapes that we call home.</p>
+  </div>
+</section>
+
+<style define:vars={{ heroBg: `${heroImage}` }}>
+  .accent-hero {
+    background-image: url('https://assets.habitattraveltours.com/images/salinas-eagle-view.jpg');
+    background-size: cover;
+    background-position: center;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    min-height: 500px;
+  }
+
+  .accent-hero-content {
+    color: white;
+    background: transparent;
+    margin: 0 auto;
+    border: 2px solid transparent;
+    border-radius: 4px;
+    padding: 2rem 3rem;
+    max-width: 768px;
+    width: 100%;
+  }
+
+  .accent-hero-content h1 {
+    font-size: 2.5rem;
+    margin: 0 0 1.5rem 0;
+    font-weight: 700;
+  }
+
+  .accent-hero p {
+    font-size: 1rem;
+    margin-bottom: 2rem;
+  }
+
+
+  @media (max-width: 1024px) {
+    .accent-hero-content {
+      padding: 2rem 4rem;
+    }
+
+    .accent-hero-content h1 {
+      font-size: 2.1rem;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .accent-hero {
+      padding: 2rem 1rem;
+      min-height: 400px;
+    }
+
+    .accent-hero-content {
+      padding: 1.5rem 2rem;
+    }
+
+    .accent-hero-content h1 {
+      font-size: 1.8rem;
+      margin-bottom: 1rem;
+    }
+
+    .accent-hero p {
+      font-size: 0.9rem;
+    }
+
+  }
+
+  @media (max-width: 480px) {
+    .accent-hero {
+      padding: 1rem 0.75rem;
+      min-height: 350px;
+    }
+
+    .accent-hero-content {
+      padding: 1rem 1.5rem;
+      border-radius: 2px;
+      border-width: 1px;
+    }
+
+    .accent-hero-content h1 {
+      font-size: 1.4rem;
+      line-height: 1.2;
+      margin-bottom: 0.75rem;
+    }
+
+    .accent-hero p {
+      font-size: 0.8rem;
+    }
+  }
+</style>

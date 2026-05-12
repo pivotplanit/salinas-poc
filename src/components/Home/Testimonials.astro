@@ -31,9 +31,11 @@ const { testimonials = [] } = Astro.props;
               </div>
             </div>
             <div class="testimonial-stars">{"★".repeat(testimonial.rating)}</div>
-            <p class="testimonial-text">
-              "{testimonial.text}"
-            </p>
+            <div class="testimonial-text">
+              <p>
+                "{testimonial.text}"
+              </p>
+            </div>
           </div>
         ))
       ) : (
@@ -119,7 +121,9 @@ const { testimonials = [] } = Astro.props;
   .testimonial-text {
     color: var(--text-medium);
     line-height: 1.6;
-    font-size: 0.95rem;
+    font-size: 0.8rem;
+    border-left: 4px solid #D4A574;
+    padding-left: 1rem;
   }
 
   /* Empty States */

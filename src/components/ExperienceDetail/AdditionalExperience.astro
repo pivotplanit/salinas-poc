@@ -1,0 +1,327 @@
+---
+import { experiences } from "../../lib/experiences-data";
+
+interface Props {
+  currentId: string;
+}
+
+const { currentId } = Astro.props;
+
+// Pick all experiences (excluding current) that have the additional-section data.
+const candidates = experiences.filter(
+  (exp) =>
+    exp.id !== currentId &&
+    exp.location &&
+    exp.directedAt &&
+    exp.participation &&
+    exp.learningCategories &&
+    exp.learningCategories.length > 0
+);
+---
+
+{candidates.length > 0 && (
+  <section class="additional-experience-section" data-additional-experience-section>
+    <div class="container">
+      {candidates.map((exp, idx) => (
+        <article
+          class="additional-experience"
+          data-additional-experience-card
+          data-card-index={idx}
+          hidden
+        >
+          <div class="ae-grid">
+            <div class="ae-left">
+              <span class="ae-badge">Additional Experience</span>
+              <h2 class="ae-title">{exp.title}</h2>
+              <p class="ae-description">{exp.description}</p>
+
+              <ul class="ae-meta">
+                <li>
+                  <span class="ae-meta-icon" aria-hidden="true">📍</span>
+                  <div>
+                    <span class="ae-meta-label">Location</span>
+                    <span class="ae-meta-value">{exp.location}</span>
+                  </div>
+                </li>
+                <li>
+                  <span class="ae-meta-icon" aria-hidden="true">👥</span>
+                  <div>
+                    <span class="ae-meta-label">Directed At</span>
+                    <span class="ae-meta-value">{exp.directedAt}</span>
+                  </div>
+                </li>
+                <li>
+                  <span class="ae-meta-icon" aria-hidden="true">🤝</span>
+                  <div>
+                    <span class="ae-meta-label">Participation</span>
+                    <span class="ae-meta-value">{exp.participation}</span>
+                  </div>
+                </li>
+              </ul>
+
+              <button type="button" class="ae-cta">Add to Booking</button>
+            </div>
+
+            <div class="ae-right">
+              <h3 class="ae-learn-heading">What you will learn:</h3>
+              <div class="ae-learn-list">
+                {exp.learningCategories?.map((cat) => (
+                  <div class="ae-learn-card">
+                    <span class="ae-learn-icon" aria-hidden="true">{cat.icon}</span>
+                    <h4 class="ae-learn-title">{cat.title}</h4>
+                    <ul class="ae-learn-items">
+                      {cat.items.map((item) => (
+                        <li>{item}</li>
+                      ))}
+                    </ul>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </article>
+      ))}
+    </div>
+  </section>
+)}
+
+<style>
+  .additional-experience-section {
+    background: white;
+    padding: 2rem 0 4rem;
+  }
+
+  .container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 1rem;
+  }
+
+  .additional-experience {
+    --ae-bg: #6b3410;
+    --ae-bg-right: #5a2a0c;
+    --ae-accent: #f5a623;
+    --ae-accent-soft: #f5a62333;
+    --ae-text-light: #f3d9b8;
+    --ae-text-strong: #ffffff;
+    --ae-card-border: rgba(245, 166, 35, 0.35);
+
+    background: var(--ae-bg);
+    border-radius: 16px;
+    overflow: hidden;
+    color: var(--ae-text-strong);
+  }
+
+  .ae-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .ae-left {
+    padding: 3rem 2.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .ae-right {
+    padding: 3rem 2.5rem;
+    background: var(--ae-bg-right);
+  }
+
+  .ae-badge {
+    display: inline-block;
+    align-self: flex-start;
+    background: var(--ae-accent-soft);
+    color: var(--ae-accent);
+    border: 1px solid var(--ae-accent);
+    padding: 0.4rem 0.9rem;
+    border-radius: 999px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    margin-bottom: 1.25rem;
+  }
+
+  .ae-title {
+    font-size: 2.25rem;
+    font-weight: 700;
+    color: var(--ae-text-strong);
+    margin: 0 0 1rem;
+    line-height: 1.15;
+  }
+
+  .ae-description {
+    color: var(--ae-text-light);
+    font-size: 1rem;
+    line-height: 1.6;
+    margin: 0 0 1.75rem;
+  }
+
+  .ae-meta {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .ae-meta li {
+    display: flex;
+    gap: 0.85rem;
+    align-items: flex-start;
+  }
+
+  .ae-meta-icon {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: var(--ae-accent-soft);
+    color: var(--ae-accent);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.95rem;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  .ae-meta li > div {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .ae-meta-label {
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--ae-accent);
+  }
+
+  .ae-meta-value {
+    font-size: 0.95rem;
+    color: var(--ae-text-strong);
+    font-weight: 600;
+  }
+
+  .ae-cta {
+    align-self: flex-start;
+    background: var(--ae-accent);
+    color: #3d1d06;
+    border: none;
+    padding: 0.85rem 1.5rem;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background 0.2s ease, transform 0.1s ease;
+  }
+
+  .ae-cta:hover {
+    background: #ffb73a;
+  }
+
+  .ae-cta:active {
+    transform: translateY(1px);
+  }
+
+  .ae-learn-heading {
+    color: var(--ae-accent);
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin: 0 0 1.25rem;
+  }
+
+  .ae-learn-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .ae-learn-card {
+    border: 1px solid var(--ae-card-border);
+    border-radius: 12px;
+    padding: 1.25rem 1.5rem;
+  }
+
+  .ae-learn-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 8px;
+    background: var(--ae-accent-soft);
+    color: var(--ae-accent);
+    font-size: 1.1rem;
+    margin-bottom: 0.6rem;
+  }
+
+  .ae-learn-title {
+    color: var(--ae-text-strong);
+    font-size: 1rem;
+    font-weight: 700;
+    margin: 0 0 0.5rem;
+  }
+
+  .ae-learn-items {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+  }
+
+  .ae-learn-items li {
+    color: var(--ae-text-light);
+    font-size: 0.9rem;
+    position: relative;
+    padding-left: 1rem;
+  }
+
+  .ae-learn-items li::before {
+    content: "•";
+    color: var(--ae-accent);
+    position: absolute;
+    left: 0;
+    top: 0;
+  }
+
+  @media (max-width: 900px) {
+    .ae-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .ae-left,
+    .ae-right {
+      padding: 2rem 1.5rem;
+    }
+
+    .ae-title {
+      font-size: 1.75rem;
+    }
+  }
+</style>
+
+<script>
+  const section = document.querySelector(
+    "[data-additional-experience-section]"
+  ) as HTMLElement | null;
+  if (section) {
+    const cards = Array.from(
+      section.querySelectorAll<HTMLElement>("[data-additional-experience-card]")
+    );
+    if (cards.length > 0) {
+      const pickIndex = Math.floor(Math.random() * cards.length);
+      cards.forEach((card, idx) => {
+        if (idx === pickIndex) {
+          card.removeAttribute("hidden");
+        } else {
+          card.remove();
+        }
+      });
+    }
+  }
+</script>

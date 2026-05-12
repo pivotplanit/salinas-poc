@@ -1,6 +1,7 @@
 import { defineConfig } from "astro/config";
 import cloudflare from "@astrojs/cloudflare";
 import sitemap from "@astrojs/sitemap";
+import icon from "astro-icon";
 import i18nConfig from "./src/configs/i18n";
 import { fileURLToPath } from "node:url"; // Add this
 
@@ -23,7 +24,7 @@ export default defineConfig({
     domains: ['assets.habitattraveltours.com'],
   },
 
-  integrations: [sitemap()],
+  integrations: [sitemap(), icon()],
 
   vite: {
     resolve: {

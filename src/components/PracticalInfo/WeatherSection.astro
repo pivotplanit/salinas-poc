@@ -16,7 +16,7 @@ const items = [
 ---
 
 <section class="weather-and-checklist-section">
-  <div class="container">
+  <div class="section-container">
     <div class="section-heading">
       <IconRenderer icon="Sun" size={28} />
       <h2>Weather & What to Pack</h2>
@@ -24,7 +24,7 @@ const items = [
 
     <div class="temp-container">
       <div class="sub-heading">
-        <IconRenderer icon="Leaf" size={20} />
+        <IconRenderer icon="thermometer" size={20} />
         <h3>Temperature</h3>
       </div>
       <div class="temp-cards">
@@ -48,7 +48,7 @@ const items = [
 
     <div class="temp-container">
       <div class="sub-heading">
-        <IconRenderer icon="Backpack" size={20} />
+        <IconRenderer icon="briefcase" size={20} />
         <h3>Essential Items</h3>
       </div>
       <div class="checklist-grid">
@@ -74,8 +74,7 @@ const items = [
     background: white;
   }
 
-  .container {
-    max-width: 1200px;
+  .section-container {
     margin: 0 auto;
   }
 
@@ -110,7 +109,7 @@ const items = [
   .temp-container {
     background: var(--secondary );
     border-radius: 8px;
-    padding: 1.5rem;
+    padding: 2rem;
     margin: 1rem 0;
   }
 
@@ -138,7 +137,7 @@ const items = [
   .card-value {
     font-size: 1.25rem;
     font-weight: 700;
-    color: #111827;
+    color: var(--primary);
   }
 
   .card-sub {

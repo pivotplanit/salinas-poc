@@ -1,13 +1,8 @@
 ---
 import { actions } from "astro:actions";
 import { itineraries, pricingTable } from "../../lib/group-booking-data";
-import ItineraryCard from "./ItineraryCard.astro";
-import Button from "../Button.astro";
-import {
-  interestOptions,
-  durationOptions,
-  accommodationOptions,
-} from "../../lib/group-booking-data";
+import IconRenderer from "@components/IconRenderer.astro";
+import { durationOptions } from "../../lib/group-booking-data";
 
 const experienceFocusOptions = [
   "Cultural immersion",
@@ -43,7 +38,7 @@ const result = Astro.getActionResult(actions.requestCustomQuote);
 ---
 
 <section class="customization-group-section">
-  <div class="container">
+  <div class="section-container">
     {result?.data && <script is:inline>alert("Thank you! Your request has been received. We will contact you soon."); window.location.href = window.location.pathname;</script>}
 
     {result?.error && <script is:inline>alert("Something went wrong. Please try again later."); window.location.href = window.location.pathname;</script>}
@@ -188,13 +183,16 @@ const result = Astro.getActionResult(actions.requestCustomQuote);
         <div class="form-card">
           <!-- 24-Hour Response Guarantee -->
           <div class="response-guarantee">
-            <h3>✓ 24-Hour Response Guarantee</h3>
+            <div class="response-guarantee-title">
+              <IconRenderer icon="CheckCircle" />
+              <h3> 24-Hour Response Guarantee</h3>
+            </div>
             <p>We'll get back to within 24 hours with a custom proposal</p>
             <ul>
-              <li>✓ Custom itinerary proposal</li>
-              <li>✓ Detailed pricing breakdown</li>
-              <li>✓ Availability confirmation</li>
-              <li>✓ Next steps</li>
+              <li><IconRenderer icon="CheckCircle" /> Custom itinerary proposal</li>
+              <li><IconRenderer icon="CheckCircle" /> Detailed pricing breakdown</li>
+              <li><IconRenderer icon="CheckCircle" /> Availability confirmation</li>
+              <li><IconRenderer icon="CheckCircle" /> Next steps</li>
             </ul>
           </div>
 
@@ -343,11 +341,9 @@ const result = Astro.getActionResult(actions.requestCustomQuote);
     background: var(--secondary);
   }
 
-  .container {
-    max-width: 1400px;
+  .section-container {
     margin: 0 auto;
     padding: 0 1rem;
-    width: 100%;
   }
 
   .content-wrapper {
@@ -571,18 +567,27 @@ const result = Astro.getActionResult(actions.requestCustomQuote);
   }
 
   .response-guarantee {
-    background: #f0f8f0;
-    border-left: 4px solid var(--primary);
-    padding: 1.5rem;
+    /* background: #f0f8f0;
+    border-left: 4px solid var(--primary); */
+    padding: 1rem;
     border-radius: 6px;
     margin-bottom: 2rem;
+  }
+
+  .response-guarantee :global(span) {
+    color: #6B9B37;
+  }
+
+  .response-guarantee-title {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
   }
 
   .response-guarantee h3 {
     font-size: 1rem;
     font-weight: 700;
     color: var(--primary);
-    margin: 0 0 0.5rem 0;
   }
 
   .response-guarantee p {
@@ -604,6 +609,9 @@ const result = Astro.getActionResult(actions.requestCustomQuote);
     font-size: 0.85rem;
     color: #666;
     margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
   }
 
   /* Form Styling */

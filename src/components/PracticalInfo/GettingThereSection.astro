@@ -4,27 +4,30 @@ import ExpandableItem from "../ExpandableItem.astro";
 ---
 
 <section class="getting-there-section">
-  <div class="container">
+  <div class="section-container">
     <div class="section-heading">
-      <IconRenderer icon="Factory" size={32} />
+      <IconRenderer icon="bus" size={32} />
       <h2>Getting There</h2>
     </div>
 
     <div class="routes">
       <ExpandableItem
         title="From Quito (most common)"
-        content={`<p class="route-meta">Distance: 180km • Time: 4-4.5 hours</p><strong>Route:</strong><br/>Take the Panamericana Sur from Quito heading south through the Avenue of the Volcanoes. Exit toward Guaranda and continue west through the Chimborazo province, descending into the subtropical valley toward Salinas de Guaranda.<br/><br/><strong>Bus:</strong><br/>From Terminal Quitumbe in Quito, take a direct bus to Guaranda (approximately 4 hours). From Guaranda, local buses and shared trucks depart regularly for Salinas (30-45 minutes). Cooperativa de Transportes Guaranda and Flota Bolívar operate daily routes.<br/><br/><strong>Private Transfer:</strong><br/>We can arrange private transportation from Quito directly to Salinas. Contact us at info@salinasecuador.com or +593 98 765 4321 for availability and pricing.`}
+        subtitle="Distance: 180km • Time: 4-4.5 hours"
+        content={`<strong>Route:</strong><br/>Take the Panamericana Sur from Quito heading south through the Avenue of the Volcanoes. Exit toward Guaranda and continue west through the Chimborazo province, descending into the subtropical valley toward Salinas de Guaranda.<br/><br/><strong>Bus:</strong><br/>From Terminal Quitumbe in Quito, take a direct bus to Guaranda (approximately 4 hours). From Guaranda, local buses and shared trucks depart regularly for Salinas (30-45 minutes). Cooperativa de Transportes Guaranda and Flota Bolívar operate daily routes.<br/><br/><strong>Private Transfer:</strong><br/>We can arrange private transportation from Quito directly to Salinas. Contact us at info@salinasecuador.com or +593 98 765 4321 for availability and pricing.`}
         defaultOpen={true}
       />
 
       <ExpandableItem
         title="From Guayaquil"
-        content={`<p class="route-meta">Distance: 250km • Time: 4-5 hours</p>Take the E491 highway north from Guayaquil toward Babahoyo, then continue northeast through Chimbo to Guaranda. From Guaranda, follow the road north to Salinas de Guaranda. The route passes through diverse landscapes from coastal lowlands to highland valleys.`}
+        subtitle="Distance: 250km • Time: 4-5 hours"
+        content={`Take the E491 highway north from Guayaquil toward Babahoyo, then continue northeast through Chimbo to Guaranda. From Guaranda, follow the road north to Salinas de Guaranda. The route passes through diverse landscapes from coastal lowlands to highland valleys.`}
       />
 
       <ExpandableItem
         title="From Cuenca"
-        content={`<p class="route-meta">Distance: 400km • Time: 7-8 hours</p>Head north on the E35 Panamericana through Cañar and Riobamba. From Riobamba, take the road west to Guaranda via Ambato or the direct Riobamba-Guaranda route. Continue north from Guaranda to Salinas. This is the longest route but offers spectacular Andean scenery.`}
+        subtitle="Distance: 400km • Time: 7-8 hours"
+        content={`Head north on the E35 Panamericana through Cañar and Riobamba. From Riobamba, take the road west to Guaranda via Ambato or the direct Riobamba-Guaranda route. Continue north from Guaranda to Salinas. This is the longest route but offers spectacular Andean scenery.`}
       />
     </div>
   </div>
@@ -34,10 +37,10 @@ import ExpandableItem from "../ExpandableItem.astro";
   .getting-there-section {
     padding: 4rem 1rem;
     background: white;
+    color: var(--primary);
   }
 
-  .container {
-    max-width: 1200px;
+  .section-container {
     margin: 0 auto;
   }
 
@@ -51,13 +54,13 @@ import ExpandableItem from "../ExpandableItem.astro";
   h2 {
     font-size: 2rem;
     font-weight: 700;
-    color: #111827;
     margin: 0;
   }
 
   .routes {
     display: flex;
     flex-direction: column;
+    color: var(--primary);
   }
 
   :global(.routes .expandable-item) {

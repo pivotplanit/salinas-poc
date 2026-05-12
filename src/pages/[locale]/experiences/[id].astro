@@ -12,6 +12,7 @@ import WhatToBring from "../../../components/ExperienceDetail/WhatToBring.astro"
 import TestimonialsSection from "../../../components/ExperienceDetail/TestimonialsSection.astro";
 import FAQSection from "../../../components/ExperienceDetail/FAQSection.astro";
 import RelatedExperiences from "../../../components/ExperienceDetail/RelatedExperiences.astro";
+import AdditionalExperience from "../../../components/ExperienceDetail/AdditionalExperience.astro";
 import NeedHelp from "../../../components/ExperienceDetail/NeedHelp.astro";
 import ShareSection from "../../../components/ExperienceDetail/ShareSection.astro";
 import BookingCard from "../../../components/ExperienceDetail/BookingCard.astro";
@@ -149,6 +150,8 @@ const heroBadges = [
       />
     </div>
   </section>
+
+  <AdditionalExperience currentId={experience.id} />
 </BaseLayout>
 
 <style>

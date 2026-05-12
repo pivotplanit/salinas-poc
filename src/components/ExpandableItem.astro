@@ -1,17 +1,22 @@
 ---
 interface Props {
   title: string;
+  subtitle?: string;
   content: string;
   defaultOpen?: boolean;
 }
 
-const { title, content, defaultOpen = false } = Astro.props;
+const { title, subtitle, content, defaultOpen = false } = Astro.props;
 const id = Math.random().toString(36).substring(2, 9);
 ---
 
 <div class="expandable-item" data-open={defaultOpen}>
   <button class="expandable-header" aria-expanded={defaultOpen} aria-controls={id}>
-    <span class="expandable-title">{title}</span>
+    <span class="expandable-title-container">
+      <span class="expandable-title">{title}</span>
+      <span class="expandable-subtitle">{subtitle}</span>
+    </span>
+    
     <span class="expandable-icon">
       <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <polyline points="6 9 12 15 18 9"></polyline>
@@ -52,9 +57,20 @@ const id = Math.random().toString(36).substring(2, 9);
     background: var(--header-hover-bg, #efefef);
   }
 
+  .expandable-title-container {
+    display: flex;
+    flex-direction: column;
+  }
+
   .expandable-title {
     flex: 1;
-    color: var(--text-color, #1a1a1a);
+    color: var(--primary);
+    margin-bottom: 0.2rem;
+  }
+
+  .expandable-subtitle {
+    color: #4B5563;
+    font-size: 0.7rem;
   }
 
   .expandable-icon {
@@ -87,12 +103,14 @@ const id = Math.random().toString(36).substring(2, 9);
     padding: 1.25rem;
     background: white;
     border-top: 1px solid var(--border-color, #e0e0e0);
-    color: var(--text-color, #1a1a1a);
+    color: var(--primary);
     line-height: 1.6;
   }
 
   .expandable-content-inner p {
     margin: 0;
+    border-left: 2px solid #E8F4FD;
+    padding-left: 0.5rem;
   }
 
   .expandable-content-inner p + p {

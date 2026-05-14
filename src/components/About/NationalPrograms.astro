@@ -1,0 +1,163 @@
+---
+import { nationalFeatures, nationalRegions } from "../../lib/about-data";
+import IconRenderer from "../IconRenderer.astro";
+---
+
+<section class="national-section">
+  <div class="section-container">
+    <div class="card">
+      <div class="left">
+        <h2>National Programs</h2>
+        <p class="description">
+          Explore the diverse landscapes of Ecuador with our comprehensive
+          national programs covering all four major regions.
+        </p>
+
+        <div class="features">
+          {nationalFeatures.map((feature) => (
+            <div class="feature">
+              <IconRenderer icon={feature.icon} size={20} color="#1f3a8a" />
+              <span>{feature.title}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <div class="right">
+        {nationalRegions.map((region) => (
+          <div
+            class="region-card"
+            style={`background-image:url('${region.image}');`}
+          >
+            <div class="region-label">
+              <IconRenderer icon={region.icon} size={20} color="#ffffff" />
+              <span>{region.name}</span>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .national-section {
+    padding: 4rem 1rem;
+    background: #ffffff;
+  }
+
+  .section-container {
+    margin: 0 auto;
+  }
+
+  .card {
+    background: #f3f4f6;
+    border-radius: 14px;
+    padding: 2rem;
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 2rem;
+  }
+
+  .left {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  h2 {
+    margin: 0;
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--primary);
+  }
+
+  .description {
+    margin: 0;
+    color: #4b5563;
+    line-height: 1.55;
+    font-size: 0.95rem;
+  }
+
+  .features {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    margin-top: 0.5rem;
+  }
+
+  .feature {
+    background: #ffffff;
+    border-radius: 8px;
+    padding: 0.85rem 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    color: #1f2937;
+    font-size: 0.95rem;
+    font-weight: 500;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+  }
+
+  .right {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+
+  .region-card {
+    position: relative;
+    border-radius: 10px;
+    overflow: hidden;
+    background-size: cover;
+    background-position: center;
+    min-height: 170px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  }
+
+  .region-card::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0) 50%,
+      rgba(0, 0, 0, 0.55) 100%
+    );
+  }
+
+  .region-label {
+    position: absolute;
+    left: 1rem;
+    bottom: 1rem;
+    z-index: 1;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: #ffffff;
+    font-size: 1rem;
+    font-weight: 700;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
+  }
+
+  @media (max-width: 900px) {
+    .card {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media (max-width: 600px) {
+    .national-section {
+      padding: 3rem 1rem;
+    }
+    h2 {
+      font-size: 1.5rem;
+    }
+    .right {
+      grid-template-columns: 1fr;
+    }
+    .region-card {
+      min-height: 150px;
+    }
+  }
+</style>

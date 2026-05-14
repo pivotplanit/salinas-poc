@@ -36,6 +36,53 @@ export interface Cooperative {
   url: string;
 }
 
+export interface AttractionCategory {
+  title: string;
+  icon: string;
+  iconColor: string;
+  items: string[];
+}
+
+export interface Accommodation {
+  name: string;
+  stars: number;
+}
+
+export interface Flavor {
+  title: string;
+  description: string;
+}
+
+export interface ProductCategory {
+  title: string;
+  iconColor: string;
+  items: string[];
+}
+
+export interface VolunteerArea {
+  title: string;
+  icon: string;
+  color: string;
+  items: string[];
+}
+
+export interface VolunteerInfo {
+  label: string;
+  value: string;
+  icon: string;
+}
+
+export interface NationalFeature {
+  title: string;
+  icon: string;
+}
+
+export interface NationalRegion {
+  name: string;
+  icon: string;
+  image: string;
+}
+
 export const people: Person[] = [
   {
     name: "Juan Pérez",
@@ -247,5 +294,195 @@ export const cooperatives: Cooperative[] = [
     description: "Traditional handcrafted goods and artisan works",
     logo: "https://images.unsplash.com/photo-1513364776144-60967b0f800f?w=200&h=200&fit=crop",
     url: "https://artesaniassalinas.com",
+  },
+];
+
+export const attractionCategories: AttractionCategory[] = [
+  {
+    title: "Natural Wonders",
+    icon: "Mountain",
+    iconColor: "#7cb342",
+    items: [
+      "Tiagua Canyons",
+      "Two-Level Cave",
+      "Guayanas Cave",
+      "Family Park",
+      "Calvario Cross",
+      "Salt Mines",
+      "Quindimuncho Hill",
+      "Owl Waterfall",
+      "Inca Tooth Rock",
+      "Sunset Drop",
+      "Sombrero Rumi Rock",
+      "Pakcha Waterfall",
+    ],
+  },
+  {
+    title: "Community Enterprises",
+    icon: "Users",
+    iconColor: "#3b82f6",
+    items: [
+      "Cheese Factory",
+      "Candy Factory",
+      "Essential Oil Factory",
+      "Spinning Mill",
+      "Sausage Production",
+      "Musayu Museum",
+      "Liquor Factory",
+      "Ice Cream Factory",
+      "Craft Beer Brewery",
+      "Ball Manufacturing",
+      "Dehydrated Food",
+      "Jam Factory",
+      "Confectionery",
+    ],
+  },
+];
+
+export const accommodations: Accommodation[] = [
+  { name: "Hostal La Minga", stars: 3 },
+  { name: "Hotel El Refugio", stars: 4 },
+  { name: "Hostal Puerta Abierta", stars: 3 },
+  { name: "Hostal Samilagua", stars: 3 },
+  { name: "Ecolodge Samiyaku", stars: 4 },
+  { name: "Salinas Apartment", stars: 3 },
+];
+
+export const flavors: Flavor[] = [
+  {
+    title: "Free-Range Chicken Soup",
+    description: "Strong homemade flavor, ideal for cold climates",
+  },
+  {
+    title: "Country-Style Fried Pork",
+    description: "Served with hominy corn, potatoes, toasted corn, and chili sauce",
+  },
+  {
+    title: "Highland Trout",
+    description: "Grilled, garlic-style, or breaded",
+  },
+  {
+    title: "Hominy Corn with Cheese",
+    description: "Classic Andean dish served with local cheese",
+  },
+  {
+    title: "Quinoa or Barley Soup",
+    description: "Highly nutritious Andean preparations",
+  },
+  {
+    title: "Roasted Pork",
+    description: "With crispy skin and served with potato patties",
+  },
+];
+
+export const productCategories: ProductCategory[] = [
+  {
+    title: "Food & Dairy",
+    iconColor: "#f59e0b",
+    items: [
+      "Artisan cheeses (mozzarella, dambo, Andean)",
+      "Yogurt, butter, cream",
+      "Chocolates and bonbons",
+      "Confectionery & sweets",
+      "Jams and fruit preserves",
+      "Dehydrated mushrooms and fruits",
+    ],
+  },
+  {
+    title: "Textiles",
+    iconColor: "#3b82f6",
+    items: [
+      "Sheep and alpaca wool yarn",
+      "Hand-woven sweaters",
+      "Hats, scarves, gloves",
+      "Ponchos and jackets",
+      "Shawls and accessories",
+    ],
+  },
+  {
+    title: "Other Products",
+    iconColor: "#7cb342",
+    items: [
+      "Sausages and processed meats",
+      "Essential oils",
+      "Herbal infusions",
+      "Medicinal plant products",
+      "Handmade crafts",
+    ],
+  },
+];
+
+export const volunteerAreas: VolunteerArea[] = [
+  {
+    title: "Environmental Area",
+    icon: "Leaf",
+    color: "#10b981",
+    items: [
+      "Environmental education",
+      "Conservation and restoration",
+      "Permaculture",
+      "Waste management",
+      "Research and monitoring",
+      "Sustainable agriculture",
+    ],
+  },
+  {
+    title: "Social Area",
+    icon: "Heart",
+    color: "#ef4444",
+    items: [
+      "Support for elderly center",
+      "Education and training",
+      "Health and wellness promotion",
+      "Community work",
+    ],
+  },
+  {
+    title: "Productive Area",
+    icon: "Briefcase",
+    color: "#f59e0b",
+    items: [
+      "Development of innovative products",
+      "Confectionery",
+      "Natural oils and cosmetics",
+      "Agroindustry and transformation",
+    ],
+  },
+];
+
+export const volunteerInfo: VolunteerInfo[] = [
+  { label: "DURATION", value: "2 weeks to 1 month", icon: "Clock" },
+  { label: "AUDIENCE", value: "International, 18+ years", icon: "Users" },
+  { label: "REQUIREMENTS", value: "Basic Spanish, Application", icon: "BookOpen" },
+  { label: "INCLUDED", value: "Meals, Accommodation, Certificate", icon: "CheckCircle" },
+];
+
+export const nationalFeatures: NationalFeature[] = [
+  { title: "Accommodation Included", icon: "Bed" },
+  { title: "Meals Included", icon: "Utensils" },
+  { title: "Professional Guiding", icon: "Compass" },
+  { title: "Transportation", icon: "MapPin" },
+];
+
+export const nationalRegions: NationalRegion[] = [
+  {
+    name: "Highlands",
+    icon: "Mountain",
+    image: "https://images.unsplash.com/photo-1518391846015-55a9cc003b25?w=800&h=500&fit=crop",
+  },
+  {
+    name: "Coast",
+    icon: "Map",
+    image: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=800&h=500&fit=crop",
+  },
+  {
+    name: "Amazon",
+    icon: "Leaf",
+    image: "https://images.unsplash.com/photo-1516026672322-bc52d61a55d5?w=800&h=500&fit=crop",
+  },
+  {
+    name: "Galapagos",
+    icon: "Globe",
+    image: "https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=800&h=500&fit=crop",
   },
 ];

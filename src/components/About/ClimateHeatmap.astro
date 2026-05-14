@@ -1,8 +1,9 @@
 ---
+
 ---
 
 <section class="climate-section">
-  <div class="container">
+  <div class="section-container">
     <h2>Climate & Best Times to Visit</h2>
 
     <!-- Monthly Heatmap Grid -->
@@ -24,26 +25,26 @@
       </div>
 
       <!-- Rainy Season Row -->
-      <div class="activity-section">
-        <h3 class="row-label">🌧️ Rainy Season</h3>
+      <div class="activity-section rainy-season">
+        <h3 class="row-label">💧 Rainy Season</h3>
         <div class="heatmap-grid">
-          <div class="activity-cell active" title="Jan - Rainy">🌧️</div>
-          <div class="activity-cell active" title="Feb - Rainy">🌧️</div>
-          <div class="activity-cell active" title="Mar - Rainy">🌧️</div>
-          <div class="activity-cell active" title="Apr - Rainy">🌧️</div>
-          <div class="activity-cell active" title="May - Rainy">🌧️</div>
+          <div class="activity-cell active" title="Jan - Rainy">💧</div>
+          <div class="activity-cell active" title="Feb - Rainy">💧</div>
+          <div class="activity-cell active" title="Mar - Rainy">💧</div>
+          <div class="activity-cell active" title="Apr - Rainy">💧</div>
+          <div class="activity-cell active" title="May - Rainy">💧</div>
           <div class="activity-cell" title="Jun - Dry"></div>
           <div class="activity-cell" title="Jul - Dry"></div>
           <div class="activity-cell" title="Aug - Dry"></div>
           <div class="activity-cell" title="Sep - Dry"></div>
-          <div class="activity-cell active" title="Oct - Rainy">🌧️</div>
-          <div class="activity-cell active" title="Nov - Rainy">🌧️</div>
-          <div class="activity-cell active" title="Dec - Rainy">🌧️</div>
+          <div class="activity-cell active" title="Oct - Rainy">💧</div>
+          <div class="activity-cell active" title="Nov - Rainy">💧</div>
+          <div class="activity-cell active" title="Dec - Rainy">💧</div>
         </div>
       </div>
 
       <!-- Dry Season Row -->
-      <div class="activity-section">
+      <div class="activity-section dry-season">
         <h3 class="row-label">☀️ Dry Season</h3>
         <div class="heatmap-grid">
           <div class="activity-cell" title="Jan - Rainy"></div>
@@ -62,7 +63,7 @@
       </div>
 
       <!-- Best Hiking Row -->
-      <div class="activity-section">
+      <div class="activity-section best-hiking">
         <h3 class="row-label">🥾 Best Hiking</h3>
         <div class="heatmap-grid">
           <div class="activity-cell" title="Jan"></div>
@@ -81,40 +82,49 @@
       </div>
 
       <!-- Festival Season Row -->
-      <div class="activity-section">
-        <h3 class="row-label">⭐ Festival Season</h3>
+      <div class="activity-section festival-season">
+        <h3 class="row-label">🎉 Festival Season</h3>
         <div class="heatmap-grid">
           <div class="activity-cell" title="Jan"></div>
-          <div class="activity-cell active" title="Feb - Festival">⭐</div>
+          <div class="activity-cell active" title="Feb - Festival">🎉</div>
           <div class="activity-cell" title="Mar"></div>
           <div class="activity-cell" title="Apr"></div>
           <div class="activity-cell" title="May"></div>
           <div class="activity-cell" title="Jun"></div>
           <div class="activity-cell" title="Jul"></div>
           <div class="activity-cell" title="Aug"></div>
-          <div class="activity-cell active" title="Sep - Festival">⭐</div>
-          <div class="activity-cell active" title="Oct - Festival">⭐</div>
-          <div class="activity-cell active" title="Nov - Festival">⭐</div>
+          <div class="activity-cell active" title="Sep - Festival">🎉</div>
+          <div class="activity-cell active" title="Oct - Festival">🎉</div>
+          <div class="activity-cell active" title="Nov - Festival">🎉</div>
           <div class="activity-cell" title="Dec"></div>
         </div>
       </div>
-    </div>
 
-    <!-- Summary Cards -->
-    <div class="summary-cards">
-      <div class="summary-card">
-        <h3>Best Overall</h3>
-        <p>June to September offers the best combination of clear skies, comfortable temperatures, and perfect hiking conditions.</p>
-      </div>
-      
-      <div class="summary-card">
-        <h3>Festivals</h3>
-        <p>February and September-November showcase local festivals and cultural events. Perfect time to immerse in community celebrations.</p>
-      </div>
-      
-      <div class="summary-card">
-        <h3>Rainy Season</h3>
-        <p>October to May brings lush green landscapes and fewer tourists. Great for photographers seeking dramatic cloud formations.</p>
+      <div class="divider"></div>
+      <!-- Summary Cards -->
+      <div class="summary-cards">
+        <div class="summary-card best-overall">
+          <h3>Best Overall</h3>
+          <p>
+            June to September offers the best combination of clear skies,
+            comfortable temperatures, and perfect hiking conditions
+          </p>
+        </div>
+
+        <div class="summary-card temperature">
+          <h3>Temperature</h3>
+          <p>
+            Average 8°C to 15°C. Fresh and clean Andean mountain
+          </p>
+        </div>
+
+        <div class="summary-card rainy-season">
+          <h3>Rainy Season</h3>
+          <p>
+            October to May brings lush green landscapes and fewer tourists.
+            Great for photographers seeking dramatic cloud formations
+          </p>
+        </div>
       </div>
     </div>
   </div>
@@ -126,10 +136,8 @@
     background: white;
   }
 
-  .container {
-    max-width: 1400px;
+  .section-container {
     margin: 0 auto;
-    padding: 0 2rem;
   }
 
   h2 {
@@ -204,6 +212,27 @@
     border-color: var(--primary);
   }
 
+  .dry-season .heatmap-grid .activity-cell.active {
+    background: var(--tertiary);
+    border-color: var(--tertiary);
+  }
+
+  .best-hiking .heatmap-grid .activity-cell.active {
+    background: #6b9b37;
+    border-color: #6b9b37;
+  }
+
+  .festival-season .heatmap-grid .activity-cell.active {
+    background: #f59e0b;
+    border-color: #f59e0b;
+  }
+
+  .divider {
+    height: 1px;
+    background: #e0e0e0;
+    margin: 2rem 0;
+  }
+
   /* Summary Cards */
   .summary-cards {
     display: grid;
@@ -216,11 +245,26 @@
     border: 1px solid #e0e0e0;
     border-radius: 12px;
     padding: 2rem;
-    text-align: center;
+    text-align: left;
+  }
+
+  .summary-card.best-overall {
+    background: #E8F4FD33;
+    border: 1px solid #2B6CB01A;
+  }
+
+  .summary-card.temperature {
+    background: #FFFBEB;
+    border: 1px solid #FEF3C7
+  }
+
+  .summary-card.rainy-season {
+    background: #1B3A5C0D;
+    border: 1px solid #1B3A5C1A;
   }
 
   .summary-card h3 {
-    font-size: 1.3rem;
+    font-size: 0.8rem;
     font-weight: 700;
     color: var(--primary);
     margin: 0 0 1rem 0;
@@ -228,9 +272,9 @@
 
   .summary-card p {
     margin: 0;
-    color: #666;
+    color: var(--subtitle-color);
     line-height: 1.6;
-    font-size: 0.95rem;
+    font-size: 0.7rem;
   }
 
   @media (max-width: 1024px) {

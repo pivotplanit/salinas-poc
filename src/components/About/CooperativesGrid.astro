@@ -3,7 +3,7 @@ import { cooperatives } from "../../lib/about-data";
 ---
 
 <section class="cooperatives-section">
-  <div class="container">
+  <div class="section-container">
     <h2>Partner Cooperatives</h2>
 
     <div class="cooperatives-grid">
@@ -29,15 +29,14 @@ import { cooperatives } from "../../lib/about-data";
     background: white;
   }
 
-  .container {
-    max-width: 1200px;
+  .section-container {
     margin: 0 auto;
   }
 
   h2 {
     font-size: 2rem;
-    font-weight: 600;
-    color: var(--text-dark, #1a1a1a);
+    font-weight: 700;
+    color: var(--primary);
     margin: 0 0 2rem 0;
   }
 
@@ -56,6 +55,7 @@ import { cooperatives } from "../../lib/about-data";
     flex-direction: column;
     gap: 0.5rem;
     position: relative;
+    align-items: center;
   }
 
   .cooperative-logo {
@@ -69,7 +69,7 @@ import { cooperatives } from "../../lib/about-data";
     width: 120px;
     height: 120px;
     object-fit: cover;
-    border-radius: 8px;
+    border-radius: 50%;
     background: #e8ebef;
   }
 
@@ -91,7 +91,7 @@ import { cooperatives } from "../../lib/about-data";
     margin-top: auto;
     padding-top: 0.5rem;
     font-size: 0.875rem;
-    color: var(--text-dark, #1a1a1a);
+    color: var(--tertiary);
     text-decoration: none;
     font-weight: 500;
     transition: color 200ms ease;

@@ -1,0 +1,137 @@
+---
+import { productCategories } from "../../lib/about-data";
+import IconRenderer from "../IconRenderer.astro";
+---
+
+<section class="products-section">
+  <div class="section-container">
+    <h2>Local Products</h2>
+    <p class="intro">
+      Many products are produced by community micro-enterprises under the
+      Salinerito brand.
+    </p>
+
+    <div class="products-grid">
+      {productCategories.map((category) => (
+        <div class="product-card" style={`border-top-color:${category.iconColor};`}>
+          <div class="icon-wrapper">
+            <IconRenderer icon="ShoppingBag" size={32} color={category.iconColor} />
+          </div>
+          <h3>{category.title}</h3>
+          <ul>
+            {category.items.map((item) => (
+              <li>
+                <span class="bullet" style={`background:${category.iconColor};`}></span>
+                <span>{item}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .products-section {
+    padding: 4rem 1rem;
+    color: #fff;
+  }
+
+  .section-container {
+    margin: 0 auto;
+  }
+
+  h2 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--primary, #2b6cb0);
+    margin: 0 0 1.5rem 0;
+    text-align: center;
+  }
+
+  .intro {
+    margin: 0 auto 3rem auto;
+    max-width: 640px;
+    text-align: center;
+    color: #9ca3af;
+    line-height: 1.6;
+    font-size: 1rem;
+  }
+
+  .products-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+
+  .product-card {
+    background: #fff;
+    color: #1f2937;
+    border-radius: 10px;
+    border-top: 4px solid;
+    padding: 1.75rem;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .icon-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+  }
+
+  .product-card h3 {
+    margin: 0;
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #1f3a8a;
+  }
+
+  .product-card ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .product-card li {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    color: #4b5563;
+    font-size: 0.9rem;
+    line-height: 1.4;
+  }
+
+  .bullet {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  @media (max-width: 1024px) {
+    .products-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 600px) {
+    .products-section {
+      padding: 3rem 1rem;
+    }
+
+    h2 {
+      font-size: 1.5rem;
+    }
+
+    .products-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

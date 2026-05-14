@@ -1,0 +1,116 @@
+---
+import { attractionCategories } from "../../lib/about-data";
+import IconRenderer from "../IconRenderer.astro";
+---
+
+<section class="attractions-section">
+  <div class="section-container">
+    <h2>Tourist Attractions</h2>
+
+    {attractionCategories.map((category) => (
+      <div class="category">
+        <div class="category-header">
+          <span class="category-icon" style={`background:${category.iconColor};`}>
+            <IconRenderer icon={category.icon} size={20} color="#ffffff" />
+          </span>
+          <h3 style={`color:${category.iconColor};`}>{category.title}</h3>
+        </div>
+
+        <div class="items-grid">
+          {category.items.map((item) => (
+            <div class="item-card">{item}</div>
+          ))}
+        </div>
+      </div>
+    ))}
+  </div>
+</section>
+
+<style>
+  .attractions-section {
+    padding: 4rem 1rem;
+    color: #fff;
+  }
+
+  .section-container {
+    margin: 0 auto;
+  }
+
+  h2 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--primary, #2b6cb0);
+    margin: 0 0 3rem 0;
+    text-align: center;
+  }
+
+  .category {
+    margin-bottom: 3rem;
+  }
+
+  .category-header {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .category-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 8px;
+  }
+
+  .category-header h3 {
+    margin: 0;
+    font-size: 1.125rem;
+    font-weight: 700;
+    text-transform: none;
+  }
+
+  .items-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+  }
+
+  .item-card {
+    background: #fff;
+    color: #374151;
+    border-radius: 8px;
+    padding: 1rem 1.25rem;
+    font-size: 0.95rem;
+    font-weight: 500;
+    border: 1px solid #E5E7EB;
+  }
+
+  @media (max-width: 1024px) {
+    .items-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  @media (max-width: 768px) {
+    .attractions-section {
+      padding: 3rem 1rem;
+    }
+
+    h2 {
+      font-size: 1.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .items-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 480px) {
+    .items-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

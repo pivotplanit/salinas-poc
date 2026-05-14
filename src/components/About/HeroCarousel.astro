@@ -9,6 +9,8 @@ interface Slide {
 
 interface Props {
   slides?: Slide[];
+  title?: string;
+  subtitle?: string;
 }
 
 const defaultSlides: Slide[] = [
@@ -31,7 +33,11 @@ const defaultSlides: Slide[] = [
   },
 ];
 
-const { slides = defaultSlides } = Astro.props;
+const {
+  slides = defaultSlides,
+  title = "Salinas de Guaranda",
+  subtitle = "Where the Mountains Hold Magic and Community Creates Stories",
+} = Astro.props;
 ---
 
 <section class="hero-carousel-section">
@@ -66,16 +72,37 @@ const { slides = defaultSlides } = Astro.props;
       ))}
     </div>
 
-    <button class="carousel-btn carousel-btn-prev" aria-label="Previous image">
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-        <polyline points="15 18 9 12 15 6"></polyline>
-      </svg>
-    </button>
-    <button class="carousel-btn carousel-btn-next" aria-label="Next image">
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-        <polyline points="9 18 15 12 9 6"></polyline>
-      </svg>
-    </button>
+    {slides.length > 1 && (
+      <>
+        <button class="carousel-btn carousel-btn-prev" aria-label="Previous image">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="15 18 9 12 15 6"></polyline>
+          </svg>
+        </button>
+        <button class="carousel-btn carousel-btn-next" aria-label="Next image">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="9 18 15 12 9 6"></polyline>
+          </svg>
+        </button>
+      </>
+    )}
+
+    <div class="hero-overlay">
+      {title && <h1 class="hero-title">{title}</h1>}
+      {subtitle && <p class="hero-subtitle">{subtitle}</p>}
+      {slides.length > 1 && (
+        <div class="hero-indicators">
+          {slides.map((_, index) => (
+            <button
+              class:list={['hero-dot', { active: index === 0 }]}
+              data-dot={index}
+              aria-label={`Go to slide ${index + 1}`}
+              aria-current={index === 0}
+            ></button>
+          ))}
+        </div>
+      )}
+    </div>
   </div>
 </section>
 
@@ -110,7 +137,6 @@ const { slides = defaultSlides } = Astro.props;
     transition: opacity 600ms ease-in-out;
     background: var(--medium-gray);
     z-index: 1;
-    
   }
 
   .carousel-slide.active {
@@ -164,10 +190,110 @@ const { slides = defaultSlides } = Astro.props;
     transform: translateY(-50%) scale(0.95);
   }
 
+  /* Bottom-centered overlay: title, subtitle, dots */
+  .hero-overlay {
+    position: absolute;
+    bottom: 2rem;
+    left: 0;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0 1.5rem;
+    z-index: 10;
+    text-align: center;
+    pointer-events: none;
+  }
+
+  .hero-title {
+    margin: 0;
+    color: white;
+    font-size: 3rem;
+    font-weight: 700;
+    line-height: 1.15;
+    text-shadow: 0 2px 12px rgba(0, 0, 0, 0.55);
+    text-wrap: balance;
+  }
+
+  .hero-subtitle {
+    margin: 0;
+    color: rgba(255, 255, 255, 0.95);
+    font-size: 1.1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    text-shadow: 0 1px 6px rgba(0, 0, 0, 0.5);
+    text-wrap: balance;
+  }
+
+  .hero-indicators {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+    pointer-events: auto;
+  }
+
+  .hero-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.4);
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    transition: all 300ms ease;
+  }
+
+  .hero-dot:hover {
+    background: rgba(255, 255, 255, 0.6);
+  }
+
+  .hero-dot.active {
+    background: white;
+    width: 32px;
+    border-radius: 5px;
+  }
+
   @media (max-width: 768px) {
     .carousel-btn {
       width: 40px;
       height: 40px;
+    }
+
+    .carousel-btn-prev {
+      left: 1rem;
+    }
+
+    .carousel-btn-next {
+      right: 1rem;
+    }
+
+    .hero-overlay {
+      bottom: 1.5rem;
+      gap: 0.5rem;
+    }
+
+    .hero-title {
+      font-size: 1.85rem;
+    }
+
+    .hero-subtitle {
+      font-size: 0.95rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .carousel-btn {
+      width: 36px;
+      height: 36px;
+    }
+
+    .hero-title {
+      font-size: 1.5rem;
+    }
+
+    .hero-subtitle {
+      font-size: 0.875rem;
     }
   }
 </style>
@@ -182,6 +308,7 @@ const { slides = defaultSlides } = Astro.props;
   }
 
   const slides = document.querySelectorAll('.carousel-slide');
+  const dots = document.querySelectorAll('.hero-dot');
   const prevBtn = document.querySelector('.carousel-btn-prev');
   const nextBtn = document.querySelector('.carousel-btn-next');
 
@@ -222,6 +349,11 @@ const { slides = defaultSlides } = Astro.props;
         slide.classList.toggle('active', i === currentIndex);
       });
 
+      dots.forEach((dot, i) => {
+        dot.classList.toggle('active', i === currentIndex);
+        dot.setAttribute('aria-current', String(i === currentIndex));
+      });
+
       // Stop previous video
       const prevVideo = slides[prevIndex]?.querySelector('video');
       if (prevVideo) prevVideo.pause();
@@ -242,6 +374,12 @@ const { slides = defaultSlides } = Astro.props;
 
     nextBtn?.addEventListener('click', () => {
       showSlide(currentIndex + 1);
+    });
+
+    dots.forEach((dot, index) => {
+      dot.addEventListener('click', () => {
+        showSlide(index);
+      });
     });
 
     // Initialize

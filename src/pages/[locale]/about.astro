@@ -1,14 +1,19 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import HeroCarousel from "@components/About/HeroCarousel.astro";
-import HeroSection from "@components/About/HeroSection.astro";
 import HistorySection from "@components/About/HistorySection.astro";
 import PeopleGrid from "@components/About/PeopleGrid.astro";
 import StatsGrid from "@components/About/StatsGrid.astro";
 import LocationsSection from "@components/About/LocationsSection.astro";
 import ClimateHeatmap from "@components/About/ClimateHeatmap.astro";
 import CultureGrid from "@components/About/CultureGrid.astro";
+import TouristAttractions from "@components/About/TouristAttractions.astro";
+import WhereToStay from "@components/About/WhereToStay.astro";
+import FlavorsOfSalinas from "@components/About/FlavorsOfSalinas.astro";
+import LocalProducts from "@components/About/LocalProducts.astro";
 import CommitmentsGrid from "@components/About/CommitmentsGrid.astro";
+import VolunteeringInternships from "@components/About/VolunteeringInternships.astro";
+import NationalPrograms from "@components/About/NationalPrograms.astro";
 import CooperativesGrid from "@components/About/CooperativesGrid.astro";
 import i18nConfig from "@configs/i18n";
 
@@ -24,14 +29,19 @@ const { locale } = Astro.params;
   description="Learn about the community-driven tourism model of Salinas de Guaranda"
 >
   <HeroCarousel />
-  
-  <HeroSection />
+
   <HistorySection />
   <PeopleGrid />
   <StatsGrid />
   <LocationsSection />
   <ClimateHeatmap />
   <CultureGrid />
+  <TouristAttractions />
+  <WhereToStay />
+  <FlavorsOfSalinas />
+  <LocalProducts />
   <CommitmentsGrid />
+  <VolunteeringInternships />
+  <NationalPrograms />
   <CooperativesGrid />
 </BaseLayout>

@@ -4,7 +4,7 @@ import { culture } from "../../lib/about-data";
 ---
 
 <section class="culture-section">
-  <div class="container">
+  <div class="section-container">
     <h2>Culture & Traditions</h2>
     
     <div class="culture-grid">
@@ -18,7 +18,6 @@ import { culture } from "../../lib/about-data";
               height={400}
               class="culture-image"
             />
-            <div class="photo-badge">Photo + Description</div>
           </div>
           <div class="content">
             <h3>{item.title}</h3>
@@ -36,17 +35,16 @@ import { culture } from "../../lib/about-data";
     background: white;
   }
 
-  .container {
-    max-width: 1400px;
+  .section-container {
     margin: 0 auto;
   }
 
   h2 {
-    font-size: 1.5rem;
-    font-weight: 600;
-    color: #374151;
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--primary);
     margin: 0 0 3rem 0;
-    text-align: left;
+    text-align: center;
   }
 
   .culture-grid {
@@ -56,10 +54,12 @@ import { culture } from "../../lib/about-data";
   }
 
   .culture-card {
-    border: 1px dashed #d1d5db;
-    border-radius: 8px;
-    padding: 1rem;
+    border-radius: 12px;
     transition: all 300ms ease;
+    box-shadow: 0px 0px 0px 0px #00000000;
+    box-shadow: 0px 0px 0px 0px #00000000;
+    box-shadow: 0px 4px 6px -1px #0000001A;
+    box-shadow: 0px 2px 4px -2px #0000001A;
   }
 
   .culture-card:hover {
@@ -70,10 +70,10 @@ import { culture } from "../../lib/about-data";
   .image-wrapper {
     position: relative;
     width: 100%;
-    margin-bottom: 1rem;
-    border-radius: 6px;
+    border-radius: 12px 12px 0 0;
     overflow: hidden;
     background: #e5e7eb;
+    max-height: 200px;
   }
 
   .culture-image {
@@ -108,20 +108,20 @@ import { culture } from "../../lib/about-data";
 
   .content {
     padding: 0 0.5rem;
+    padding: 1.5rem;
   }
-
   .culture-card h3 {
     margin: 0 0 0.5rem 0;
-    font-size: 1.125rem;
     font-weight: 600;
-    color: #1f2937;
+    font-size: 0.9rem;
+    color: var(--primary);
   }
 
   .culture-card p {
     margin: 0;
-    color: #6b7280;
+    color: var(--subtitle-color);
     line-height: 1.5;
-    font-size: 0.875rem;
+    font-size: 0.7rem;
   }
 
   @media (max-width: 768px) {

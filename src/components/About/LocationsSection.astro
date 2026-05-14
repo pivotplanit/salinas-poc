@@ -1,10 +1,11 @@
 ---
+import IconRenderer from "@components/IconRenderer.astro";
 ---
 
 <section class="locations-section">
-  <div class="container">
+  <div class="section-container">
     <h2>Location & Access</h2>
-    
+
     <div class="locations-layout">
       <!-- Map Column -->
       <div class="map-column">
@@ -18,21 +19,21 @@
             <h3>Getting to Salinas</h3>
             <div class="info-list">
               <div class="info-item">
-                <span class="location-pin">📍</span>
+                <IconRenderer icon="map-pin" class="location-pin" />
                 <div class="info-text">
                   <span class="label">From Quito</span>
                   <span class="value">7 hours by car</span>
                 </div>
               </div>
               <div class="info-item">
-                <span class="location-pin">📍</span>
+                <IconRenderer icon="map-pin" class="location-pin" />
                 <div class="info-text">
                   <span class="label">From Guayaquil</span>
                   <span class="value">6.5 hours by car</span>
                 </div>
               </div>
               <div class="info-item">
-                <span class="location-pin">📍</span>
+                <IconRenderer icon="map-pin" class="location-pin" />
                 <div class="info-text">
                   <span class="label">From Guaranda</span>
                   <span class="value">30 minutes by car</span>
@@ -44,24 +45,30 @@
           <div class="divider"></div>
 
           <div class="section">
-            <h3>Altitude Zones</h3>
+            <h4>Altitude Zones</h4>
             <ul class="altitude-list">
               <li>
-                <span class="altitude-label">Salinas</span>
-                <span class="altitude-value">2,600 m elevation</span>
+                <div class="altitude-row">
+                  <span class="altitude-label">Salinas</span>
+                  <span class="altitude-value">2,600 m elevation</span>
+                </div>
               </li>
               <li>
-                <span class="altitude-label">Cloud Forest</span>
-                <span class="altitude-value">2,100 - 2,800 m</span>
+                <div class="altitude-row">
+                  <span class="altitude-label">Cloud Forest</span>
+                  <span class="altitude-value">2,100 - 2,800 m</span>
+                </div>
               </li>
               <li>
-                <span class="altitude-label">Páramo</span>
-                <span class="altitude-value">3,200+ m elevation</span>
+                <div class="altitude-row">
+                  <span class="altitude-label">Páramo</span>
+                  <span class="altitude-value">3,200+ m elevation</span>
+                </div>
               </li>
             </ul>
           </div>
 
-          <div class="divider"></div>
+          <!-- <div class="divider"></div>
 
           <div class="section">
             <h3>Experience Locations</h3>
@@ -72,7 +79,7 @@
               <li>Salt Mines</li>
               <li>Cloud Forest Trails</li>
             </ul>
-          </div>
+          </div> -->
         </div>
       </div>
     </div>
@@ -85,8 +92,7 @@
     background: white;
   }
 
-  .container {
-    max-width: 1400px;
+  .section-container {
     margin: 0 auto;
   }
 
@@ -125,14 +131,22 @@
     border-radius: 12px;
     padding: 2rem;
     box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
+    max-height: 400px;
   }
 
   .section {
     margin-bottom: 0;
   }
 
+  .section h4 {
+    font-size: .7rem;
+    font-weight: 700;
+    color: var(--primary);
+    margin-bottom: 1rem;
+  }
+
   .info-card h3 {
-    font-size: 1.2rem;
+    font-size: .95rem;
     font-weight: 700;
     color: var(--primary);
     margin: 0 0 1.5rem 0;
@@ -141,7 +155,7 @@
   .divider {
     height: 1px;
     background: #e0e0e0;
-    margin: 2rem 0;
+    margin: 1rem 0;
   }
 
   .info-list {
@@ -155,12 +169,14 @@
     display: flex;
     gap: 1rem;
     align-items: flex-start;
+    color: var(--primary);
   }
 
-  .location-pin {
+  .info-item :global(.location-pin) {
     font-size: 1.2rem;
     flex-shrink: 0;
     margin-top: 0.2rem;
+    color: var(--primary);
   }
 
   .info-text {
@@ -171,29 +187,31 @@
 
   .info-item .label {
     font-weight: 600;
-    color: #333;
-    font-size: 0.95rem;
+    font-size: 0.7rem;
   }
 
   .info-item .value {
-    color: #666;
-    font-size: 0.9rem;
+    color: var(--subtitle-color);
+    font-size: 0.6rem;
   }
 
   .altitude-list {
     margin: 0;
-    padding-left: 1.5rem;
+    padding-left: 1.25rem;
     list-style: disc;
     color: #666;
     line-height: 1.8;
-    font-size: 0.95rem;
+    font-size: 0.7rem;
   }
 
   .altitude-list li {
+    margin-bottom: 0.5rem;
+  }
+
+  .altitude-row {
     display: flex;
     justify-content: space-between;
     gap: 1rem;
-    margin-bottom: 0.5rem;
   }
 
   .altitude-label {
@@ -294,18 +312,19 @@
 
   // Salinas coordinates
   const salinas: [number, number] = [-1.6167, -78.9];
-  
+
   const mapContainer = document.getElementById('map-container');
   if (mapContainer) {
     const map = L.map(mapContainer).setView(salinas, 10);
-    
+
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
       attribution: '© OpenStreetMap contributors',
       maxZoom: 19,
     }).addTo(map);
 
     // Add marker for Salinas
-    L.marker(salinas).addTo(map)
+    L.marker(salinas)
+      .addTo(map)
       .bindPopup('<strong>Salinas de Guaranda</strong><br>Ecuador')
       .openPopup();
   }

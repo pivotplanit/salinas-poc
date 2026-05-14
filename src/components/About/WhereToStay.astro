@@ -1,0 +1,110 @@
+---
+import { accommodations } from "../../lib/about-data";
+import IconRenderer from "../IconRenderer.astro";
+---
+
+<section class="stay-section">
+  <div class="section-container">
+    <h2>Where to Stay</h2>
+
+    <div class="stay-grid">
+      {accommodations.map((place) => (
+        <div class="stay-card">
+          <div class="card-top">
+            <IconRenderer icon="bed" size={28} color="#1f3a8a" />
+            <div class="stars" aria-label={`${place.stars} star rating`}>
+              {Array.from({ length: place.stars }).map(() => 
+              (
+                // <IconRenderer icon="Star" size={18} color="#f59e0b" />
+                <span>★</span>
+              )
+              )}
+            </div>
+          </div>
+          <h3>{place.name}</h3>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .stay-section {
+    padding: 4rem 1rem;
+    color: #fff;
+  }
+
+  .section-container {
+    margin: 0 auto;
+  }
+
+  h2 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--primary, #2b6cb0);
+    margin: 0 0 3rem 0;
+    text-align: center;
+  }
+
+  .stay-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+
+  .stay-card {
+    background: #fff;
+    color: #1f2937;
+    border-radius: 10px;
+    padding: 1.5rem 1.75rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  }
+
+  .card-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .stars {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+    color: #FBBF24;
+  }
+
+  .stay-card h3 {
+    margin: 0;
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: #1f3a8a;
+  }
+
+  :global(.stay-card .icon) {
+    flex-shrink: 0;
+  }
+
+  @media (max-width: 1024px) {
+    .stay-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 600px) {
+    .stay-section {
+      padding: 3rem 1rem;
+    }
+
+    h2 {
+      font-size: 1.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .stay-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

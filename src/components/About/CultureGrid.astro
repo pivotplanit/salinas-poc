@@ -1,30 +1,32 @@
 ---
-import { Image } from "astro:assets";
 import { culture } from "../../lib/about-data";
 ---
 
 <section class="culture-section">
   <div class="section-container">
     <h2>Culture & Traditions</h2>
-    
+
     <div class="culture-grid">
-      {culture.map((item) => (
-        <div class="culture-card">
-          <div class="image-wrapper">
-            <Image
-              src={item.image}
-              alt={item.title}
-              width={600}
-              height={400}
-              class="culture-image"
-            />
+      {
+        culture.map((item) => (
+          <div class="culture-card">
+            <div class="image-wrapper">
+              <img
+                src={item.image}
+                alt={item.title}
+                width={600}
+                loading="lazy"
+                decoding="async"
+                class="culture-image"
+              />
+            </div>
+            <div class="content">
+              <h3>{item.title}</h3>
+              <p>{item.description}</p>
+            </div>
           </div>
-          <div class="content">
-            <h3>{item.title}</h3>
-            <p>{item.description}</p>
-          </div>
-        </div>
-      ))}
+        ))
+      }
     </div>
   </div>
 </section>
@@ -58,8 +60,8 @@ import { culture } from "../../lib/about-data";
     transition: all 300ms ease;
     box-shadow: 0px 0px 0px 0px #00000000;
     box-shadow: 0px 0px 0px 0px #00000000;
-    box-shadow: 0px 4px 6px -1px #0000001A;
-    box-shadow: 0px 2px 4px -2px #0000001A;
+    box-shadow: 0px 4px 6px -1px #0000001a;
+    box-shadow: 0px 2px 4px -2px #0000001a;
   }
 
   .culture-card:hover {

@@ -16,14 +16,16 @@ const { title, description, buttonText, buttonHref, featureText } = Astro.props;
     <div class="cta-text">
       <h2>{title}</h2>
       <p>{description}</p>
-      {featureText && (
-        <div class="cta-feature">
-          <div class="cta-feature-icon">
-            <IconRenderer icon="ShieldCheck"/>
+      {
+        featureText && (
+          <div class="cta-feature">
+            <div class="cta-feature-icon">
+              <IconRenderer icon="ShieldCheck" />
+            </div>
+            <div class="cta-feature-text">{featureText}</div>
           </div>
-          <div class="cta-feature-text">{featureText}</div>
-        </div>
-      )}
+        )
+      }
     </div>
     <div class="cta-button">
       <a href={buttonHref} class="btn btn-outline">{buttonText}</a>
@@ -33,7 +35,11 @@ const { title, description, buttonText, buttonHref, featureText } = Astro.props;
 
 <style>
   .cta-dark {
-    background: #1B3A5CD9;
+    background-image:
+      linear-gradient(#1B3A5CD9, #1B3A5CD9),
+      url('https://assets.habitattraveltours.com/images/salinas-home-uni-trip.jpg');
+    background-size: cover;
+    background-position: center;
     color: var(--white);
     padding: 8rem 2rem;
   }
@@ -46,7 +52,7 @@ const { title, description, buttonText, buttonHref, featureText } = Astro.props;
     align-items: center;
     border: 1px solid white;
     border-radius: 8px;
-    background-color: #0F2A424D;
+    background-color: #0f2a424d;
     padding: 3rem;
   }
 
@@ -69,8 +75,8 @@ const { title, description, buttonText, buttonHref, featureText } = Astro.props;
   }
 
   .cta-feature > :global(.cta-feature-icon) {
-    color: #6B9B37;
-    background: #FFFFFF1A;
+    color: #6b9b37;
+    background: #ffffff1a;
     width: 48px;
     height: 48px;
     border-radius: 50%;

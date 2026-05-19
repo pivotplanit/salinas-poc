@@ -191,32 +191,32 @@ export const culture: CultureItem[] = [
   {
     title: "Traditional Festivals",
     description: "Carnival, harvest celebrations, and community gatherings",
-    image: "https://images.unsplash.com/photo-1511632765486-a01980e01a18?w=600&h=400&fit=crop",
+    image: "https://assets.habitattraveltours.com/images/salinas-festival-01.jpg",
   },
   {
     title: "Daily Life",
     description: "Morning markets, cooperative work, family traditions",
-    image: "https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?w=600&h=400&fit=crop",
+    image: "https://assets.habitattraveltours.com/images/salinas-people-01.jpeg",
   },
   {
     title: "Agricultural Practices",
     description: "Sustainable farming, traditional crops, organic methods",
-    image: "https://images.unsplash.com/photo-1574943320219-553eb213f72d?w=600&h=400&fit=crop",
+    image: "https://assets.habitattraveltours.com/images/salinas-sunrise-with-plant.jpg",
   },
   {
     title: "Artisan Techniques",
     description: "Cheese-making, weaving, chocolate production passed down generations",
-    image: "https://images.unsplash.com/photo-1609553944726-47b4cbf6a19c?w=600&h=400&fit=crop",
+    image: "https://assets.habitattraveltours.com/images/salinas-basket-weaving.jpg",
   },
   {
     title: "Community Gatherings",
     description: "Weekly meetings, cooperative assemblies, shared meals",
-    image: "https://images.unsplash.com/photo-1511578314322-379afb476865?w=600&h=400&fit=crop",
+    image: "https://assets.habitattraveltours.com/images/salinas-hometown-02.jpg",
   },
   {
     title: "Music & Dance",
     description: "Traditional Andean music, folk dances, cultural performances",
-    image: "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=600&h=400&fit=crop",
+    image: "https://assets.habitattraveltours.com/images/salinas-band.jpg",
   },
 ];
 
@@ -468,7 +468,7 @@ export const nationalRegions: NationalRegion[] = [
   {
     name: "Highlands",
     icon: "Mountain",
-    image: "https://images.unsplash.com/photo-1518391846015-55a9cc003b25?w=800&h=500&fit=crop",
+    image: "https://assets.habitattraveltours.com/images/salinas-highlands.jpg",
   },
   {
     name: "Coast",

@@ -1,31 +1,31 @@
 {
   "testimonials": [
     {
-      "id": "sarah-martinez",
-      "name": "Dr. Sarah Martinez",
-      "affiliation": "University of Colorado",
-      "avatar": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=150&h=150&fit=crop",
-      "date": "November 2024",
+      "id": "daniel-valor",
+      "name": "Daniel Valor",
+      "affiliation": "Bros Camping Ecuador",
+      "avatar": "https://assets.habitattraveltours.com/images/salinas-testimonial-daniel-valor.png",
+      "date": "May 2026",
       "rating": 5,
-      "text": "An incredible experience for our students. The community model is fascinating and the people are so welcoming. Highly recommend for educational groups."
+      "text": "Year after year, Habitat Travel Tours delivers an incredible experience. Their commitment, logistics, and warm hospitality make every visit truly special."
     },
     {
-      "id": "james-chen",
-      "name": "James Chen",
-      "affiliation": "Stanford Study Abroad",
-      "avatar": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop",
-      "date": "October 2024",
+      "id": "carlos-ricaurte-yépez",
+      "name": "Carlos Ricaurte Yépez",
+      "affiliation": "Tourism Lecturer, ESPOCH",
+      "avatar": "https://assets.habitattraveltours.com/images/salinas-testimonial-carlos-yepez.png",
+      "date": "May 2026",
       "rating": 5,
-      "text": "An incredible experience for our students. The community model is fascinating and the people are so welcoming. Highly recommend for educational groups."
+      "text": "After 15+ visits with my students, Habitat Travel Tours never disappoints. Their quality and experience make all the difference."
     },
     {
-      "id": "maria-rodriguez",
-      "name": "Maria Rodriguez",
-      "affiliation": "Global Education Tours",
-      "avatar": "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&h=150&fit=crop",
-      "date": "September 2024",
+      "id": "sonia-bonilla",
+      "name": "Sonia Bonilla",
+      "affiliation": "Catholic University of Cuenca",
+      "avatar": "https://assets.habitattraveltours.com/images/salinas-testimonial-sonia-bonilla.png",
+      "date": "May 2026",
       "rating": 5,
-      "text": "An incredible experience for our students. The community model is fascinating and the people are so welcoming. Highly recommend for educational groups."
+      "text": "Warm, professional, and attentive to every detail — Habitat Travel Tours makes you feel right at home in Salinas de Guaranda."
     }
   ]
 }

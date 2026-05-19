@@ -2,7 +2,6 @@
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import FilterSidebar from "../../components/Experiences/FilterSidebar.astro";
 import ExperiencesGrid from "../../components/Experiences/ExperiencesGrid.astro";
-import Button from "../../components/Button.astro";
 import experiences from "../../data/experiences.json";
 import filtersData from "../../data/filters.json";
 import i18nConfig from "@configs/i18n";
@@ -16,13 +15,11 @@ const { locale } = Astro.params;
 const filters = filtersData.filters;
 ---
 
-<BaseLayout 
+<BaseLayout
   title="Experiences Catalog - Browse & Filter"
   description="Discover and filter unique experiences in Salinas de Guaranda, Ecuador"
 >
-
   <div class="page-container">
-
     <div class="main-container">
       <!-- Sidebar Filters (Desktop) -->
       <FilterSidebar filters={filters} />
@@ -53,17 +50,10 @@ const filters = filtersData.filters;
         </div>
 
         <!-- Experiences Grid -->
-        <ExperiencesGrid 
+        <ExperiencesGrid
           experiences={experiences.experiences}
           isLoading={false}
         />
-
-        <!-- Load More Button -->
-        <div class="load-more-section">
-          <Button id="load-more-btn" variant="outline" class="load-more-btn">
-            Load More Experiences
-          </Button>
-        </div>
       </main>
     </div>
   </div>
@@ -72,47 +62,34 @@ const filters = filtersData.filters;
 <script>
   // Filter state management
   const filters = {};
-  let currentPage = 1;
-  const itemsPerPage = 12;
 
   // Initialize mobile filter toggle
   function initMobileFilterToggle() {
-    const mobileFilterBtn = document.getElementById("mobile-filter-btn");
-    const filterSidebar = document.querySelector(".filter-sidebar");
+    const mobileFilterBtn = document.getElementById('mobile-filter-btn');
+    const filterSidebar = document.querySelector('.filter-sidebar');
 
     if (mobileFilterBtn && filterSidebar) {
-      mobileFilterBtn.addEventListener("click", () => {
-        filterSidebar.classList.toggle("open");
+      mobileFilterBtn.addEventListener('click', () => {
+        filterSidebar.classList.toggle('open');
       });
 
       // Close sidebar when clicking outside
-      document.addEventListener("click", (e) => {
+      document.addEventListener('click', (e) => {
         if (
           !filterSidebar.contains(e.target as Node) &&
           !mobileFilterBtn.contains(e.target as Node)
         ) {
-          filterSidebar.classList.remove("open");
+          filterSidebar.classList.remove('open');
         }
-      });
-    }
-  }
-
-  // Handle load more functionality
-  function initLoadMore() {
-    const loadMoreBtn = document.getElementById("load-more-btn");
-    if (loadMoreBtn) {
-      loadMoreBtn.addEventListener("click", () => {
-        currentPage++;
-        // console.log("Load more experiences");
       });
     }
   }
 
   // Handle sorting
   function initSorting() {
-    const sortSelect = document.getElementById("sort-select");
+    const sortSelect = document.getElementById('sort-select');
     if (sortSelect) {
-      sortSelect.addEventListener("change", (e) => {
+      sortSelect.addEventListener('change', (e) => {
         if (e?.target instanceof HTMLSelectElement) {
           // console.log("Sort by:", e.target.value);
         }
@@ -123,13 +100,12 @@ const filters = filtersData.filters;
   // Initialize all event listeners
   function init() {
     initMobileFilterToggle();
-    initLoadMore();
     initSorting();
   }
 
   // Run on page load
-  if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", init);
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
   } else {
     init();
   }
@@ -194,23 +170,15 @@ const filters = filtersData.filters;
     font-size: 0.9rem;
   }
 
-  .load-more-section {
-    display: flex;
-    justify-content: center;
-    padding: 40px 0;
-  }
-
-  .load-more-btn {
-    font-size: 18px;
-  }
-
   /* Dynamic Experience Cards (rendered via JavaScript) */
   .experiences-grid .experience-card {
     background: white;
     border-radius: 12px;
     overflow: hidden;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s, box-shadow 0.3s;
+    transition:
+      transform 0.3s,
+      box-shadow 0.3s;
   }
 
   .experiences-grid .experience-card:hover {

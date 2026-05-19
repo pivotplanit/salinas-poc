@@ -6,6 +6,11 @@
       "image": "https://assets.habitattraveltours.com/images/salinas-waterfall-02.jpg",
       "slides": [
         {
+          "type": "video",
+          "src": "https://assets.habitattraveltours.com/videos/salinas-cheese-route-salt-mines.mp4",
+          "alt": "Community cooperative"
+        },
+        {
           "type": "image",
           "src": "https://assets.habitattraveltours.com/images/salinas-cheese.jpg",
           "alt": "Cheese factory tour"
@@ -14,11 +19,6 @@
           "type": "image",
           "src": "https://assets.habitattraveltours.com/images/salinas-salt-ponds.jpg",
           "alt": "Salt crystallization ponds"
-        },
-        {
-          "type": "image",
-          "src": "https://assets.habitattraveltours.com/images/salinas-cooperative.jpg",
-          "alt": "Community cooperative"
         }
       ],
       "title": "Salt Mines & Cheese Factory Tour",
@@ -208,7 +208,11 @@
           ]
         }
       ],
-      "relatedExperienceIds": ["chocolate-workshop", "textile-weaving", "cloud-forest-exploration"]
+      "relatedExperienceIds": [
+        "chocolate-workshop",
+        "textile-weaving",
+        "cloud-forest-exploration"
+      ]
     },
     {
       "id": "nature-hike",
@@ -420,7 +424,11 @@
           ]
         }
       ],
-      "relatedExperienceIds": ["cultural-immersion", "cloud-forest-exploration", "textile-weaving"]
+      "relatedExperienceIds": [
+        "cultural-immersion",
+        "cloud-forest-exploration",
+        "camping-in-salinas"
+      ]
     },
     {
       "id": "chocolate-workshop",
@@ -630,7 +638,11 @@
           ]
         }
       ],
-      "relatedExperienceIds": ["salt-mines-cheese", "textile-weaving", "cloud-forest-exploration"]
+      "relatedExperienceIds": [
+        "salt-mines-cheese",
+        "textile-weaving",
+        "cloud-forest-exploration"
+      ]
     },
     {
       "id": "textile-weaving",
@@ -1061,11 +1073,7 @@
           ]
         }
       ],
-      "relatedExperienceIds": [
-        "nature-hike",
-        "cultural-immersion",
-        "textile-weaving"
-      ]
+      "relatedExperienceIds": ["nature-hike", "camping-in-salinas", "cultural-immersion"]
     },
     {
       "id": "cultural-immersion",
@@ -1282,6 +1290,239 @@
         "nature-hike",
         "cloud-forest-exploration",
         "salt-mines-cheese"
+      ]
+    },
+    {
+      "id": "camping-in-salinas",
+      "icon": "⛺",
+      "image": "https://assets.habitattraveltours.com/images/salinas-campsite.jpg",
+      "slides": [
+        {
+          "type": "image",
+          "src": "https://assets.habitattraveltours.com/images/salinas-campsite.jpg",
+          "alt": "Tent overlooking Andean forest at Moras Waterfall"
+        },
+        {
+          "type": "image",
+          "src": "https://assets.habitattraveltours.com/images/salinas-waterfall-01.jpg",
+          "alt": "Moras Waterfall in Salinas de Guaranda"
+        },
+        {
+          "type": "image",
+          "src": "https://assets.habitattraveltours.com/images/salinas-waterfall-02.jpg",
+          "alt": "Owl Waterfall guided hike viewpoint"
+        }
+      ],
+      "title": "Camping in Salinas",
+      "tag": "Adventure Activity",
+      "category": "Adventure",
+      "description": "Camp at the Moras Waterfall with guided hikes to Owl Waterfall and overnight stays under the Andean sky.",
+      "duration": "2-3 Days",
+      "difficulty": "Moderate",
+      "difficultyLevel": 2,
+      "altitude": "3500m",
+      "groupSize": "4-20",
+      "emoji": "⛺",
+      "overview": "Pitch your tent in one of Salinas de Guaranda's most scenic camping spots, right beside the Moras Waterfall. Over two to three days you'll combine guided day hikes to the Owl Waterfall with relaxed evenings around the campfire, falling asleep to the sound of mountain streams and waking to mist drifting through the páramo.",
+      "whySpecial": "This is one of the few overnight camping experiences in the Salinas region led by community guides. You'll sleep at a working conservation site, support local rangers, and reach waterfalls that day-trippers rarely see, all while practicing low-impact wilderness travel.",
+      "whatYouLearn": "Backcountry camping fundamentals, waterfall ecology, Andean weather reading, safe river-crossing techniques, fire management, and Leave No Trace principles applied to a cloud-forest environment.",
+      "highlights": [
+        "Set up camp beside the Moras Waterfall",
+        "Guided hike to the Owl Waterfall viewpoint",
+        "Evening campfire with traditional Salinerito snacks",
+        "Sunrise birdwatching from the mirador",
+        "Night-sky session away from light pollution"
+      ],
+      "itinerary": [
+        {
+          "time": "8:00 AM - Day 1",
+          "title": "Hotel Pickup & Briefing",
+          "description": "Meet your guide in Salinas, gear check, and short drive to the trailhead with a safety and itinerary briefing"
+        },
+        {
+          "time": "10:00 AM",
+          "title": "Hike to Moras Waterfall Camp",
+          "description": "Moderate 2-hour hike through cloud forest with stops to identify plants and birdlife"
+        },
+        {
+          "time": "1:00 PM",
+          "title": "Camp Setup & Lunch",
+          "description": "Pitch tents at the Moras Waterfall site and share a hot lunch prepared on site"
+        },
+        {
+          "time": "3:00 PM",
+          "title": "Waterfall Exploration",
+          "description": "Short guided walk around Moras Waterfall, optional swim in the natural pool"
+        },
+        {
+          "time": "7:00 PM",
+          "title": "Campfire Dinner & Stargazing",
+          "description": "Traditional Andean dinner around the fire followed by a guided stargazing session"
+        },
+        {
+          "time": "6:30 AM - Day 2",
+          "title": "Sunrise Birdwatching",
+          "description": "Optional early walk to the mirador for sunrise and Andean bird sightings"
+        },
+        {
+          "time": "9:00 AM",
+          "title": "Hike to Owl Waterfall",
+          "description": "Full-day guided hike to the Owl Waterfall with packed lunch and ecology stops along the way"
+        },
+        {
+          "time": "5:00 PM",
+          "title": "Return to Camp & Free Time",
+          "description": "Return to camp, hot drinks, journaling time, and second night under the stars"
+        },
+        {
+          "time": "8:00 AM - Day 3",
+          "title": "Camp Strike & Return",
+          "description": "Breakfast, break camp following Leave No Trace, hike back to the trailhead and transfer to your hotel"
+        }
+      ],
+      "included": [
+        "Bilingual community guide (Spanish/English)",
+        "Hotel pickup and dropoff",
+        "Camping permits and conservation fees",
+        "Group tents, sleeping pads, and cooking equipment",
+        "All meals from Day 1 lunch to final breakfast",
+        "Drinking water and treatment system",
+        "First-aid kit and emergency communication"
+      ],
+      "excluded": [
+        "Personal sleeping bag (rentals available)",
+        "Travel insurance",
+        "Tips for guides and porters",
+        "Personal snacks and alcoholic beverages"
+      ],
+      "walking": "Moderate hiking with 4-8 km per day on forest trails, some uneven terrain and short steep sections near the waterfalls",
+      "accessibility": "Not wheelchair accessible - the campsite is only reachable on foot via natural trails",
+      "notSuitableFor": "People with serious mobility issues, severe heart or respiratory conditions, late-stage pregnancy, or those uncomfortable sleeping outdoors at altitude",
+      "whatToBring": [
+        "Sleeping bag rated to 0°C or colder",
+        "Waterproof hiking boots",
+        "Warm layers and a down or fleece jacket",
+        "Rain jacket and rain cover for backpack",
+        "Headlamp with spare batteries",
+        "Reusable water bottle (1.5L+)",
+        "Sun hat, sunglasses, and high-SPF sunscreen",
+        "Personal toiletries and quick-dry towel",
+        "Camera and dry bag"
+      ],
+      "price": 220,
+      "groupDiscounts": [
+        {
+          "groupSize": "4-6",
+          "discount": 10
+        },
+        {
+          "groupSize": "7-12",
+          "discount": 15
+        },
+        {
+          "groupSize": "13+",
+          "discount": 20
+        }
+      ],
+      "testimonials": [
+        {
+          "name": "Lucía Ramírez",
+          "location": "Mexico",
+          "text": "Waking up to the sound of the Moras Waterfall was unreal. The guides made it feel safe even for first-time campers like me. The hike to Owl Waterfall was the highlight of our whole Ecuador trip.",
+          "rating": 5
+        },
+        {
+          "name": "Jonas Berg",
+          "location": "Norway",
+          "text": "A perfect mix of adventure and slow time. The food at camp was way better than I expected and the stargazing session was magical.",
+          "rating": 5
+        },
+        {
+          "name": "Hannah O'Connor",
+          "location": "Ireland",
+          "text": "Loved that the camp is run with the community. You can feel the care for the land. Be ready for cold nights, but the views in the morning are worth it.",
+          "rating": 4
+        }
+      ],
+      "faqs": [
+        {
+          "question": "Do I need previous camping experience?",
+          "answer": "No. Guides set up the main camp and teach you everything you need, from tent setup to safe campfire practices."
+        },
+        {
+          "question": "Can I rent a sleeping bag?",
+          "answer": "Yes. Sleeping bags rated to 0°C are available for rent. Please request at booking so we can reserve your size."
+        },
+        {
+          "question": "How cold does it get at night?",
+          "answer": "Temperatures usually drop to 2-8°C at night. With a proper sleeping bag and layers you'll stay comfortable."
+        },
+        {
+          "question": "Is there mobile signal at the camp?",
+          "answer": "Signal is very limited. Guides carry a satellite communicator for emergencies."
+        },
+        {
+          "question": "What happens if it rains?",
+          "answer": "The trip continues in light rain with proper rain gear. In case of severe weather we reschedule the affected day or relocate the camp."
+        },
+        {
+          "question": "Can I swim in the waterfalls?",
+          "answer": "Yes, in the natural pool at Moras Waterfall when conditions are safe. Owl Waterfall is for viewing only."
+        },
+        {
+          "question": "Is the trip suitable for children?",
+          "answer": "Children 12+ in good health are welcome when accompanied by an adult. Please contact us for family groups."
+        },
+        {
+          "question": "Can I extend to 3 days?",
+          "answer": "Yes. The 3-day option adds a second guided hike and an extra night at the camp. Let us know when booking."
+        }
+      ],
+      "location": "Moras Waterfall Campsite & Owl Waterfall Trails, Salinas de Guaranda",
+      "directedAt": "Adults, Active travelers, Nature lovers, Small groups",
+      "participation": "Groups of 4+, supporting community-led conservation camping",
+      "learningCategories": [
+        {
+          "icon": "⛺",
+          "title": "Camping Fundamentals",
+          "items": [
+            "Tent setup and shelter care",
+            "Safe campfire management",
+            "Cold-weather sleep strategy"
+          ]
+        },
+        {
+          "icon": "💧",
+          "title": "Waterfall & River Ecology",
+          "items": [
+            "How Andean waterfalls form",
+            "Reading river safety signs",
+            "Riparian plant and bird life"
+          ]
+        },
+        {
+          "icon": "🌌",
+          "title": "Night Sky & Orientation",
+          "items": [
+            "Reading constellations of the southern sky",
+            "Basic map and compass use",
+            "Planning a hike by daylight hours"
+          ]
+        },
+        {
+          "icon": "🛡️",
+          "title": "Leave No Trace Ethics",
+          "items": [
+            "Pack-in pack-out practices",
+            "Low-impact campsite selection",
+            "Respect for wildlife and local communities"
+          ]
+        }
+      ],
+      "relatedExperienceIds": [
+        "cloud-forest-exploration",
+        "nature-hike",
+        "cultural-immersion"
       ]
     }
   ]

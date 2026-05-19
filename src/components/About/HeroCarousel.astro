@@ -16,20 +16,19 @@ interface Props {
 const defaultSlides: Slide[] = [
   {
     type: "video",
-    src: "https://assets.habitattraveltours.com/videos/salinas-cross.mp4",
-    alt: "Lush green countryside scenery",
-    poster: "https://images.unsplash.com/photo-1594398901394-4e34939a02ee?w=1600&h=900&fit=crop",
+    src: "https://assets.habitattraveltours.com/videos/salinas-about-hero.mp4",
+    alt: "Ecuador tropical rainforest canopy",
   },
   {
     type: "image",
     src: "https://assets.habitattraveltours.com/images/salinas-grp-travelers-01.jpg",
     alt: "Ecuadorian highlands landscape",
   },
-
   {
-    type: "image",
-    src: "https://assets.habitattraveltours.com/images/salinas-hometown.jpg",
-    alt: "Ecuador tropical rainforest canopy",
+    type: "video",
+    src: "https://assets.habitattraveltours.com/videos/salinas-cross.mp4",
+    alt: "Lush green countryside scenery",
+    poster: "https://images.unsplash.com/photo-1594398901394-4e34939a02ee?w=1600&h=900&fit=crop",
   },
 ];
 
@@ -43,65 +42,91 @@ const {
 <section class="hero-carousel-section">
   <div class="carousel-container">
     <div class="carousel-main">
-      {slides.map((slide, index) => (
-        <div
-          class:list={['carousel-slide', { active: index === 0 }]}
-          data-slide={index}
-        >
-          {slide.type === 'video' ? (
-            <video
-              class="slide-media"
-              src={slide.src}
-              poster={slide.poster}
-              muted
-              controls
-              playsinline
-              preload="metadata"
-            />
-          ) : (
-            <Image
-              class="slide-media"
-              src={slide.src}
-              alt={slide.alt}
-              width={1600}
-              height={900}
-              loading={"eager"}
-            />
-          )}
-        </div>
-      ))}
+      {
+        slides.map((slide, index) => (
+          <div
+            class:list={['carousel-slide', { active: index === 0 }]}
+            data-slide={index}
+          >
+            {slide.type === 'video' ? (
+              <video
+                class="slide-media"
+                src={slide.src}
+                poster={slide.poster}
+                muted
+                controls
+                playsinline
+                preload="metadata"
+              />
+            ) : (
+              <Image
+                class="slide-media"
+                src={slide.src}
+                alt={slide.alt}
+                width={1600}
+                height={900}
+                loading={'eager'}
+              />
+            )}
+          </div>
+        ))
+      }
     </div>
 
-    {slides.length > 1 && (
-      <>
-        <button class="carousel-btn carousel-btn-prev" aria-label="Previous image">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <polyline points="15 18 9 12 15 6"></polyline>
-          </svg>
-        </button>
-        <button class="carousel-btn carousel-btn-next" aria-label="Next image">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <polyline points="9 18 15 12 9 6"></polyline>
-          </svg>
-        </button>
-      </>
-    )}
+    {
+      slides.length > 1 && (
+        <>
+          <button
+            class="carousel-btn carousel-btn-prev"
+            aria-label="Previous image"
+          >
+            <svg
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <polyline points="15 18 9 12 15 6" />
+            </svg>
+          </button>
+          <button
+            class="carousel-btn carousel-btn-next"
+            aria-label="Next image"
+          >
+            <svg
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <polyline points="9 18 15 12 9 6" />
+            </svg>
+          </button>
+        </>
+      )
+    }
 
     <div class="hero-overlay">
       {title && <h1 class="hero-title">{title}</h1>}
       {subtitle && <p class="hero-subtitle">{subtitle}</p>}
-      {slides.length > 1 && (
-        <div class="hero-indicators">
-          {slides.map((_, index) => (
-            <button
-              class:list={['hero-dot', { active: index === 0 }]}
-              data-dot={index}
-              aria-label={`Go to slide ${index + 1}`}
-              aria-current={index === 0}
-            ></button>
-          ))}
-        </div>
-      )}
+      {
+        slides.length > 1 && (
+          <div class="hero-indicators">
+            {slides.map((_, index) => (
+              <button
+                class:list={['hero-dot', { active: index === 0 }]}
+                data-dot={index}
+                aria-label={`Go to slide ${index + 1}`}
+                aria-current={index === 0}
+              />
+            ))}
+          </div>
+        )
+      }
     </div>
   </div>
 </section>

@@ -2,19 +2,48 @@
 import IconRenderer from "../IconRenderer.astro";
 import Button from "../Button.astro";
 
-const heroImage = "https://assets.habitattraveltours.com/images/salinas-hometown.jpg";
+// Poster shown while the video downloads (and as a fallback when autoplay is blocked
+// or the user prefers reduced motion). Swap to your real asset when ready.
+const heroPoster = "https://assets.habitattraveltours.com/images/salinas-eagle-view.jpg";
+
+// Accent hero background video. Replace with the final asset URL(s).
+// Recommended: muted, ~10-20s loop, 1080p, no audio track, <8MB.
+const heroVideoMp4 = "https://assets.habitattraveltours.com/videos/salinas-home-video.mp4";
+// const heroVideoWebm = "https://assets.habitattraveltours.com/videos/salinas-accent-hero.webm";
 ---
 
 <section class="accent-hero" id="home">
+  <video
+    class="accent-hero-video"
+    autoplay
+    muted
+    loop
+    playsinline
+    preload="metadata"
+    poster={heroPoster}
+    aria-hidden="true"
+    tabindex="-1"
+  >
+    <!-- <source src={heroVideoWebm} type="video/webm" /> -->
+    <source src={heroVideoMp4} type="video/mp4" />
+  </video>
+  <div class="accent-hero-overlay" aria-hidden="true"></div>
   <div class="accent-hero-content">
-    <h1>Experience Salinas from<br>Above</h1>
-    <p>Take a breathtaking aerial journey over our community, the majestic Chimborazo, and the stunning Andean landscapes that we call home.</p>
+    <h1>Experience Salinas from<br />Above</h1>
+    <p>
+      Take a breathtaking aerial journey over our community, the majestic
+      Chimborazo, and the stunning Andean landscapes that we call home.
+    </p>
   </div>
 </section>
 
-<style define:vars={{ heroBg: `${heroImage}` }}>
+<style define:vars={{ heroPoster: `url(${heroPoster})` }}>
   .accent-hero {
-    background-image: url('https://assets.habitattraveltours.com/images/salinas-eagle-view.jpg');
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+    /* Fallback shown if the <video> element is removed or fails to load */
+    background-image: var(--heroPoster);
     background-size: cover;
     background-position: center;
     text-align: center;
@@ -25,7 +54,33 @@ const heroImage = "https://assets.habitattraveltours.com/images/salinas-hometown
     min-height: 500px;
   }
 
+  .accent-hero-video {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -2;
+    pointer-events: none;
+  }
+
+  .accent-hero-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background: rgba(0, 0, 0, 0.35);
+  }
+
+  /* Respect users who opt out of motion: hide the video and show the poster */
+  @media (prefers-reduced-motion: reduce) {
+    .accent-hero-video {
+      display: none;
+    }
+  }
+
   .accent-hero-content {
+    position: relative;
+    z-index: 1;
     color: white;
     background: transparent;
     margin: 0 auto;
@@ -46,7 +101,6 @@ const heroImage = "https://assets.habitattraveltours.com/images/salinas-hometown
     font-size: 1rem;
     margin-bottom: 2rem;
   }
-
 
   @media (max-width: 1024px) {
     .accent-hero-content {
@@ -76,7 +130,6 @@ const heroImage = "https://assets.habitattraveltours.com/images/salinas-hometown
     .accent-hero p {
       font-size: 0.9rem;
     }
-
   }
 
   @media (max-width: 480px) {

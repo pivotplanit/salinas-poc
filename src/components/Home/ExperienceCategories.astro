@@ -1,6 +1,8 @@
 ---
-import { Image } from "astro:assets";
+import { getRelativeLocaleUrl } from "astro:i18n";
 import IconRenderer from "../IconRenderer.astro";
+
+const currentLocale = Astro.currentLocale || "en";
 
 interface Category {
   id: string;
@@ -31,43 +33,52 @@ const imagePlaceholders: Record<string, string> = {
   <div class="section-container">
     <h2 class="section-title">Experience Categories</h2>
     <div class="categories-grid">
-      {categories.map((cat) => (
-        <div class="category-card">
-          <div class="card-badge" class:list={cat.isNew ? "new" : ""}>
-            {cat.isNew && <span class="new-label">NEW LABEL</span>}
-          </div>
-          <div class="card-content">
-            <div class="card-image">
-              <img 
-                src={cat.image || imagePlaceholders[cat.id] || imagePlaceholders["natural-wonders"]}
-                alt={cat.title}
-                class="category-image"
-                loading="lazy"
-                decoding="async"
-                width="400"
-                height="300"
-              />
+      {
+        categories.map((cat) => (
+          <div class="category-card">
+            <div class="card-badge" class:list={cat.isNew ? 'new' : ''}>
+              {cat.isNew && <span class="new-label">NEW LABEL</span>}
             </div>
-            <div class="card-text">
-              <div class="card-header">
-                <span class="category-icon">
-                  <IconRenderer icon={cat.icon} size={24} />
-                </span>
-                <h3>{cat.title}</h3>
+            <div class="card-content">
+              <div class="card-image">
+                <img
+                  src={
+                    cat.image ||
+                    imagePlaceholders[cat.id] ||
+                    imagePlaceholders['natural-wonders']
+                  }
+                  alt={cat.title}
+                  class="category-image"
+                  loading="lazy"
+                  decoding="async"
+                  width="400"
+                  height="300"
+                />
               </div>
-              <p class="card-description">{cat.description}</p>
-              <a href={cat.href} class="explore-link">Explore <IconRenderer icon={"ArrowRight"}/></a>
+              <div class="card-text">
+                <div class="card-header">
+                  <span class="category-icon">
+                    <IconRenderer icon={cat.icon} size={24} />
+                  </span>
+                  <h3>{cat.title}</h3>
+                </div>
+                <p class="card-description">{cat.description}</p>
+                <a
+                  href={getRelativeLocaleUrl(currentLocale, cat.href)}
+                  class="explore-link"
+                >
+                  Explore <IconRenderer icon={'ArrowRight'} />
+                </a>
+              </div>
             </div>
           </div>
-        </div>
-      ))}
+        ))
+      }
     </div>
   </div>
 </section>
 
 <style>
-
-
   .section-container {
     margin: 0 auto;
     width: 100%;
@@ -165,12 +176,12 @@ const imagePlaceholders: Record<string, string> = {
 
   .category-icon {
     flex-shrink: 0;
-    color: #2B6CB0;
+    color: #2b6cb0;
     display: flex;
     align-items: center;
     justify-content: center;
     font-size: 1.5rem;
-    background-color: #2B6CB01a; /* last 2 chars for opacity */
+    background-color: #2b6cb01a; /* last 2 chars for opacity */
     border-radius: 50%;
     width: 2.5rem;
     height: 2.5rem;
@@ -207,7 +218,7 @@ const imagePlaceholders: Record<string, string> = {
   }
 
   .explore-link:hover {
-    color: #2B6CB0;
+    color: #2b6cb0;
   }
 
   @media (max-width: 1024px) {

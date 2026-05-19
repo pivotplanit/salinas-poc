@@ -15,10 +15,10 @@ const heroVideoMp4 = "https://assets.habitattraveltours.com/videos/salinas-home-
 <script>
   function setHeroHeight() {
     const header = document.querySelector('header');
-    const hero = document.getElementById('home');    
+    const hero = document.getElementById('home');
     if (header && hero) {
       const headerHeight = header.offsetHeight;
-      
+
       hero.style.height = `calc(100vh - ${headerHeight}px)`;
     }
   }
@@ -47,14 +47,26 @@ const heroVideoMp4 = "https://assets.habitattraveltours.com/videos/salinas-home-
   </video>
   <div class="hero-overlay" aria-hidden="true"></div>
   <div class="hero-content">
-    <h1>Where the Mountains Hold<br>Magic and Community Creates<br>Stories</h1>
-    <p>Salinas de Guaranda — nature, culture, and authentic community experiences in Ecuador's Andes</p>
+    <h1>
+      Where the Mountains Hold<br />Magic and Community Creates<br />Stories
+    </h1>
+    <p>
+      Salinas de Guaranda — nature, culture, and authentic community experiences
+      in Ecuador's Andes
+    </p>
     <div class="hero-buttons">
-      <Button class="btn" size="sm">Plan Your Group Experience</Button>
-      <Button class="btn btn-outline" textColor="white" size="sm">Explore Experiences</Button>
+      <Button class="btn" size="sm" href="/group-booking"
+        >Plan Your Group Experience</Button
+      >
+      <Button
+        class="btn btn-outline"
+        textColor="white"
+        size="sm"
+        href="/experiences">Explore Experiences</Button
+      >
     </div>
     <div class="hero-info">
-      <IconRenderer class="hero-info-icon" icon={"ShieldCheck"} size={16}/>
+      <IconRenderer class="hero-info-icon" icon={'ShieldCheck'} size={16} />
       <p>UNESCO-Recognized Sustainable Tourism</p>
     </div>
   </div>
@@ -139,7 +151,7 @@ const heroVideoMp4 = "https://assets.habitattraveltours.com/videos/salinas-home-
   .hero-info > :global(.hero-info-icon) {
     margin-right: 0;
     flex-shrink: 0;
-    color: #6B9B37;
+    color: #6b9b37;
   }
 
   .hero-buttons {
